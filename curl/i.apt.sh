@@ -52,9 +52,7 @@ case "$1" in
 #	git clone git@github.com:ernie18a/fbf.git
 	git clone git@github.com:ernie18a/dotfiles.git
 	git clone git@github.com:ernie18a/misc.git
- 	git clone git@github.com:ernie18a/411d3.git .411d3
  	git clone git@github.com:ernie18a/private.git .private
- 	git clone git@github.com:ernie18a/private2.git .private2
 #	git clone git@github.com:ernie18a/llnp.git
 #	git clone git@github.com:ernie18a/pip3.install
 	git clone https://github.com/tmux-plugins/tpm /home/e/.G/.tmux_plugins_manager      
