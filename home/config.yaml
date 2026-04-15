@@ -1,0 +1,92 @@
+GOOSE_PROVIDER: ollama
+OPENAI_BASE_URL: http://localhost:11434/v1
+OPENAI_API_KEY: ollama
+GOOSE_MODEL: qwen3.5:4b
+#GOOSE_MODEL: hf.co/bartowski/Qwen2.5-Coder-7B-Instruct-GGUF:Q6_K
+#GOOSE_MODEL: hf.co/ggml-org/Qwen2.5-Coder-3B-Instruct-Q8_0-GGUF
+GOOSE_TELEMETRY_ENABLED: false
+extensions:
+  # ═══ 核心：檔案操作 / Shell ═══
+  developer:
+    name: developer
+    display_name: Developer
+    description: Write and edit files, and execute shell commands
+    enabled: true
+    type: platform
+    bundled: true
+
+  # ═══ 任務追蹤 ═══
+  todo:
+    name: todo
+    display_name: Todo
+    description: Enable a todo list for goose so it can keep track of what it is doing
+    enabled: true
+    type: platform
+    bundled: true
+  # ═══ 網路搜尋 (免費, 不需 API key) ═══
+  duckduckgo:
+    name: duckduckgo
+    display_name: DuckDuckGo Search
+    description: Search the web using DuckDuckGo
+    enabled: true
+    type: stdio
+    command: uvx
+    args:
+      - duckduckgo-mcp-server
+  # ═══ 以下停用 (節省 context / VRAM) ═══
+  extensionmanager:
+    name: Extension Manager
+    display_name: Extension Manager
+    description: Enable extension management tools for discovering, enabling, and disabling extensions
+    enabled: false
+    type: platform
+    bundled: true
+  analyze:
+    name: analyze
+    display_name: Analyze
+    description: 'Analyze code structure with tree-sitter: directory overviews, file details, symbol call graphs'
+    enabled: false
+    type: platform
+    bundled: true
+  summon:
+    name: summon
+    display_name: Summon
+    description: Load knowledge and delegate tasks to subagents
+    enabled: false
+    type: platform
+    bundled: true
+  apps:
+    name: apps
+    display_name: Apps
+    description: Create and manage custom Goose apps through chat. Apps are HTML/CSS/JavaScript and run in sandboxed windows.
+    enabled: false
+    type: platform
+    bundled: true
+  tom:
+    name: tom
+    display_name: Top Of Mind
+    description: Inject custom context into every turn via GOOSE_MOIM_MESSAGE_TEXT and GOOSE_MOIM_MESSAGE_FILE environment variables
+    enabled: false
+    type: platform
+    bundled: true
+  chatrecall:
+    name: chatrecall
+    display_name: Chat Recall
+    description: Search past conversations and load session summaries for contextual memory
+    enabled: false
+    type: platform
+    bundled: true
+  code_execution:
+    name: code_execution
+    display_name: Code Mode
+    description: Goose will make extension calls through code execution, saving tokens
+    enabled: false
+    type: platform
+    bundled: true
+  summarize:
+    name: summarize
+    display_name: Summarize
+    description: Load files/directories and get an LLM summary in a single call
+    enabled: false
+    type: platform
+    bundled: true

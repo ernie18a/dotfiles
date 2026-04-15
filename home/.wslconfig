@@ -1,0 +1,7 @@
+[wsl2]
+networkingMode=mirrored
+dnsTunneling=true
+firewall=false
+autoProxy=true
+memory=12GB    # 限制 WSL2 最高使用 12GB
+swap=8GB      # 設定 8GB 的虛擬記憶體緩衝

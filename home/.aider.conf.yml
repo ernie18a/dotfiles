@@ -1,0 +1,26 @@
+# ═══ 模型 ═══
+model: ollama/qwen3.5:4b
+
+# ═══ 行為 ═══
+yes: true                 # YOLO 模式：直接寫入檔案，不詢問
+auto-commits: false
+dirty-commits: false
+suggest-shell-commands: true # 自動建議 shell 指令，增加執行效率
+git: false                # 完全停用 git 偵測，讓它只專注於改代碼
+gitignore: false          # 不會自動改 .gitignore
+show-diffs: true          # 雖然不 commit，但讓你看改了什麼
+
+# ═══ 重構 / 看 code / 寫 code / 寫文件 全用途優化 ═══
+map-tokens: 1024          # 讓 aider 讀懂整個 repo 結構，重構時特別重要
+edit-format: diff         # 用 diff 格式改檔案，比 whole 省 token
+cache-prompts: true       # 重複看同一份 code 時省 token
+architect: false          # 7B 以下模型開了反而亂，關掉
+
+# ═══ 介面 ═══
+pretty: true
+stream: true
+chat-language: "Chinese"  # 讓它預設跟我講中文
+
+# ═══ 關掉沒用到的 ═══
+analytics: false
+check-update: false

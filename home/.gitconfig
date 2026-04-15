@@ -1,0 +1,11 @@
+[user]
+        name = Test User
+        email = test@example.com
+[color]
+        ui = auto
+[http]
+        sslVerify = false
+[safe]
+    directory = *
+[core]
+    sharedRepository = all
