@@ -15,8 +15,8 @@
 	swapoff -a ; sed -i '/swap/ s/^/#/' /etc/fstab
  	echo "e ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
  	echo "ubuntu ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
-	curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/curl/e.brc.n.auth.sh | bash
-	echo 'source /dev/stdin <<< "$(curl -Ls https://gitlab.com/ernie18a/dotfiles/-/raw/main/home/.bash_profile)"' |tee ~/.bash_profile /home/e/.bash_profile /home/ubuntu/.bash_profile
+	curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/e.brc.n.auth.sh | bash
+	echo 'source /dev/stdin <<< "$(curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile)"' |tee ~/.bash_profile /home/e/.bash_profile /home/ubuntu/.bash_profile
 case "$1" in
   wsl)
 	echo wsl
@@ -47,18 +47,18 @@ case "$1" in
 #	/home/e/
 	mkdir /home/e/.G/
 	cd /home/e/.G/
-#	git clone git@gitlab.com:ernie18a/bs.git
-#	git clone git@gitlab.com:ernie18a/fbdb.git
-#	git clone git@gitlab.com:ernie18a/fbf.git
-	git clone git@gitlab.com:ernie18a/dotfiles.git
-	git clone git@gitlab.com:ernie18a/misc.git
- 	git clone git@gitlab.com:ernie18a/411d3.git .411d3
- 	git clone git@gitlab.com:ernie18a/private.git .private
- 	git clone git@gitlab.com:ernie18a/private2.git .private2
-#	git clone git@gitlab.com:ernie18a/llnp.git
-#	git clone git@gitlab.com:ernie18a/pip3.install
+#	git clone git@github.com:ernie18a/bs.git
+#	git clone git@github.com:ernie18a/fbdb.git
+#	git clone git@github.com:ernie18a/fbf.git
+	git clone git@github.com:ernie18a/dotfiles.git
+	git clone git@github.com:ernie18a/misc.git
+ 	git clone git@github.com:ernie18a/411d3.git .411d3
+ 	git clone git@github.com:ernie18a/private.git .private
+ 	git clone git@github.com:ernie18a/private2.git .private2
+#	git clone git@github.com:ernie18a/llnp.git
+#	git clone git@github.com:ernie18a/pip3.install
 	git clone https://github.com/tmux-plugins/tpm /home/e/.G/.tmux_plugins_manager      
-	sed -i 's/https:\/\/gitlab.com\/ernie18a\/dotfiles.git/git@gitlab.com:ernie18a\/dotfiles.git/g' /home/e/.G/dotfiles/.git/config
+	sed -i 's/https:\/\/github.com\/ernie18a\/dotfiles.git/git@github.com:ernie18a\/dotfiles.git/g' /home/e/.G/dotfiles/.git/config
 	ln -snf /home/e/.G/dotfiles/home/.bash_profile /home/e/.bash_profile
 	ln -snf /home/e/.G/dotfiles/home/.bash_profile /home/e/.bashrc
 	ln -snf /home/e/.G/dotfiles/home/.gitconfig /home/e/.gitconfig

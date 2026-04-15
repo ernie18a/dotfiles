@@ -1,4 +1,4 @@
-	echo 'source /dev/stdin <<< "$(curl -Ls https://gitlab.com/ernie18a/dotfiles/-/raw/main/home/.bash_profile)"' |tee 1>/dev/null ~/.bash_profile /home/e/.bash_profile /home/ubuntu/.bash_profile 2>/dev/null 
+	echo 'source /dev/stdin <<< "$(curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile)"' |tee 1>/dev/null ~/.bash_profile /home/e/.bash_profile /home/ubuntu/.bash_profile 2>/dev/null 
 	mkdir ~/.ssh 2>/dev/null
 	chmod 0700 ~/.ssh
 	touch ~/.ssh/authorized_keys
