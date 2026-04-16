@@ -15,4 +15,4 @@
 - __pycache__ & PYTHONPYCACHEPREFIX inside ./TMP/
 - AI 應用開發時，如果可以使用GPU 就不要使用CPU 
 - 跨硬碟隔離時：確保所有 I/O 都在專用硬碟上，系統硬碟不寫入
-- 依賴：PEP 723/508，包含 Git/URL 定義腳本 dependencies 與 Python 版本，透過 uv run 建立獨立環境執行，完全不依賴全域 pyproject.toml
+- 透過 uv run 建立獨立環境執行，完全不依賴全域 pyproject.toml
