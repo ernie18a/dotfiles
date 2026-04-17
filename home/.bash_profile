@@ -227,4 +227,4 @@ GRCA()  { (cd ~/.G; for R in */; do (cd "$R"; git fetch -p && git reset --hard &
 alias GRC='git fetch --prune && git reset --hard && git clean -fd && git pull'
 UR() { if [ -n "$1" ]; then uv run "$1"; else uv run main.py; fi; }
 GRCD() { local _old="$PWD"; cd ~/.G/dotfiles && git fetch --prune && git reset --hard && git clean -fd && git pull; cd "$_old"; }
-KILL() { pgrep -if "$1" | grep -v "^$$\$" | sudo xargs kill -15; }
+KILL() { sudo pkill -fi "$1"; }
