@@ -3,6 +3,7 @@
 - 風格：簡短回覆
 
 # global dev
+- GPU: RTX 4050, 6G
 - 幫客戶開發正式環境 生產線 的代碼 
 - 哲學：低耦合、fail fast
 - 核心：契約優先 (Contract-First)、強型別約束 
