@@ -31,6 +31,7 @@ PROMPT_COMMAND=' history -a '
 source ~/.55H 2>/dev/null
 source ~/.IPS 2>/dev/null
 touch ~/.hushlogin
+alias ACL=' sudo chown -R :g /g; sudo chmod -R 2777 /g; sudo setfacl -R -b /g; sudo setfacl -R -m u::rwx,g::rwx,o::rwx,m:rwx /g; sudo setfacl -R -d -m u::rwx,g::rwx,o::rwx,m:rwx /g; find /g -name ".git" -type d -exec sudo setfacl -R -m m:rwx {} + '
 alias MM2=' DEV=$(blkid -L g) && mountpoint -q /g || sudo mount -o defaults,noatime,commit=300 $DEV /g '
 alias CDA=' cd /g/private/app/ ; ls -l --color '
 alias CDN=' cd /g/private/nf/ ; ls -l --color '
