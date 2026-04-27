@@ -31,10 +31,7 @@ PROMPT_COMMAND=' history -a '
 source ~/.55H 2>/dev/null
 source ~/.IPS 2>/dev/null
 touch ~/.hushlogin
-alias ACL=' sudo chown -R :g /g; sudo chmod -R 2777 /g; sudo setfacl -R -b /g; sudo setfacl -R -m u::rwx,g::rwx,o::rwx,m:rwx /g; sudo setfacl -R -d -m u::rwx,g::rwx,o::rwx,m:rwx /g; find /g -name ".git" -type d -exec sudo setfacl -R -m m:rwx {} + '
 alias MM2=' DEV=$(blkid -L g) && mountpoint -q /g || sudo mount -o defaults,noatime,commit=300 $DEV /g '
-alias CDA=' cd /g/private/app/ ; ls -l --color '
-alias CDN=' cd /g/private/nf/ ; ls -l --color '
 alias MM=" DEV=\$(blkid -L g) && mountpoint -q /g || sudo mount -o defaults,noatime,commit=300 \$DEV /g "
 alias UU=' [ "$(npm view npm version)" != "$(npm -v)" ] && sudo npm install -g npm ; [ "$(npm view @google/gemini-cli version)" != "$(gemini --version 2>/dev/null)" ] && sudo npm install -g @google/gemini-cli ; claude upgrade '
 alias UG=' [ "$(npm view npm version)" != "$(npm -v)" ] && sudo npm install -g npm ; [ "$(npm view @google/gemini-cli version)" != "$(gemini --version 2>/dev/null)" ] && sudo npm install -g @google/gemini-cli ; gemini '
@@ -49,12 +46,6 @@ alias BR=' bat -ppl md README.md '
 alias bcmr=' bat -ppl md README.md '
 alias bcp=' bat -ppl py '
 alias bcr=' bat -ppl rb '
-alias CL=' claude --model sonnet --dangerously-skip-permissions  --effort medium '
-alias CLL=' claude --model sonnet --dangerously-skip-permissions  --effort low '
-alias CLO=' claude --model Opus --dangerously-skip-permissions  --effort medium '
-alias CLOL=' claude --model Opus --dangerously-skip-permissions  --effort low '
-alias CLR=' claude --dangerously-skip-permissions --resume '
-alias ACL=' sudo setfacl -R -b /g ; sudo setfacl -R -m u::rwx,g::rwx,o::rwx,m:rwx /g ; sudo setfacl -R -d -m u::rwx,g::rwx,o::rwx,m:rwx /g ; sudo chattr -R -i -a /g 2>/dev/null || true '
 alias bct=' bat -ppl tf '
 alias bcy=' bat -ppl yml '
 alias CAL=' cal $(date +%Y) '
@@ -77,12 +68,19 @@ alias ...=' cd ../../ '
 alias ....=' cd ../../../ '
 alias .....=' cd ../../../../ '
 alias ......=' cd ../../../../../ '
-alias VPP=' cd ~/.G/private/yet ; git pull >/dev/null ; vim ./RANDOM.txt; git rm -r --cached . > /dev/null ; git add -A && git commit -amVPP &> /dev/null && git push ; cd - &>/dev/null '
+alias CDA=' cd /g/private/app/ ; ls -l --color '
+alias CDN=' cd /g/private/nf/ ; ls -l --color '
 alias VBP=' cd ~/.G/dotfiles ; git pull >/dev/null ; vim ~/.G/dotfiles/home/.bash_profile ; git rm -r --cached . >/dev/null ; git add -A && git commit -amVBP &> /dev/null && git push 1>/dev/null ; cd - &>/dev/null '
 alias CDD=' cd ~/.G/dotfiles ; ls -l --color '
-alias CDP=' cd ~/.G/private ; ls -l --color '
 alias VNP=' cd ~/.G/misc/notes ; git pull >/dev/null ; vim ./commands.txt ; git rm -r --cached . > /dev/null ; git add -A && git commit -amVNP &> /dev/null && git push ; cd - &>/dev/null '
 alias VEP=' cd ~/.G/misc/notes ; git pull >/dev/null ; vim ./eng.txt ; git rm -r --cached . > /dev/null ; git add -A && git commit -amVEP &> /dev/null && git push ; cd - &>/dev/null '
+alias CDP=' cd ~/.G/private ; ls -l --color '
+alias VPP=' cd ~/.G/private/yet ; git pull >/dev/null ; vim ./RANDOM.txt; git rm -r --cached . > /dev/null ; git add -A && git commit -amVPP &> /dev/null && git push ; cd - &>/dev/null '
+alias CLR=' claude --dangerously-skip-permissions --resume '
+alias CLOL=' claude --model Opus --dangerously-skip-permissions  --effort low '
+alias CLO=' claude --model Opus --dangerously-skip-permissions  --effort medium '
+alias CLL=' claude --model sonnet --dangerously-skip-permissions  --effort low '
+alias CL=' claude --model sonnet --dangerously-skip-permissions  --effort medium '
 alias co=' cp '
 alias cp=' cp -urf '
 alias CPWE=' cp ./$1 $WIN_USER_DIR/Desktop/ '
@@ -103,7 +101,7 @@ alias IPP=' curl ipinfo.io ; curl ifconfig.io '
 alias DET=' deactivate '
 alias DU=' du -sh . ; du -hd1 2>/dev/null |grep "G\|M" '
 alias DY=' echo -e "\nflexibility to improve adaptability\n" '
-#alias GRC3='git fetch --prune && git rm -r --cached . && git reset --hard && git clean -fd && git pull'
+alias GRC='git fetch --prune && git reset --hard && git clean -fd && git pull'
 alias FINDD=' find . -iname 2>/dev/null '
 alias FIND=' find / -iname 2>/dev/null '
 alias GG=' gemini '
@@ -148,10 +146,12 @@ alias AGU=' sudo apt-get purge -y >/dev/null '
 alias AGR=' sudo apt-get remove -y >/dev/null '
 alias AGG=' sudo apt-get update >/dev/null ; apt list |tee ~/.APT |grep -i --color '
 alias AGI=' sudo apt-get update >/dev/null ; sudo apt-get install -y >/dev/null '
+alias ACL=' sudo chown -R :g /g; sudo chmod -R 2777 /g; sudo setfacl -R -b /g; sudo setfacl -R -m u::rwx,g::rwx,o::rwx,m:rwx /g; sudo setfacl -R -d -m u::rwx,g::rwx,o::rwx,m:rwx /g; find /g -name ".git" -type d -exec sudo setfacl -R -m m:rwx {} + '
 alias llll=' sudo find . '
 alias llllg=' sudo find . |grep -i '
 alias NPMG=' sudo npm install -g npm ; sudo npm install -g @google/gemini-cli '
 alias tmprm=' sudo rm -rf /tmp/{,.}* 2>/dev/null ; cd /tmp '
+alias ACL=' sudo setfacl -R -b /g ; sudo setfacl -R -m u::rwx,g::rwx,o::rwx,m:rwx /g ; sudo setfacl -R -d -m u::rwx,g::rwx,o::rwx,m:rwx /g ; sudo chattr -R -i -a /g 2>/dev/null || true '
 alias SU=' sudo su - '
 alias SUF=' sudo su - f '
 alias SUN=' sudo su - n '
@@ -192,9 +192,6 @@ mkdirc() { mkdir $1 ; cd $1 ; }
 WHOIS() { whois $1 | grep -Ev "^\s*(#|$)" |grep -i NetName ; }
 AWK() { awk $2 "{print\$$1}" ; }
 ECDZ() { echo 'source /dev/stdin <<< "$(curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile)"' |tee ~/.bash_profile /home/e/.bash_profile /home/ubuntu/.bash_profile ; }
-#YTDLA() { yt-dlp --js-runtimes node -f "ba/b" -x --no-check-certificate -i -a "$1"; }
-#YTDLA2() { yt-dlp --js-runtimes node -f "ba/w" -x --no-check-certificate -i --audio-format wav --postprocessor-args "ffmpeg:-ac 1 -ar 16000" --no-warnings -a "$1" ; }
-#YTDLV() { yt-dlp --js-runtimes node -i --no-check-certificate -a "$1"; }
 l() { ls -A | grep "^\." | xargs -d '\n' ls -d --color ; }
 BRC() { curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile |grep -vEi raw.githubusercontent.com\|git_ps1 | ssh $1 "cat > .BRC" ; }
 NSP() { nmap -T5 -snP $1 |G report | AWK 5 ; }
@@ -204,30 +201,27 @@ SEDIS() { sed -i "s/$1/$2/g" $3 ; }
 MTK() { mkdir ./$1 ; touch ./$1/.gitkeep; }
 NTPL() { growpart /dev/sda 2 ; resize2fs /dev/sda2 ; echo 'network: {config: disabled}' >> /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg ; sed -i "s/\(- \).*\(\/\)/\1$1\2/g" /etc/netplan/50-cloud-init.yaml ; echo "hostnamectl set-hostname" ; }
 GGRCA2() { (cd /g; for R in */; do [[ -d "$R/.git" ]] || continue; (U=$(git -C "$R" remote get-url origin) && rm -rf "$R" && git clone -q "$U" "$R") & done; wait); }
+GGRCA() { (cd /g; for R in */; do [[ -d "$R/.git" ]] || continue; (cd "$R"; git fetch -p && git reset --hard && git clean -fd && git pull) & done; wait); }
 CPTM() { rm /mnt/c/Users/e/Desktop/_tmp/* ; cp *.txt *.md *.py /mnt/c/Users/e/Desktop/_tmp/ ; }
 sl() { for SOMETHING in $(cat ./$1); do $2 $SOMETHING; done; }
 GRC2() { local T=$(git rev-parse --show-toplevel 2>/dev/null) || return 1; local U=$(git -C "$T" remote get-url origin) || return 1; local R=$(basename "$T"); local P="${PWD#$T}"; cd "$(dirname "$T")" && rm -rf "$R" && git clone "$U" "$R" && cd "$R$P"; }
 CIO() { if [ -n "$1" ]; then cp -urf "$1" /mnt/c/Users/e/Desktop/; else cp -urf ./* /mnt/c/Users/e/Desktop/; fi; }
 COI() { if [ -n "$1" ]; then cp -urf "/mnt/c/Users/e/Downloads/$1" .; else cp -urf /mnt/c/Users/e/Downloads/* .; fi; }
+UR() { if [ -n "$1" ]; then uv run "$1"; else uv run main.py; fi; }
+GRCD() { local _old="$PWD"; cd ~/.G/dotfiles && git fetch --prune && git reset --hard && git clean -fd && git pull; cd "$_old"; }
 CMPL() { $1 completion bash > /etc/bash_completion.d/$1 || ls -l /etc/bash_completion.d ; }
 PING() { for i in $(seq 0 255) ; do ping $1.$i -c1 -W1 & done |grep from |awk '{print $4}' |awk -F: '{print $1}' | sort -V ; }
 FFMPEG1() { for i in *.$1 ; do ffmpeg -y -i "$i" "$(echo "$i"|cut -d\. -f1).$2" & done ; }
 FFMPEG() { for i in *.$1 ; do ffmpeg -y -i "$i" "$(echo "$i"|cut -d\. -f1).$2" ; done ; }
+KILL() { sudo pkill -fi "$1"; }
 PUSHM() { git pull >/dev/null ; git rm -r --cached . > /dev/null ; git add -A && git commit -m "$@" &>/dev/null && git push;}
+CB2() { cat ~/.G/dotfiles/home/.bash_profile 2>/dev/null || curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile ; }
 CNG() { cat ~/.G/misc/notes/commands.txt 2>/dev/null |grep -i --color $1 || curl -fsSL https://raw.githubusercontent.com/ernie18a/misc/main/notes/commands.txt |grep -i --color $1 ; }
 CEG() { cat ~/.G/misc/notes/eng.txt 2>/dev/null |grep -i --color $1 || curl -fsSL https://raw.githubusercontent.com/ernie18a/misc/main/notes/eng.txt |grep -i --color $1 ; }
+CP() { cat ~/.G/private/yet/RANDOM.txt ; }
 GRCA2() { (cd ~/.G; for R in */; do (U=$(git -C "$R" remote get-url origin) && rm -rf "$R" && git clone -q "$U" "$R") & done; wait); }
-#GGRCA3() { (cd /g; for R in */; do [[ -d "$R/.git" ]] || continue; (cd "$R"; git fetch -p && git rm -r --cached . && git reset --hard && git clean -fd && git pull) & done; wait); }
-#GRCA3()  { (cd ~/.G; for R in */; do (cd "$R"; git fetch -p && git rm -r --cached . && git reset --hard && git clean -fd && git pull) & done; wait); }
+GRCA()  { (cd ~/.G; for R in */; do (cd "$R"; git fetch -p && git reset --hard && git clean -fd && git pull) & done; wait); }
 CT() { cat ~/.T$1 2>/dev/null ; }
 VT() { vim ~/.T$1 ; }
 HG() { cat ~/.bash_history | grep -ai --color "$1" ; }
-CB2() { cat ~/.G/dotfiles/home/.bash_profile 2>/dev/null || curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile ; }
-CP() { cat ~/.G/private/yet/RANDOM.txt ; }
 CG() { cat ~/.gemini/GEMINI.md 2>/dev/null || curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/GEMINI.md ; }
-GGRCA() { (cd /g; for R in */; do [[ -d "$R/.git" ]] || continue; (cd "$R"; git fetch -p && git reset --hard && git clean -fd && git pull) & done; wait); }
-GRCA()  { (cd ~/.G; for R in */; do (cd "$R"; git fetch -p && git reset --hard && git clean -fd && git pull) & done; wait); }
-alias GRC='git fetch --prune && git reset --hard && git clean -fd && git pull'
-UR() { if [ -n "$1" ]; then uv run "$1"; else uv run main.py; fi; }
-GRCD() { local _old="$PWD"; cd ~/.G/dotfiles && git fetch --prune && git reset --hard && git clean -fd && git pull; cd "$_old"; }
-KILL() { sudo pkill -fi "$1"; }

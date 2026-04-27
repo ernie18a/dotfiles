@@ -416,3 +416,9 @@ alias WKGAP=' watch kubectl get pod -A '
 alias WKGAS=' watch kubectl get svc -A '
 export KUBE_EDITOR=/bin/vim &>/dev/null
 export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.krew/bin:$HOME/go/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/snap/bin:/opt/homebrew/bin:/Users/ernieho/Library/Python/3.9/bin:$HOME/.docker/cli-plugins:$HOME/bin"
+#alias GRC3='git fetch --prune && git rm -r --cached . && git reset --hard && git clean -fd && git pull'
+#YTDLA() { yt-dlp --js-runtimes node -f "ba/b" -x --no-check-certificate -i -a "$1"; }
+#YTDLA2() { yt-dlp --js-runtimes node -f "ba/w" -x --no-check-certificate -i --audio-format wav --postprocessor-args "ffmpeg:-ac 1 -ar 16000" --no-warnings -a "$1" ; }
+#YTDLV() { yt-dlp --js-runtimes node -i --no-check-certificate -a "$1"; }
+#GGRCA3() { (cd /g; for R in */; do [[ -d "$R/.git" ]] || continue; (cd "$R"; git fetch -p && git rm -r --cached . && git reset --hard && git clean -fd && git pull) & done; wait); }
+#GRCA3()  { (cd ~/.G; for R in */; do (cd "$R"; git fetch -p && git rm -r --cached . && git reset --hard && git clean -fd && git pull) & done; wait); }
