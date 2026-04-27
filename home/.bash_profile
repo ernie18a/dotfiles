@@ -103,7 +103,7 @@ alias IPP=' curl ipinfo.io ; curl ifconfig.io '
 alias DET=' deactivate '
 alias DU=' du -sh . ; du -hd1 2>/dev/null |grep "G\|M" '
 alias DY=' echo -e "\nflexibility to improve adaptability\n" '
-alias GRC3='git fetch --prune && git rm -r --cached . && git reset --hard && git clean -fd && git pull'
+#alias GRC3='git fetch --prune && git rm -r --cached . && git reset --hard && git clean -fd && git pull'
 alias FINDD=' find . -iname 2>/dev/null '
 alias FIND=' find / -iname 2>/dev/null '
 alias GG=' gemini '
@@ -217,8 +217,8 @@ PUSHM() { git pull >/dev/null ; git rm -r --cached . > /dev/null ; git add -A &&
 CNG() { cat ~/.G/misc/notes/commands.txt 2>/dev/null |grep -i --color $1 || curl -fsSL https://raw.githubusercontent.com/ernie18a/misc/main/notes/commands.txt |grep -i --color $1 ; }
 CEG() { cat ~/.G/misc/notes/eng.txt 2>/dev/null |grep -i --color $1 || curl -fsSL https://raw.githubusercontent.com/ernie18a/misc/main/notes/eng.txt |grep -i --color $1 ; }
 GRCA2() { (cd ~/.G; for R in */; do (U=$(git -C "$R" remote get-url origin) && rm -rf "$R" && git clone -q "$U" "$R") & done; wait); }
-GGRCA3() { (cd /g; for R in */; do [[ -d "$R/.git" ]] || continue; (cd "$R"; git fetch -p && git rm -r --cached . && git reset --hard && git clean -fd && git pull) & done; wait); }
-GRCA3()  { (cd ~/.G; for R in */; do (cd "$R"; git fetch -p && git rm -r --cached . && git reset --hard && git clean -fd && git pull) & done; wait); }
+#GGRCA3() { (cd /g; for R in */; do [[ -d "$R/.git" ]] || continue; (cd "$R"; git fetch -p && git rm -r --cached . && git reset --hard && git clean -fd && git pull) & done; wait); }
+#GRCA3()  { (cd ~/.G; for R in */; do (cd "$R"; git fetch -p && git rm -r --cached . && git reset --hard && git clean -fd && git pull) & done; wait); }
 CT() { cat ~/.T$1 2>/dev/null ; }
 VT() { vim ~/.T$1 ; }
 HG() { cat ~/.bash_history | grep -ai --color "$1" ; }
