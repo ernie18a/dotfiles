@@ -31,6 +31,7 @@ PROMPT_COMMAND=' history -a '
 source ~/.55H 2>/dev/null
 source ~/.IPS 2>/dev/null
 touch ~/.hushlogin
+alias TEST=' for i in *.py; do uv run "$i" 2>&1 | tee -a log; done '
 alias MM2=' DEV=$(blkid -L g) && mountpoint -q /g || sudo mount -o defaults,noatime,commit=300 $DEV /g '
 alias MM=" DEV=\$(blkid -L g) && mountpoint -q /g || sudo mount -o defaults,noatime,commit=300 \$DEV /g "
 alias UU=' [ "$(npm view npm version)" != "$(npm -v)" ] && sudo npm install -g npm ; [ "$(npm view @google/gemini-cli version)" != "$(gemini --version 2>/dev/null)" ] && sudo npm install -g @google/gemini-cli ; claude upgrade '
