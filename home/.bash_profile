@@ -31,7 +31,6 @@ PROMPT_COMMAND=' history -a '
 source ~/.55H 2>/dev/null
 source ~/.IPS 2>/dev/null
 touch ~/.hushlogin
-alias TEST=' for i in *.py; do uv run "$i" 2>&1 | tee -a log; done '
 alias MM2=' DEV=$(blkid -L g) && mountpoint -q /g || sudo mount -o defaults,noatime,commit=300 $DEV /g '
 alias MM=" DEV=\$(blkid -L g) && mountpoint -q /g || sudo mount -o defaults,noatime,commit=300 \$DEV /g "
 alias UU=' [ "$(npm view npm version)" != "$(npm -v)" ] && sudo npm install -g npm ; [ "$(npm view @google/gemini-cli version)" != "$(gemini --version 2>/dev/null)" ] && sudo npm install -g @google/gemini-cli ; claude upgrade '
@@ -102,10 +101,9 @@ alias IPP=' curl ipinfo.io ; curl ifconfig.io '
 alias DET=' deactivate '
 alias DU=' du -sh . ; du -hd1 2>/dev/null |grep "G\|M" '
 alias DY=' echo -e "\nflexibility to improve adaptability\n" '
-#alias GRC3='git fetch --prune && git reset --hard && git clean -fd && git pull'
-#alias GRC=' git fetch --prune && git rm -r --cached . && git reset --hard && git clean -fd && git pull '
 alias FINDD=' find . -iname 2>/dev/null '
 alias FIND=' find / -iname 2>/dev/null '
+alias TEST=' for i in *.py; do uv run "$i" 2>&1 | tee -a log; done '
 alias GG=' gemini '
 alias GGR=' gemini --resume '
 alias GY=' gemini -y '
@@ -202,15 +200,11 @@ SEDID() { sed -i "/$1/d" $2 ; }
 SEDIS() { sed -i "s/$1/$2/g" $3 ; }
 MTK() { mkdir ./$1 ; touch ./$1/.gitkeep; }
 NTPL() { growpart /dev/sda 2 ; resize2fs /dev/sda2 ; echo 'network: {config: disabled}' >> /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg ; sed -i "s/\(- \).*\(\/\)/\1$1\2/g" /etc/netplan/50-cloud-init.yaml ; echo "hostnamectl set-hostname" ; }
-#GGRCA2() { (cd /g; for R in */; do [[ -d "$R/.git" ]] || continue; (U=$(git -C "$R" remote get-url origin) && rm -rf "$R" && git clone -q "$U" "$R") & done; wait); }
-#GGRCA() { (cd /g; for R in */; do [[ -d "$R/.git" ]] || continue; (cd "$R"; git fetch -p && git reset --hard && git clean -fd && git pull) & done; wait); }
 CPTM() { rm /mnt/c/Users/e/Desktop/_tmp/* ; cp *.txt *.md *.py /mnt/c/Users/e/Desktop/_tmp/ ; }
 sl() { for SOMETHING in $(cat ./$1); do $2 $SOMETHING; done; }
-#GRC2() { local T=$(git rev-parse --show-toplevel 2>/dev/null) || return 1; local U=$(git -C "$T" remote get-url origin) || return 1; local R=$(basename "$T"); local P="${PWD#$T}"; cd "$(dirname "$T")" && rm -rf "$R" && git clone "$U" "$R" && cd "$R$P"; }
 CIO() { if [ -n "$1" ]; then cp -urf "$1" /mnt/c/Users/e/Desktop/; else cp -urf ./* /mnt/c/Users/e/Desktop/; fi; }
 COI() { if [ -n "$1" ]; then cp -urf "/mnt/c/Users/e/Downloads/$1" .; else cp -urf /mnt/c/Users/e/Downloads/* .; fi; }
 UR() { if [ -n "$1" ]; then uv run "$1"; else uv run main.py; fi; }
-#GRCD() { local _old="$PWD"; cd ~/.G/dotfiles && git fetch --prune && git reset --hard && git clean -fd && git pull; cd "$_old"; }
 CMPL() { $1 completion bash > /etc/bash_completion.d/$1 || ls -l /etc/bash_completion.d ; }
 PING() { for i in $(seq 0 255) ; do ping $1.$i -c1 -W1 & done |grep from |awk '{print $4}' |awk -F: '{print $1}' | sort -V ; }
 FFMPEG1() { for i in *.$1 ; do ffmpeg -y -i "$i" "$(echo "$i"|cut -d\. -f1).$2" & done ; }
@@ -221,8 +215,6 @@ CB2() { cat ~/.G/dotfiles/home/.bash_profile 2>/dev/null || curl -Ls https://raw
 CNG() { cat ~/.G/misc/notes/commands.txt 2>/dev/null |grep -i --color $1 || curl -fsSL https://raw.githubusercontent.com/ernie18a/misc/main/notes/commands.txt |grep -i --color $1 ; }
 CEG() { cat ~/.G/misc/notes/eng.txt 2>/dev/null |grep -i --color $1 || curl -fsSL https://raw.githubusercontent.com/ernie18a/misc/main/notes/eng.txt |grep -i --color $1 ; }
 CP() { cat ~/.G/private/yet/RANDOM.txt ; }
-#GRCA2() { (cd ~/.G; for R in */; do (U=$(git -C "$R" remote get-url origin) && rm -rf "$R" && git clone -q "$U" "$R") & done; wait); }
-#GRCA()  { (cd ~/.G; for R in */; do (cd "$R"; git fetch -p && git reset --hard && git clean -fd && git pull) & done; wait); }
 CT() { cat ~/.T$1 2>/dev/null ; }
 VT() { vim ~/.T$1 ; }
 HG() { cat ~/.bash_history | grep -ai --color "$1" ; }

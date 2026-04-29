@@ -422,3 +422,11 @@ export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.krew/bin:$HOME/go/bin:/bin
 #YTDLV() { yt-dlp --js-runtimes node -i --no-check-certificate -a "$1"; }
 #GGRCA3() { (cd /g; for R in */; do [[ -d "$R/.git" ]] || continue; (cd "$R"; git fetch -p && git rm -r --cached . && git reset --hard && git clean -fd && git pull) & done; wait); }
 #GRCA3()  { (cd ~/.G; for R in */; do (cd "$R"; git fetch -p && git rm -r --cached . && git reset --hard && git clean -fd && git pull) & done; wait); }
+#alias GRC3='git fetch --prune && git reset --hard && git clean -fd && git pull'
+#alias GRC=' git fetch --prune && git rm -r --cached . && git reset --hard && git clean -fd && git pull '
+#GGRCA2() { (cd /g; for R in */; do [[ -d "$R/.git" ]] || continue; (U=$(git -C "$R" remote get-url origin) && rm -rf "$R" && git clone -q "$U" "$R") & done; wait); }
+#GGRCA() { (cd /g; for R in */; do [[ -d "$R/.git" ]] || continue; (cd "$R"; git fetch -p && git reset --hard && git clean -fd && git pull) & done; wait); }
+#GRC2() { local T=$(git rev-parse --show-toplevel 2>/dev/null) || return 1; local U=$(git -C "$T" remote get-url origin) || return 1; local R=$(basename "$T"); local P="${PWD#$T}"; cd "$(dirname "$T")" && rm -rf "$R" && git clone "$U" "$R" && cd "$R$P"; }
+#GRCD() { local _old="$PWD"; cd ~/.G/dotfiles && git fetch --prune && git reset --hard && git clean -fd && git pull; cd "$_old"; }
+#GRCA2() { (cd ~/.G; for R in */; do (U=$(git -C "$R" remote get-url origin) && rm -rf "$R" && git clone -q "$U" "$R") & done; wait); }
+#GRCA()  { (cd ~/.G; for R in */; do (cd "$R"; git fetch -p && git reset --hard && git clean -fd && git pull) & done; wait); }
