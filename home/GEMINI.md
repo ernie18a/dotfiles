@@ -29,10 +29,10 @@
 - 透過 uv run 建立獨立環境，不依賴全域設定
 - torch_dtype 統一使用 dtype 參數
 
-# 指令文件規範
-當產出供 AI 或執行者照做的文件（todo.md / plan.md / spec / runbook 等）：
-- 禁止 fallback / mock / 假設環境支援等降級詞彙
-- 依賴不可用 → 禁止降級或自製替代
-- 禁止 try/except 包覆核心呼叫
-- 每步驟指定唯一實作路徑，不給 A 或 B 選擇
-- 驗收需可 grep 出核心符號被真實呼叫
+# dev 文件規範
+- 當產出供 AI 或執行者照做的文件（todo.md / plan.md / spec / runbook 等）：
+  - 禁止 fallback / mock / 假設環境支援等降級詞彙
+  - 依賴不可用時，禁止降級或自製替代
+  - 禁止 try/except 包覆核心呼叫
+  - 每步驟指定唯一實作路徑，不給 A 或 B 選擇
+  - 驗收需可 grep 出核心符號被真實呼叫
