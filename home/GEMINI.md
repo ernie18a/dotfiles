@@ -34,7 +34,6 @@
 
 ### 路徑基準
 - 所有路徑以 Path(__file__).parent.resolve() 為基底
-- 禁止 CWD 相對路徑，Path("TMP")、os.getcwd() 均不合規
 
 ### 三層分離
 - INPUT / OUTPUT / TMP 明確分離，禁止跨層混寫
