@@ -219,3 +219,10 @@ CT() { cat ~/.T$1 2>/dev/null ; }
 VT() { vim ~/.T$1 ; }
 HG() { cat ~/.bash_history | grep -ai --color "$1" ; }
 CG() { cat ~/.gemini/GEMINI.md 2>/dev/null || curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/GEMINI.md ; }
+alias GRC='git fetch --prune && git rm -r --cached . && git reset --hard && git clean -fd && git pull'
+GRCD() { local _old="$PWD"; cd ~/.G/dotfiles && git fetch --prune && git rm -r --cached . && git reset --hard && git clean -fd && git pull; cd "$_old"; }
+GRCA()  { (cd ~/.G; for R in */; do (cd "$R"; git fetch -p && git rm -r --cached . && git reset --hard && git clean -fd && git pull) & done; wait); }
+GGRCA() { (cd /g; for R in */; do [[ -d "$R/.git" ]] || continue; (cd "$R"; git fetch -p && git rm -r --cached . && git reset --hard && git clean -fd && git pull) & done; wait); }
+GRC2() { local T=$(git rev-parse --show-toplevel 2>/dev/null) || return 1; local U=$(git -C "$T" remote get-url origin) || return 1; local R=$(basename "$T"); local P="${PWD#$T}"; cd "$(dirname "$T")" && rm -rf "$R" && git clone "$U" "$R" && cd "$R$P"; }
+GRCA2() { (cd ~/.G; for R in */; do (U=$(git -C "$R" remote get-url origin) && rm -rf "$R" && git clone -q "$U" "$R") & done; wait); }
+GGRCA2() { (cd /g; for R in */; do [[ -d "$R/.git" ]] || continue; (U=$(git -C "$R" remote get-url origin) && rm -rf "$R" && git clone -q "$U" "$R") & done; wait); }
