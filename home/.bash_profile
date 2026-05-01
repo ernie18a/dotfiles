@@ -105,6 +105,7 @@ alias GRC='git fetch --prune && git reset --hard origin/$(git rev-parse --abbrev
 alias FINDD=' find . -iname 2>/dev/null '
 alias FIND=' find / -iname 2>/dev/null '
 alias TEST=' for i in *.py; do uv run "$i" 2>&1 | tee -a log; done '
+alias TEST2=' for i in *.py; do stdbuf -oL -eL uv run "$i" 2>&1 | tee -a log; done '
 alias GG=' gemini '
 alias GGR=' gemini --resume '
 alias GY=' gemini -y '
