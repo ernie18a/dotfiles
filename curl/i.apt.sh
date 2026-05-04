@@ -34,16 +34,16 @@ case "$1" in
 	timedatectl set-timezone Asia/Taipei
 	# /root/.ssh
 	mkdir ~/.ssh
-	cat ernie-master/.ssh/id_rsa > ~/.ssh/id_rsa
-	cat ernie-master/.ssh/id_rsa.pub > ~/.ssh/id_rsa.pub
+	cat ernie-master/.ssh/id_ed25519 > ~/.ssh/id_ed25519
+	cat ernie-master/.ssh/id_ed25519.pub > ~/.ssh/id_ed25519.pub
 	chmod 0700 ~/.ssh
-	chmod 0600 ~/.ssh/id_rsa
-	chmod 0644 ~/.ssh/id_rsa.pub
+	chmod 0600 ~/.ssh/id_ed25519
+	chmod 0644 ~/.ssh/id_ed25519.pub
 #	e/.ssh
 	cp -rf ~/.ssh /home/e/.ssh
 	chmod 0700 /home/e/.ssh
-	chmod 0600 /home/e/.ssh/id_rsa
-	chmod 0644 /home/e/.ssh/id_rsa.pub
+	chmod 0600 /home/e/.ssh/id_ed25519
+	chmod 0644 /home/e/.ssh/id_ed25519.pub
 #	/home/e/
 	mkdir /home/e/.G/
 	cd /home/e/.G/
