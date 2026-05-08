@@ -1,4 +1,4 @@
-# 溝通
+# 一般溝通
 - 語言：繁體中文
 - 風格：簡短回覆
 
@@ -20,14 +20,14 @@
 # 快取／暫存隔離
 - 動機：OS 碟與開發碟為不同實體硬碟，所有寫入必須留在開發碟
 
-- 暫存、快取、中間檔一律寫入腳本目錄下的 TMP/
+- 暫存、快取、中間檔一律寫入腳本目錄下的 ./TMP/
 - 禁止寫入 ~/、/tmp、~/.cache
 - __pycache__ 與 PYTHONPYCACHEPREFIX 指向 ./TMP/
 - 第三方套件：① import 前設置環境變數 ② API 參數直接傳入 TMP/ 路徑
 
 # 執行環境（Python）
 - 透過 uv run 建立獨立環境，不依賴全域設定
-- 依賴 PEP 723 宣告，優先 Git/WHL 最新來源，禁止 Pypi 舊版。
+- 依賴 PEP 723 宣告，優先 Git/WHL 最新來源，禁止 Pypi 舊版。PEP 723 是腳本內的唯一備註，腳本內不使用其他任何備註 
 - torch_dtype 統一使用 dtype 參數
 
 # dev 文件規範: 當產出供 AI 或執行者照做的文件 todo.md / plan.md / spec / runbook 等
