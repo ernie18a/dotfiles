@@ -134,6 +134,7 @@ alias ll=' ls -l --color '
 alias llh=' ls -lh --color '
 alias CDB=' mkdir ~/.BACKUP &>/dev/null ; cd ~/.BACKUP ; ls -A --color |sort '
 alias CDG=' mkdir ~/.G &>/dev/null ; cd ~/.G/* 2>/dev/null || { cd ~/.G && ls -A --color |sort ; } '
+alias CDg=' cd /g '
 alias NC=' nc -zvw2 '
 alias PS5=' ps aux | sort -nrk 3,3 | head -n 5 '
 alias PUSH="git pull >/dev/null && git add -A && git commit -mPUSH --no-verify && git push --no-verify"
