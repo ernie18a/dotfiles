@@ -27,6 +27,7 @@
 
 # 執行環境（Python）
 - 透過 uv run 建立獨立環境，不依賴全域設定
+- 依賴 PEP 723 宣告，優先 Git/WHL 最新來源，禁止 Pypi 舊版。
 - torch_dtype 統一使用 dtype 參數
 
 # dev 文件規範: 當產出供 AI 或執行者照做的文件 todo.md / plan.md / spec / runbook 等
