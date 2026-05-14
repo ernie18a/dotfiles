@@ -30,7 +30,6 @@
 - 透過 uv run 建立獨立環境，不依賴全域設定
 - 依賴 PEP 723 宣告，優先 Git/WHL 最新來源，禁止 Pypi 舊版。PEP 723 是腳本內的唯一備註，腳本內不使用其他任何備註 
 - torch_dtype 統一使用 dtype 參數
-- Requirement Elicitation append into ./.repuest.txt. , append only, dont read or 參考 
 
 # dev 文件規範: 當產出供 AI 或執行者照做的文件 todo.md / plan.md / spec / runbook 等
 - 撰寫前先溯源完整功能鏈（觸發源 → 中間傳遞 → 最終副作用），確認無邏輯斷點
@@ -39,3 +38,6 @@
 - 依賴不可用時直接 fail-fast；禁止 fallback / mock / 降級詞彙
 - 定位用錨點不用 before/after；僅輸出插入／替換內容，附一行驗證字串
 - 文件開頭聲明禁止觸碰未列出的檔案與函式；遇未列出但看似相關的項目，停止回報
+
+# 主動需求訪談需求清單 
+- 按區塊聚合排序：將觸碰同一函式的功能歸組，並由範圍大至小排列，確保開發連續性。
