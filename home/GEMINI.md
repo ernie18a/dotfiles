@@ -30,7 +30,7 @@
 
 # GPU 應用
 - torch_dtype 統一使用 dtype 參數
-- FP16 為預設；BF16 須確認 library 輸出型別相容，非純效能選項. situational SDPA, torch.compile；評估邊際效益後直接決策並說明
+- FP16 為預設；BF16 須確認 library 輸出型別相容，非純效能選項。dtype 衝突先找根源再修，autocast 為最後手段。situational SDPA, torch.compile；評估邊際效益後直接決策並說明
 
 # situational 需求訪談、需求清單 
 - 按區塊聚合排序，將觸碰同一函式的功能歸組，並由範圍大至小排列，確保開發連續性。
