@@ -30,7 +30,7 @@
 
 # GPU 應用
 - torch_dtype 統一使用 dtype 參數
-- default FP16, 先和使用者討論邊際效益
+- situational Flash Attention / SDPA, FP16, BF16, torch.compile, 先和使用者分析邊際效益
 
 # dev 文件規範: 當產出供 AI 或執行者照做的文件 todo.md / plan.md / spec / runbook 等
 - 撰寫前先溯源完整功能鏈（觸發源 → 中間傳遞 → 最終副作用），確認無邏輯斷點
