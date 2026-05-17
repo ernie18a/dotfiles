@@ -30,7 +30,6 @@ which git &>/dev/null && export PS1="[ \\u@\\h \w \$(git rev-parse --abbrev-ref 
 PROMPT_COMMAND=' history -a '
 source ~/.55H 2>/dev/null
 source ~/.IPS 2>/dev/null
-touch ~/.hushlogin
 alias MM2=' DEV=$(blkid -L g) && mountpoint -q /g || sudo mount -o defaults,noatime,commit=300 $DEV /g '
 alias MM=" DEV=\$(blkid -L g) && mountpoint -q /g || sudo mount -o defaults,noatime,commit=300 \$DEV /g "
 alias UU=' [ "$(npm view npm version)" != "$(npm -v)" ] && sudo npm install -g npm ; [ "$(npm view @google/gemini-cli version)" != "$(gemini --version 2>/dev/null)" ] && sudo npm install -g @google/gemini-cli ; sudo apt update && sudo apt install claude-code -y'
