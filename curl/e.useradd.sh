@@ -26,6 +26,7 @@ for user in e o n; do
         # 清除並複製 dotfiles 實體內容（只有 o, n 需要）
         sudo rm -rf /home/$user/.*
         sudo cp -r /home/e/.G /home/$user/.G
+        sudo cp -r /home/e/.ssh /home/$user/.ssh
     fi
 
     # 建立必要目錄
