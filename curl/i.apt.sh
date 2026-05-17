@@ -24,7 +24,7 @@ case "$1" in
     sudo curl -fsSL https://downloads.claude.ai/keys/claude-code.asc -o /etc/apt/keyrings/claude-code.asc
 	echo "deb [signed-by=/etc/apt/keyrings/claude-code.asc] https://downloads.claude.ai/claude-code/apt/stable stable main" | sudo tee /etc/apt/sources.list.d/claude-code.list
 	curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -  # nodejs
-	apt-get update ; apt-get install -yq adb usbutils ripgrep claude-code  dos2unix file jq software-properties-common tree unzip autossh sshpass nodejs #  python3-pip python3-venv
+	apt-get update ; apt-get install -yq linux-tools-generic hwdata adb usbutils ripgrep claude-code  dos2unix file jq software-properties-common tree unzip autossh sshpass nodejs #  python3-pip python3-venv
 	npm install -g @google/gemini-cli # firebase-admin firebase-tools
 #	add-apt-repository ppa:git-core/ppa
 	apt-get update ; apt-get install -yq git
