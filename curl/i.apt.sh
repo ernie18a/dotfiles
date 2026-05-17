@@ -81,6 +81,6 @@ case "$1" in
 	mkdir -p /home/e/.gemini
 	ln -snf /home/e/.G/dotfiles/home/GEMINI.md /home/e/.gemini/GEMINI.md
 	ln -snf /home/e/.G/dotfiles/home/GEMINI.md /home/e/.claude/CLAUDE.md
-	ln -snf /home/e/.G/dotfiles/home/settings.json /home/e/.gemini/settings.json
+#	ln -snf /home/e/.G/dotfiles/home/settings.json /home/e/.gemini/settings.json
 	;;
 esac
