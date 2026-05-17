@@ -15,7 +15,6 @@
 	swapoff -a ; sed -i '/swap/ s/^/#/' /etc/fstab
  	echo "e ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
  	echo "ubuntu ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
-	curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/e.brc.n.auth.sh | bash
 	echo 'source /dev/stdin <<< "$(curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile)"' |tee ~/.bash_profile /home/e/.bash_profile /home/ubuntu/.bash_profile
 case "$1" in
   wsl)
