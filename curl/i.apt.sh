@@ -4,7 +4,7 @@
  	apt-get purge -y --allow-remove-essential needrestart iptables* ufw* apparmor* firewall* unattended-upgrades # git* python3-venv python3-pip
 #	apt-get purge -y ufw* apparmor* needrestart unattended-upgrades
 #	apt-get update ; apt-get install -yq  rsync apt-utils bash-completion tmux vim bsdmainutils apt-transport-https dialog 
-	apt-get update ; apt-get install -yq  adb apt-transport-https apt-utils autossh bash-completion bsdmainutils build-essentia claude-code cmake dialog dos2unix file hwdata jq linux-tools-generic nodejs ripgrep rsync software-properties-common sshpass tmux tree unzip usbutils vim
+	apt-get update ; apt-get install -yq acl adb apt-transport-https apt-utils autossh bash-completion bsdmainutils build-essentia claude-code cmake dialog dos2unix file hwdata jq linux-tools-generic nodejs ripgrep rsync software-properties-common sshpass tmux tree unzip usbutils vim
 	curl -LsSf https://astral.sh/uv/install.sh | sh
 	cp ~/.local/bin/* /usr/local/bin/
 	echo ServerAliveInterval\ 30 >> /etc/ssh/ssh_config
