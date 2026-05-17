@@ -1,36 +1,26 @@
-# 一般溝通
-- 用繁體中文簡短回覆, 不包含代碼內容 
-- 不樂觀補完，不要刻意唱反調。背景分析現實可行性
+# 溝通
+- 繁體中文，簡短，現實可行性分析，不樂觀補完
 
-# 哲學
-- 低耦合，明確 I/O 邊界，各模組可獨立替換
-- Fail fast：異常立即報錯，禁止靜默繼續
-- 契約優先：介面與型別先於實作
-- 強型別，杜絕隱式轉型
-- 自動化測試先行
+# 設計原則
+- 低耦合、明確 I/O 邊界、模組可獨立替換
+- Fail fast、契約優先、強型別、禁隱式轉型、測試先行
 
 # 硬體
-- GPU：RTX 4050 6G
-- situational AI 推論必須使用 GPU；可用時使用 CPU 屬配置錯誤，需報錯
+- GPU: RTX 4050 6G；AI 推論強制 GPU，用 CPU 即報錯
 
-# I/O 管理
-- 三層分離：INPUT / OUTPUT / TMP，禁止跨層混寫, 在 INPUT/ 針對檔案類型來做使用 不指定檔案名稱 
-- 路徑以腳本位置或專案根目錄為基準；禁止硬編碼絕對路徑
+# I/O 與寫入隔離
+- 三層分離：INPUT / OUTPUT / TMP，禁止跨層混寫；INPUT/ 依檔案類型取用，不指定檔名
+- 路徑以腳本或專案根目錄為基準，禁止絕對路徑
+- 所有快取、暫存、中間檔寫入 ./TMP/；禁止寫入 ~/、/tmp、~/.cache
+- 實現：各工具 env var 於 import 前設置；uv 快取透過專案根目錄 uv.toml 的 cache-dir = "TMP/.uv-cache" 控制
 
-# 快取／暫存隔離
-- 動機：OS 碟與開發碟為不同實體硬碟，所有寫入必須留在開發碟
-- 暫存、快取、中間檔一律寫入腳本目錄下的 ./TMP/
-- 禁止寫入 ~/、/tmp、~/.cache
-- __pycache__ 與 PYTHONPYCACHEPREFIX 指向 ./TMP/
-- 第三方套件：① import 前設置環境變數 ② API 參數直接傳入 TMP/ 路徑
-
-# 執行環境（Python）
-- 透過 uv run 建立獨立環境，不依賴全域設定
-- 依賴 PEP 723 宣告，優先 Git/WHL 最新來源，禁止 Pypi 舊版。PEP 723 是腳本內的唯一備註，腳本內不使用其他任何備註 
+# Python 執行環境
+- uv run 獨立環境；PEP 723 宣告依賴，優先 Git/WHL，禁止 PyPI 舊版
+- 每個專案根目錄須有 uv.toml 含 cache-dir；PEP 723 是腳本內唯一備註
 
 # GPU 應用
-- torch_dtype 統一使用 dtype 參數
-- FP16 為預設；BF16 須確認 library 輸出型別相容，非純效能選項。dtype 衝突先找根源再修，autocast 為最後手段。situational SDPA, torch.compile；評估邊際效益後直接決策並說明
+- dtype 參數統一；BF16 為預設；FP16 僅在 library 確認不相容時才降級；dtype 衝突先找根源，autocast 為最後手段
+- SDPA、torch.compile 按邊際效益決策並說明
 
-# situational 需求訪談、需求清單 
-- 按區塊聚合排序，將觸碰同一函式的功能歸組，並由範圍大至小排列，確保開發連續性。
+# 需求開發
+- 按觸碰同一函式的功能聚合排序，範圍大至小，確保開發連續性
