@@ -1,57 +1,34 @@
-#!/bin/bash
-# === DEFAULT / MINIMAL ===
 timedatectl set-timezone Asia/Taipei
-
 apt-get purge -y --allow-remove-essential \
 	needrestart ufw* apparmor* firewall* \
 	unattended-upgrades landscape-common ubuntu-advantage-tools \
 	cloud-init popularity-contest ubuntu-report apport whoopsie fwupd
-
 apt-get update
 apt-get install -yq \
 	apt-transport-https rsync software-properties-common \
 	sshpass tmux vim autossh bash-completion git jq file tree
-
-# claude-code apt repo
 install -d -m 0755 /etc/apt/keyrings
 curl -fsSL https://downloads.claude.ai/keys/claude-code.asc -o /etc/apt/keyrings/claude-code.asc
 echo "deb [signed-by=/etc/apt/keyrings/claude-code.asc] https://downloads.claude.ai/claude-code/apt/stable stable main" | tee /etc/apt/sources.list.d/claude-code.list
-
-# nodejs + claude-code
 curl -fsSL https://deb.nodesource.com/setup_current.x | bash -
 apt-get update ; apt-get install -yq nodejs claude-code
-
-# gemini cli
 npm install -g @google/gemini-cli
-
-# uv
 curl -LsSf https://astral.sh/uv/install.sh | sh
 cp ~/.local/bin/* /usr/local/bin/
-
 apt-get autoremove -y ; dpkg -l | grep "^rc" | awk '{print$2}' | xargs apt-get purge -y
-
-# ssh client
 echo ServerAliveInterval\ 30 >> /etc/ssh/ssh_config
 echo StrictHostKeyChecking\ no >> /etc/ssh/ssh_config
 echo TCPKeepAlive\ no >> /etc/ssh/ssh_config
 echo ForwardAgent\ yes >> /etc/ssh/ssh_config
-
-# ssh server
 echo ClientAliveInterval\ 60 >> /etc/ssh/sshd_config
 echo ClientAliveCountMax\ 3 >> /etc/ssh/sshd_config
-
 swapoff -a ; sed -i '/swap/ s/^/#/' /etc/fstab
-
 echo "e ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 echo "ubuntu ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
-
 echo 'source /dev/stdin <<< "$(curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile)"' | tee ~/.bash_profile ~/.bashrc /home/e/.bash_profile /home/e/.bashrc /home/ubuntu/.bash_profile /home/ubuntu/.bashrc
-
 touch ~/.hushlogin /home/e/.hushlogin /home/ubuntu/.hushlogin
 rm -f /etc/update-motd.d/50-motd-news
-
 chown -R e:e /home/e ; chown -R ubuntu:ubuntu /home/ubuntu
-
 if [ "$1" = "wsl" ]; then
 	export WIN_USER=$(ls /mnt/c/Users | grep -iv "All\|Default\|desktop.ini\|Public\|USER\|Administrator\|super")
 	export WIN_USER_DIR=/mnt/c/Users/$WIN_USER
@@ -80,5 +57,4 @@ if [ "$1" = "wsl" ]; then
 	mkdir -p /home/e/.gemini
 	ln -snf /home/e/.G/dotfiles/home/GEMINI.md /home/e/.gemini/GEMINI.md
 	ln -snf /home/e/.G/dotfiles/home/GEMINI.md /home/e/.claude/CLAUDE.md
-#	ln -snf /home/e/.G/dotfiles/home/settings.json /home/e/.gemini/settings.json
 fi
