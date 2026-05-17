@@ -1,12 +1,12 @@
 complete -C '/usr/local/bin/aws_completer' aws &>/dev/null
 complete -C /usr/bin/terraform terraform
 source /etc/bash_completion.d/* 2>/dev/null
-source /usr/share/bash-completion/bash_completion 2>/dev/null
+#source /usr/share/bash-completion/bash_completion 2>/dev/null
 export COLORTERM=truecolor
 export CUDA_CACHE_MAXSIZE=2147483647
 export CUDA_CACHE_PATH=/tmp/.cuda_cache
 export CUDA_DEVICE_MAX_CONNECTIONS=32
-export CUDA_LAUNCH_BLOCKING=1
+#export CUDA_LAUNCH_BLOCKING=1
 export CUDA_MANAGED_FORCE_DEVICE_ALLOC=1
 export DBUS_SESSION_BUS_ADDRESS=/dev/null
 export DEBCONF_NOWARNINGS="yes"
