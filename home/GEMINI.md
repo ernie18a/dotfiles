@@ -6,7 +6,7 @@
 - Fail fast、契約優先、強型別、禁隱式轉型、測試先行
 
 # 硬體
-- GPU: RTX 4050 6G；AI 推論強制 GPU，用 CPU 即報錯；允許對輕量編碼階段做刻意 CPU offload 以釋放 VRAM
+- GPU: RTX 4050 6G；AI 推論強制 GPU，用 CPU 即報錯
 
 # I/O 與寫入隔離
 - 三層分離：INPUT / OUTPUT / TMP，禁止跨層混寫；INPUT/ 依檔案類型取用，不指定檔名
