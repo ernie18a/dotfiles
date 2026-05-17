@@ -106,8 +106,8 @@ alias DY=' echo -e "\nflexibility to improve adaptability\n" '
 alias GRC='git fetch --prune && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD) && git clean -fd'
 alias FINDD=' find . -iname 2>/dev/null '
 alias FIND=' find / -iname 2>/dev/null '
-alias TEST=' for i in *.py; do uv run "$i" 2>&1 | tee -a log; done '
-alias TEST2=' for i in *.py; do stdbuf -oL -eL uv run "$i" 2>&1 | tee -a log; done '
+alias TEST=' for i in *.py; do uv run --no-project "$i" 2>&1 | tee -a log; done '
+alias TEST2=' for i in *.py; do stdbuf -oL -eL uv run --no-project "$i" 2>&1 | tee -a log; done '
 alias GG=' gemini '
 alias GGR=' gemini --resume '
 alias GY=' gemini -y '
@@ -215,7 +215,7 @@ sl() { for SOMETHING in $(cat ./$1); do $2 $SOMETHING; done; }
 GRC2() { local T=$(git rev-parse --show-toplevel 2>/dev/null) || return 1; local U=$(git -C "$T" remote get-url origin) || return 1; local R=$(basename "$T"); local P="${PWD#$T}"; cd "$(dirname "$T")" && rm -rf "$R" && git clone "$U" "$R" && cd "$R$P"; }
 CIO() { if [ -n "$1" ]; then cp -urf "$1" /mnt/c/Users/e/Desktop/; else cp -urf ./* /mnt/c/Users/e/Desktop/; fi; }
 COI() { if [ -n "$1" ]; then cp -urf "/mnt/c/Users/e/Downloads/$1" .; else cp -urf /mnt/c/Users/e/Downloads/* .; fi; }
-UR() { if [ -n "$1" ]; then uv run "$1"; else uv run main.py; fi; }
+UR() { if [ -n "$1" ]; then uv run --no-project "$1"; else uv run --no-project main.py; fi; }
 GRCD() { local _old="$PWD"; cd ~/.G/dotfiles && git fetch --prune && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD) && git clean -fd; cd "$_old"; }
 CMPL() { $1 completion bash > /etc/bash_completion.d/$1 || ls -l /etc/bash_completion.d ; }
 PING() { for i in $(seq 0 255) ; do ping $1.$i -c1 -W1 & done |grep from |awk '{print $4}' |awk -F: '{print $1}' | sort -V ; }
