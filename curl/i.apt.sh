@@ -66,7 +66,7 @@ case "$1" in
 	ln -snf /home/e/.G/dotfiles/home/.vimrc /home/e/.vimrc
 	mkdir -p /home/e/.gemini
 	ln -snf /home/e/.G/dotfiles/home/GEMINI.md /home/e/.gemini/GEMINI.md
-#	ln -snf /home/e/.G/dotfiles/home/GEMINI.md /home/e/.claude/CLAUDE.md
+	ln -snf /home/e/.G/dotfiles/home/GEMINI.md /home/e/.claude/CLAUDE.md
 	ln -snf /home/e/.G/dotfiles/home/settings.json /home/e/.gemini/settings.json
 	chown -R e:e /home/e
 #	cat /home/e/.G/dotfiles/home/.hyper.js > $WIN_USER_DIR/AppData/Roaming/Hyper/.hyper.js
