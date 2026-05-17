@@ -52,8 +52,7 @@ rm -f /etc/update-motd.d/50-motd-news
 
 chown -R e:e /home/e ; chown -R ubuntu:ubuntu /home/ubuntu
 
-case "$1" in
-  wsl)
+if [ "$1" = "wsl" ]; then
 	export WIN_USER=$(ls /mnt/c/Users | grep -iv "All\|Default\|desktop.ini\|Public\|USER\|Administrator\|super")
 	export WIN_USER_DIR=/mnt/c/Users/$WIN_USER
 	export WIN_USER_DL=/mnt/c/Users/$WIN_USER/Downloads
@@ -82,5 +81,4 @@ case "$1" in
 	ln -snf /home/e/.G/dotfiles/home/GEMINI.md /home/e/.gemini/GEMINI.md
 	ln -snf /home/e/.G/dotfiles/home/GEMINI.md /home/e/.claude/CLAUDE.md
 #	ln -snf /home/e/.G/dotfiles/home/settings.json /home/e/.gemini/settings.json
-	;;
-esac
+fi
