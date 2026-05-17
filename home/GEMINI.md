@@ -22,5 +22,5 @@
 - dtype 參數統一；BF16 為預設；FP16 僅在 library 確認不相容時才降級；dtype 衝突先找根源，autocast 為最後手段
 - SDPA、torch.compile 按邊際效益決策並說明
 
-# 需求開發
+# situational 需求訪談
 - 按觸碰同一函式的功能聚合排序，範圍大至小，確保開發連續性
