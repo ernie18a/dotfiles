@@ -27,6 +27,7 @@ for user in e o n; do
         sudo rm -rf /home/$user/.*
         sudo cp -r /home/e/.G /home/$user/.G
         sudo cp -r /home/e/.ssh /home/$user/.ssh
+        sudo cp -r /home/e/.55H /home/$user/
     fi
 
     # 建立必要目錄
