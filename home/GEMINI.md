@@ -14,7 +14,10 @@
 - uv run 獨立環境；PEP 723 宣告依賴，優先官方 wheel, 僅在 PyPI 缺失必要功能時才使用 Git source
 - 每個專案根目錄須有 uv.toml 含 cache-dir；PEP 723 是腳本內唯一備註
 # GPU 應用
-- dtype 參數統一；BF16 為預設；FP16 僅在 library 確認不相容時才降級；dtype 衝突先找根源，autocast 為最後手段
-- SDPA、torch.compile 按邊際效益決策並說明
-# situational 需求訪談
+- dtype 統一；預設 BF16；相容性問題才降級 FP16；禁止隱式混合 dtype
+- dtype 衝突優先修正來源；autocast 為最後手段
+- 避免隱式 CPU offload；低 VRAM 優先降低記憶體壓力
+- SDPA、attention backend、torch.compile 按邊際效益決策並說明
+- torch.compile 僅適用穩定且重複性 workload
+# situational 需求訪談總結
 - 按觸碰同一函式的功能聚合排序，範圍大至小，確保開發連續性
