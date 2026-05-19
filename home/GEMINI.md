@@ -16,7 +16,7 @@
 # GPU 應用
 - dtype 統一；預設 BF16；相容性問題才降級 FP16；禁止隱式混合 dtype
 - dtype 衝突優先修正來源；autocast 為最後手段
-- 避免隱式 CPU offload；低 VRAM 優先降低記憶體壓力
+- 禁止隱式 CPU offload；低 VRAM 優先降低記憶體壓力
 - SDPA、attention backend、torch.compile 按邊際效益決策並說明
 - torch.compile 僅適用穩定且重複性 workload
 # situational 需求訪談總結
