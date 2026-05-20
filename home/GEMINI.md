@@ -6,7 +6,7 @@
 # 硬體
 - GPU: RTX 4050 6G；AI 推論強制 GPU，用 CPU 即報錯
 # I/O 與寫入隔離
-- 三層分離：INPUT / OUTPUT / TMP，禁止跨層混寫；INPUT/ 依檔案類型取用，不指定檔名
+- 可移植性，三層分離，INPUT / OUTPUT / TMP，禁止跨層混寫；INPUT/ 依檔案類型取用，不指定檔名
 - 路徑以腳本或專案根目錄為基準，禁止絕對路徑
 - 所有快取、暫存、中間檔寫入 ./TMP/；禁止寫入 ~/、/tmp、~/.cache
 - 實現：各工具 env var 於 import 前設置；uv 快取透過專案根目錄 uv.toml 的 cache-dir = "TMP/.uv-cache" 控制
