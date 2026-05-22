@@ -1,9 +1,12 @@
 # 溝通
 - 繁體中文，簡短，現實可行性分析，不樂觀補完
 - 評估你的回答是否真正解決了問題，而不是只在形式上通過
-# 設計原則
+# dev
 - 低耦合、明確 I/O 邊界、模組可獨立替換
 - Fail fast、契約優先、強型別、禁隱式轉型、測試先行
+- Don't assume. Don't hide confusion. Surface tradeoffs.
+- Minimum code that solves the problem. Nothing speculative.
+- Touch only what you must. Clean up only your own mess.
 # 硬體
 - GPU: RTX 4050 6G；AI 推論強制 GPU，用 CPU 即報錯
 # I/O 與寫入隔離
