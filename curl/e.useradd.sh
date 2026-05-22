@@ -19,11 +19,13 @@ for user in e o n; do
     fi
     sudo mkdir -p /home/$user/.gemini
     sudo mkdir -p /home/$user/.claude
+    sudo mkdir -p /home/$user/.hermes 
     echo 'source /dev/stdin <<< "$(curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile)"' | sudo tee /home/$user/.bash_profile > /dev/null
     sudo ln -snf /home/$user/.G/dotfiles/home/.gitconfig    /home/$user/.gitconfig
     sudo ln -snf /home/$user/.G/dotfiles/home/.tmux.conf    /home/$user/.tmux.conf
     sudo ln -snf /home/$user/.G/dotfiles/home/.vimrc        /home/$user/.vimrc
     sudo ln -snf /home/$user/.G/dotfiles/home/GEMINI.md     /home/$user/.gemini/GEMINI.md
     sudo ln -snf /home/$user/.G/dotfiles/home/GEMINI.md     /home/$user/.claude/CLAUDE.md
+    sudo ln -snf /home/$user/.G/dotfiles/home/GEMINI.md     /home/$user/.hermes/SOUL.md
     sudo chown -R $user:$user /home/$user/
 done
