@@ -19,6 +19,7 @@
 - 每個專案根目錄須有 uv.toml 含 cache-dir 與 python-preference = "only-managed"；PEP 723 是腳本內唯一備註
 - 每支腳本在所有 import 前須隔離 sys.path，防止系統 site-packages 滲入 venv
 # GPU 應用
+- [transformers] `torch_dtype` is deprecated! Use `dtype` instead!
 - dtype 統一，推論跟隨模型訓練 dtype，訓練或來源不明預設 BF16。禁止隱式混合 dtype
 - 禁止隱式 CPU offload；低 VRAM 優先降低記憶體壓力
 - SDPA、attention backend、torch.compile 按邊際效益決策並說明
