@@ -15,6 +15,8 @@ curl -fsSL https://deb.nodesource.com/setup_current.x | bash -
 curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.astral.uv.sh | bash
 apt-get update ; apt-get install -yq nodejs claude-code
 # npm install -g @google/gemini-cli
+curl -fsSL https://antigravity.google/cli/install.sh | bash
+mv /root/.local/bin/agy /bin/
 apt-get autoremove -y ; dpkg -l | grep "^rc" | awk '{print$2}' | xargs apt-get purge -y
 echo ServerAliveInterval\ 30 >> /etc/ssh/ssh_config
 echo StrictHostKeyChecking\ no >> /etc/ssh/ssh_config
