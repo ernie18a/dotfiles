@@ -11,3 +11,8 @@ ln -sf $NEW_PYTHON /usr/local/lib/hermes-agent/venv/bin/${PYTHON_BIN_NAME}
 chmod -R o+rX /usr/local/lib/hermes-agent/
 rm -rf /root/.local/share/uv/python/
 rm -rf /root/.local/share/uv/tools/
+for user in e o n; do
+  mkdir -p /home/$user/.hermes
+  ln -sf /home/$user/.G/dotfiles/home/SOUL.md /home/$user/.hermes/SOUL.md
+  chown $user:$user /home/$user/.hermes
+done
