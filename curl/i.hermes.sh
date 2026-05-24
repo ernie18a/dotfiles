@@ -13,6 +13,6 @@ rm -rf /root/.local/share/uv/python/
 rm -rf /root/.local/share/uv/tools/
 for user in e o n; do
   mkdir -p /home/$user/.hermes
-  ln -sf /home/$user/.G/dotfiles/home/SOUL.md /home/$user/.hermes/SOUL.md
-  chown $user:$user /home/$user/.hermes
+  ln -sf /home/$user/.G/dotfiles/home/GEMINI.md /home/$user/.hermes/SOUL.md
+  chown -R $user:$user /home/$user/.hermes
 done
