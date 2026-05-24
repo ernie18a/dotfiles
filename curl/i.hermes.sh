@@ -22,6 +22,17 @@ tts:
   provider: ''
 stt:
   enabled: false
+bedrock:
+  discovery:
+    enabled: false
+curator:
+  enabled: false
+kanban:
+  dispatch_in_gateway: false
+delegation:
+  orchestrator_enabled: false
+lsp:
+  enabled: false
 EOF
   chown -R $user:$user /home/$user/.hermes
 done
