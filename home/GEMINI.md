@@ -20,7 +20,10 @@
 - 每個專案根目錄須有 uv.toml 含 cache-dir 與 python-preference = "only-managed"；PEP 723 是腳本內唯一備註
 - 每支腳本在所有 import 前須隔離 sys.path，防止系統 site-packages 滲入 venv
 # GPU 應用
-- dtype 統一，推論跟隨模型訓練 dtype，訓練或來源不明預設 BF16。fp32 訓練模型推論降為 BF16。禁止隱式混合 dtype。不得以 dtype 降精度替代記憶體管理，應優先透過架構層面降低峰值用量，批次處理需確保每次推論起點的 VRAM 狀態乾淨。
 - [transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+- dtype 顯式指定與一致性優先，推論盡量對齊訓練 dtype；來源不明預設 BF16
+- 不得隱式混合 dtype，所有轉換需顯式標註與控制
+- 不以降精度替代記憶體/架構設計，優先透過 batch / pipeline / cache 管理 VRAM
+- 推論前需確保 GPU state 可重用且無殘留張量或 cache 干擾
 # situational 需求訪談總結
 - 按觸碰同一函式的功能聚合排序，範圍大至小，確保開發連續性
