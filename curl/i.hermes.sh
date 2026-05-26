@@ -9,8 +9,8 @@ NEW_PYTHON=/usr/local/lib/hermes-agent/python/bin/${PYTHON_BIN_NAME}
 ln -sf $NEW_PYTHON /usr/local/lib/hermes-agent/venv/bin/python
 ln -sf $NEW_PYTHON /usr/local/lib/hermes-agent/venv/bin/python3
 ln -sf $NEW_PYTHON /usr/local/lib/hermes-agent/venv/bin/${PYTHON_BIN_NAME}
+sed -i "s|^home = .*|home = /usr/local/lib/hermes-agent/python/bin|" /usr/local/lib/hermes-agent/venv/pyvenv.cfg
 chmod -R o+rX /usr/local/lib/hermes-agent/
-rm -rf /root/.local/share/uv/python/
 rm -rf /root/.local/share/uv/tools/
 for user in e o n; do
   mkdir -p /home/$user/.hermes

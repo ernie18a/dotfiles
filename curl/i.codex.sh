@@ -1,6 +1,6 @@
 echo n | bash <(curl -fsSL https://chatgpt.com/codex/install.sh)
 
-mv /root/.codex/packages/standalone/current/bin/codex /bin/codex
+ln -sf /root/.codex/packages/standalone/current/bin/codex /bin/codex
 
 for user in e o n; do
   mkdir -p /home/$user/.codex
