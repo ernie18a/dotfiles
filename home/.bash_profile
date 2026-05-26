@@ -35,8 +35,7 @@ alias CODEX=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/ref
 alias AIDER=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.aider.sh | bash '
 alias MM2=' DEV=$(blkid -L g) && mountpoint -q /g || sudo mount -o defaults,noatime,commit=300 $DEV /g '
 alias MM=" DEV=\$(blkid -L g) && mountpoint -q /g || sudo mount -o defaults,noatime,commit=300 \$DEV /g "
-#alias UU=' [ "$(npm view npm version)" != "$(npm -v)" ] && sudo npm install -g npm ; [ "$(npm view @google/gemini-cli version)" != "$(gemini --version 2>/dev/null)" ] && sudo npm install -g @google/gemini-cli ; sudo apt update && sudo apt install claude-code -y'
-alias UU=' sudo apt update && sudo apt install claude-code -y ; sudo agy update ; npm install -g @openai/codex ' # ; sudo hermes update '
+alias UU=' sudo apt update && sudo apt install claude-code -y ; sudo agy update ; sudo npm install -g @openai/codex ' # ; sudo hermes update '
 #alias UG=' [ "$(npm view npm version)" != "$(npm -v)" ] && sudo npm install -g npm ; [ "$(npm view @google/gemini-cli version)" != "$(gemini --version 2>/dev/null)" ] && sudo npm install -g @google/gemini-cli ; gemini '
 alias AGP='sudo apt-get purge -y "$@" && dpkg -l | grep "^rc" | awk "{print \$2}" | xargs -r sudo apt-get purge -y && sudo apt-get autoremove --purge -y && sudo apt-get clean'
 alias APT=' bash -c "curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/i.apt.sh" | bash -s -- '
