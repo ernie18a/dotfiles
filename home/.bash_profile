@@ -31,6 +31,7 @@ PROMPT_COMMAND=' history -a '
 source ~/.55H 2>/dev/null
 source ~/.IPS 2>/dev/null
 alias HERMES=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.hermes.sh | bash ' # no SOUL.md yet
+alias CODEX=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.codex.sh | bash ' 
 alias AIDER=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.aider.sh | bash '
 alias MM2=' DEV=$(blkid -L g) && mountpoint -q /g || sudo mount -o defaults,noatime,commit=300 $DEV /g '
 alias MM=" DEV=\$(blkid -L g) && mountpoint -q /g || sudo mount -o defaults,noatime,commit=300 \$DEV /g "
