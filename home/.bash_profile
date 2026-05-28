@@ -30,6 +30,7 @@ which git &>/dev/null && export PS1="[ \\u@\\h \w \$(git rev-parse --abbrev-ref 
 PROMPT_COMMAND=' history -a '
 source ~/.55H 2>/dev/null
 source ~/.IPS 2>/dev/null
+alias USAGE=' sudo uv run /g/app/usage/main.py '
 alias HERMES=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.hermes.sh | bash ' # no SOUL.md yet
 alias CODEX=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.codex.sh | bash ' 
 alias AIDER=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.aider.sh | bash '
