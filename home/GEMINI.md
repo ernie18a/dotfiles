@@ -17,7 +17,7 @@
 - 所有快取、暫存、中間檔寫入 ./TMP/；禁止寫入 `~/`、`/tmp`、`~/.cache`
 - 實現：各工具 env var 於 import 前設置；uv 快取透過專案根目錄 uv.toml 的 cache-dir = "TMP/.uv-cache" 控制
 # Python 執行環境
-- uv run 獨立環境；PEP 723 宣告依賴，優先官方 wheel, 僅在 PyPI 缺失必要功能時才使用 Git source
+- uv run 獨立環境；PEP 723 宣告依賴，`requires-python` 需設明確上限（以最重依賴的最高支援版本為準），優先官方 wheel，僅在 PyPI 缺失必要功能時才使用 Git source
 - 每個專案根目錄須有 uv.toml 含 cache-dir 與 python-preference = "only-managed"；PEP 723 是腳本內唯一備註
 - 每支腳本在所有 import 前須隔離 sys.path，防止系統 site-packages 滲入 venv
 # GPU 應用
@@ -26,5 +26,6 @@
 - 不得隱式混合 dtype，所有轉換需顯式標註與控制
 - 不以降精度替代記憶體/架構設計，優先透過 batch / pipeline / cache 管理 VRAM
 - 推論前需確保 GPU state 可重用且無殘留張量或 cache 干擾
+- 中國 AI 平台套件預設走中國 CDN，海外環境必慢；引入此類套件時主動確認模型下載源並切至 HuggingFace（例：`hub="hf"`）
 # situational 需求訪談總結
 - 按觸碰同一函式的功能聚合排序，範圍大至小，確保開發連續性
