@@ -17,7 +17,7 @@
 - 所有快取、暫存、中間檔寫入 ./TMP/；禁止寫入 `~/`、`/tmp`、`~/.cache`
 - 實現：各工具 env var 於 import 前設置；uv 快取透過專案根目錄 uv.toml 的 cache-dir = "TMP/.uv-cache" 控制
 # Python 執行環境
-- uv run 獨立環境；PEP 723 宣告依賴，`requires-python` 需設明確上限（以最重依賴的最高支援版本為準），優先官方 wheel，僅在 PyPI 缺失必要功能時才使用 Git source
+- uv run 獨立環境；PEP 723 宣告依賴，`requires-python` 需設明確上限, 以最重依賴的最高支援版本為準，優先官方 wheel，僅在 PyPI 缺失必要功能時才使用 Git source
 - 每個專案根目錄須有 uv.toml 含 cache-dir 與 python-preference = "only-managed"；PEP 723 是腳本內唯一備註
 - 每支腳本在所有 import 前須隔離 sys.path，防止系統 site-packages 滲入 venv
 # GPU 應用
