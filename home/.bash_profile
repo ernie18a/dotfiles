@@ -1,4 +1,4 @@
-touch .hushlogin
+touch ~/.hushlogin
 complete -C '/usr/local/bin/aws_completer' aws &>/dev/null
 complete -C /usr/bin/terraform terraform
 source /etc/bash_completion.d/* 2>/dev/null
