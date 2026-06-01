@@ -1,4 +1,5 @@
-npm install -g --force @openai/codex
+#npm install -g --force @openai/codex
+npm install -g @openai/codex
 
 for user in e o n; do
   mkdir -p /home/$user/.codex

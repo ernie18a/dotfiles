@@ -1,5 +1,5 @@
 timedatectl set-timezone Asia/Taipei
-apt-get purge -y --allow-remove-essential \
+apt-get remove -y --allow-remove-essential \
 	needrestart ufw* apparmor* firewall* \
 	unattended-upgrades landscape-common ubuntu-advantage-tools \
 	cloud-init popularity-contest ubuntu-report apport whoopsie fwupd
@@ -13,11 +13,12 @@ curl -fsSL https://downloads.claude.ai/keys/claude-code.asc -o /etc/apt/keyrings
 echo "deb [signed-by=/etc/apt/keyrings/claude-code.asc] https://downloads.claude.ai/claude-code/apt/stable stable main" | tee /etc/apt/sources.list.d/claude-code.list
 curl -fsSL https://deb.nodesource.com/setup_current.x | bash -
 curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.uv.sh | bash
+curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/e.useradd.sh | bash
 apt-get update ; apt-get install -yq nodejs claude-code
 # npm install -g @google/gemini-cli
 curl -fsSL https://antigravity.google/cli/install.sh | bash
 mv /root/.local/bin/agy /bin/
-apt-get autoremove -y ; dpkg -l | grep "^rc" | awk '{print$2}' | xargs apt-get purge -y
+#apt-get autoremove -y ; dpkg -l | grep "^rc" | awk '{print$2}' | xargs apt-get purge -y
 echo ServerAliveInterval\ 30 >> /etc/ssh/ssh_config
 echo StrictHostKeyChecking\ no >> /etc/ssh/ssh_config
 echo TCPKeepAlive\ no >> /etc/ssh/ssh_config
@@ -50,10 +51,11 @@ if [ "$1" = "wsl" ]; then
 	cd /home/e/.G/
 	git clone git@github.com:ernie18a/dotfiles.git
 	git clone git@github.com:ernie18a/misc.git
-	git clone git@github.com:ernie18a/private.git .private
+	git clone git@github.com:ernie18a/deprecated.git .deprecated
 	git clone https://github.com/tmux-plugins/tpm /home/e/.G/.tmux_plugins_manager
 	sed -i 's/https:\/\/github.com\/ernie18a\/dotfiles.git/git@github.com:ernie18a\/dotfiles.git/g' /home/e/.G/dotfiles/.git/config
 	mkdir -p /home/e/.gemini
+	mkdir -p /home/e/.claude
 	mkdir -p /home/e/.hermes
 	ln -snf /home/e/.G/dotfiles/home/.gitconfig /home/e/.gitconfig
 	ln -snf /home/e/.G/dotfiles/home/.tmux.conf /home/e/.tmux.conf
