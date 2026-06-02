@@ -29,7 +29,8 @@ echo ClientAliveCountMax\ 3 >> /etc/ssh/sshd_config
 swapoff -a ; sed -i '/swap/ s/^/#/' /etc/fstab
 echo "e ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 echo "ubuntu ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
-echo 'source /dev/stdin <<< "$(curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile)"' | tee ~/.bash_profile ~/.bashrc /home/e/.bash_profile /home/e/.bashrc /home/ubuntu/.bash_profile /home/ubuntu/.bashrc
+# echo 'source /dev/stdin <<< "$(curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile)"' | tee ~/.bash_profile ~/.bashrc /home/e/.bash_profile /home/e/.bashrc /home/ubuntu/.bash_profile /home/ubuntu/.bashrc
+echo 'source /dev/stdin <<< "$(curl -Ls "https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile?v=$(date +%s)")"' | tee ~/.bash_profile ~/.bashrc /home/e/.bash_profile /home/e/.bashrc /home/ubuntu/.bash_profile /home/ubuntu/.bashrc
 touch ~/.hushlogin /home/e/.hushlogin /home/ubuntu/.hushlogin
 rm -f /etc/update-motd.d/50-motd-news
 chown -R e:e /home/e ; chown -R ubuntu:ubuntu /home/ubuntu
