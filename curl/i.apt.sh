@@ -14,7 +14,6 @@ echo "deb [signed-by=/etc/apt/keyrings/claude-code.asc] https://downloads.claude
 curl -fsSL https://deb.nodesource.com/setup_current.x | bash -
 # curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.uv.sh | bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
-curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/e.useradd.sh | bash
 apt-get update ; apt-get install -yq nodejs claude-code
 # npm install -g @google/gemini-cli
 curl -fsSL https://antigravity.google/cli/install.sh | bash
@@ -67,3 +66,5 @@ if [ "$1" = "wsl" ]; then
 	ln -snf /home/e/.G/dotfiles/home/GEMINI.md /home/e/.hermes/SOUL.md
 	chown -R e:e /home/e
 fi
+curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/e.useradd.sh | bash
+curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.codex.sh | bash

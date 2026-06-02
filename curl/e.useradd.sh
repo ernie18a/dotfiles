@@ -1,7 +1,9 @@
-sudo groupadd g
+sudo groupadd -f g
 for user in o n; do
-    sudo useradd "$user" -ms /bin/bash
-    echo "$user:$user" | sudo chpasswd
+    if ! id -u "$user" > /dev/null 2>&1; then
+        sudo useradd "$user" -ms /bin/bash
+        echo "$user:$user" | sudo chpasswd
+    fi
 done
 for u in e n o; do
     sudo usermod -aG g "$u"
@@ -20,6 +22,7 @@ for user in e o n; do
     sudo mkdir -p /home/$user/.gemini
     sudo mkdir -p /home/$user/.claude
     sudo mkdir -p /home/$user/.hermes 
+    sudo mkdir -p /home/$user/.codex
     echo 'source /dev/stdin <<< "$(curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile)"' | sudo tee /home/$user/.bash_profile > /dev/null
     sudo ln -snf /home/$user/.G/dotfiles/home/.gitconfig    /home/$user/.gitconfig
     sudo ln -snf /home/$user/.G/dotfiles/home/.tmux.conf    /home/$user/.tmux.conf
@@ -27,5 +30,6 @@ for user in e o n; do
     sudo ln -snf /home/$user/.G/dotfiles/home/GEMINI.md     /home/$user/.gemini/GEMINI.md
     sudo ln -snf /home/$user/.G/dotfiles/home/GEMINI.md     /home/$user/.claude/CLAUDE.md
     sudo ln -snf /home/$user/.G/dotfiles/home/GEMINI.md     /home/$user/.hermes/SOUL.md
+    sudo ln -snf /home/$user/.G/dotfiles/home/GEMINI.md     /home/$user/.codex/AGENTS.md
     sudo chown -R $user:$user /home/$user/
 done
