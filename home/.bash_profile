@@ -35,7 +35,7 @@ source ~/.IPS 2>/dev/null
 alias HY='hermes --yolo'
 alias HYC='hermes --yolo -c'
 #alias USAGE='(cd /g/app/usage && sudo env UV_CACHE_DIR=/g/app/usage/TMP/.uv-cache uv run main.py)'
-alias USAGE='(cd /g/app/usage && sudo uv run main.py)'
+alias USAGE='(cd /g/app/usage && sudo -i uv run main.py)'
 alias HERMES=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.hermes.sh | bash '
 alias CODEX=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.codex.sh | bash ' 
 alias AIDER=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.aider.sh | bash '
