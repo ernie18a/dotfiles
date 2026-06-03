@@ -1,3 +1,8 @@
+---
+name: clip
+description: Use when a user asks to extract or score short-form video segments from a transcript.
+---
+
 # Short-Form Content Segment Extraction
 
 ## Objective
@@ -160,4 +165,3 @@ Transcript:
 """
 {{TRANSCRIPT}}
 """
-
