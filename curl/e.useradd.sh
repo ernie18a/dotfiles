@@ -28,8 +28,12 @@ for user in e o n; do
     sudo ln -snf /home/$user/.G/dotfiles/home/.tmux.conf    /home/$user/.tmux.conf
     sudo ln -snf /home/$user/.G/dotfiles/home/.vimrc        /home/$user/.vimrc
     sudo ln -snf /home/$user/.G/dotfiles/home/GEMINI.md     /home/$user/.gemini/GEMINI.md
+    sudo ln -snf /home/$user/.G/dotfiles/skills             /home/$user/.gemini/skills
     sudo ln -snf /home/$user/.G/dotfiles/home/GEMINI.md     /home/$user/.claude/CLAUDE.md
+    sudo ln -snf /home/$user/.G/dotfiles/skills             /home/$user/.claude/skills
     sudo ln -snf /home/$user/.G/dotfiles/home/GEMINI.md     /home/$user/.hermes/SOUL.md
+    sudo ln -snf /home/$user/.G/dotfiles/skills             /home/$user/.hermes/skills
     sudo ln -snf /home/$user/.G/dotfiles/home/GEMINI.md     /home/$user/.codex/AGENTS.md
+    sudo ln -snf /home/$user/.G/dotfiles/skills             /home/$user/.codex/skills
     sudo chown -R $user:$user /home/$user/
 done
