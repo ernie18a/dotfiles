@@ -14,6 +14,7 @@ echo "deb [signed-by=/etc/apt/keyrings/claude-code.asc] https://downloads.claude
 curl -fsSL https://deb.nodesource.com/setup_current.x | bash -
 # curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.uv.sh | bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
+install -m 0755 "$HOME/.local/bin/uv" "$HOME/.local/bin/uvx" /usr/local/bin/
 apt-get update ; apt-get install -yq nodejs claude-code
 # npm install -g @google/gemini-cli
 curl -fsSL https://antigravity.google/cli/install.sh | bash
