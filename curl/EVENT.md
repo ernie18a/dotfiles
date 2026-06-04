@@ -64,6 +64,25 @@ ls -l /usr/local/bin/uv /usr/local/bin/uvx
 sudo -u e bash -lc 'command -v uv && uv --version'
 ```
 
-## Local execution note
+## Local execution result
 
-In this session, `sudo` asked for a password, so the root-level `mv`, user `e` cleanup, and permission changes were not executed here.
+On 2026-06-05 00:00 +0800, sudo access was available and the manual fix was applied.
+
+The actual source was root's private install directory:
+
+```sh
+sudo mv /root/.local/bin/uv /root/.local/bin/uvx /usr/local/bin/
+sudo rm -f /home/e/.local/bin/uv /home/e/.local/bin/uvx
+sudo chmod 0755 /usr/local/bin/uv /usr/local/bin/uvx
+```
+
+Verification result:
+
+```text
+/usr/local/bin/uv
+uv 0.11.18 (x86_64-unknown-linux-gnu)
+/usr/local/bin/uvx
+uvx 0.11.18 (x86_64-unknown-linux-gnu)
+```
+
+User `e` now resolves both commands from `/usr/local/bin`. `/home/e/.local/bin/uv` and `/home/e/.local/bin/uvx` were removed. `/root/.local/bin` is now empty.
