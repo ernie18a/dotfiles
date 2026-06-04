@@ -1,5 +1,5 @@
 ---
-name: researchForest
+name: searchRouting
 description: Use when an open-ended research task benefits from branching exploration, multiple perspectives, recursive evidence gathering, contradiction handling, uncertainty mapping, or synthesis beyond a single direct lookup.
 ---
 

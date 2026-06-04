@@ -1,5 +1,5 @@
 ---
-name: webSearch
+name: searchRecursive
 description: Use when a user asks for web research that needs recursive exploration, source comparison, contradiction handling, relationship mapping, uncertainty tracking, or synthesis beyond a direct lookup.
 ---
 

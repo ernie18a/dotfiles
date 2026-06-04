@@ -1,5 +1,5 @@
 ---
-name: frontierResearch
+name: searchBaseline
 description: Use when a research task needs to move beyond generic answers by mapping the visible baseline, finding non-obvious evidence or mechanisms, grouping independent findings, evaluating contradictions, and synthesizing underexplored knowledge.
 ---
 
