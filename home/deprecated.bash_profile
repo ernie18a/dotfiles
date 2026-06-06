@@ -430,3 +430,18 @@ export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.krew/bin:$HOME/go/bin:/bin
 #GRCD() { local _old="$PWD"; cd ~/.G/dotfiles && git fetch --prune && git reset --hard && git clean -fd && git pull; cd "$_old"; }
 #GRCA2() { (cd ~/.G; for R in */; do (U=$(git -C "$R" remote get-url origin) && rm -rf "$R" && git clone -q "$U" "$R") & done; wait); }
 #GRCA()  { (cd ~/.G; for R in */; do (cd "$R"; git fetch -p && git reset --hard && git clean -fd && git pull) & done; wait); }
+#source /usr/share/bash-completion/bash_completion 2>/dev/null
+#export CUDA_LAUNCH_BLOCKING=1
+# alias USAGE=' sudo UV_CACHE_DIR=/g/app/usage/TMP/.uv-cache uv run /g/app/usage/main.py '
+#alias USAGE='(cd /g/app/usage && sudo env UV_CACHE_DIR=/g/app/usage/TMP/.uv-cache uv run main.py)'
+# alias USAGE='(cd /g/app/usage && sudo -i uv run /g/app/usage/main.py )'
+#alias UU=' sudo apt update && sudo apt install claude-code -y ; sudo agy update ; sudo npm install -g --force @openai/codex ' # ; sudo hermes update '
+#alias UG=' [ "$(npm view npm version)" != "$(npm -v)" ] && sudo npm install -g npm ; [ "$(npm view @google/gemini-cli version)" != "$(gemini --version 2>/dev/null)" ] && sudo npm install -g @google/gemini-cli ; gemini '
+#alias BNA=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/e.brc.n.auth.sh | bash '
+#alias CGI=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/e.gemini.api.sh | bash '
+#alias GEMINI=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/i.gemini.sh | bash '
+# alias SB=' source ~/.G/dotfiles/home/.bash_profile 2>/dev/null || source /dev/stdin <<< "$(curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile)" ; cd - &>/dev/null '
+# alias ACL3=' sudo find /g -type d -exec chmod 2777 {} + ; sudo find /g -type d -exec setfacl -m m:rwx,d:m:rwx {} + '
+#alias NPMG=' sudo npm install -g npm ; sudo npm install -g @google/gemini-cli '
+# alias ACL=' sudo setfacl -R -b /g ; sudo setfacl -R -m u::rwx,g::rwx,o::rwx,m:rwx /g ; sudo setfacl -R -d -m u::rwx,g::rwx,o::rwx,m:rwx /g ; sudo chattr -R -i -a /g 2>/dev/null || true '
+#UR() { if [ -n "$1" ]; then uv run --no-project "$1"; else uv run --no-project main.py; fi; }

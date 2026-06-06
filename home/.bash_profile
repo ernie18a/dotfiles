@@ -1,13 +1,12 @@
-touch ~/.hushlogin
+
+
 complete -C '/usr/local/bin/aws_completer' aws &>/dev/null
 complete -C /usr/bin/terraform terraform
 source /etc/bash_completion.d/* 2>/dev/null
-#source /usr/share/bash-completion/bash_completion 2>/dev/null
 export COLORTERM=truecolor
 export CUDA_CACHE_MAXSIZE=2147483647
 export CUDA_CACHE_PATH=/tmp/.cuda_cache
 export CUDA_DEVICE_MAX_CONNECTIONS=32
-#export CUDA_LAUNCH_BLOCKING=1
 export CUDA_MANAGED_FORCE_DEVICE_ALLOC=1
 export DBUS_SESSION_BUS_ADDRESS=/dev/null
 export DEBCONF_NOWARNINGS="yes"
@@ -31,20 +30,15 @@ which git &>/dev/null && export PS1="[ \\u@\\h \w \$(git rev-parse --abbrev-ref 
 PROMPT_COMMAND=' history -a '
 source ~/.55H 2>/dev/null
 source ~/.IPS 2>/dev/null
-# alias USAGE=' sudo UV_CACHE_DIR=/g/app/usage/TMP/.uv-cache uv run /g/app/usage/main.py '
-alias HY='hermes --yolo'
-alias HYC='hermes --yolo -c'
-#alias USAGE='(cd /g/app/usage && sudo env UV_CACHE_DIR=/g/app/usage/TMP/.uv-cache uv run main.py)'
-# alias USAGE='(cd /g/app/usage && sudo -i uv run /g/app/usage/main.py )'
+touch ~/.hushlogin
 alias USAGE="  date ; sudo -i bash -lc 'cd /g/app/usage && uv run main.py'"
-alias HERMES=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.hermes.sh | bash '
-alias CODEX=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.codex.sh | bash ' 
-alias AIDER=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.aider.sh | bash '
+alias HYC='hermes --yolo -c'
+alias HY='hermes --yolo'
 alias MM2=' DEV=$(blkid -L g) && mountpoint -q /g || sudo mount -o defaults,noatime,commit=300 $DEV /g '
 alias MM=" DEV=\$(blkid -L g) && mountpoint -q /g || sudo mount -o defaults,noatime,commit=300 \$DEV /g "
-#alias UU=' sudo apt update && sudo apt install claude-code -y ; sudo agy update ; sudo npm install -g --force @openai/codex ' # ; sudo hermes update '
-alias UU=' sudo agy update ; sudo npm install -g @openai/codex ' # ; sudo hermes update ;  sudo apt update && sudo apt install claude-code -y '
-#alias UG=' [ "$(npm view npm version)" != "$(npm -v)" ] && sudo npm install -g npm ; [ "$(npm view @google/gemini-cli version)" != "$(gemini --version 2>/dev/null)" ] && sudo npm install -g @google/gemini-cli ; gemini '
+alias GG=' agy '
+alias GY=' agy --dangerously-skip-permissions '
+alias GYR=' agy -c --dangerously-skip-permissions '
 alias AGP='sudo apt-get purge -y "$@" && dpkg -l | grep "^rc" | awk "{print \$2}" | xargs -r sudo apt-get purge -y && sudo apt-get autoremove --purge -y && sudo apt-get clean'
 alias APT=' bash -c "curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/i.apt.sh" | bash -s -- '
 alias bcl=' bat -ppl '
@@ -78,55 +72,55 @@ alias ...=' cd ../../ '
 alias ....=' cd ../../../ '
 alias .....=' cd ../../../../ '
 alias ......=' cd ../../../../../ '
-alias DY=' codex --yolo '
-alias DYR=' codex resume --yolo '
+alias CDg=' cd /g '
 alias CDA=' cd /g/app/ ; ls -l --color '
+alias CDN=' cd /g/nf/ || cd ~/.G/nf/ ;  ls -l --color '
+alias CDP=' cd /g/private/ ; ls -l --color '
 alias CDs=' cd /g/site/ || cd ~/.G/site/  ; ls -l --color '
 alias CDSI=' cd /g/site/ || cd ~/.G/site/ '
-alias CDN=' cd /g/nf/ || cd ~/.G/nf/ ;  ls -l --color '
 alias VBP=' cd ~/.G/dotfiles ; git pull >/dev/null ; vim ~/.G/dotfiles/home/.bash_profile ; git rm -r --cached . >/dev/null ; git add -A && git commit -amVBP &> /dev/null && git push 1>/dev/null ; cd - &>/dev/null '
-alias CDDC=' cd ~/.G/dotfiles/curl/ ; ls -l --color '
 alias CDD=' cd ~/.G/dotfiles/ ; ls -l --color '
+alias CDDC=' cd ~/.G/dotfiles/curl/ ; ls -l --color '
 alias VNP=' cd ~/.G/misc/notes ; git pull >/dev/null ; vim ./commands.txt ; git rm -r --cached . > /dev/null ; git add -A && git commit -amVNP &> /dev/null && git push ; cd - &>/dev/null '
 alias VEP=' cd ~/.G/misc/notes ; git pull >/dev/null ; vim ./eng.txt ; git rm -r --cached . > /dev/null ; git add -A && git commit -amVEP &> /dev/null && git push ; cd - &>/dev/null '
-alias CDP=' cd /g/private/ ; ls -l --color '
 alias VPP=' cd ~/.G/private/yet ; git pull >/dev/null ; vim ./.RANDOM.txt; git rm -r --cached . > /dev/null ; git add -A && git commit -amVPP &> /dev/null && git push ; cd - &>/dev/null '
 alias LRY=' claude  --model sonnet --dangerously-skip-permissions --resume '
 alias LHY=' claude --model Haiku --dangerously-skip-permissions '
 alias LOY=' claude --model Opus --dangerously-skip-permissions '
-alias LLY=' claude --model sonnet --dangerously-skip-permissions --effort low '
 alias LY=' claude --model sonnet --dangerously-skip-permissions ' # --effort medium '
+alias LLY=' claude --model sonnet --dangerously-skip-permissions --effort low '
+alias DY=' codex --yolo '
+alias DYR=' codex resume --yolo '
 alias co=' cp '
 alias cp=' cp -urf '
 alias CPWE=' cp ./$1 $WIN_USER_DIR/Desktop/ '
-alias USERSYNC=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/e.useradd.sh | bash '
-#alias BNA=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/e.brc.n.auth.sh | bash '
 alias COLAB=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/e.colab.sh | bash '
 alias CDZ=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/e.danger.zone.sh | bash '
 alias ED2=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/e.ed25519.sh | bash '
-#alias CGI=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/e.gemini.api.sh | bash '
 alias CMTZ=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/e.git.reset.sh | bash '
 alias NBP=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/e.new_bash_profile.sh | bash '
 alias PIP=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/e.pip.sh | bash '
+alias USERSYNC=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/e.useradd.sh | bash '
 alias VIMRC=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/e.vimrc.sh | bash '
 alias AWS=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/i.aws-cli.sh | bash '
 alias BAT=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/i.bat.sh | bash '
-#alias GEMINI=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/i.gemini.sh | bash '
 alias GOLANG=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/i.golang.sh | bash '
+alias AIDER=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.aider.sh | bash '
+alias CODEX=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.codex.sh | bash ' 
+alias HERMES=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.hermes.sh | bash '
 alias IPP=' curl ipinfo.io ; curl ifconfig.io '
 alias DET=' deactivate '
 alias DU=' du -sh . ; du -hd1 2>/dev/null |grep "G\|M" '
 alias QUOTE=' echo -e "\nflexibility to improve adaptability\n\nuser-level instructions\n" '
+alias PUSH="git fetch && git add -A && git commit -mFPUSH --no-verify && git push --no-verify --force"
 alias GRC='git fetch --prune && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD) && git clean -fd'
 alias FINDD=' find . -iname 2>/dev/null '
 alias FIND=' find / -iname 2>/dev/null '
-alias TEST=' for i in *.py; do uv run --no-project "$i" 2>&1 | tee -a log; done '
 alias TEST2=' for i in *.py; do stdbuf -oL -eL uv run --no-project "$i" 2>&1 | tee -a log; done '
-alias GY=' agy --dangerously-skip-permissions '
-alias GG=' agy '
-alias GYR=' agy -c --dangerously-skip-permissions '
+alias TEST=' for i in *.py; do uv run --no-project "$i" 2>&1 | tee -a log; done '
 alias GCO=' git checkout '
 alias GC=' git clone '
+alias GCGR=' git config --get remote.origin.url '
 alias GS=' git status '
 alias GLNS=' glances --disable-plugin=sensors,amps,containers -t5'
 alias GE=' grep -Ei --color '
@@ -148,35 +142,28 @@ alias ll=' ls -l --color '
 alias llh=' ls -lh --color '
 alias CDB=' mkdir ~/.BACKUP &>/dev/null ; cd ~/.BACKUP ; ls -A --color |sort '
 alias CDG=' mkdir ~/.G &>/dev/null ; cd ~/.G/* 2>/dev/null || { cd ~/.G && ls -A --color |sort ; } '
-alias CDg=' cd /g '
 alias NC=' nc -zvw2 '
 alias PS5=' ps aux | sort -nrk 3,3 | head -n 5 '
 alias PUSH2="git pull >/dev/null && git add -A && git commit -mPUSH --no-verify && git push --no-verify"
-alias PUSH="git fetch && git add -A && git commit -mFPUSH --no-verify && git push --no-verify --force"
 alias PY=' python3 '
 alias rm=' rm -rf '
 alias RSYNC=' rsync -ruzvP '
 alias scpr=' scp -rC '
 alias SHK=' sort -hk '
-# alias SB=' source ~/.G/dotfiles/home/.bash_profile 2>/dev/null || source /dev/stdin <<< "$(curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile)" ; cd - &>/dev/null '
 alias SB=' source ~/.G/dotfiles/home/.bash_profile 2>/dev/null || source /dev/stdin <<< "$(curl -Ls "https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile?v=$(date +%s)")" ; cd - &>/dev/null '
-
-
 alias SS=' ss -lutn '
 alias SSG=' ss -lutn |grep -i --color '
+alias UU=' sudo agy update ; sudo npm install -g @openai/codex ' # ; sudo hermes update ;  sudo apt update && sudo apt install claude-code -y '
 alias AGP2=' sudo apt-get purge -y ; dpkg -l | grep "^rc" | awk "{print\$2}" | xargs sudo apt-get purge -y ; sudo apt-get autoremove -y '
 alias AGU=' sudo apt-get purge -y >/dev/null '
 alias AGR=' sudo apt-get remove -y >/dev/null '
 alias AGG=' sudo apt-get update >/dev/null ; apt list |tee ~/.APT |grep -i --color '
 alias AGI=' sudo apt-get update >/dev/null ; sudo apt-get install -y >/dev/null '
-# alias ACL3=' sudo find /g -type d -exec chmod 2777 {} + ; sudo find /g -type d -exec setfacl -m m:rwx,d:m:rwx {} + '
-alias ACL=' sudo chown -R :g /g ; sudo chmod -R 2777 /g ; sudo setfacl -R -m u::rwx,g::rwx,o::rwx,m:rwx,d:u::rwx,d:g::rwx,d:o::rwx,d:m:rwx /g '
 alias ACL2=' sudo chown -R :g /g ; sudo chmod -R 2777 /g ; sudo setfacl -R --set u::rwx,g::rwx,o::rwx,m:rwx,d:u::rwx,d:g::rwx,d:o::rwx,d:m:rwx /g ; find /g -name ".git" -type d -exec sudo setfacl -R -m m:rwx {} + '
+alias ACL=' sudo chown -R :g /g ; sudo chmod -R 2777 /g ; sudo setfacl -R -m u::rwx,g::rwx,o::rwx,m:rwx,d:u::rwx,d:g::rwx,d:o::rwx,d:m:rwx /g '
 alias llll=' sudo find . '
 alias llllg=' sudo find . |grep -i '
-#alias NPMG=' sudo npm install -g npm ; sudo npm install -g @google/gemini-cli '
 alias tmprm=' sudo rm -rf /tmp/{,.}* 2>/dev/null ; cd /tmp '
-# alias ACL=' sudo setfacl -R -b /g ; sudo setfacl -R -m u::rwx,g::rwx,o::rwx,m:rwx /g ; sudo setfacl -R -d -m u::rwx,g::rwx,o::rwx,m:rwx /g ; sudo chattr -R -i -a /g 2>/dev/null || true '
 alias SU=' sudo su - '
 alias SUF=' sudo su - f '
 alias SUN=' sudo su - n '
@@ -232,7 +219,6 @@ sl() { for SOMETHING in $(cat ./$1); do $2 $SOMETHING; done; }
 GRC2() { local T=$(git rev-parse --show-toplevel 2>/dev/null) || return 1; local U=$(git -C "$T" remote get-url origin) || return 1; local R=$(basename "$T"); local P="${PWD#$T}"; cd "$(dirname "$T")" && rm -rf "$R" && git clone "$U" "$R" && cd "$R$P"; }
 CIO() { if [ -n "$1" ]; then cp -urf "$1" /mnt/c/Users/e/Desktop/; else cp -urf ./* /mnt/c/Users/e/Desktop/; fi; }
 COI() { if [ -n "$1" ]; then cp -urf "/mnt/c/Users/e/Downloads/$1" .; else cp -urf /mnt/c/Users/e/Downloads/* .; fi; }
-#UR() { if [ -n "$1" ]; then uv run --no-project "$1"; else uv run --no-project main.py; fi; }
 UR() { if [ -n "$1" ]; then uv run --no-project "$@"; else uv run --no-project main.py; fi; }
 GRCD() { local _old="$PWD"; cd ~/.G/dotfiles && git fetch --prune && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD) && git clean -fd; cd "$_old"; }
 CMPL() { $1 completion bash > /etc/bash_completion.d/$1 || ls -l /etc/bash_completion.d ; }
@@ -251,4 +237,3 @@ CT() { cat ~/.T$1 2>/dev/null ; }
 VT() { vim ~/.T$1 ; }
 HG() { cat ~/.bash_history | grep -ai --color "$1" ; }
 CG() { cat ~/.gemini/GEMINI.md 2>/dev/null || curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/GEMINI.md ; }
-alias GCGR=' git config --get remote.origin.url '
