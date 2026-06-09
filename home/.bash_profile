@@ -205,7 +205,7 @@ WHOIS() { whois $1 | grep -Ev "^\s*(#|$)" |grep -i NetName ; }
 AWK() { awk $2 "{print\$$1}" ; }
 ECDZ() { echo 'source /dev/stdin <<< "$(curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile)"' |tee ~/.bash_profile /home/e/.bash_profile /home/ubuntu/.bash_profile ; }
 l() { ls -A | grep "^\." | xargs -d '\n' ls -d --color ; }
-BRC() { curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile |grep -vEi raw.githubusercontent.com\|git_ps1 | ssh $1 "cat > .BRC" ; }
+#BRC() { curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile |grep -vEi raw.githubusercontent.com\|git_ps1 | ssh $1 "cat > .BRC" ; }
 NSP() { nmap -T5 -snP $1 |G report | AWK 5 ; }
 DF() { df -h |sort -hk2 |sed -e 1b -e '$!d' ; }
 SEDID() { sed -i "/$1/d" $2 ; }
