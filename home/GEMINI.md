@@ -28,6 +28,11 @@
 - uv run 獨立環境；PEP 723 宣告依賴，`requires-python` 需設明確上限, 以最重依賴的最高支援版本為準，優先官方 wheel，僅在 PyPI 缺失必要功能時才使用 Git source
 - 每個專案根目錄須有 uv.toml 含 cache-dir 與 python-preference = "only-managed"；PEP 723 是腳本內唯一備註
 - 每支腳本在所有 import 前須隔離 sys.path，防止系統 site-packages 滲入 venv
+# Rust 執行環境
+- Cargo build artifacts 透過專案根目錄 `.cargo/config.toml` 的 `build.target-dir = "TMP/target"` 控制
+- Cargo dependency cache 執行前設 `CARGO_HOME=TMP/.cargo-home`
+- 禁止新增 Cargo wrapper script，除非 Cargo 原生 config 無法表達需求
+- 不靠 `.gitignore` 掩蓋中間檔位置錯誤；位置必須由工具設定約束
 # GPU 應用
 - [transformers] `torch_dtype` is deprecated! Use `dtype` instead!
 - dtype 顯式指定與一致性優先，推論盡量對齊訓練 dtype；來源不明預設 BF16
