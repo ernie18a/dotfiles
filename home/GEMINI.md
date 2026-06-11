@@ -22,7 +22,7 @@
 # I/O 與寫入隔離
 - `/g` 是掛載的工作硬碟；工作專案與讀寫應停留在工作硬碟，避免回到作業系統硬碟的家目錄或 `/tmp`。
 - INPUT/ 存原始輸入，OUTPUT/ 存最終輸出，./TMP/ 存專案中間檔。
-- cache、下載物、模型權重、瀏覽器 binaries、build artifacts、工具索引預設寫入 `/g/TMP/`。
+- cache、下載物、模型權重、瀏覽器 binaries、build artifacts、工具索引預設寫入 `/g/.TMP/`。
 - 禁止 fallback 到 `~/`、`/tmp`、`~/.cache`。
 # Python 執行環境
 - uv run 獨立環境；PEP 723 宣告依賴，`requires-python` 需設明確上限, 以最重依賴的最高支援版本為準，優先官方 wheel，僅在 PyPI 缺失必要功能時才使用 Git source
