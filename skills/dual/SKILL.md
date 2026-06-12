@@ -1,6 +1,6 @@
 ---
 name: dual
-description: Create numbered todoNN.md handoff plans for delegating bounded implementation batches to a less capable AI agent. Use when the user wants a smart AI to inspect current state, generate the next self-contained todoNN.md, handle unresolved issues from prior todos, define scope/contracts/tests/stop conditions/reporting, and optionally coordinate non-overlapping parallel todos without executing the work.
+description: "Create numbered todoNN.md handoff plans for a two-agent workflow: a smart AI plans and a less capable AI executes. Use when the user wants the smart AI to inspect current state, generate the next self-contained todoNN.md, handle unresolved issues from prior todos, define scope/contracts/tests/stop conditions/reporting, and optionally coordinate non-overlapping parallel todos without executing the work."
 ---
 
 # Dual
