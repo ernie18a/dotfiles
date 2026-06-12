@@ -1,12 +1,18 @@
-# SKILL3
+---
+name: dual
+description: Create numbered todoNN.md handoff plans for delegating bounded implementation batches to a less capable AI agent. Use when the user wants a smart AI to inspect current state, generate the next self-contained todoNN.md, handle unresolved issues from prior todos, define scope/contracts/tests/stop conditions/reporting, and optionally coordinate up to two non-overlapping parallel todos without executing the work.
+---
+
+# Dual
 
 ## 目的
 
-本技能只給聰明 AI 使用。
+用本技能產生編號計畫書。
 
-聰明 AI 用本技能產生編號計畫書。
-笨 AI 不讀本技能。
-笨 AI 只讀並執行指定的 `todoNN.md`。
+角色分工：
+
+- 聰明 AI 讀本技能，產生下一份 `todoNN.md`。
+- 笨 AI 不讀本技能，只讀並執行指定的 `todoNN.md`。
 
 核心目標：
 
@@ -20,7 +26,7 @@
 聰明 AI：
 
 ```text
-follow SKILL3.md
+follow dual
 產生下一份 todoNN.md。
 不要執行。
 ```
@@ -75,7 +81,7 @@ todo03.md
 
 不要要求笨 AI：
 
-- 讀 `SKILL3.md`。
+- 讀 `dual/SKILL.md`。
 - 讀聊天紀錄。
 - 自行理解大方向。
 - 自行重切 scope。
