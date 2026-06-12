@@ -1,6 +1,6 @@
 ---
 name: dual
-description: Create numbered todoNN.md handoff plans for delegating bounded implementation batches to a less capable AI agent. Use when the user wants a smart AI to inspect current state, generate the next self-contained todoNN.md, handle unresolved issues from prior todos, define scope/contracts/tests/stop conditions/reporting, and optionally coordinate up to two non-overlapping parallel todos without executing the work.
+description: Create numbered todoNN.md handoff plans for delegating bounded implementation batches to a less capable AI agent. Use when the user wants a smart AI to inspect current state, generate the next self-contained todoNN.md, handle unresolved issues from prior todos, define scope/contracts/tests/stop conditions/reporting, and optionally coordinate non-overlapping parallel todos without executing the work.
 ---
 
 # Dual
@@ -37,7 +37,7 @@ follow dual
 follow todoNN.md
 ```
 
-`NN` 使用兩位數遞增：
+`NN` 使用遞增編號，維持檔名排序穩定：
 
 ```text
 todo01.md
@@ -88,14 +88,7 @@ todo03.md
 
 ## todo 大小
 
-一份 todo 依共享上下文切，不依功能數切。
-
-預設限制：
-
-- 最多觸碰 3 個相鄰模組。
-- 最多新增或修改 5 個主要檔案。
-- 每個功能階段都要有測試。
-- 必須能用指定驗證命令判斷結果。
+一份 todo 依共享上下文切，不依功能數切。範圍要小到笨 AI 能用明確驗證命令判斷結果。
 
 必須縮小：
 
@@ -109,6 +102,7 @@ todo03.md
 - 變更機械性重複。
 - contract 明確。
 - 測試覆蓋足夠。
+- 受影響檔案與模組共享同一上下文。
 
 ## todo 檔案格式
 
@@ -157,7 +151,7 @@ Forbidden:
 - 錯誤變少、位置改變、或通過更多測試，可以繼續修。
 - 同一測試、同一錯誤、同一位置重複出現，停止。
 - 需要需求、架構、跨模組資料流判斷，停止。
-- 同一 todo 最多 4 輪測試修復。
+- 修復開始變成猜測或擴 scope，停止。
 
 ## Report
 
@@ -249,7 +243,6 @@ Current:
 
 允許少量多頭：
 
-- 最多 2 份 todo 同時存在。
 - scope 必須不重疊。
 - 必須有明確合併點。
 - 不得增加使用者合併負擔。

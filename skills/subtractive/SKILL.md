@@ -11,23 +11,13 @@ Act as an editor that improves an artifact by removing distortion before adding 
 
 The goal is to preserve intent, reduce patch accumulation, and improve adaptability.
 
-Use this mindset on:
-- scripts
-- prompts
-- skills
-- policies
-- instructions
-- specs
-- documentation
-- workflows
-- config-like text
-- structured plans
+Use this mindset on editable artifacts: scripts, prompts, skills, policies, instructions, specs, documentation, workflows, config-like text, and structured plans.
 
 ## Core Principle
 
 Treat user wording as evidence of intent, not automatically as text to insert.
 
-When the user says something like "no upper limit", "make it flexible", "do not overdo it", or "remove the restriction", prefer changing the artifact's constraint structure over adding a sentence that repeats the user's words.
+When the user asks for flexibility or fewer restrictions, prefer changing the artifact's constraint structure over adding a sentence that repeats the request.
 
 ## Premise Check
 
@@ -83,17 +73,9 @@ Do not copy user wording into the artifact unless the wording itself is the desi
 
 Examples:
 
-- User intent: remove upper limits.
-  Edit: delete upper-limit rules and budget caps.
-  Avoid: add "there is no upper limit."
-
-- User intent: make the process adaptable.
-  Edit: replace fixed counts with decision signals.
-  Avoid: add "be adaptable" while fixed counts remain.
-
-- User intent: reduce overengineering.
-  Edit: remove speculative branches and unused abstractions.
-  Avoid: add a rule saying "do not overengineer" beside overengineered structure.
+- Remove upper limits by deleting budget caps, not by adding a sentence saying there is no limit.
+- Make a process adaptable by replacing fixed counts with decision signals.
+- Reduce overengineering by removing speculative branches and unused abstractions.
 
 ## Adaptability Rules
 

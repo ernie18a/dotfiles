@@ -87,7 +87,7 @@ Do not ask which run type to use. Pick the smallest run that preserves the user'
 
 ## Handoff File Naming
 
-Use two-digit incremental names:
+Use incremental names that keep filesystem sorting stable:
 
 ```text
 run01.md
@@ -113,12 +113,7 @@ Do not read:
 
 ## Run Size
 
-Default shape:
-
-- 3 to 6 phases.
-- Each phase has an independent test or check.
-- All phases share one main goal.
-- No unrelated subsystem crossing.
+Each run should have a single main goal, clear module boundaries, and phase-level checks.
 
 Shrink the run when:
 
@@ -201,7 +196,7 @@ Test:
 - 修復造成 scope 外問題，停止。
 - 需求、架構、跨模組資料流需要判斷時，依 Scope、Contracts、既有模式做最小可逆決策，並記錄 assumption。
 - 只有所有可行決策都會違反 Scope 或 Contracts 時，停止。
-- 同一階段最多 4 輪測試修復。
+- 修復開始變成猜測或擴 scope，停止。
 
 ## Stop
 

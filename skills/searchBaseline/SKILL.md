@@ -41,13 +41,13 @@ Do not infer hidden behavior or unavailable internal facts. Mark them as unknown
 
 ## Search Waves
 
-Use staged search:
+Use staged search when the task needs more than a direct answer:
 
-1. Start broad enough to expose multiple independent paths.
-2. Identify which paths are baseline repetition, weak aggregation, or high-signal frontier material.
-3. Deepen the high-signal paths.
-4. Stop paths that only repeat the baseline or low-information claims.
-5. Switch to synthesis when new searches mostly repeat known clusters.
+- Start broad enough to expose independent paths.
+- Identify which paths are baseline repetition, weak aggregation, or high-signal material.
+- Deepen the high-signal paths.
+- Stop paths that only repeat the baseline or low-information claims.
+- Switch to synthesis when new searches mostly repeat known clusters.
 
 Prefer depth in strong paths over collecting many shallow pages.
 

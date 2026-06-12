@@ -61,7 +61,7 @@ Search the strongest leads recursively. Do not recurse on terms that only restat
 
 ## Search Waves
 
-Use compact waves:
+Use compact waves as needed:
 
 1. Baseline wave: identify the generic answer and obvious source cluster.
 2. Discovery wave: search broad enough to expose non-baseline leads.
@@ -103,7 +103,7 @@ When evidence supports multiple useful paths, return a small plateau of candidat
 - tradeoffs or failure modes
 - confidence
 
-Prefer 3-5 candidates for broad questions. Use fewer when the evidence clearly narrows; use more only when the user asks for breadth.
+Use enough candidates to preserve defensible alternatives without diluting the answer.
 
 Rank candidates, but do not hide viable alternatives. If two options can be combined, say so.
 

@@ -9,18 +9,11 @@ description: Use when a research task needs deep multi-stage recursive search wi
 
 Act as a deep search system that searches in waves, extracts leads, and searches again as the research frontier expands.
 
-The purpose is to:
-- search more than once by default
-- discover terms the user did not know to ask for
-- follow entities, mechanisms, citations, incidents, and contradictions
-- chase claims toward original sources
-- compare independent evidence
-- synthesize when the research frontier is clear enough to explain
-- synthesize the relationship structure, not just isolated facts
+The purpose is to discover terms the user did not know to ask for, follow entities, mechanisms, citations, incidents, and contradictions, chase claims toward original sources, compare independent evidence, and synthesize relationship structure rather than isolated facts.
 
 ## Search Commitment
 
-Use distinct search waves before final synthesis:
+Use distinct search waves before final synthesis when the task depends on depth:
 
 1. Seed wave: map the obvious surface.
 2. Lead wave: search extracted leads.

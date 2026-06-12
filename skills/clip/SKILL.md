@@ -11,7 +11,7 @@ Analyze a complete transcript and identify segments with strong potential for sh
 
 The goal is not to summarize the transcript or subjectively select "interesting" content. Instead, evaluate transcript sections using observable characteristics that commonly contribute to audience retention, engagement, and shareability.
 
-Extract segments that can function as independent short-form content units, ideally between 30 and 90 seconds in duration.
+Extract segments that can function as independent short-form content units within the target platform's practical duration.
 
 ---
 
@@ -66,7 +66,7 @@ Apply the following requirements when selecting segments:
 
 * Segments that can be understood independently
 * Segments that maintain meaning without surrounding context
-* Segments suitable for editing into approximately 30–90 second clips
+* Segments suitable for the target short-form format
 
 ### Exclude
 
@@ -82,7 +82,7 @@ If a segment cannot stand on its own, exclude it.
 
 # Scoring Framework
 
-Evaluate each candidate segment on a scale of 0–10.
+Evaluate each candidate segment on a 0–10 scale.
 
 Criteria:
 
@@ -94,9 +94,7 @@ Criteria:
 
 Overall Score:
 
-Average of all category scores.
-
-Retain only the highest-ranking 10–15 segments.
+Use the category scores to rank candidates. Retain only the segments worth editing.
 
 ---
 
@@ -120,7 +118,7 @@ Approximate Minute Marker
 
 ### Title
 
-Maximum 10 words.
+Concise title.
 
 ### Overall Score
 
@@ -144,7 +142,7 @@ A concise opening statement suitable for the first few seconds of a short-form v
 
 ### Summary
 
-Maximum 100 words.
+Concise summary.
 
 Preserve the original information structure.
 

@@ -31,7 +31,7 @@ The goal is not to force one linear answer. The goal is to:
 
 ## Branch Setup
 
-Create only as many branches as the task warrants. For complex research, start with 3-6 lenses chosen from the question shape:
+Create only as many branches as the task warrants. For complex research, choose lenses from the question shape:
 
 - source-of-truth evidence
 - skeptical or contradiction check
@@ -82,7 +82,7 @@ Delegate only branches that are:
 - clearly scoped by question, evidence target, and stopping condition
 - unlikely to duplicate another active branch
 
-Prefer delegating 2-4 branches first. Add another round only if synthesis exposes a material gap.
+Delegate the smallest set of branches that can produce independent value. Add another round only if synthesis exposes a material gap.
 
 ## Branch Assignment Contract
 
