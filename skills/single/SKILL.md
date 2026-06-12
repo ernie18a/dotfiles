@@ -1,6 +1,6 @@
 ---
 name: single
-description: Use when the user wants a one-pass handoff plan for a less capable AI agent: create a runNN.md file that defines scope, contracts, phases, tests, stop conditions, and reporting so the downstream agent can execute a complete batch without repeated clarification.
+description: Use when the user wants a one-pass handoff plan for a less capable AI agent that creates a runNN.md file defining scope, contracts, phases, tests, stop conditions, and reporting so the downstream agent can execute a complete batch without repeated clarification.
 ---
 
 # Single-Pass Handoff
@@ -15,7 +15,7 @@ The downstream agent should only need to run:
 follow runNN.md
 ```
 
-The handoff must let the downstream agent complete a coherent batch of work without returning for clarification after each phase.
+The handoff must include enough scope, contracts, and decision rules for the downstream agent to complete a coherent batch without clarification loops.
 
 ## Responsibility Split
 
@@ -29,6 +29,7 @@ The planning agent decides:
 - Which execution order is required.
 - Which tests allow progress.
 - Which failures require stopping.
+- How likely ambiguity should be resolved.
 - Which changes would turn the task into a different task.
 
 The downstream agent performs:
@@ -36,6 +37,7 @@ The downstream agent performs:
 - Local implementation.
 - Specified tests.
 - Explicit local fixes.
+- Local judgment using the handoff's scope, contracts, and decision rules.
 - Structured status reporting.
 
 The downstream agent must not:
@@ -56,6 +58,7 @@ Plan only the parts where the downstream agent is likely to make bad decisions:
 - Scope.
 - Order.
 - Contracts.
+- Decision rules.
 - Test ladder.
 - Stop conditions.
 - Report format.
@@ -72,16 +75,15 @@ Do not predesign unnecessary implementation detail:
 Use this skill when:
 
 - The user wants a single handoff.
-- The task direction is clear.
 - The downstream agent can do most implementation.
 - Cost matters more than maximum stability.
 
-Do not use this skill when:
+Choose one run type:
 
-- Requirements are not converged.
-- Contracts are unclear.
-- Major architecture decisions are still open.
-- Failure cost is high.
+- Implementation run: goal, scope, contracts, and tests are clear enough to change files.
+- Evaluation run: requirements, contracts, architecture, or tests need discovery before file changes.
+
+Do not ask which run type to use. Pick the smallest run that preserves the user's stated goal and contracts.
 
 ## Handoff File Naming
 
@@ -158,6 +160,13 @@ Forbidden:
 - error:
 - invariants:
 
+## Decision Rules
+
+- ambiguity:
+- default choice:
+- evaluation criteria:
+- assumption logging:
+
 ## Phases
 
 ### Phase 1: 名稱
@@ -190,18 +199,19 @@ Test:
 - 錯誤變少、位置改變、或通過更多測試，可以繼續修。
 - 同一測試、同一錯誤、同一位置重複出現，停止。
 - 修復造成 scope 外問題，停止。
-- 需要需求、架構、跨模組資料流判斷，停止。
+- 需求、架構、跨模組資料流需要判斷時，依 Scope、Contracts、既有模式做最小可逆決策，並記錄 assumption。
+- 只有所有可行決策都會違反 Scope 或 Contracts 時，停止。
 - 同一階段最多 4 輪測試修復。
 
 ## Stop
 
 立即停止並回報：
 
-- scope 不足。
+- scope 不足，且無法縮小成 evaluation run。
 - contract 衝突。
 - 測試命令不存在或無法判斷結果。
 - 同一錯誤重複。
-- 需要使用者或規劃 agent 判斷。
+- 所有可行下一步都會改變 Goal、越過 Scope、或違反 Contracts。
 
 ## Report
 
