@@ -133,7 +133,7 @@ Put in the input documents:
 - issue equivalence rules
 - when worker may retry
 - when smart must shrink scope
-- when smart must stop delegating and directly handle the issue
+- when smart must stop retrying the same worker path and choose block, clarify, or a different smaller batch
 - when human input is required
 - project-specific command restrictions
 
@@ -147,6 +147,20 @@ Do not put in the input documents as requirements on the tool:
 - MCP protocol handling
 
 Mention tool behavior only as an assumption when needed.
+
+## Smart Review Discipline
+
+Smart review should be grounded in concrete current state, not a fresh abstract plan from the terminal goal.
+
+When reviewing a worker result, tell Smart to base the next decision on:
+
+- worker report
+- changed files
+- verification output
+- unresolved blocker
+- completion criteria
+
+Smart should use that evidence to approve completion, shrink scope, clarify the next batch, change approach, or block. Do not frame escalation as Smart taking over implementation unless the user explicitly wants Smart-side edits outside the normal Worker path.
 
 ## Thread And State Assumptions
 
@@ -212,12 +226,12 @@ Forbidden:
 
 ## Escalation Policy
 
-- If worker reports `done`, smart reviews source-of-truth state and completion criteria before deciding whether to issue the next batch or stop.
+- If worker reports `done`, smart reviews concrete current state and Completion Criteria before deciding whether to issue the next batch or stop.
 - Smart should use the Context Index to pick only the files needed for the next batch.
 - Smart may return `done` only when Completion Criteria are met.
 - If the current batch is complete but Completion Criteria are not met, smart must issue the next batch from the remaining source-of-truth work.
 - If worker reports `blocked` on a local implementation issue, smart should first shrink or clarify the batch.
-- If the same issue remains blocked after one revised batch, smart should stop delegating that issue and handle the decision directly.
+- If the same worker path remains blocked after one revised batch, smart should choose a different smaller batch, return `blocked`, or ask for human input. It should not take over implementation by default.
 - If the next action would violate Scope, Contracts, or command restrictions, smart should return a `blocked` stop decision.
 - Runtime failures, malformed JSON, or tool protocol failures are owned by `/g/app/dual`, not by this policy.
 
