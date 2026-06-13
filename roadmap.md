@@ -1,2 +1,3 @@
+- ls skill
 - claude codex y, cy, dy.
 - WAIT 多個程序 , 等越多的話 他的另外一個 等待時間要增加 倍數 

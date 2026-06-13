@@ -1,128 +1,129 @@
 ---
 name: dual
-description: "Create numbered todoNN.md handoff plans for a two-agent workflow: a smart AI plans and a less capable AI executes. Use when the user wants the smart AI to inspect current state, generate the next self-contained todoNN.md, handle unresolved issues from prior todos, define scope/contracts/tests/stop conditions/reporting, and optionally coordinate non-overlapping parallel todos without executing the work."
+description: "Prepare INPUT/*.md briefs for the /g/app/dual dual-session Codex orchestrator. Use when Codex should turn a user goal, repo state, unresolved issue, or handoff notes into low-coupling input files that let a smart Codex guide a worker Codex with structured progress, supervision, escalation rules, verification boundaries, and minimal manual switching."
 ---
 
 # Dual
 
-## 目的
+## Purpose
 
-用本技能產生編號計畫書。
+Create input documents for `/g/app/dual`.
 
-角色分工：
+The tool is the runtime:
 
-- 聰明 AI 讀本技能，產生下一份 `todoNN.md`。
-- 笨 AI 不讀本技能，只讀並執行指定的 `todoNN.md`。
+- start smart and worker Codex sessions
+- pass prompts between them
+- require structured replies
+- persist state and transcript
+- apply generic runtime guardrails
 
-核心目標：
+This skill is the strategy layer:
 
-- 降低聰明 AI 實作成本。
-- 降低笨 AI 理解成本。
-- 降低使用者補下一步成本。
-- 保留近似 `follow 00.md` 的無腦操作。
+- write `INPUT/*.md`
+- define task goal, scope, validation, stop rules, and escalation policy
+- keep task semantics out of the tool
+- make smart Codex lead worker Codex without requiring the user to manually switch models
 
-## 使用方式
+## Output
 
-聰明 AI：
+Create one or more markdown files intended to be placed under a target project's `INPUT/`.
 
-```text
-follow dual
-產生下一份 todoNN.md。
-不要執行。
-```
-
-笨 AI：
+Default:
 
 ```text
-follow todoNN.md
+INPUT/00-brief.md
 ```
 
-`NN` 使用遞增編號，維持檔名排序穩定：
+Use multiple files only when it improves sorting and reuse:
 
 ```text
-todo01.md
-todo02.md
-todo03.md
+INPUT/00-brief.md
+INPUT/10-context.md
+INPUT/20-policy.md
 ```
 
-一份 `todoNN.md` 是一個 batch。
+Do not create tool-specific code unless the user explicitly asks to modify `/g/app/dual`.
 
-## 聰明 AI 責任
+## Fit Check
 
-聰明 AI 負責：
+Before writing input files, verify the premise:
 
-- 讀目前狀態與必要程式碼。
-- 決定下一個 batch。
-- 產生 `todoNN.md`。
-- 把必要規則寫進 `todoNN.md`。
-- 判斷上一份 todo 的 unresolved issue。
-- 決定直接修，或產生下一份 todo。
+- The goal needs smart planning plus cheaper worker execution.
+- The task can be described with clear scope and stop conditions.
+- Worker can make progress from a batch plan without reading chat history.
+- Any required repo context can be named directly.
 
-聰明 AI 不負責：
+If the task is a direct one-shot fix, say that `/g/app/dual` may add overhead and produce a smaller direct handoff instead.
 
-- 全程實作。
-- 產生長篇背景。
-- 把本技能內容原樣塞進 todo。
-- 預測所有未發生問題。
+## File Requirements
 
-## 笨 AI 假設
+Each generated input set must be self-contained enough for smart Codex to start.
 
-笨 AI 只知道 `todoNN.md`。
+Include:
 
-所以 `todoNN.md` 必須自足：
+- goal
+- current state or known issue
+- allowed scope
+- forbidden scope
+- contracts that must not change
+- verification commands or verification limits
+- escalation policy
+- completion criteria
+- reporting expectations
 
-- 要做什麼。
-- 可改哪裡。
-- 不可改哪裡。
-- 測什麼。
-- 失敗時怎麼修。
-- 何時停止。
-- 回報什麼。
+Avoid:
 
-不要要求笨 AI：
+- chat history dumps
+- long architecture essays
+- tool implementation details
+- duplicate runtime rules already owned by `/g/app/dual`
+- instructions that require the tool to understand project-specific semantics
 
-- 讀 `dual/SKILL.md`。
-- 讀聊天紀錄。
-- 自行理解大方向。
-- 自行重切 scope。
+## Boundary Rules
 
-## todo 大小
+Put in the input documents:
 
-一份 todo 依共享上下文切，不依功能數切。範圍要小到笨 AI 能用明確驗證命令判斷結果。
+- task slicing
+- issue equivalence rules
+- when worker may retry
+- when smart must shrink scope
+- when smart must stop delegating and directly handle the issue
+- when human input is required
+- project-specific command restrictions
 
-必須縮小：
+Do not put in the input documents as requirements on the tool:
 
-- 需求不清。
-- contract 不穩。
-- 涉及資料格式、持久化、併發、權限、外部 I/O。
-- 上一份 todo 留下 unresolved issue。
+- state file format
+- transcript file format
+- JSON parser behavior
+- turn counter behavior
+- runtime exception retry policy
+- MCP protocol handling
 
-可放寬：
+Mention tool behavior only as an assumption when needed.
 
-- 變更機械性重複。
-- contract 明確。
-- 測試覆蓋足夠。
-- 受影響檔案與模組共享同一上下文。
+## Minimal Template
 
-## todo 檔案格式
-
-`todoNN.md` 必須使用下列格式。
+Use this shape unless the user provides a stronger format:
 
 ```md
-# todoNN
+# dual input
 
 ## Goal
 
-- 本批完成什麼。
+- ...
+
+## Current State
+
+- ...
 
 ## Scope
 
 Allowed:
-- 可改哪些檔案、模組或邊界。
+- ...
 
 Forbidden:
-- 不可碰哪些範圍。
-- 不可新增哪些設計。
+- ...
 
 ## Contracts
 
@@ -131,140 +132,70 @@ Forbidden:
 - error:
 - invariants:
 
-## Tasks
-
-1. 任務 A
-   - change:
-   - test:
-2. 任務 B
-   - change:
-   - test:
-
 ## Verification
 
-- command:
-- expected:
+- allowed commands:
+- forbidden commands:
+- expected evidence:
 
-## Failure loop
+## Escalation Policy
 
-- 測試失敗後，只修明確局部問題。
-- 錯誤變少、位置改變、或通過更多測試，可以繼續修。
-- 同一測試、同一錯誤、同一位置重複出現，停止。
-- 需要需求、架構、跨模組資料流判斷，停止。
-- 修復開始變成猜測或擴 scope，停止。
+- If worker reports `done`, smart reviews the report and either issues the next batch or stops with `done`.
+- If worker reports `blocked` on a local implementation issue, smart should first shrink or clarify the batch.
+- If the same issue remains blocked after one revised batch, smart should stop delegating that issue and handle the decision directly.
+- If the next action would violate Scope, Contracts, or command restrictions, smart should return a `blocked` stop decision.
+- Runtime failures, malformed JSON, or tool protocol failures are owned by `/g/app/dual`, not by this policy.
 
-## Report
+## Completion Criteria
 
-完成時回報：
+- ...
+
+## Report Expectations
 
 - changed files:
 - tests:
-- result:
-
-停止時回報：
-
 - unresolved issue:
-- failed command:
-- key error:
-- files changed:
-- fixes tried:
-- current state:
+- assumptions:
 ```
 
-## todo 內容規則
+## Escalation Guidance
 
-todo 要短。
+Keep escalation semantic and task-local.
 
-要包含：
+Good:
 
-- 執行邊界。
-- 測試命令。
-- 停止條件。
-- 回報格式。
-- 上一份 todo 遺留 issue，如果有。
-
-不要包含：
-
-- 長背景。
-- 聊天紀錄。
-- 本技能全文。
-- 推測性建議。
-- 與本批無關的架構討論。
-
-## Issue 處理
-
-笨 AI 回報 unresolved issue 後，聰明 AI 判斷。
-
-預設：
-
-- 把 issue 放進下一份 `todoNN.md` 的第一個任務。
-
-直接修：
-
-- 問題小。
-- 問題局部。
-- 修改比再委派更便宜。
-- 笨 AI 已卡在同一 issue。
-
-強制直接修：
-
-- 同一 issue 已委派過一次。
-- 下一份 todo 仍卡在同一 issue。
-
-禁止：
-
-- 同一 issue 無限產生新 todo。
-- 未處理紅測試就開新功能。
-
-## 狀態紀錄
-
-若需要續跑，只維護極短狀態。
-
-格式：
-
-```md
-Current:
-- todo:
-- status: running | done | blocked
-- tests:
-- unresolved issues:
-- next:
+```text
+Treat the issue as the same issue only when the failing command, failing behavior, and touched module are unchanged.
 ```
 
-狀態只用來回答：
+Bad:
 
-- 現在做到哪份 todo。
-- 上一份是否完成。
-- 下一份要產生什麼。
+```text
+The tool should count three worker failures and then force smart to code.
+```
 
-## 多頭
+The tool cannot reliably know whether two implementation failures are the same task issue. Smart Codex can judge that from the worker report and repo context.
 
-預設單線。
+## Cross-Project Use
 
-允許少量多頭：
+Assume `/g/app/dual` is run from the target project directory:
 
-- scope 必須不重疊。
-- 必須有明確合併點。
-- 不得增加使用者合併負擔。
+```bash
+uv run --project /g/app/dual --directory "$PWD" python -m dual
+```
 
-不使用多頭：
+Therefore generated input paths are relative to the target project, not `/g/app/dual`.
 
-- contract 不穩。
-- 模組邊界不清。
-- 測試互相影響。
+## Quality Bar
 
-## 完成判斷
+Prefer the smallest useful input set.
 
-一份 todo 完成需同時滿足：
+Remove anything that does not affect:
 
-- scope 內工作完成。
-- 指定測試已跑。
-- 測試結果符合 expected。
-- 無未記錄失敗。
-- 回報足夠產生下一份 todo。
+- smart planning
+- worker execution
+- validation
+- stopping
+- escalation
 
-若未完成：
-
-- 不補做 scope 外工作。
-- 記錄 unresolved issue。
-- 回到聰明 AI。
+When in doubt, write less and make boundaries sharper.
