@@ -44,6 +44,14 @@ INPUT/20-policy.md
 
 Do not create tool-specific code unless the user explicitly asks to modify `/g/app/dual`.
 
+## Source Handling
+
+Accept the user's named source material as the root of truth for the generated brief. The source may be an existing handoff file, project note, issue, repo state summary, chat instruction, or a combination of these.
+
+Convert source material into the `INPUT/*.md` contract instead of assuming the source already has that shape. Preserve source path semantics: if the root material says to read `STATUS.md`, keep it as `STATUS.md` unless it explicitly names `INPUT/STATUS.md`.
+
+When source material contains a local workflow such as "read this first, then read that only if needed", translate it into scope and context rules for Smart/Worker. Do not flatten it into an instruction to read every referenced file up front.
+
 ## Fit Check
 
 Before writing input files, verify the premise:
@@ -184,7 +192,13 @@ Assume `/g/app/dual` is run from the target project directory:
 uv run --project /g/app/dual --directory "$PWD" python -m dual
 ```
 
-Therefore generated input paths are relative to the target project, not `/g/app/dual`.
+## Path Semantics
+
+Generated input files live under `INPUT/`, but project paths mentioned inside them are relative to the target project root, not to `INPUT/` and not to `/g/app/dual`.
+
+Use `INPUT/...` only for files that are themselves task inputs. Use root-relative paths such as `STATUS.md`, `src/foo.rs`, or `tests/foo.rs` for project context and implementation files.
+
+If a referenced project file may not exist, keep that as an uncertainty in the brief instead of rewriting the path.
 
 ## Quality Bar
 
