@@ -52,6 +52,8 @@ Convert source material into the `INPUT/*.md` contract instead of assuming the s
 
 When source material contains a local workflow such as "read this first, then read that only if needed", translate it into scope and context rules for Smart/Worker. Do not flatten it into an instruction to read every referenced file up front.
 
+Separate terminal goals from current next actions. A source file's `Next`, current issue, or handoff focus is the next batch unless the source explicitly defines it as final completion. Use status files, checklists, acceptance criteria, or user goals to derive terminal completion criteria. If terminal completion cannot be inferred, state that gap in the brief instead of treating the current next action as complete success.
+
 ## Fit Check
 
 Before writing input files, verify the premise:
@@ -60,6 +62,7 @@ Before writing input files, verify the premise:
 - The task can be described with clear scope and stop conditions.
 - Worker can make progress from a batch plan without reading chat history.
 - Any required repo context can be named directly.
+- Terminal completion criteria can be identified, or the brief can explicitly mark them as unresolved scope.
 
 If the task is a direct one-shot fix, say that `/g/app/dual` may add overhead and produce a smaller direct handoff instead.
 
@@ -69,7 +72,7 @@ Each generated input set must be self-contained enough for smart Codex to start.
 
 Include:
 
-- goal
+- terminal goal and current batch goal when they differ
 - current state or known issue
 - allowed scope
 - forbidden scope
@@ -92,6 +95,7 @@ Avoid:
 Put in the input documents:
 
 - task slicing
+- how smart should continue after a current batch succeeds while terminal criteria remain unmet
 - issue equivalence rules
 - when worker may retry
 - when smart must shrink scope
@@ -119,11 +123,14 @@ Use this shape unless the user provides a stronger format:
 
 ## Goal
 
-- ...
+- terminal:
+- current batch:
 
 ## Current State
 
-- ...
+- source of truth:
+- known progress:
+- unresolved work:
 
 ## Scope
 
@@ -148,7 +155,9 @@ Forbidden:
 
 ## Escalation Policy
 
-- If worker reports `done`, smart reviews the report and either issues the next batch or stops with `done`.
+- If worker reports `done`, smart reviews source-of-truth state and completion criteria before deciding whether to issue the next batch or stop.
+- Smart may return `done` only when Completion Criteria are met.
+- If the current batch is complete but Completion Criteria are not met, smart must issue the next batch from the remaining source-of-truth work.
 - If worker reports `blocked` on a local implementation issue, smart should first shrink or clarify the batch.
 - If the same issue remains blocked after one revised batch, smart should stop delegating that issue and handle the decision directly.
 - If the next action would violate Scope, Contracts, or command restrictions, smart should return a `blocked` stop decision.
@@ -156,7 +165,9 @@ Forbidden:
 
 ## Completion Criteria
 
-- ...
+- terminal success:
+- required evidence:
+- conditions that are not sufficient by themselves:
 
 ## Report Expectations
 
