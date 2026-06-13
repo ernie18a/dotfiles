@@ -162,6 +162,8 @@ When reviewing a worker result, tell Smart to base the next decision on:
 
 Smart should use that evidence to approve completion, shrink scope, clarify the next batch, change approach, or block. Do not frame escalation as Smart taking over implementation unless the user explicitly wants Smart-side edits outside the normal Worker path.
 
+If repeated attempts produce only new errors without verified progress, tell Smart to stop guessing at the root cause and return a blocked decision with the concrete evidence. If the next action requires system-level or user-owned changes, such as installing OS packages, changing credentials, or modifying machine state outside the allowed commands, make that requirement prominent.
+
 ## Thread And State Assumptions
 
 `/g/app/dual` uses separate Smart and Worker Codex threads and stores their thread ids in `PROGRESS/state.json`.
@@ -232,6 +234,7 @@ Forbidden:
 - If the current batch is complete but Completion Criteria are not met, smart must issue the next batch from the remaining source-of-truth work.
 - If worker reports `blocked` on a local implementation issue, smart should first shrink or clarify the batch.
 - If the same worker path remains blocked after one revised batch, smart should choose a different smaller batch, return `blocked`, or ask for human input. It should not take over implementation by default.
+- If attempts produce only new errors without verified progress, smart should stop retrying and return the evidence needed for human or environment-level action.
 - If the next action would violate Scope, Contracts, or command restrictions, smart should return a `blocked` stop decision.
 - Runtime failures, malformed JSON, or tool protocol failures are owned by `/g/app/dual`, not by this policy.
 
@@ -247,6 +250,7 @@ Forbidden:
 - changed files: project-relative paths only
 - tests: command, status, short output summary only
 - unresolved issue: blocker id, failing behavior, next smallest action
+- human-required action: prominent only when blocked by system-level or user-owned changes
 - assumptions: only assumptions that affect the next plan
 ```
 
