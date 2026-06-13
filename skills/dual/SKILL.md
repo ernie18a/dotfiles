@@ -42,26 +42,7 @@ INPUT/10-context.md
 INPUT/20-policy.md
 ```
 
-Prefer one short `INPUT/00-brief.md` with an explicit context index. Put long source material, architecture notes, transcripts, logs, and reference docs outside `INPUT/` unless the user explicitly wants them loaded every Smart turn.
-
-Good:
-
-```text
-INPUT/00-brief.md
-CONTEXT/10-api.md
-CONTEXT/20-db.md
-CONTEXT/30-ui.md
-```
-
-Bad:
-
-```text
-INPUT/00-brief.md
-INPUT/10-long-transcript.md
-INPUT/20-architecture-dump.md
-```
-
-Reason: `/g/app/dual` concatenates every `INPUT/*.md` file into Smart's goal. An index inside `INPUT/` improves routing, but it does not save input tokens if the long files also live in `INPUT/`.
+Prefer one short `INPUT/00-brief.md` with an explicit context index. Put long source material, architecture notes, transcripts, logs, and reference docs outside `INPUT/` unless Smart must receive them on every review.
 
 Do not create tool-specific code unless the user explicitly asks to modify `/g/app/dual`.
 
@@ -77,16 +58,15 @@ Separate terminal goals from current next actions. A source file's `Next`, curre
 
 ## Context Indexing
 
-Keep `INPUT/*.md` as a routing and contract surface, not a repository for all knowledge.
+Keep `INPUT/*.md` as a routing and contract surface. `/g/app/dual` concatenates every `INPUT/*.md` file into Smart's goal, so an index only saves tokens when the long material lives outside `INPUT/`.
 
 When the task has more context than Smart needs every turn:
 
-- Create or reference non-`INPUT` context files such as `CONTEXT/*.md`, `STATUS.md`, `DESIGN.md`, or existing project docs.
 - Add a compact `Context Index` in `INPUT/00-brief.md`.
+- Reference non-`INPUT` context files such as `CONTEXT/*.md`, `STATUS.md`, `DESIGN.md`, or existing project docs.
 - Give each context item a stable id such as `C01`, `C02`, or `P01`.
 - State when Smart or Worker should read each item.
 - Track progress with checkboxes only for durable task state, not for every thought.
-- Keep checked items short enough to survive future summarization.
 
 Example:
 
@@ -103,8 +83,6 @@ Example:
 - C02 `CONTEXT/10-auth.md`: auth contract. Read only for auth-related batches.
 - C03 `CONTEXT/20-tests.md`: test map. Read before choosing verification commands.
 ```
-
-Do not place long context files under `INPUT/` just because they are referenced by the index. If Smart must see a long document every review, include only a short summary in `INPUT/` and point to the full file.
 
 ## Fit Check
 
@@ -142,7 +120,6 @@ Avoid:
 - long architecture essays
 - long logs or copied command output
 - long source files or diffs
-- placing optional context under `INPUT/`
 - tool implementation details
 - duplicate runtime rules already owned by `/g/app/dual`
 - instructions that require the tool to understand project-specific semantics
@@ -179,21 +156,10 @@ Write briefs with these assumptions:
 
 - Continuing the same state usually continues the same Smart/Worker threads.
 - `Ctrl+C` interrupts the local run; it is not a context compression mechanism.
-- Fresh phases should be represented by a short updated brief, not by a long accumulated transcript.
-- If a phase is complete and the next phase no longer needs prior details, summarize durable facts into `INPUT/00-brief.md` and move old detail outside `INPUT/`.
+- For long work, represent fresh phases with a short updated brief instead of an accumulated transcript.
 - Do not ask Smart or Worker to manage thread ids, state files, or transcript files unless the user explicitly asks to modify `/g/app/dual`.
 
-For long work, prefer phase summaries:
-
-```text
-Phase P01 complete:
-- durable result:
-- changed files:
-- verified by:
-- remaining phases:
-```
-
-Then start the next phase from that compact state. This controls growing context better than stopping the process with `Ctrl+C`.
+When a phase is complete, summarize durable facts into `INPUT/00-brief.md` and move stale detail outside `INPUT/`.
 
 ## Minimal Template
 
@@ -263,7 +229,7 @@ Forbidden:
 
 ## Report Expectations
 
-- summary: one short delta for this batch, preferably naming the `Pxx` id
+- summary: one short delta for this batch, naming the relevant `Pxx` id when available
 - changed files: project-relative paths only
 - tests: command, status, short output summary only
 - unresolved issue: blocker id, failing behavior, next smallest action
@@ -315,12 +281,5 @@ Remove anything that does not affect:
 - validation
 - stopping
 - escalation
-
-Optimize for repeated Smart reviews:
-
-- keep `INPUT/*.md` short
-- index optional context instead of embedding it
-- report deltas instead of history
-- summarize completed phases before starting new ones
 
 When in doubt, write less and make boundaries sharper.
