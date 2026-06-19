@@ -172,10 +172,10 @@ Write briefs with these assumptions:
 
 - Continuing the same state usually continues the same Smart/Worker threads.
 - `Ctrl+C` interrupts the local run; it is not a context compression mechanism.
-- For long work, represent fresh phases with a short updated brief instead of an accumulated transcript.
+- For long work, represent fresh phases with a short updated `STATUS.md` or other external state file instead of an accumulated transcript.
 - Do not ask Smart or Worker to manage thread ids, state files, or transcript files unless the user explicitly asks to modify `/g/app/dual`.
 
-When a phase is complete, summarize durable facts into `INPUT/00-brief.md` and move stale detail outside `INPUT/`.
+When a phase is complete, summarize durable facts into `STATUS.md` or another external state file referenced by the Context Index, and move stale detail outside `INPUT/`.
 
 ## Minimal Template
 
