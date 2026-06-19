@@ -107,7 +107,7 @@ Avoid chat dumps, long logs, source-file copies, runtime implementation details,
 
 Require the planner to use worker reports, changed files, verification output, unresolved blockers, and completion criteria for the next decision.
 
-Require the planner to shrink or clarify a blocked local batch before retrying. Require a blocked decision with evidence when repeated attempts create new errors without verified progress. Do not make the planner take over implementation unless the user explicitly requests it.
+Require Smart to shrink or clarify a blocked local batch when that is the smallest next action. When Worker retries no longer produce verified progress, require Smart to issue `takeover_plan` and implement the batch directly. Require a blocked decision only for an external dependency, missing authority, or evidence that no in-scope action remains.
 
 ## Minimal Template
 
@@ -160,9 +160,9 @@ Forbidden:
 
 - If worker reports `done`, review current state and Completion Criteria before stopping.
 - If the current batch is complete but Completion Criteria are not met, issue the next batch from remaining source-of-truth work.
-- If worker reports `blocked` on a local implementation issue, shrink or clarify the batch first.
-- If revised work remains blocked, choose a smaller batch, return `blocked`, or ask for human input.
-- If attempts produce only new errors without verified progress, stop retrying and return concrete evidence.
+- If worker reports `blocked` or `failed` on a local implementation issue, review the evidence and choose the smallest next batch or `takeover_plan`.
+- If Worker retries no longer produce verified progress, use `takeover_plan`; do not return `blocked` while an in-scope Smart action remains.
+- Return `blocked` only for an external dependency, missing authority, or evidence that no in-scope action remains.
 - If the next action violates Scope, Contracts, or command restrictions, return `blocked`.
 
 ## Completion Criteria
