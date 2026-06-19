@@ -111,6 +111,10 @@ Do not read:
 - Full codebase by default.
 - Unrelated document chains.
 
+## Instruction Provenance
+
+Generated handoffs may include only explicit task requirements and instructions from the target project's governing files. Exclude global or user-level instruction files, including `~/.codex/AGENTS.md`, from generated handoffs.
+
 ## Run Size
 
 Each run should have a single main goal, clear module boundaries, and phase-level checks.

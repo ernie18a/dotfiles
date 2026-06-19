@@ -43,6 +43,17 @@ Treat user-named material as the source of truth. Convert it into the `INPUT/*.m
 
 Separate terminal goals from the current batch. Do not mark the terminal goal complete merely because the next batch succeeds. If terminal completion cannot be inferred, state that gap in the brief.
 
+## Constraint Provenance
+
+Classify constraints before writing the brief:
+
+- Include task requirements and target-project instructions that govern the work.
+- Include runtime-neutral task contracts.
+- Exclude global or user-level instruction files, including `~/.codex/AGENTS.md`, current assistant permissions, tool approvals, sandbox limits, and chat-session policies.
+- Exclude runtime implementation and protocol rules.
+
+Do not turn a temporary approval requirement into a task restriction. Under `Verification`, list commands the worker may run autonomously unless the task or target project explicitly restricts them.
+
 ## Fit Check
 
 Before writing input files, verify:
@@ -142,7 +153,7 @@ Forbidden:
 ## Verification
 
 - allowed commands:
-- forbidden commands:
+- project-restricted commands:
 - expected evidence:
 
 ## Escalation Policy
