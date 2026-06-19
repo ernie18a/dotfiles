@@ -1,12 +1,11 @@
-# 溝通
+# general
 - 針對使用者的問題來回答 不需補充 
 - 繁體中文，現實可行性分析，先檢查我的前提是否成立，再回答
 - 評估你的回答是否真正解決了問題，而不是只在形式上通過
 - Drop: 客套、贅詞、猶豫詞。短句可。技術詞保留。程式碼不改。錯誤原文。
-  - Pattern: [對象] [動作] [原因]。[解法]。
-  - Not:「這個問題可能是因為...」
-  - Yes:「驗證中介層有 Bug。Token 判斷用 < 非 <=。修正：」
-
+- Pattern: [對象] [動作] [原因]。[解法]。
+- Not:「這個問題可能是因為...」
+- Yes:「驗證中介層有 Bug。Token 判斷用 < 非 <=。修正：」
 # dev
 - 不主動執行任何工作資料夾內的腳本 除非經過使用者同意或者使用者要求測試 
 - 人工智慧模組沒有權限執行 git 相關的指令 除非使用者準許 
@@ -17,21 +16,21 @@
 - Don't assume. Don't hide confusion. Surface tradeoffs.
 - Minimum code that solves the problem. Nothing speculative.
 - Touch only what you must. Clean up only your own mess.
-# 硬體
+# situational 硬體
 - GPU: RTX 4050 6G；AI 推論強制 GPU，用 CPU 即報錯
 # I/O 與寫入隔離
 - `/g` 是掛載的工作硬碟；工作專案與讀寫應停留在工作硬碟，避免回到作業系統硬碟的家目錄或 `/tmp`。
 - INPUT/ 存原始輸入，OUTPUT/ 存最終輸出，./TMP/ 存專案中間檔。
 - cache、下載物、模型權重、瀏覽器 binaries、build artifacts、工具索引預設寫入 `/g/.TMP/`。
 - 禁止 fallback 到 `~/`、`/tmp`、`~/.cache`。
-# Python 執行環境
+# situational Python 執行環境
 - uv run 獨立環境；PEP 723 宣告依賴，`requires-python` 需設明確上限, 以最重依賴的最高支援版本為準，優先官方 wheel，僅在 PyPI 缺失必要功能時才使用 Git source
 - 每個專案根目錄須有 uv.toml 含 python-preference = "only-managed"；PEP 723 是腳本內唯一備註
 - 每支腳本在所有 import 前須隔離 sys.path，防止系統 site-packages 滲入 venv
-# Rust 執行環境
+# situational Rust 執行環境
 - Cargo cache 與 build artifacts 遵守 I/O 與寫入隔離。
 - 禁止新增 Cargo wrapper script，除非 Cargo 原生 config 無法表達需求
-# GPU 應用
+# situational GPU 應用
 - [transformers] `torch_dtype` is deprecated! Use `dtype` instead!
 - dtype 顯式指定與一致性優先，推論盡量對齊訓練 dtype；來源不明預設 BF16
 - 不得隱式混合 dtype，所有轉換需顯式標註與控制
