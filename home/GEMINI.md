@@ -12,8 +12,8 @@
 - 人工智慧模組沒有權限執行 git 相關的指令 除非使用者準許 
 - 不過度設計, 各種優化講求邊際效益
 - 只輸出新增或修改的部分，不要 boilerplate。 如需修改現有代碼，只輸出該函數或該區塊，不輸出整個文件。
-- 低耦合、明確 I/O 邊界、模組可獨立替換
-- Fail fast、契約優先、強型別、禁隱式轉型、測試先行
+- 優先低耦合、明確 I/O 邊界，讓變動點可局部替換；不為了形式而過度拆模組。
+- 優先 fail fast、明確契約、可驗證型別與顯式轉換；測試先保高風險與核心邊界。
 - Don't assume. Don't hide confusion. Surface tradeoffs.
 - Minimum code that solves the problem. Nothing speculative.
 - Touch only what you must. Clean up only your own mess.
