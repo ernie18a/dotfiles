@@ -1,3 +1,4 @@
+- "rsync -a --delete /tmp/empty/ 你的目標資料夾/", "/tmp/empty/ " 他的意思就是一個空的資料夾類似做同步的動作?
 - ls skill
 - claude codex y, cy, dy.
 - WAIT 多個程序 , 等越多的話 他的另外一個 等待時間要增加 倍數 
