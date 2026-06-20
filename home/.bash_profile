@@ -266,4 +266,4 @@ VT() { vim ~/.T$1 ; }
 HG() { cat ~/.bash_history | grep -ai --color "$1" ; }
 CG() { cat ~/.gemini/GEMINI.md 2>/dev/null || curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/GEMINI.md ; }
 #DUAL() { UV_PROJECT_ENVIRONMENT=/g/.TMP/sdk-venv UV_CACHE_DIR=/g/.TMP/uv-cache XDG_CACHE_HOME=/g/.TMP/xdg-cache uv run --project /g/app/dual --directory "$PWD" python -m dual "$@"; }
-DUAL() { UV_PROJECT_ENVIRONMENT=/g/.TMP/dual-b-venv UV_CACHE_DIR=/g/.TMP/uv-cache XDG_CACHE_HOME=/g/.TMP/xdg-cache uv run --project /g/app/dual --directory "$PWD" python -m dual_b "$@"; }
+DUAL() { UV_PROJECT_ENVIRONMENT=/g/.TMP/dual-venv UV_CACHE_DIR=/g/.TMP/uv-cache XDG_CACHE_HOME=/g/.TMP/xdg-cache uv run --project /g/app/dual --directory "$PWD" python -m dual "$@"; }
