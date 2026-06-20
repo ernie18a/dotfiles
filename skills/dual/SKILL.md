@@ -41,7 +41,7 @@ Keep `INPUT/*.md` short. Both runtimes load every input file, so place long cont
 
 Treat user-named material as the source of truth. Convert it into the `INPUT/*.md` contract. Preserve root-relative paths: keep `STATUS.md` as `STATUS.md` unless the source explicitly says `INPUT/STATUS.md`.
 
-Separate terminal goals from the current batch. Do not mark the terminal goal complete merely because the next batch succeeds. If terminal completion cannot be inferred, state that gap in the brief.
+Build the terminal goal from the complete user or product scope. When a project has a requirements inventory and a narrower task note, the inventory defines the terminal goal and the task note defines the current batch. Reconcile the requirement sources before writing the Progress list; do not let one narrow source redefine the terminal goal.
 
 ## Constraint Provenance
 
@@ -107,7 +107,7 @@ Avoid chat dumps, long logs, source-file copies, runtime implementation details,
 
 Require the planner to use worker reports, changed files, verification output, unresolved blockers, and completion criteria for the next decision.
 
-Require Smart to shrink or clarify a blocked local batch when that is the smallest next action. When Worker retries no longer produce verified progress, require Smart to issue `takeover_plan` and implement the batch directly. Require the worker to inspect the workspace, derive existing inputs, use available tools, and exhaust bounded in-scope alternatives before returning `blocked`. A blocked decision is only for an external authority boundary after evidence shows no autonomous action remains; it records the boundary and evidence, never asks the user what to do.
+Require Smart to issue the next batch whenever the terminal goal still has source-of-truth work. A completed batch is not a completed task. Require the worker to inspect the workspace, derive existing inputs, use available tools, and exhaust bounded in-scope alternatives before returning `blocked`.
 
 ## Minimal Template
 
@@ -116,8 +116,8 @@ Require Smart to shrink or clarify a blocked local batch when that is the smalle
 
 ## Goal
 
-- terminal:
-- current batch:
+- terminal: complete user or product outcome, not a phase or issue fix
+- current batch: next bounded phase toward the terminal goal
 
 ## Current State
 
@@ -158,8 +158,7 @@ Forbidden:
 
 ## Escalation Policy
 
-- If worker reports `done`, review current state and Completion Criteria before stopping.
-- If the current batch is complete but Completion Criteria are not met, issue the next batch from remaining source-of-truth work.
+- Return `done` only when the terminal goal and Completion Criteria are met. If a batch is complete, issue the next batch from remaining source-of-truth work.
 - Do not ask the user for clarification, approval, input, or a decision. Inspect, derive, acquire through available tools, or implement the smallest missing capability first.
 - If worker reports `blocked` or `failed` on a local implementation issue, review the evidence and choose the smallest next batch or `takeover_plan`.
 - If Worker retries no longer produce verified progress, use `takeover_plan`; do not return `blocked` while an in-scope Smart action remains.
