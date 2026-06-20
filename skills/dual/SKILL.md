@@ -52,7 +52,7 @@ Classify constraints before writing the brief:
 - Exclude global or user-level instruction files, including `~/.codex/AGENTS.md`, current assistant permissions, tool approvals, sandbox limits, and chat-session policies.
 - Exclude runtime implementation and protocol rules.
 
-Do not turn a temporary approval requirement into a task restriction. Under `Verification`, list commands the worker may run autonomously unless the task or target project explicitly restricts them.
+Do not turn a temporary approval requirement into a task restriction. Under `Verification`, list commands the worker may run autonomously unless the task or target project explicitly restricts them. Do not write requirements such as "ask the user", "obtain approval", or "provide X then continue" for information the worker can inspect, derive, acquire through its available tools, or implement support for.
 
 ## Fit Check
 
@@ -107,7 +107,7 @@ Avoid chat dumps, long logs, source-file copies, runtime implementation details,
 
 Require the planner to use worker reports, changed files, verification output, unresolved blockers, and completion criteria for the next decision.
 
-Require Smart to shrink or clarify a blocked local batch when that is the smallest next action. When Worker retries no longer produce verified progress, require Smart to issue `takeover_plan` and implement the batch directly. Require a blocked decision only for an external dependency, missing authority, or evidence that no in-scope action remains.
+Require Smart to shrink or clarify a blocked local batch when that is the smallest next action. When Worker retries no longer produce verified progress, require Smart to issue `takeover_plan` and implement the batch directly. Require the worker to inspect the workspace, derive existing inputs, use available tools, and exhaust bounded in-scope alternatives before returning `blocked`. A blocked decision is only for an external authority boundary after evidence shows no autonomous action remains; it records the boundary and evidence, never asks the user what to do.
 
 ## Minimal Template
 
@@ -160,9 +160,10 @@ Forbidden:
 
 - If worker reports `done`, review current state and Completion Criteria before stopping.
 - If the current batch is complete but Completion Criteria are not met, issue the next batch from remaining source-of-truth work.
+- Do not ask the user for clarification, approval, input, or a decision. Inspect, derive, acquire through available tools, or implement the smallest missing capability first.
 - If worker reports `blocked` or `failed` on a local implementation issue, review the evidence and choose the smallest next batch or `takeover_plan`.
 - If Worker retries no longer produce verified progress, use `takeover_plan`; do not return `blocked` while an in-scope Smart action remains.
-- Return `blocked` only for an external dependency, missing authority, or evidence that no in-scope action remains.
+- Return `blocked` only after bounded attempts demonstrate an external authority boundary and no autonomous action remains. Record blocker id, observed evidence, attempted paths, and exhausted alternatives; do not request user action.
 - If the next action violates Scope, Contracts, or command restrictions, return `blocked`.
 
 ## Completion Criteria
