@@ -1,7 +1,5 @@
-
-
-complete -C '/usr/local/bin/aws_completer' aws &>/dev/null
-complete -C /usr/bin/terraform terraform
+#complete -C '/usr/local/bin/aws_completer' aws &>/dev/null
+#complete -C /usr/bin/terraform terraform
 source /etc/bash_completion.d/* 2>/dev/null
 export COLORTERM=truecolor
 export TMPDIR=/g/.TMP/tmp
@@ -267,4 +265,5 @@ CT() { cat ~/.T$1 2>/dev/null ; }
 VT() { vim ~/.T$1 ; }
 HG() { cat ~/.bash_history | grep -ai --color "$1" ; }
 CG() { cat ~/.gemini/GEMINI.md 2>/dev/null || curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/GEMINI.md ; }
-DUAL() { UV_PROJECT_ENVIRONMENT=/g/.TMP/sdk-venv UV_CACHE_DIR=/g/.TMP/uv-cache XDG_CACHE_HOME=/g/.TMP/xdg-cache uv run --project /g/app/dual --directory "$PWD" python -m dual "$@"; }
+#DUAL() { UV_PROJECT_ENVIRONMENT=/g/.TMP/sdk-venv UV_CACHE_DIR=/g/.TMP/uv-cache XDG_CACHE_HOME=/g/.TMP/xdg-cache uv run --project /g/app/dual --directory "$PWD" python -m dual "$@"; }
+DUAL() { UV_PROJECT_ENVIRONMENT=/g/.TMP/dual-b-venv UV_CACHE_DIR=/g/.TMP/uv-cache XDG_CACHE_HOME=/g/.TMP/xdg-cache uv run --project /g/app/dual --directory "$PWD" python -m dual_b "$@"; }
