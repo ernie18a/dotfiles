@@ -1,38 +1,9 @@
-#complete -C '/usr/local/bin/aws_completer' aws &>/dev/null
-#complete -C /usr/bin/terraform terraform
 source /etc/bash_completion.d/* 2>/dev/null
+export BERT_MODELS_DIR=/g/.TMP/bert-models
+export CLOAKBROWSER_CACHE_DIR=/g/.TMP/cloakbrowser
 export COLORTERM=truecolor
-export TMPDIR=/g/.TMP/tmp
-export TEMP=/g/.TMP/tmp
-export TMP=/g/.TMP/tmp
-export XDG_CACHE_HOME=/g/.TMP/xdg-cache
-export XDG_CONFIG_HOME=/g/.TMP/xdg-config
-export XDG_DATA_HOME=/g/.TMP/xdg-data
-export PIP_CACHE_DIR=/g/.TMP/pip-cache
-export UV_CACHE_DIR=/g/.TMP/uv-cache
-export PYTHONPYCACHEPREFIX=/g/.TMP/python-pycache
-export HF_HOME=/g/.TMP/huggingface
-export HF_HUB_CACHE=/g/.TMP/huggingface/hub
-export HUGGINGFACE_HUB_CACHE=/g/.TMP/huggingface/hub
-export TRANSFORMERS_CACHE=/g/.TMP/huggingface/transformers
-export TORCH_HOME=/g/.TMP/torch
-export PYTORCH_KERNEL_CACHE_PATH=/g/.TMP/torch-kernel
 export CUDA_CACHE_MAXSIZE=2147483647
 export CUDA_CACHE_PATH=/g/.TMP/cuda-cache
-export TRITON_CACHE_DIR=/g/.TMP/triton-cache
-export TORCHINDUCTOR_CACHE_DIR=/g/.TMP/torchinductor-cache
-export NUMBA_CACHE_DIR=/g/.TMP/numba-cache
-export MODELSCOPE_CACHE=/g/.TMP/modelscope
-export MPLCONFIGDIR=/g/.TMP/matplotlib
-export PLAYWRIGHT_BROWSERS_PATH=/g/.TMP/playwright-browsers
-export CLOAKBROWSER_CACHE_DIR=/g/.TMP/cloakbrowser
-export YTDLP_CACHE_DIR=/g/.TMP/ytdlp-cache
-export YTDLP_PATHS=temp:/g/.TMP/ytdlp-temp
-export ULTRALYTICS_DIR=/g/.TMP/ultralytics
-export YOLO_CONFIG_DIR=/g/.TMP/ultralytics/config
-export MECABRC=/g/.TMP/mecab/mecabrc
-export BERT_MODELS_DIR=/g/.TMP/bert-models
-export OPEN_JTALK_DICT_DIR=/g/.TMP/open-jtalk-dict
 export CUDA_DEVICE_MAX_CONNECTIONS=32
 export CUDA_MANAGED_FORCE_DEVICE_ALLOC=1
 export DBUS_SESSION_BUS_ADDRESS=/dev/null
@@ -41,18 +12,45 @@ export DEBIAN_FRONTEND=noninteractive
 export EDITOR=vim
 export FIREBASE_KEY_PATH=~/.G/fb/.fb.55H.json
 export GIT_EDITOR=vim
+export HF_HOME=/g/.TMP/huggingface
+export HF_HUB_CACHE=/g/.TMP/huggingface/hub
 export HISTCONTROL=ignoredups:erasedups &>/dev/null
 export HISTFILESIZE= &>/dev/null
 export HISTSIZE= &>/dev/null
+export HUGGINGFACE_HUB_CACHE=/g/.TMP/huggingface/hub
 export KUBE_EDITOR=/bin/vim &>/dev/null
 export MAILCHECK=0 &>/dev/null
+export MECABRC=/g/.TMP/mecab/mecabrc
+export MODELSCOPE_CACHE=/g/.TMP/modelscope
+export MPLCONFIGDIR=/g/.TMP/matplotlib
+export NUMBA_CACHE_DIR=/g/.TMP/numba-cache
 export NVM_DIR="$HOME/.nvm"
 export OLLAMA_API_BASE=http://127.0.0.1:11434
+export OPEN_JTALK_DICT_DIR=/g/.TMP/open-jtalk-dict
 export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/go/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/snap/bin:/opt/homebrew/bin:$HOME/.docker/cli-plugins:$HOME/bin"
+export PIP_CACHE_DIR=/g/.TMP/pip-cache
+export PLAYWRIGHT_BROWSERS_PATH=/g/.TMP/playwright-browsers
+export PYTHONPYCACHEPREFIX=/g/.TMP/python-pycache
+export PYTORCH_KERNEL_CACHE_PATH=/g/.TMP/torch-kernel
+export TEMP=/g/.TMP/tmp
 export TERM=xterm-256color
+export TMP=/g/.TMP/tmp
+export TMPDIR=/g/.TMP/tmp
+export TORCHINDUCTOR_CACHE_DIR=/g/.TMP/torchinductor-cache
+export TORCH_HOME=/g/.TMP/torch
+export TRANSFORMERS_CACHE=/g/.TMP/huggingface/transformers
+export TRITON_CACHE_DIR=/g/.TMP/triton-cache
+export ULTRALYTICS_DIR=/g/.TMP/ultralytics
+export UV_CACHE_DIR=/g/.TMP/uv-cache
 export UV_VENV_CLEAR=1
 export WIN_USER=`ls /mnt/c/Users 2>/dev/null |grep -iv "All\|Default\|desktop.ini\|Public\|USER\|Administrator\|super"`
 export WIN_USER_DIR=/mnt/c/Users/$WIN_USER
+export XDG_CACHE_HOME=/g/.TMP/xdg-cache
+export XDG_CONFIG_HOME=/g/.TMP/xdg-config
+export XDG_DATA_HOME=/g/.TMP/xdg-data
+export YOLO_CONFIG_DIR=/g/.TMP/ultralytics/config
+export YTDLP_CACHE_DIR=/g/.TMP/ytdlp-cache
+export YTDLP_PATHS=temp:/g/.TMP/ytdlp-temp
 which git &>/dev/null && export PS1="[ \\u@\\h \w \$(git rev-parse --abbrev-ref HEAD 2>/dev/null)] \\$ " || export PS1="[ \\u@\\h \w ] \\$ "
 PROMPT_COMMAND=' history -a '
 source ~/.55H 2>/dev/null
@@ -89,7 +87,6 @@ alias cay=' cat '
 alias cayt=' cat '
 alias CGC=' cat .git/config | grep url '
 alias CR=' cat ~/.RESEARCH.md 2>/dev/null '
-#alias CSG=' cat ~/.ssh/config | grep -i --color '
 alias CDW=' cd $WIN_USER_DIR '
 alias CDWE=' cd $WIN_USER_DIR/Desktop ; ls -l --color '
 alias CDWT=' cd $WIN_USER_DIR/Desktop/_tmp ; ls -l --color '
@@ -220,7 +217,6 @@ alias vun=' vim '
 alias vvim=' vim '
 alias NVS=' watch nvidia-smi '
 alias VGP='cd ~/.G/dotfiles ; git pull >/dev/null ; vim ~/.G/dotfiles/home/GEMINI.md ; git rm -r --cached . >/dev/null ; git add -A && git commit -amVGP &> /dev/null && git push 1>/dev/null ; cd - &>/dev/null'
-WAIT() { while pgrep -f "$1" > /dev/null; do sleep 9; done ; }
 CBG() { curl  --connect-timeout 2 -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile |grep -i --color $1 2>/dev/null || cat ~/.bash_profile 2>/dev/null |grep -i --color $1 ; }
 WATCH() { watch "$@" ; }
 DIG() { echo "dig $1 |grep -vE ^\;\|^$" ; dig $1 | grep -vE ^\;\|^$ ; }
@@ -233,7 +229,6 @@ WHOIS() { whois $1 | grep -Ev "^\s*(#|$)" |grep -i NetName ; }
 AWK() { awk $2 "{print\$$1}" ; }
 ECDZ() { echo 'source /dev/stdin <<< "$(curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile)"' |tee ~/.bash_profile /home/e/.bash_profile /home/ubuntu/.bash_profile ; }
 l() { ls -A | grep "^\." | xargs -d '\n' ls -d --color ; }
-#BRC() { curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile |grep -vEi raw.githubusercontent.com\|git_ps1 | ssh $1 "cat > .BRC" ; }
 NSP() { nmap -T5 -snP $1 |G report | AWK 5 ; }
 DF() { df -h |sort -hk2 |sed -e 1b -e '$!d' ; }
 SEDID() { sed -i "/$1/d" $2 ; }
@@ -245,6 +240,7 @@ GGRCA() { (cd /g; for R in */; do [[ -d "$R/.git" ]] || continue; (cd "$R"; git 
 CPTM() { rm /mnt/c/Users/e/Desktop/_tmp/* ; cp *.txt *.md *.py /mnt/c/Users/e/Desktop/_tmp/ ; }
 sl() { for SOMETHING in $(cat ./$1); do $2 $SOMETHING; done; }
 GRC2() { local T=$(git rev-parse --show-toplevel 2>/dev/null) || return 1; local U=$(git -C "$T" remote get-url origin) || return 1; local R=$(basename "$T"); local P="${PWD#$T}"; cd "$(dirname "$T")" && rm -rf "$R" && git clone "$U" "$R" && cd "$R$P"; }
+DUAL() { UV_PROJECT_ENVIRONMENT=/g/.TMP/dual-venv UV_CACHE_DIR=/g/.TMP/uv-cache XDG_CACHE_HOME=/g/.TMP/xdg-cache uv run --project /g/app/dual --directory "$PWD" python -m dual --config /g/app/dual/dual.toml "$@"; }
 CIO() { if [ -n "$1" ]; then cp -urf "$1" /mnt/c/Users/e/Desktop/; else cp -urf ./* /mnt/c/Users/e/Desktop/; fi; }
 COI() { if [ -n "$1" ]; then cp -urf "/mnt/c/Users/e/Downloads/$1" .; else cp -urf /mnt/c/Users/e/Downloads/* .; fi; }
 UR() { if [ -n "$1" ]; then uv run --no-project "$@"; else uv run --no-project main.py; fi; }
@@ -253,6 +249,7 @@ CMPL() { $1 completion bash > /etc/bash_completion.d/$1 || ls -l /etc/bash_compl
 PING() { for i in $(seq 0 255) ; do ping $1.$i -c1 -W1 & done |grep from |awk '{print $4}' |awk -F: '{print $1}' | sort -V ; }
 FFMPEG1() { for i in *.$1 ; do ffmpeg -y -i "$i" "$(echo "$i"|cut -d\. -f1).$2" & done ; }
 FFMPEG() { for i in *.$1 ; do ffmpeg -y -i "$i" "$(echo "$i"|cut -d\. -f1).$2" ; done ; }
+WAIT() { while pgrep -f "$1" > /dev/null; do sleep 9; done ; }
 KILL() { sudo pkill -fi "$1"; }
 PUSHM() { git pull >/dev/null ; git rm -r --cached . > /dev/null ; git add -A && git commit -m "$@" &>/dev/null && git push;}
 CB2() { cat ~/.G/dotfiles/home/.bash_profile 2>/dev/null || curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile ; }
@@ -265,5 +262,3 @@ CT() { cat ~/.T$1 2>/dev/null ; }
 VT() { vim ~/.T$1 ; }
 HG() { cat ~/.bash_history | grep -ai --color "$1" ; }
 CG() { cat ~/.gemini/GEMINI.md 2>/dev/null || curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/GEMINI.md ; }
-#DUAL() { UV_PROJECT_ENVIRONMENT=/g/.TMP/sdk-venv UV_CACHE_DIR=/g/.TMP/uv-cache XDG_CACHE_HOME=/g/.TMP/xdg-cache uv run --project /g/app/dual --directory "$PWD" python -m dual "$@"; }
-DUAL() { UV_PROJECT_ENVIRONMENT=/g/.TMP/dual-venv UV_CACHE_DIR=/g/.TMP/uv-cache XDG_CACHE_HOME=/g/.TMP/xdg-cache uv run --project /g/app/dual --directory "$PWD" python -m dual --config /g/app/dual/dual.toml "$@"; }

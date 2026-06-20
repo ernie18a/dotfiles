@@ -445,3 +445,8 @@ export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.krew/bin:$HOME/go/bin:/bin
 #alias NPMG=' sudo npm install -g npm ; sudo npm install -g @google/gemini-cli '
 # alias ACL=' sudo setfacl -R -b /g ; sudo setfacl -R -m u::rwx,g::rwx,o::rwx,m:rwx /g ; sudo setfacl -R -d -m u::rwx,g::rwx,o::rwx,m:rwx /g ; sudo chattr -R -i -a /g 2>/dev/null || true '
 #UR() { if [ -n "$1" ]; then uv run --no-project "$1"; else uv run --no-project main.py; fi; }
+#complete -C '/usr/local/bin/aws_completer' aws &>/dev/null
+#complete -C /usr/bin/terraform terraform
+#alias CSG=' cat ~/.ssh/config | grep -i --color '
+#BRC() { curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile |grep -vEi raw.githubusercontent.com\|git_ps1 | ssh $1 "cat > .BRC" ; }
+#DUAL() { UV_PROJECT_ENVIRONMENT=/g/.TMP/sdk-venv UV_CACHE_DIR=/g/.TMP/uv-cache XDG_CACHE_HOME=/g/.TMP/xdg-cache uv run --project /g/app/dual --directory "$PWD" python -m dual "$@"; }
