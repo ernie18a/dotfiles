@@ -4,12 +4,10 @@
 .usage.json.lock
 apple/
 autonomous-ai-agents/
-clip/
 creative/
 data-science/
 devops/
 dogfood/
-dual/
 email/
 github/
 media/
@@ -17,12 +15,7 @@ mlops/
 note-taking/
 productivity/
 research/
-searchDelta/
-searchRecursive/
-searchRouting/
-single/
 smart-home/
 social-media/
 software-development/
-subtractive/
 yuanbao/
