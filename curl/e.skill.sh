@@ -4,8 +4,13 @@ for user in e o n; do
       sudo mkdir -p /home/$user/.hermes
       sudo mkdir -p /home/$user/.codex
 
-      sudo rm -f /home/$user/.codex/AGENTS.md
+      sudo rm -rf /home/$user/.gemini/skills
+      sudo rm -rf /home/$user/.claude/skills
+      sudo rm -rf /home/$user/.hermes/skills
+      sudo rm -rf /home/$user/.codex/skills
+
       sudo rm -f /home/$user/.gemini/GEMINI.md
+      sudo rm -f /home/$user/.codex/AGENTS.md
       sudo rm -f /home/$user/.hermes/SOUL.md
       sudo rm -f /home/$user/.claude/CLAUDE.md
 
@@ -19,5 +24,8 @@ for user in e o n; do
       sudo ln -snf /home/$user/.G/dotfiles/home/GEMINI.md /home/$user/.hermes/SOUL.md
       sudo ln -snf /home/$user/.G/dotfiles/home/GEMINI.md /home/$user/.claude/CLAUDE.md
 
-      sudo chown -R $user:$user /home/$user
+      sudo chown -R $user:$user /home/$user/.gemini
+      sudo chown -R $user:$user /home/$user/.claude
+      sudo chown -R $user:$user /home/$user/.hermes
+      sudo chown -R $user:$user /home/$user/.codex
   done
