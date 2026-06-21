@@ -56,6 +56,7 @@ PROMPT_COMMAND=' history -a '
 source ~/.55H 2>/dev/null
 source ~/.IPS 2>/dev/null
 touch ~/.hushlogin
+alias SKILL=" ls -l --color ~/.G/dotfiles/skills "
 alias USAGE="  date ; sudo -i bash -lc 'cd /g/app/usage && uv run main.py'"
 alias HYC='hermes --yolo -c'
 alias HY='hermes --yolo'
