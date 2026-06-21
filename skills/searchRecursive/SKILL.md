@@ -1,5 +1,5 @@
 ---
-name: searchRecursive2
+name: searchRecursive
 description: Use when a research task needs deep multi-stage recursive search with explicit pressure to search multiple times, extract leads from each wave, chase primary sources, cross-check independent evidence, and avoid premature synthesis. Best for complex, unclear, hidden, technical, historical, or high-value questions where depth depends on repeated search expansion and controlled convergence.
 ---
 
