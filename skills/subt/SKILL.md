@@ -1,9 +1,9 @@
 ---
-name: subtractive
+name: subt
 description: Use when refining, correcting, simplifying, or improving any user-provided script, prompt, specification, skill, policy, documentation, workflow, or structured text by removing accumulated patches, literalized instructions, redundant constraints, stale assumptions, and over-specific wording before adding new content. Best for making artifacts cleaner, more adaptable, and closer to the user's actual intent without overfitting to the latest wording.
 ---
 
-# Subtractive
+# Subt
 
 ## Role
 
