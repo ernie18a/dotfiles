@@ -1,0 +1,4 @@
+interface:
+  display_name: "Sum"
+  short_description: "Consolidate session user requests only"
+  default_prompt: "Use $sum to consolidate the current session user requests."
