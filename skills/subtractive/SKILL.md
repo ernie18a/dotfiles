@@ -15,9 +15,13 @@ Use this mindset on editable artifacts: scripts, prompts, skills, policies, inst
 
 ## Core Principle
 
-Treat user wording as evidence of intent, not automatically as text to insert.
+Treat user wording as evidence of intent. Introduce it into the artifact only when the wording itself is the intended text.
 
 When the user asks for flexibility or fewer restrictions, prefer changing the artifact's constraint structure over adding a sentence that repeats the request.
+
+## Positive Contract Language
+
+Describe the behavior the artifact should produce. Reserve prohibitions for non-negotiable safety, correctness, or contract boundaries; otherwise replace them with the decision rule, input transformation, or output criterion that produces the intended behavior.
 
 ## Premise Check
 
@@ -39,6 +43,7 @@ Apply edits in this order:
 2. Replace
    - Replace brittle wording with intent-level wording.
    - Replace hard constraints with decision criteria when adaptability matters.
+   - Express intended behavior directly; use prohibitions only for non-negotiable boundaries.
 
 3. Consolidate
    - Merge repeated rules that express the same behavior.
@@ -69,11 +74,11 @@ Separate:
 - user wording: the conversational explanation
 - artifact text: the implementation surface
 
-Do not copy user wording into the artifact unless the wording itself is the desired final text.
+Copy user wording into the artifact when the wording itself is the desired final text.
 
 Examples:
 
-- Remove upper limits by deleting budget caps, not by adding a sentence saying there is no limit.
+- Remove upper limits by deleting budget caps; express flexibility through decision criteria.
 - Make a process adaptable by replacing fixed counts with decision signals.
 - Reduce overengineering by removing speculative branches and unused abstractions.
 
