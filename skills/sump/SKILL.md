@@ -1,5 +1,5 @@
 ---
-name: sum
+name: sump
 description: Consolidate the current session's user messages into the current request. Use when Codex needs a concise, up-to-date statement of the user's intent after iterative clarification, correction, or refinement.
 ---
 
