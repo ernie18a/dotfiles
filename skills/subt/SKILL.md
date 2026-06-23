@@ -7,21 +7,15 @@ description: Use when refining, correcting, simplifying, or improving any user-p
 
 ## Role
 
-Act as an editor that improves an artifact by removing distortion before adding material.
-
-The goal is to preserve intent, reduce patch accumulation, and improve adaptability.
-
-Use this mindset on editable artifacts: scripts, prompts, skills, policies, instructions, specs, documentation, workflows, config-like text, and structured plans.
+Improve editable artifacts by preserving intent, removing patch accumulation, and adding material only when necessary.
 
 ## Core Principle
 
-Treat user wording as evidence of intent. Introduce it into the artifact only when the wording itself is the intended text.
+Treat user wording as evidence of intent, not default artifact text. Translate it into the behavior the artifact must produce unless the wording itself is the intended final text.
 
-When the user asks for flexibility or fewer restrictions, prefer changing the artifact's constraint structure over adding a sentence that repeats the request.
+Evaluate every constraint, example, and section by the outcome it protects. Keep only material that establishes user intent, correctness, safety, or a clear contract. Express general behavior as a decision rule; retain examples only when they clarify a decision boundary that the rule alone cannot.
 
-## Positive Contract Language
-
-Describe the behavior the artifact should produce. Reserve prohibitions for non-negotiable safety, correctness, or contract boundaries; otherwise replace them with the decision rule, input transformation, or output criterion that produces the intended behavior.
+Use behavior and decision criteria as the default form. Use negative phrasing when it most clearly defines a non-negotiable safety, correctness, or contract boundary.
 
 ## Premise Check
 
@@ -31,67 +25,28 @@ Before editing, identify:
 - which existing text already causes or blocks that behavior
 - whether the requested change means deletion, replacement, reordering, or addition
 
-If the user's wording and the artifact's structure point in different directions, follow the structure needed to produce the intended behavior.
+When the user's wording and the artifact's structure differ, use the structure that produces the intended behavior.
 
 ## Edit Order
 
 Apply edits in this order:
 
 1. Delete
-   - Remove stale constraints, duplicated rules, literal patches, workaround sentences, obsolete exceptions, and over-specific numbers.
+   - Remove stale constraints, duplicates, literal patches, workarounds, obsolete exceptions, and over-specific detail.
 
 2. Replace
-   - Replace brittle wording with intent-level wording.
-   - Replace hard constraints with decision criteria when adaptability matters.
-   - Express intended behavior directly; use prohibitions only for non-negotiable boundaries.
+   - Replace brittle or example-specific wording with intent-level decision criteria.
+   - Describe intended behavior and non-negotiable boundaries directly.
 
 3. Consolidate
-   - Merge repeated rules that express the same behavior.
-   - Keep the strongest version and remove weaker copies.
+   - Merge rules that express the same behavior into one source of truth.
 
 4. Add
-   - Add new text only when deletion or replacement cannot express the intended behavior.
-   - Keep additions small and behavior-oriented.
+   - Add text only when deletion, replacement, or consolidation cannot express the intended behavior.
 
-## Patch Smell Detection
+## Validation
 
-Look for these signs of patch accumulation:
-- the artifact says both a rule and its exception
-- a new sentence negates an older sentence without removing it
-- user explanation appears verbatim as a rule
-- the same idea appears in several sections with slight differences
-- numeric limits remain after the user asked for flexibility
-- instructions optimize for formal compliance instead of actual behavior
-- wording is tied to one example when the concept should generalize
-- additions make the artifact longer but not clearer
-
-When a patch smell appears, prefer deletion or replacement over another additive patch.
-
-## Intent vs Literal Text
-
-Separate:
-- user intent: the behavior or outcome desired
-- user wording: the conversational explanation
-- artifact text: the implementation surface
-
-Copy user wording into the artifact when the wording itself is the desired final text.
-
-Examples:
-
-- Remove upper limits by deleting budget caps; express flexibility through decision criteria.
-- Make a process adaptable by replacing fixed counts with decision signals.
-- Reduce overengineering by removing speculative branches and unused abstractions.
-
-## Adaptability Rules
-
-Improve flexibility by using:
-- decision criteria instead of fixed thresholds
-- intent-level instructions instead of example-specific commands
-- explicit I/O boundaries instead of hidden assumptions
-- source-of-truth references instead of repeated copies
-- modular sections that can be replaced independently
-
-Keep constraints only when they protect correctness, safety, contract clarity, or user intent.
+Before finishing, verify that the artifact has no conflicting rule and exception, duplicate source of truth, literalized user explanation, obsolete fixed limit, or example standing in for a general rule. Prefer the shortest text that preserves the required behavior.
 
 ## Output Discipline
 
@@ -101,6 +56,4 @@ When reporting the edit, explain:
 - what was intentionally not added
 - why the artifact now better matches the user's intent
 
-For code or structured files, touch only the necessary sections.
-
-For prose or policy text, prefer a cleaner artifact over a longer artifact.
+Touch only necessary sections.
