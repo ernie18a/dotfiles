@@ -135,3 +135,30 @@ Return only:
 5. **Next highest-value action:** one investigation or experiment, its expected update, and its stop condition.
 
 Do not produce a long narrative, generic best practices, a source-count proxy for confidence, fixed query counts, fixed agent counts, or a claim of creativity. The quality criterion is a better-calibrated next action under real constraints.
+
+## Concrete tooling
+
+For an **automated, replayable, evidence-grounded runtime** that implements this methodology end-to-end, see `/g/app/researchr`. It turns a YAML task contract (decision, outcome, scope, loss, access, stop) into structured output:
+
+- **Observability map** derived from the task's `access` field (gap detection).
+- **Competing hypotheses** generated from the `decision` and `outcome` fields (at least two branches with predictions and disconfirming observations).
+- **Investigation planner** that selects the highest-value unresolved uncertainty, then immediately attacks newly supported claims with counter-evidence searches.
+- **Evidence normalisation** that auto-creates claims from evidence, tracks URL deduplication (across the whole run, not per-call), and marks duplicate sources as non-independent.
+- **Stop conditions** checked after every attack phase (not before), evaluating contract satisfaction, hypothesis finality, and claim confidence thresholds.
+- **Negative-result gating** that prevents re-running falsified paths unless an invalidation condition is satisfied (word-level overlap matching on failure mechanism).
+- **Replayable state** via `StateDelta` records; compaction views that index evidence→claims→hypotheses without deleting raw anchors.
+- **Three provider adapters**: offline fixture, OpenAI Responses API web-search, Codex CLI OAuth subprocess — all with credential-isolated metadata.
+
+### Pitfalls encoded in the implementation
+
+These were discovered while building the runtime and apply to any automation of this methodology:
+
+1. **URL deduplication must be run-wide.** Per-call deduplication misses cross-investigation duplicates. The dedup set must live in shared state (`seen_urls`), not local to each normalise call.
+
+2. **Attack phase before stop check, not after.** If you check stop conditions before running attack (counter-evidence) searches, newly supported hypotheses never get challenged — you converge prematurely. The order: investigate → normalise → attack → check stop.
+
+3. **Credential redaction needs layered matching.** An `auth_mode` key contains "auth" but its value `"none"` is not a credential. A `api_key_env` key's value `"OPENAI_API_KEY"` is an env-var name, not a secret. Redact dict values under credential-suggesting keys only when the value isn't an env-var name pattern; redact standalone strings only when they match known credential patterns AND are long enough (>12 chars). Over-redaction of legitimate metadata is as bad as under-redaction.
+
+4. **Negative-result matching at the word level, not substring.** New query "support query" and stored failure "no evidence for query: support" share the significant word "support" but neither is a substring of the other. Strip stopwords and check set intersection on significant terms.
+
+5. **Provider auth validation should be lazy.** Config files often define all three provider sections (fixture, openai, codex_cli), but only the active provider's auth credentials should be validated at load time. Validating all providers' credentials up front fails on a valid config that simply has both defined.
