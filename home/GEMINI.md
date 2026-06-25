@@ -10,6 +10,6 @@
 # 需求拆解
 - 規劃多項實作需求時，按觸碰同一函式的功能聚合排序，範圍由大至小，確保開發連續性。
 - 修改規格、規約、提示詞或文件時，先刪除、替換與合併，最後才新增。
-# 遵守 skill
+# situational 才需遵守 skill
 - 調整代碼時請主動遵守 skill deve & subt.
 - 執行 skill dual & single 的時候也主動遵守 skill deve & subt. 
