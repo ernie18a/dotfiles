@@ -99,9 +99,9 @@ Include:
 - verification commands or limits
 - escalation policy
 - completion criteria
-- report expectations
+- handoff state expectations
 
-Avoid chat dumps, long logs, source-file copies, runtime implementation details, and duplicated runtime rules.
+Avoid chat dumps, long logs, source-file copies, runtime implementation details, duplicated runtime rules, and human-facing status prose as the primary handoff.
 
 ## Planner Review
 
@@ -171,12 +171,13 @@ Forbidden:
 - required evidence:
 - conditions that are not sufficient by themselves:
 
-## Report Expectations
+## Handoff State
 
 - summary: one short delta for this batch, naming the relevant `Pxx` id when available
 - changed files: project-relative paths only
 - tests: command, status, short output summary only
-- unresolved issue: blocker id, failing behavior, next smallest action
+- blocker: only when work cannot continue within Scope; include observed evidence and exhausted alternatives
+- remaining autonomous actions: next smallest in-scope actions, or empty when the terminal goal is complete
 - assumptions: only assumptions that affect the next plan
 ```
 

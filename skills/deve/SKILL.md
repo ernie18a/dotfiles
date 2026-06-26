@@ -3,10 +3,25 @@ name: deve
 description: 實作、修改或執行程式，建立或調整專案，或處理 Python、Rust、GPU 推論時使用。
 ---
 # 開發規約
+
 - 只做解決需求的最小變更；不過度設計、不做推測性實作。
 - 只輸出新增或修改的部分；修改既有程式碼時，只輸出該函式或區塊，不輸出 boilerplate。
 - 優先低耦合與明確 I/O 邊界，讓變動點可局部替換；不為形式過度拆模組。
 - 優先 fail fast、明確契約、可驗證型別與顯式轉換；測試優先覆蓋高風險與核心邊界。
+
+# 驗證規約
+
+修改程式碼後，必須執行該專案的 canonical 測試/檢查指令（如 `uv run pytest -q`、`cargo test`、`npm test`），以該結果為驗證證據。禁止：
+
+- 只寫 ad-hoc 驗證腳本而不跑正式測試套件。
+- 以自我述句（「應已正確」）替代實際測試輸出。
+- 將單一驗證路徑的通過當作 full-suite 綠燈。
+
+專案規格（如 `*NN.md`）中指定的驗證指令優先；無指定時，從 `pyproject.toml`、`Cargo.toml`、`package.json` 等專案清單推斷 canonical 指令。
+
+## References
+
+- `references/structured-output-extraction.md` — LLM prose→JSON extraction pattern. Use when an LLM worker may return unstructured text instead of structured output.
 
 # I/O 與寫入隔離
 - `/g` 是外接硬碟。工作專案、輸入、輸出、暫存檔、快取、下載物、模型權重、瀏覽器 binaries、build artifacts 與工具索引，預設都必須在 `/g`；不得寫入作業系統硬碟。
