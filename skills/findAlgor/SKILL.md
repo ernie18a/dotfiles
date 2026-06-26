@@ -1,5 +1,5 @@
 ---
-name: algor
+name: findAlgor
 description: Apply this skill whenever the user faces any decision-making problem, optimization challenge, selection task, ranking need, search/filter requirement, scheduling dilemma, resource allocation, trade-off analysis, or any situation involving "which option to choose", "how to prioritize", "what's the best way", "is this feasible", "how to automate this judgment". This skill brings computational complexity theory and algorithm design thinking to bear on the problem — treating decisions as computable problems with tractability bounds, and selecting or designing an algorithm-style reasoning process that matches the problem's actual structure. Use this skill regardless of domain: business, personal, medical, legal, creative, technical, social, financial, or any other. If the user is trying to make a decision or automate a judgment process, use this skill.
 ---
 

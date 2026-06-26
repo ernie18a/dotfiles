@@ -1,5 +1,5 @@
 ---
-name: qfwd
+name: subQuantFrameWork
 description: Use when the user provides one or more high-level directions, frameworks, or topics and wants to enumerate concrete, implementable sub-items beneath them. Also use when refining, correcting, simplifying, or improving any user-provided script, prompt, specification, skill, policy, documentation, workflow, or structured text by removing accumulated patches, redundant constraints, stale assumptions, and over-specific wording. Best for making artifacts cleaner, more adaptable, and closer to the user's actual intent without overfitting to any particular example.
 ---
 
