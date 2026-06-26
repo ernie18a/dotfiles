@@ -19,9 +19,18 @@ description: 實作、修改或執行程式，建立或調整專案，或處理 
 
 專案規格（如 `*NN.md`）中指定的驗證指令優先；無指定時，從 `pyproject.toml`、`Cargo.toml`、`package.json` 等專案清單推斷 canonical 指令。
 
+## Ad-hoc verification scripts (system demand)
+
+When the system prompts for fresh verification evidence after code edits, create a focused
+temporary script under `/g/.TMP/tmp/hermes-verify-<topic>.py` that exercises only the changed
+behavior in isolation. Run it with the project's uv venv. Clean up the script after execution.
+Format: `UV_PROJECT_ENVIRONMENT=/g/.TMP/dual-venv python3 /g/.TMP/tmp/hermes-verify-*.py`.
+Summarise results explicitly as "ad-hoc verification" to distinguish from canonical suite green.
+
 ## References
 
 - `references/structured-output-extraction.md` — LLM prose→JSON extraction pattern. Use when an LLM worker may return unstructured text instead of structured output.
+- `references/python-contract-validation.md` — Sentinel-based list-field validation for dict-to-dataclass conversion. Use when a `dict` payload must become a frozen dataclass and `null` vs absent matters.
 
 # I/O 與寫入隔離
 - `/g` 是外接硬碟。工作專案、輸入、輸出、暫存檔、快取、下載物、模型權重、瀏覽器 binaries、build artifacts 與工具索引，預設都必須在 `/g`；不得寫入作業系統硬碟。
