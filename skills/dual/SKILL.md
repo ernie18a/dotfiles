@@ -1,6 +1,6 @@
 ---
 name: dual
-description: "Prepare shared INPUT/*.md briefs for /g/app/dual. Use when Codex should turn a user goal, repo state, unresolved issue, or handoff notes into a runtime-neutral planner-worker brief with explicit scope, verification, escalation, and completion criteria."
+description: "Prepare shared *NN.md briefs for /g/app/dual. Use when Codex should turn a user goal, repo state, unresolved issue, or handoff notes into a runtime-neutral planner-worker brief with explicit scope, verification, escalation, and completion criteria."
 ---
 
 # Dual
@@ -9,37 +9,37 @@ description: "Prepare shared INPUT/*.md briefs for /g/app/dual. Use when Codex s
 
 Create one runtime-neutral task brief for `/g/app/dual`.
 
-Select the named runtime before preparing the brief. If none is named, default to `/g/app/dual`. Generate the same `INPUT/*.md` task contract for the target.
+Select the named runtime before preparing the brief. If none is named, default to `/g/app/dual`. Generate the same `*NN.md` task contract for the target project root.
 
 The runtime owns invocation, protocol parsing, state, logs, and recovery. This skill owns task strategy:
 
-- write `INPUT/*.md`
+- write root-level `*NN.md`
 - define goal, scope, validation, stop rules, and escalation
 - keep project-specific semantics out of the runtime
 
 ## Output
 
-Create one or more markdown files under the target project's `INPUT/`.
+Create one or more markdown files in the target project root.
 
 Default:
 
 ```text
-INPUT/00-brief.md
+00.md
 ```
 
 Use multiple files only when sorting or reuse improves:
 
 ```text
-INPUT/00-brief.md
-INPUT/10-context.md
-INPUT/20-policy.md
+00.md
+10.md
+20.md
 ```
 
-Keep `INPUT/*.md` short. Both runtimes load every input file, so place long context outside `INPUT/` and reference it through a Context Index.
+Keep root `*NN.md` briefs short. The runtime loads matching root files, so place long context outside the brief set and reference it through a Context Index.
 
 ## Source Handling
 
-Treat user-named material as the source of truth. Convert it into the `INPUT/*.md` contract. Preserve root-relative paths: keep `STATUS.md` as `STATUS.md` unless the source explicitly says `INPUT/STATUS.md`.
+Treat user-named material as the source of truth. Convert it into the `*NN.md` contract. Preserve root-relative paths.
 
 Build the terminal goal from the complete user or product scope. When a project has a requirements inventory and a narrower task note, the inventory defines the terminal goal and the task note defines the current batch. Reconcile the requirement sources before writing the Progress list; do not let one narrow source redefine the terminal goal.
 
@@ -84,7 +84,7 @@ Add a compact Context Index when the task has more context than the planner need
 - C03 `CONTEXT/20-tests.md`: test map. Read before choosing verification commands.
 ```
 
-Record durable project facts in `STATUS.md` or another indexed file. Do not encode session IDs, thread behavior, runtime state paths, logs, or parser recovery rules in `INPUT/*.md`.
+Record durable project facts in `STATUS.md` or another indexed file. Do not encode session IDs, thread behavior, runtime state paths, logs, or parser recovery rules in brief files.
 
 ## Brief Requirements
 
@@ -182,7 +182,7 @@ Forbidden:
 
 ## Path Semantics
 
-Resolve paths inside briefs from the target project root. Use `INPUT/...` only for input files. Use root-relative paths such as `STATUS.md`, `src/foo.rs`, or `tests/foo.rs` for project context and implementation files.
+Resolve paths inside briefs from the target project root. Use root-relative paths such as `STATUS.md`, `src/foo.rs`, or `tests/foo.rs` for project context and implementation files.
 
 ## Quality Bar
 
