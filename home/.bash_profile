@@ -56,8 +56,9 @@ PROMPT_COMMAND=' history -a '
 source ~/.55H 2>/dev/null
 source ~/.IPS 2>/dev/null
 touch ~/.hushlogin
-alias SKILL=" cd  ~/.G/dotfiles/skills ; ls -l --color "
-alias USAGE="  date ; sudo -i bash -lc 'cd /g/app/usage && uv run main.py'"
+alias UUU=' GRCA & GGRCA & UU & '
+alias SKILL=' cd  ~/.G/dotfiles/skills ; ls -l --color '
+# alias USAGE="  date ; sudo -i bash -lc 'cd /g/app/usage && uv run main.py'"
 alias HYC='hermes --yolo -c'
 alias HY='hermes --yolo'
 alias MM2=' DEV=$(blkid -L g) && mountpoint -q /g || sudo mount -o defaults,noatime,commit=300 $DEV /g '
@@ -263,3 +264,4 @@ CT() { cat ~/.T$1 2>/dev/null ; }
 VT() { vim ~/.T$1 ; }
 HG() { cat ~/.bash_history | grep -ai --color "$1" ; }
 CG() { cat ~/.gemini/GEMINI.md 2>/dev/null || curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/GEMINI.md ; }
+USAGE() { date ; sudo -i bash -lc 'cd /g/app/usage && uv run main.py' ; }
