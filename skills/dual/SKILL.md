@@ -39,9 +39,9 @@ Keep root `*NN.md` briefs short. The runtime loads matching root files, so place
 
 ## Source Handling
 
-Treat user-named material as the source of truth. Convert it into the `*NN.md` contract. Preserve root-relative paths.
+Generated entry briefs must pass a source-dependency check: after source requirement files are moved, archived, or deleted, the brief still contains the product contract, required inventory, scope, verification, and completion criteria. Source requirement files are extraction inputs only, not runtime dependencies, cross-check authorities, required reading, context-index entries, or recovery paths.
 
-Build the terminal goal from the complete user or product scope. When a project has a requirements inventory and a narrower task note, the inventory defines the terminal goal and the task note defines the current batch. Reconcile the requirement sources before writing the Progress list; do not let one narrow source redefine the terminal goal.
+Extract durable requirements into the entry brief or an indexed durable state file. Do not cite source requirement files as task authority after extraction. Build the terminal goal from the complete user or product scope; when sources differ in scope, the inventory defines terminal scope and the task note defines the current batch.
 
 ## Constraint Provenance
 
@@ -63,12 +63,15 @@ Before writing input files, verify:
 - The worker can execute a batch without chat history.
 - Required project context has stable paths.
 - Completion evidence is known or explicitly unresolved.
+- The generated entry passes the source-dependency check.
 
 For a direct one-shot fix, state that a planner-worker runtime may add unnecessary overhead and provide a smaller direct handoff instead.
 
 ## Context And Progress
 
-Add a compact Context Index when the task has more context than the planner needs every turn:
+Entry briefs are task indexes, not history stores. Put only the state needed for planner/worker execution in the entry; summarize durable progress in `STATUS.md` or an indexed state file, and treat runtime checkpoint/log files as recovery artifacts rather than task authority.
+
+Add a compact Context Index when the task has active state, implementation evidence, or maintained references that the planner does not need every turn:
 
 ```md
 ## Progress
@@ -121,7 +124,7 @@ Require Smart to issue the next batch whenever the terminal goal still has sourc
 
 ## Current State
 
-- source of truth:
+- task authority:
 - known progress:
 - unresolved work:
 
