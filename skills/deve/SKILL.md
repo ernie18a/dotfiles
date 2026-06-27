@@ -11,19 +11,11 @@ description: 實作、修改或執行程式，建立或調整專案，或處理 
 
 # 驗證規約
 
-修改程式碼後，必須執行該專案的 canonical 測試/檢查指令（如 `uv run pytest -q`、`cargo test`、`npm test`），並以其結果判定是否完成驗證。專案規格（如 `*NN.md`）中指定的驗證指令優先；無指定時，從 `pyproject.toml`、`Cargo.toml`、`package.json` 等專案清單推斷 canonical 指令。
+- 修改程式碼後，必須執行該專案的 canonical 測試/檢查指令（如 `uv run pytest -q`、`cargo test`、`npm test`），並以其結果判定是否完成驗證。專案規格（如 `*NN.md`）中指定的驗證指令優先；無指定時，從 `pyproject.toml`、`Cargo.toml`、`package.json` 等專案清單推斷 canonical 指令。
 
-禁止：
-
-- 以 ad-hoc 驗證、手動實驗或自我述句（「應已正確」）替代正式測試套件。
-- 將局部驗證路徑的通過當作 full-suite 綠燈。
-
-只有在 canonical 測試無法直接覆蓋改動邊界，或 system 明確要求 fresh verification evidence 時，才進行 ad-hoc verification。其內容必須只驗 changed behavior，且失敗時能明確失敗；不得取代 canonical 測試。
-
-## References
-
-- `references/structured-output-extraction.md` — LLM prose→JSON extraction pattern. Use when an LLM worker may return unstructured text instead of structured output.
-- `references/python-contract-validation.md` — Sentinel-based list-field validation for dict-to-dataclass conversion. Use when a `dict` payload must become a frozen dataclass and `null` vs absent matters.
+- 禁止以 ad-hoc 驗證、手動實驗或自我述句（「應已正確」）替代正式測試套件。
+- 禁止將局部驗證路徑的通過當作 full-suite 綠燈。
+- 只有在 canonical 測試無法直接覆蓋改動邊界，或 system 明確要求 fresh verification evidence 時，才進行 ad-hoc verification。其內容必須只驗 changed behavior，且失敗時能明確失敗；不得取代 canonical 測試。
 
 # I/O 與寫入隔離
 - `/g` 是外接硬碟。工作專案、輸入、輸出、暫存檔、快取、下載物、模型權重、瀏覽器 binaries、build artifacts 與工具索引，預設都必須在 `/g`；不得寫入作業系統硬碟。
