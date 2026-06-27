@@ -56,6 +56,7 @@ PROMPT_COMMAND=' history -a '
 source ~/.55H 2>/dev/null
 source ~/.IPS 2>/dev/null
 touch ~/.hushlogin
+WHEN() { local t=$(( $(date -d "${1:0:2}:${1:2:2}" +%s) - $(date +%s) )); sleep $(( t < 0 ? t + 86400 : t )); }
 alias KKK=' cat ~/.55H '
 alias UUU=' GRCA & GGRCA & UU & '
 alias SKILL=' cd  ~/.G/dotfiles/skills ; ls -l --color '

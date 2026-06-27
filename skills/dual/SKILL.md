@@ -193,3 +193,7 @@ Resolve paths inside briefs from the target project root. Use root-relative path
 ## Quality Bar
 
 Prefer the smallest useful input set. Remove anything that does not affect planner guidance, worker execution, validation, stopping, or escalation.
+
+## References
+
+- `references/dual-runtime-deepseek-quirks.md` — runtime provider and no-progress guard failure patterns. Read when debugging worker workspace blindness, stale changed-files in terminal output, or false no-progress failures. Covers `response_format: json_object` + tools suppression on DeepSeek, `OBSERVED_FILES` injection, `_finish` stale-data pitfall, and blocked-worker no-progress guard fix.
