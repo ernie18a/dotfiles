@@ -11,7 +11,7 @@ Create one runtime-neutral task brief for `/g/app/dual`.
 
 Select the named runtime before preparing the brief. If none is named, default to `/g/app/dual`. Generate the same `*NN.md` task contract for the target project root.
 
-The runtime owns invocation, protocol parsing, state, logs, and recovery. This skill owns task strategy:
+The runtime owns invocation, protocol parsing, the checkpoint/state runtime, optional debug artifacts, and recovery. This skill owns task strategy:
 
 - write root-level `*NN.md`
 - define goal, scope, validation, stop rules, and escalation
@@ -69,7 +69,7 @@ For a direct one-shot fix, state that a planner-worker runtime may add unnecessa
 
 ## Context And Progress
 
-Entry briefs are task indexes, not history stores. Put only the state needed for planner/worker execution in the entry; summarize durable target-project progress in `STATUS.md` or an indexed state file, and treat runtime checkpoint/log files as recovery artifacts rather than task authority.
+Entry briefs are task indexes, not history stores. Put only the state needed for planner/worker execution in the entry; summarize durable target-project progress in `STATUS.md` or an indexed state file, and treat runtime checkpoint/debug files as recovery artifacts rather than task authority.
 
 Keep target artifacts and runtime artifacts in separate namespaces. The target project owns files named in the brief, such as `STATUS.md`, `src/*`, `tests/*`, and indexed context files. The runtime owns only its checkpoint/log namespace, such as `PROGRESS/*`. Do not design briefs that require the runtime to overwrite target progress files with runtime phase, parser, provider, or recovery state.
 
@@ -90,6 +90,8 @@ Add a compact Context Index when the task has active state, implementation evide
 ```
 
 Record durable project facts in `STATUS.md` or another indexed file. Do not encode session IDs, thread behavior, runtime phase state, logs, parser recovery rules, or provider status as target project facts.
+
+Runtime debug files such as `PROGRESS/events.jsonl`, `PROGRESS/run.log`, `PROGRESS/runtime-status.md`, and `PROGRESS/protocol-errors.jsonl` are optional recovery artifacts. Do not place them in the Context Index, required reading, task authority, or completion evidence.
 
 ## Brief Requirements
 
