@@ -69,9 +69,7 @@ For a direct one-shot fix, state that a planner-worker runtime may add unnecessa
 
 ## Context And Progress
 
-Entry briefs are task indexes, not history stores. Put only the state needed for planner/worker execution in the entry; summarize durable target-project progress in `STATUS.md` or an indexed state file, and treat runtime checkpoint/log files as recovery artifacts rather than task authority.
-
-Keep target artifacts and runtime artifacts in separate namespaces. The target project owns files named in the brief, such as `STATUS.md`, `src/*`, `tests/*`, and indexed context files. The runtime owns only its checkpoint/log namespace, such as `PROGRESS/*`. Do not design briefs that require the runtime to overwrite target progress files with runtime phase, parser, provider, or recovery state.
+Entry briefs are task indexes, not history stores. Put only the state needed for planner/worker execution in the entry; summarize durable progress in `STATUS.md` or an indexed state file, and treat runtime checkpoint/log files as recovery artifacts rather than task authority.
 
 Add a compact Context Index when the task has active state, implementation evidence, or maintained references that the planner does not need every turn:
 
@@ -89,7 +87,7 @@ Add a compact Context Index when the task has active state, implementation evide
 - C03 `CONTEXT/20-tests.md`: test map. Read before choosing verification commands.
 ```
 
-Record durable project facts in `STATUS.md` or another indexed file. Do not encode session IDs, thread behavior, runtime phase state, logs, parser recovery rules, or provider status as target project facts.
+Record durable project facts in `STATUS.md` or another indexed file. Do not encode session IDs, thread behavior, runtime state paths, logs, or parser recovery rules in brief files.
 
 ## Brief Requirements
 
