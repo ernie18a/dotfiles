@@ -11,21 +11,14 @@ description: 實作、修改或執行程式，建立或調整專案，或處理 
 
 # 驗證規約
 
-修改程式碼後，必須執行該專案的 canonical 測試/檢查指令（如 `uv run pytest -q`、`cargo test`、`npm test`），以該結果為驗證證據。禁止：
+修改程式碼後，必須執行該專案的 canonical 測試/檢查指令（如 `uv run pytest -q`、`cargo test`、`npm test`），並以其結果判定是否完成驗證。專案規格（如 `*NN.md`）中指定的驗證指令優先；無指定時，從 `pyproject.toml`、`Cargo.toml`、`package.json` 等專案清單推斷 canonical 指令。
 
-- 只寫 ad-hoc 驗證腳本而不跑正式測試套件。
-- 以自我述句（「應已正確」）替代實際測試輸出。
-- 將單一驗證路徑的通過當作 full-suite 綠燈。
+禁止：
 
-專案規格（如 `*NN.md`）中指定的驗證指令優先；無指定時，從 `pyproject.toml`、`Cargo.toml`、`package.json` 等專案清單推斷 canonical 指令。
+- 以 ad-hoc 驗證、手動實驗或自我述句（「應已正確」）替代正式測試套件。
+- 將局部驗證路徑的通過當作 full-suite 綠燈。
 
-## Ad-hoc verification scripts (system demand)
-
-When the system prompts for fresh verification evidence after code edits, create a focused
-temporary script under `/g/.TMP/tmp/hermes-verify-<topic>.py` that exercises only the changed
-behavior in isolation. Run it with the project's uv venv. Clean up the script after execution.
-Format: `UV_PROJECT_ENVIRONMENT=/g/.TMP/dual-venv python3 /g/.TMP/tmp/hermes-verify-*.py`.
-Summarise results explicitly as "ad-hoc verification" to distinguish from canonical suite green.
+只有在 canonical 測試無法直接覆蓋改動邊界，或 system 明確要求 fresh verification evidence 時，才進行 ad-hoc verification。其內容必須只驗 changed behavior，且失敗時能明確失敗；不得取代 canonical 測試。
 
 ## References
 
