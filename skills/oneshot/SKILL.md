@@ -1,11 +1,11 @@
 ---
-name: single
-description: Use when the user wants one runNN.md handoff for a downstream agent to execute without repeated clarification.
+name: oneshot
+description: Use when the user wants one oneshotNN.md handoff for a downstream agent to execute without repeated clarification.
 ---
 
-# Single-Pass Handoff
+# Oneshot Handoff
 
-Create one `runNN.md` for a downstream agent.
+Create one `oneshotNN.md` for a downstream agent.
 
 Before writing:
 
@@ -16,12 +16,12 @@ Before writing:
 
 Keep one main goal. State the allowed and forbidden scope. Divide work into verifiable phases. Verify outcomes and externally relevant contracts, not incidental internal steps unless those steps are the contract. Check a checkpoint after each completed phase.
 
-Name handoffs incrementally: `run01.md`, `run02.md`.
+Name handoffs incrementally: `oneshot01.md`, `oneshot02.md`.
 
-## `runNN.md` Template
+## `oneshotNN.md` Template
 
 ```md
-# runNN
+# oneshotNN
 
 ## Goal
 

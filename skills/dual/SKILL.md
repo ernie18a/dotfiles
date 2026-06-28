@@ -1,6 +1,6 @@
 ---
 name: dual
-description: "Prepare shared *NN.md briefs for /g/app/dual. Use when Codex should turn a user goal, repo state, unresolved issue, or handoff notes into a runtime-neutral planner-worker brief with explicit scope, verification, escalation, and completion criteria."
+description: "Prepare shared dualNN.md briefs for /g/app/dual. Use when Codex should turn a user goal, repo state, unresolved issue, or handoff notes into a runtime-neutral planner-worker brief with explicit scope, verification, escalation, and completion criteria."
 ---
 
 # Dual
@@ -9,11 +9,11 @@ description: "Prepare shared *NN.md briefs for /g/app/dual. Use when Codex shoul
 
 Create one runtime-neutral task brief for `/g/app/dual`.
 
-Select the named runtime before preparing the brief. If none is named, default to `/g/app/dual`. Generate the same `*NN.md` task contract for the target project root.
+Select the named runtime before preparing the brief. If none is named, default to `/g/app/dual`. Generate the same `dualNN.md` task contract for the target project root.
 
 The runtime owns invocation, protocol parsing, the checkpoint/state runtime, optional debug artifacts, and recovery. This skill owns task strategy:
 
-- write root-level `*NN.md`
+- write root-level `dualNN.md`
 - define goal, scope, validation, stop rules, and escalation
 - keep project-specific semantics out of the runtime
 
@@ -24,18 +24,18 @@ Create one or more markdown files in the target project root.
 Default:
 
 ```text
-00.md
+dual00.md
 ```
 
 Use multiple files only when sorting or reuse improves:
 
 ```text
-00.md
-10.md
-20.md
+dual00.md
+dual10.md
+dual20.md
 ```
 
-Keep root `*NN.md` briefs short. The runtime loads matching root files, so place long context outside the brief set and reference it through a Context Index.
+Keep root `dualNN.md` briefs short. The runtime loads matching root files, so place long context outside the brief set and reference it through a Context Index.
 
 ## Source Handling
 
