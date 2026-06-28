@@ -170,7 +170,7 @@ Forbidden:
 - Return `done` only when the terminal goal and all Completion Criteria are met. If a batch is complete, issue the next batch from remaining source-of-truth work.
 - Do not ask the user for clarification, approval, input, or a decision. Inspect, derive, acquire through available tools, or implement the smallest missing capability first.
 - If worker reports `blocked` or `failed`, review the evidence and choose the smallest next batch or return `blocked`/`failed`.
-- Return `blocked` only after bounded attempts demonstrate an external authority boundary and no autonomous action remains. Record blocker id, observed evidence, attempted paths, and exhausted alternatives; do not request user action.
+- Return `blocked` only after bounded attempts demonstrate an external authority boundary and no immediately executable autonomous action remains. Record blocker id, observed evidence, attempted paths, and exhausted alternatives; do not request user action.
 - If the next action violates Scope, Contracts, or command restrictions, return `blocked`.
 
 ## Completion Criteria
@@ -185,7 +185,7 @@ Forbidden:
 - changed files: project-relative paths only
 - tests: command, status, short output summary only
 - blocker: only when work cannot continue within Scope; include observed evidence and exhausted alternatives
-- remaining autonomous actions: next smallest in-scope actions, or empty when the terminal goal is complete
+- remaining autonomous actions: next smallest in-scope actions the worker can execute immediately, or empty when blocked or complete; external boundaries belong in `blocker` and `evidence`
 - assumptions: only assumptions that affect the next plan
 ```
 
