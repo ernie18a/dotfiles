@@ -1,5 +1,5 @@
 ---
-name: focus-ideation
+name: cot
 description: Guide broad but disciplined exploration across domains. Use when the task needs reframing, multiple distinct options, assumption checks, tradeoff analysis, and deliberate convergence without wasting effort on low-impact elaboration.
 ---
 
