@@ -14,7 +14,7 @@ Before writing:
 3. Resolve it using available evidence. If more than one valid direction remains, write the decision rule and boundaries the executor must follow; do not turn an unresolved choice into a fixed internal sequence.
 4. Write only the result the executor needs to complete and verify the assigned work. Do not investigate anything else.
 
-Keep one main goal. State the allowed and forbidden scope. Divide work into verifiable phases. Verify outcomes and externally relevant contracts, not incidental internal steps unless those steps are the contract. Check a checkpoint after each completed phase.
+Keep one main goal. State the allowed and forbidden scope. Divide work into verifiable phases. Verify only what would decide acceptance of the work. Prefer one existing or minimal check that reaches the changed user-visible behavior or the original failure. Do not add new test scaffolding or broaden verification unless the existing checks cannot decide the result. Check a checkpoint after each completed phase.
 
 Name handoffs incrementally: `os01.md`, `os02.md`.
 
