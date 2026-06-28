@@ -1,0 +1,4 @@
+interface:
+  display_name: "LG"
+  short_description: "Compile robust LangGraph task entries"
+  default_prompt: "Use lg to turn my request into a concise, verifiable LangGraph entry."
