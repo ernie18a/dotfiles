@@ -72,15 +72,16 @@ The sweep flag is always `1` (clockwise). The large-arc flag is `1` when the arc
 }
 ```
 
-JS:
+JS — derive all segments from a single boundary array so arcs, dividers, and labels share one source of truth:
+
 ```js
-// One neutral gray for all segments (no multicolor palette)
-const RING_COLOR = "#3f4752";
+const RING_COLOR = "#3f4752";  // neutral gray for all segments
+const segBounds = [0, 5, 10, 15, 20, 24];
 
 function renderSegments() {
-  const blocks = [0, 5, 10, 15];
-  for (const start of blocks) {
-    const end = start + 5;
+  for (let i = 0; i < segBounds.length - 1; i++) {
+    const start = segBounds[i];
+    const end = segBounds[i + 1];
     innerRing.append(
       createSvgElement("path", {
         class: "inner-ring-seg",
@@ -91,6 +92,8 @@ function renderSegments() {
   }
 }
 ```
+
+The same `segBounds` array also drives sector boundary lines — see below.
 
 ### Rotating the Inner Ring (Drag Interaction)
 
@@ -128,21 +131,7 @@ CSS safeguards:
 }
 ```
 
-Keyboard navigation:
-```js
-dial.addEventListener("keydown", (event) => {
-  const keySteps = {
-    ArrowUp: 0.25, ArrowRight: 0.25,
-    ArrowDown: -0.25, ArrowLeft: -0.25,
-    PageUp: 1, PageDown: -1,
-    Home: -selectedHour,
-    End: FULL_DAY - selectedHour,
-  };
-  if (!(event.key in keySteps)) return;
-  event.preventDefault();
-  setHour(selectedHour + keySteps[event.key]);
-});
-```
+For keyboard navigation with integer-hour snapping, see the [Keyboard Navigation section](#keyboard-navigation-hour-snapped-mode) below.
 
 ## Exact-Hour vs Equal-Sector Geometry
 
@@ -310,6 +299,168 @@ A drop-shadow on the dial SVG gives depth without a rectangular box effect:
   filter: url("#shadow");
 }
 ```
+
+## Inner Ring Labels (Rotating Segment Labels)
+
+Text labels on the inner ring must rotate with it, so place `<text>` elements INSIDE `<g id="innerRing">`. Each label is positioned at the segment's midpoint hour. Use `pointer-events: none` to let pointer events pass through to the drag handler on the dial container.
+
+### Data Model
+
+Define segment boundaries once, then derive both the arcs and the label midpoints from it:
+
+```js
+const segBounds = [0, 5, 10, 15, 20, 24]; // divisions aligned to hour ticks
+
+// Gray ring segments are derived by iterating consecutive pairs
+for (let i = 0; i < segBounds.length - 1; i++) {
+  const start = segBounds[i];
+  const end = segBounds[i + 1];
+  // render arcPath(RADIUS, start, end) ...
+}
+
+// Sector boundary lines at each division point
+for (const hour of segBounds) {
+  // render radial line from RADIUS-16 to RADIUS+16 ...
+}
+```
+
+### Label Data + Positioning
+
+Labels are declared as an array with their midpoint hour and text. The midpoint of a segment `[S, E]` is `(S + E) / 2`. Position at `polarPoint(RADIUS, midpointHour)` — the center of the ring stroke:
+
+```js
+const labels = [
+  { hour: 0.5, text: "1", cls: "highlight" },  // accent zone 0-1h
+  { hour: 2.5, text: "5" },                     // gray segment 0-5h
+  { hour: 7.5, text: "5" },                     // gray segment 5-10h
+  { hour: 12.5, text: "5" },                    // gray segment 10-15h
+  { hour: 17.5, text: "5" },                    // gray segment 15-20h
+  { hour: 22, text: "4" },                      // gray segment 20-24h (4h)
+];
+
+for (const { hour, text, cls } of labels) {
+  const pos = polarPoint(INNER_RING_RADIUS, hour);
+  const el = createSvgElement("text", {
+    class: cls ? `inner-ring-label ${cls}` : "inner-ring-label",
+    x: pos.x,
+    y: pos.y,
+    "pointer-events": "none",       // must not block drag
+  });
+  el.textContent = text;
+  innerRing.append(el);
+}
+```
+
+**Why `RADIUS` (center of stroke)**: the ring has `stroke-width: 26`, so it spans from `RADIUS - 13` to `RADIUS + 13`. Placing text at `RADIUS` (e.g., 105) centers it on the visible ring. Verify: the center semicircle has `r = RADIUS - 13` (e.g., 92), so label text at `RADIUS` is outside the center fill.
+
+### CSS
+
+```css
+.inner-ring-label {
+  fill: #e8e0d0;                   /* same light color as outer tick labels */
+  font: 700 11px/1 ui-monospace, "SFMono-Regular", Consolas, monospace;
+  text-anchor: middle;
+  dominant-baseline: central;       /* vertical centering for single digit */
+  pointer-events: none;             /* drag-through compatibility */
+  user-select: none;                /* prevent text selection during drag */
+}
+
+.inner-ring-label.highlight {
+  fill: #b8dfc8;                   /* match the accent marker color */
+}
+```
+
+### Critical: Label vs Segment Geometry
+
+When an accent marker (e.g., a green highlight at 0-1h) overlaps a gray segment (e.g., 0-5h), the labels for both live at different midpoints and are well-separated:
+
+| Label | Midpoint | Position on dial | Visual zone |
+|-------|----------|-------------------|-------------|
+| "1" (highlight) | hour 0.5 | r=105, top-right | green highlight 0-1h |
+| "5" | hour 2.5 | r=105, right | gray segment 0-5h |
+
+The gap between hour 0.5 and hour 2.5 is `2 × 15° = 30°`, with a sector boundary at hour 1 (the boundary between highlight and adjacent gray) — so labels never overlap.
+
+### Radial Text Orientation (Bottom Faces Center)
+
+By default SVG text renders horizontally. On a rotating ring, each label should point radially so the bottom of each digit faces the center and the top faces outward.
+
+Apply a `transform="rotate(angle x y)"` centered on the text's own position:
+
+```js
+const angle = (hour / FULL_DAY) * 360;
+const el = createSvgElement("text", {
+  class: "inner-ring-label",
+  x: pos.x, y: pos.y,
+  transform: `rotate(${angle} ${pos.x} ${pos.y})`,
+  "pointer-events": "none",
+});
+```
+
+**Why this angle works**: a digit at hour 0 (top) needs 0° (bottom already faces center). A digit at hour 6 (right) needs 90° clockwise so bottom faces left (center). The formula `hour/24*360` produces these for every position.
+
+**Composition with group rotation**: the text's own `rotate()` applies first (in SVG transform order), then the innerRing group `rotate()` applies. Labels keep their radial orientation regardless of ring position. Labels on the bottom half appear inverted relative to the screen — correct radial behavior.
+
+| Hour | Angle | Orientation |
+|------|-------|-------------|
+| 0.5  | 7.5°  | top-right, bottom toward center |
+| 2.5  | 37.5° | right side, bottom toward center |
+| 7.5  | 112.5°| lower-right, bottom toward center |
+| 12.5 | 187.5°| bottom (inverted), bottom toward center |
+| 17.5 | 262.5°| lower-left, bottom toward center |
+| 22   | 330°  | upper-left, bottom toward center |
+
+### Integer-Hour Snapping (Sticky to Ticks)
+
+For a tick-aligned dial, snap rotation to the nearest integer hour on every interaction:
+
+```js
+function setHour(hour) {
+  // Modulo first to get into [0, 24), round to integer, modulo again
+  // to catch Math.round(23.96) -> 24 -> 0
+  selectedHour = Math.round(((hour % FULL_DAY) + FULL_DAY) % FULL_DAY) % FULL_DAY;
+  const angle = (selectedHour / FULL_DAY) * 360;
+  innerRing.setAttribute("transform", `rotate(${angle} ${CENTER} ${CENTER})`);
+  dial.setAttribute("aria-valuenow", String(selectedHour));
+}
+```
+
+**Edge case**: when the pointer is near midnight (~23.96), `Math.round` produces 24. The extra `% FULL_DAY` wraps it back to 0. Without it, `selectedHour` would be 24, breaking future modulo math.
+
+**Old state compatibility**: if state stores a decimal (e.g. 23.38), `loadState()` calls `setHour(23.38)` which rounds to 23 on first load. The next save writes an integer.
+
+### aria-valuenow
+
+When snapping to integer hours, set as an integer string:
+
+```js
+dial.setAttribute("aria-valuenow", String(selectedHour));
+```
+
+## Keyboard Navigation (Hour-Snapped Mode)
+
+When the dial snaps to integer hours, all keyboard steps must be whole-hour:
+
+```js
+dial.addEventListener("keydown", (event) => {
+  const keySteps = {
+    ArrowUp: 1,    ArrowRight: 1,
+    ArrowDown: -1, ArrowLeft: -1,
+    PageUp: 1,     PageDown: -1,
+    Home: -selectedHour,                 // -> hour 0
+    End: FULL_DAY - selectedHour - 1,    // -> hour 23
+  };
+  if (!(event.key in keySteps)) return;
+  event.preventDefault();
+  setHour(selectedHour + keySteps[event.key]);
+});
+```
+
+**End key pitfall**: `FULL_DAY - selectedHour` produces 24 when `selectedHour=0`, which modulo-wraps to 0. To reach hour 23 (the last hour), use `FULL_DAY - selectedHour - 1`.
+
+### Rotation Behaviour
+
+Because the `<text>` elements are children of `<g id="innerRing">`, they rotate with the ring when `setHour()` applies a `transform="rotate(...)"`. Single-digit labels remain perfectly readable at any rotation angle since there's no multi-character baseline to break.
 
 ## Verification
 

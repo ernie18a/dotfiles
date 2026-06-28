@@ -1,14 +1,17 @@
 ---
 name: sump
-description: Consolidate the current session's user messages into the current request. Use when Codex needs a concise, up-to-date statement of the user's intent after iterative clarification, correction, or refinement.
+description: Use when Codex needs a concise, up-to-date consolidation of the current session's user messages after iterative clarification, correction, or refinement.
 ---
 
 # Sum
 
-Consolidate only the current session's user messages.
+Consolidate only the current session's user messages in two stages.
 
-- Preserve earlier requirements unless a later user message replaces, corrects, cancels, or narrows them.
-- Merge later elaboration with compatible earlier requirements.
+- First, identify and collect what the user has said in the current session.
+- Then, organize those messages in chronological order into the concise current request.
+- Preserve earlier requirements unless a later user message replaces, corrects, cancels, narrows, or reframes them.
+- Treat later user messages as higher-priority evidence when they adjust or converge on earlier intent.
+- Merge later elaboration with still-compatible earlier requirements.
 - Remove superseded, cancelled, duplicated, and incidental conversational content.
 - Use assistant messages only to resolve references in user messages; never treat them as a source of requirements.
 - Return the concise current request, not a transcript or an explanation of the consolidation.

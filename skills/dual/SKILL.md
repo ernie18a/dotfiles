@@ -114,7 +114,9 @@ Avoid chat dumps, long logs, source-file copies, runtime implementation details,
 
 Require the planner to use worker reports, changed files, verification output, unresolved blockers, and completion criteria for the next decision.
 
-Require Smart to issue the next batch whenever the terminal goal still has source-of-truth work. A completed batch is not a completed task. Require the worker to inspect the workspace, derive existing inputs, use available tools, and exhaust bounded in-scope alternatives before returning `blocked`.
+Require the planner to issue the next batch (never `done`) whenever the terminal goal still has source-of-truth work. A completed batch is not a completed task. Require the planner to include terminal evidence for each Completion Criteria item when returning `done`.
+
+Require the worker to inspect the workspace, derive existing inputs, use available tools, and exhaust bounded in-scope alternatives before returning `blocked`.
 
 ## Minimal Template
 
@@ -165,10 +167,9 @@ Forbidden:
 
 ## Escalation Policy
 
-- Return `done` only when the terminal goal and Completion Criteria are met. If a batch is complete, issue the next batch from remaining source-of-truth work.
+- Return `done` only when the terminal goal and all Completion Criteria are met. If a batch is complete, issue the next batch from remaining source-of-truth work.
 - Do not ask the user for clarification, approval, input, or a decision. Inspect, derive, acquire through available tools, or implement the smallest missing capability first.
-- If worker reports `blocked` or `failed` on a local implementation issue, review the evidence and choose the smallest next batch or `takeover_plan`.
-- If Worker retries no longer produce verified progress, use `takeover_plan`; do not return `blocked` while an in-scope Smart action remains.
+- If worker reports `blocked` or `failed`, review the evidence and choose the smallest next batch or return `blocked`/`failed`.
 - Return `blocked` only after bounded attempts demonstrate an external authority boundary and no autonomous action remains. Record blocker id, observed evidence, attempted paths, and exhausted alternatives; do not request user action.
 - If the next action violates Scope, Contracts, or command restrictions, return `blocked`.
 

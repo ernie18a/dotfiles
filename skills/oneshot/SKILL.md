@@ -1,11 +1,11 @@
 ---
 name: oneshot
-description: Use when the user wants one oneshotNN.md handoff for a downstream agent to execute without repeated clarification.
+description: Use when the user wants one osNN.md handoff for a downstream agent to execute without repeated clarification.
 ---
 
 # Oneshot Handoff
 
-Create one `oneshotNN.md` for a downstream agent.
+Create one `osNN.md` for a downstream agent.
 
 Before writing:
 
@@ -16,12 +16,12 @@ Before writing:
 
 Keep one main goal. State the allowed and forbidden scope. Divide work into verifiable phases. Verify outcomes and externally relevant contracts, not incidental internal steps unless those steps are the contract. Check a checkpoint after each completed phase.
 
-Name handoffs incrementally: `oneshot01.md`, `oneshot02.md`.
+Name handoffs incrementally: `os01.md`, `os02.md`.
 
-## `oneshotNN.md` Template
+## `osNN.md` Template
 
 ```md
-# oneshotNN
+# osNN
 
 ## Goal
 
