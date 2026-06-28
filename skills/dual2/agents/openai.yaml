@@ -1,0 +1,4 @@
+interface:
+  display_name: "Dual2"
+  short_description: "Compile inputs into dual runtime briefs"
+  default_prompt: "Use $dual2 to convert this task into a /g/app/dual-ready brief."
