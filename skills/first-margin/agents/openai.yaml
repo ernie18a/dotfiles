@@ -1,4 +1,0 @@
-interface:
-  display_name: "First Margin"
-  short_description: "First-principles marginal-return decisions"
-  default_prompt: "Use $first-margin to choose only the options whose next unit of effort still has increasing marginal returns."
