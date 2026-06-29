@@ -31,22 +31,27 @@ When the user's wording and the artifact's structure differ, use the structure t
 
 Apply edits in this order:
 
-1. Delete
+1. Reorder by purpose
+   - Move related rules, constraints, examples, and exceptions together so duplicates, conflicts, and merge opportunities become visible.
+
+2. Delete
    - Remove stale constraints, duplicates, literal patches, workarounds, obsolete exceptions, and over-specific detail.
 
-2. Replace
+3. Replace
    - Replace brittle or example-specific wording with intent-level decision criteria.
    - Describe intended behavior and non-negotiable boundaries directly.
 
-3. Consolidate
+4. Consolidate
    - Merge rules that express the same behavior into one source of truth.
 
-4. Add
+5. Add
    - Add text only when deletion, replacement, or consolidation cannot express the intended behavior.
 
 ## Validation
 
 Before finishing, verify that the artifact has no conflicting rule and exception, duplicate source of truth, literalized user explanation, obsolete fixed limit, or example standing in for a general rule. Prefer the shortest text that preserves the required behavior.
+
+First reorder by purpose, then delete, replace, and consolidate. Every independent rule that remains must be one whose removal, replacement, or consolidation would break the artifact's purpose.
 
 ## Output Discipline
 
