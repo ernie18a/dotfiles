@@ -1,5 +1,5 @@
 ---
-name: dual3
+name: dual
 description: Create concise, audit-driven root-level dualNN.md briefs for /g/app/dual. Use when Codex must prepare a planner-worker task contract that helps the runtime choose batches, reject false completion, preserve high-risk boundaries, and verify terminal success across varied projects without carrying chat history.
 ---
 
