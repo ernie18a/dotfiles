@@ -29,6 +29,21 @@ The skill may create or edit entry markdown and referenced task docs. It must no
 - Decide `running`, `blocked`, `failed`, or `done` from checkpoint and observable evidence.
 - Reject or block on entries that are malformed, unsafe, too broad, or unverifiable.
 
+## Description Discipline
+
+Write for the LangGraph runtime's actual decisions:
+- load the entry and any referenced task docs
+- choose the next smallest executable action
+- reject unsafe, stale, too broad, or unverifiable work
+- audit terminal success against observable evidence
+
+Borrow description discipline from narrower handoff formats without copying their execution model:
+- From one-shot handoffs, use concrete allowed/forbidden scope, small executable actions, direct verification, and hard stop conditions.
+- From planner-worker briefs, use high-value boundaries, fresh evidence requirements, and `Completion Criteria` that make false terminal success hard to satisfy.
+- Translate those ideas into the existing LG entry fields; do not add phase-completion status, planner-worker protocol details, runtime state fields, or handoff-only report sections unless they are required by the LangGraph runtime contract.
+
+Treat external formats as input-quality lessons, not output templates. The generated artifact must remain usable by `/g/app/longGraph` and compatible `lg-run` workflows.
+
 ## Entry Contract
 
 Use the smallest entry/index that can be executed, audited, and resumed safely:
@@ -81,6 +96,8 @@ Rules:
 - Keep one primary goal per entry.
 - Keep `Next Action` to the next smallest executable workspace action.
 - Keep `Boundaries` to the smallest set that blocks high-risk failure: wrong files, false terminal success, stale evidence, unsafe breadth, or hidden external blockers.
+- Describe `Scope` as an execution boundary: what may be read, modified, run, or must not be touched.
+- Describe `Stop` as concrete runtime blockers: missing required input, scope expansion, unverifiable evidence, unsafe writes, or external authority that cannot be resolved from the workspace.
 - Make `Evidence Required` observable through file/content changes, command results, or explicit external input.
 - Use `Verification` for concrete commands or deterministic evidence rules. If none is known, state the missing verification instead of inventing one.
 - Treat `Completion Criteria` as the audit oracle. Include what is sufficient, what evidence is required, and what is explicitly not sufficient.
