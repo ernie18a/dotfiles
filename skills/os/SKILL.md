@@ -1,9 +1,9 @@
 ---
-name: oneshot
+name: os
 description: Use when the user wants one osNN.md handoff for a downstream agent to execute without repeated clarification.
 ---
 
-# Oneshot Handoff
+# os Handoff
 
 Create one `osNN.md` for a downstream agent.
 
