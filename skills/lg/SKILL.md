@@ -19,6 +19,7 @@ The skill may create or edit entry markdown and referenced task docs. It must no
 - Identify missing goal, scope, evidence, stop condition, next action, or audit boundary.
 - Define the smallest useful task index when one file would grow past what the runtime needs for the next decision.
 - Make terminal success and false-success cases observable enough for runtime audit.
+- For code-affecting entries, derive scope and action boundaries from directly inspected code contracts and observable behavior.
 - Repair an entry when runtime feedback shows ambiguity, missing evidence, or blocker context.
 
 `lg-run` owns execution:
@@ -94,12 +95,12 @@ Forbidden:
 
 Rules:
 - Keep one primary goal per entry.
-- Keep `Next Action` to the next smallest executable workspace action.
+- Keep `Next Action` to the next smallest executable workspace action; for code-affecting work, derive it from inspected code rather than documents, summaries, chat history, or assumptions.
 - Keep `Boundaries` to the smallest set that blocks high-risk failure: wrong files, false terminal success, stale evidence, unsafe breadth, or hidden external blockers.
 - Describe `Scope` as an execution boundary: what may be read, modified, run, or must not be touched.
 - Describe `Stop` as concrete runtime blockers: missing required input, scope expansion, unverifiable evidence, unsafe writes, or external authority that cannot be resolved from the workspace.
 - Make `Evidence Required` observable through file/content changes, command results, or explicit external input.
-- Use `Verification` for concrete commands or deterministic evidence rules. If none is known, state the missing verification instead of inventing one.
+- Use `Verification` for concrete commands or deterministic evidence rules. If none is known, state the missing verification instead of inventing one. Put destructive, production-facing, costly, long-running, or real-service checks behind explicit permission or into `Stop`.
 - Treat `Completion Criteria` as the audit oracle. Include what is sufficient, what evidence is required, and what is explicitly not sufficient.
 - Use `Handoff` only when the next run cannot continue from the other fields. Keep it short.
 - Use `Task Index` only when it reduces repeated reading or editing. Reference stable project-owned docs by path and purpose; do not copy raw logs, chat history, or source files into the entry.
@@ -108,7 +109,7 @@ Rules:
 ## Workflow
 
 1. Check the premise.
-   Confirm whether the request is for a new entry, an edit to an existing entry, a repair after runtime feedback, or a boundary/design discussion.
+   Confirm whether the request is for a new entry, an edit to an existing entry, a repair after runtime feedback, or a boundary/design discussion. For code-affecting work, inspect directly related code paths before compiling entry fields.
 
 2. Remove noise before adding structure.
    Do not preserve chat phrasing, historical explanation, duplicate constraints, or implementation guesses unless they affect execution or verification.
@@ -117,7 +118,7 @@ Rules:
    Decide what the skill can encode as input and what the runtime must prove from checkpoint, workspace tools, provider results, or verification.
 
 4. Compile or repair the entry.
-   Fill only the contract fields needed for safe execution and terminal audit. If critical information is missing, write it as an explicit blocker or open question.
+   Fill only the contract fields needed for safe execution and terminal audit. If multiple implementation directions remain valid, write the decision rule and boundaries instead of a fixed internal sequence. If critical information is missing, write it as an explicit blocker or open question.
 
 5. Preserve runtime authority.
    Never mark the task done. Never claim that verification passed unless the runtime or user provides actual evidence.
