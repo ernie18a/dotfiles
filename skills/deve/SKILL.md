@@ -6,6 +6,8 @@ description: 實作、修改或執行程式，建立或調整專案，或處理 
 
 - SVG 圓環/撥盤 UI 的渲染與互動模式見 `references/svg-circular-dial.md`（極座標、弧線路徑、旋轉拖曳、刻度標籤、中心分割圓）。
 
+- LangGraph graph 的 checkpoint/persist node 放置原則見 `references/langgraph-checkpoint-patterns.md`（provider 呼叫前必 persist，不掛在 conditional route 上）。
+- Codex/OpenAI structured-output JSON Schema 合規鏈與遞迴測試模式見 `references/codex-structured-output-schema.md`（kind.type → additionalProperties → required completeness → array items 的順序與驗證）。
 - 只做解決需求的最小變更；不過度設計、不做推測性實作。
 - 只輸出新增或修改的部分；修改既有程式碼時，只輸出該函式或區塊，不輸出 boilerplate。
 - 優先低耦合與明確 I/O 邊界，讓變動點可局部替換；不為形式過度拆模組。
@@ -39,6 +41,7 @@ description: 實作、修改或執行程式，建立或調整專案，或處理 
 - `/g` 是外接硬碟。工作專案、輸入、輸出、暫存檔、快取、下載物、模型權重、瀏覽器 binaries、build artifacts 與工具索引，預設都必須在 `/g`；不得寫入作業系統硬碟。
 - 專案內 `INPUT/` 存原始輸入，`OUTPUT/` 存最終輸出，`TMP/` 存中間檔。
 - 全域可重建的快取與下載物放在 `/g/.TMP/`，禁止 fallback 到 `~/`、`/tmp`、`~/.cache`。
+- Provider/CLI 工具的暫存檔（schema、output JSON）不得寫入目標專案目錄。解決模式見 `references/provider-artifact-isolation.md`。
 
 # Python 執行環境
 - 新增或執行 Python 專案與腳本時，使用 `uv run` 獨立環境。

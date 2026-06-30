@@ -57,10 +57,8 @@ Verify:
 - 下一步會超出 Scope 或違反 Contracts。
 - 驗證失敗且無法在 Scope 內修正。
 
-## Report
+## Completion
 
-- completed work:
-- verification:
-- result:
+- Reply exactly `DONE` if successful, otherwise, report only the unresolved condition and the evidence needed to continue.
 
 ```
