@@ -1,4 +1,0 @@
-interface:
-  display_name: "Norm"
-  short_description: "Normalize raw intent into an execution-ready spec."
-  default_prompt: "Use norm to turn the provided raw request, feature list, or draft plan into a compact execution-ready spec and choose the right downstream handoff."

@@ -1,45 +1,34 @@
 ---
 name: norm
-description: Normalize raw requests, feature lists, messy specs, or broad plans into a compact execution-ready spec before using os, lg, dual, or direct implementation. Use when source material says what is wanted but lacks scope, task size, evidence, stop conditions, or a clear downstream handoff choice.
+description: Normalize raw requests, feature lists, messy specs, or broad plans into a compact intermediate spec. Use when source material says what is wanted but lacks executable scope, evidence, verification, or stop conditions.
 ---
 
 # Norm
 
 ## Role
 
-Convert raw intent into the smallest useful execution spec. Treat this skill as a preprocessor, not as the executor and not as the final handoff format.
+Convert raw intent into the smallest useful normalized spec.
 
-Use it when a request, `enable*.md`, feature list, draft plan, chat summary, or broad requirement is too raw for `os`, `lg`, `dual`, or direct code work.
+Use it when a request, `enable*.md`, feature list, draft plan, chat summary, or broad requirement is too raw, broad, duplicated, or underspecified to guide the next executable step.
+
+The output is a standalone intermediate spec.
 
 ## Boundary
 
 `norm` owns input shaping:
 - identify the real goal and current executable slice
 - remove noisy, duplicated, decorative, or over-broad requirements
-- preserve only constraints that affect execution, safety, verification, recovery, or routing
-- choose whether the shaped work should go to `os`, `lg`, `dual`, or direct implementation
+- preserve only constraints that affect execution, safety, verification, or recovery
 - state what evidence would make completion auditable
 
-`norm` does not:
-- execute the task
-- claim completion
-- create runtime state
-- force a phased plan when one small action is enough
-- preserve every feature-list item as immediate scope
-- hide unresolved scope, authority, or verification gaps
+Keep the output limited to input shaping: goal, current slice, scope, evidence, verification, and stop conditions.
 
 ## Workflow
 
 1. Check the premise.
-   Decide whether the source is already executable. If it has a clear small action, allowed scope, evidence, and stop condition, do not add another planning layer.
+   If the source already has a clear small action, scope, evidence, and stop condition, return it as already executable.
 
-2. Classify task size.
-   - Direct implementation: small local change with obvious files and verification.
-   - `os`: one-shot handoff for small tools or tightly bounded work.
-   - `lg`: resumable runtime entry where next action, checkpoint audit, stale evidence, or false completion matter.
-   - `dual`: planner-worker contract for broad work, high-risk boundaries, or tasks likely to be falsely declared done.
-
-3. Normalize the source.
+2. Normalize the source.
    Replace feature inventory with execution boundaries:
    - terminal goal
    - current slice
@@ -49,17 +38,16 @@ Use it when a request, `enable*.md`, feature list, draft plan, chat summary, or 
    - evidence required
    - verification
    - stop conditions
-   - recommended downstream handoff
 
-4. Preserve terminal intent without inflating the next action.
+3. Preserve terminal intent without inflating the next action.
    Keep broad end-state requirements as terminal constraints or future scope. Put only the next smallest verifiable action into current scope.
 
-5. Expose blockers.
+4. Expose blockers.
    If the source lacks required authority, target files, success evidence, safe verification, or task size control, state the missing condition instead of inventing it.
 
 ## Output
 
-Return a compact normalized spec, not a full `os`, `lg`, or `dual` artifact unless the user asks for that next conversion.
+Return a compact normalized spec.
 
 Use this shape by default:
 
@@ -85,10 +73,6 @@ Verification:
 
 Stop:
 - ...
-
-Route:
-- recommended:
-- reason:
 ```
 
-Keep examples out unless they clarify a routing boundary. Prefer short decision rules over background explanation.
+Keep examples out unless they clarify a decision boundary. Prefer short decision rules over background explanation.

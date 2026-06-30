@@ -1,4 +1,0 @@
-interface:
-  display_name: "NormLG"
-  short_description: "Normalize raw intent, then compile it into an LG entry."
-  default_prompt: "Use normlg to process a raw request or feature file into normNN.md, then produce lgNN.md only from that normalized spec."

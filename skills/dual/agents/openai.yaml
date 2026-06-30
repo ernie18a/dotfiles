@@ -1,4 +1,0 @@
-interface:
-  display_name: "Dual3"
-  short_description: "Audit-driven dual runtime briefs"
-  default_prompt: "Use $dual3 to create a concise audit-driven /g/app/dual brief."
