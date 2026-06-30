@@ -44,6 +44,27 @@ Array schemas must define an `items` schema:
 {"type": "array"}                                          # ❌ — missing items
 ```
 
+### 5. `oneOf` (and `anyOf`/`allOf`) are not permitted
+
+OpenAI/Codex structured output does **not** support `oneOf`, `anyOf`, or `allOf`
+at any depth. Even wrapping two valid schemas in `oneOf` is rejected:
+
+```python
+# ❌ — 'oneOf' is not permitted
+{"oneOf": [_json_schema("batch_plan"), _json_schema("stop_decision")]}
+```
+
+**Workaround**: Instead of `oneOf`, generate a single schema that accepts all
+discriminator values. For example, flatten the discriminator into a property
+with a `const` for each variant, or widen `additionalProperties` at the top
+level and let validation happen in parsing/coercion instead.
+
+**Pitfall**: The `oneOf` constraint only surfaces when the audit/recovery path
+actually calls the planner with `audit_result`. If verification always passed
+or went straight to terminal-fail, the `oneOf` schema was never exercised.
+Once os08 fixed verification failure routing to recovery, the audit path lit up
+and `oneOf` became the next blocker.
+
 ## Verification Pattern: Recursive Schema Walker
 
 Use a recursive walker in tests to catch all violations in one pass:
@@ -54,6 +75,11 @@ def _walk_object_schemas(schema: dict[str, Any], path: list[str]) -> list[str]:
     issues: list[str] = []
     if not isinstance(schema, dict):
         return issues
+
+    # Reject oneOf, anyOf, allOf at any depth
+    for forbidden in ("oneOf", "anyOf", "allOf"):
+        if forbidden in schema:
+            issues.append(f"at {'/'.join(path)}: {forbidden} is not permitted")
 
     obj_type = schema.get("type")
     if obj_type == "object":

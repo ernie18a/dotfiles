@@ -6,7 +6,8 @@ description: 實作、修改或執行程式，建立或調整專案，或處理 
 
 - SVG 圓環/撥盤 UI 的渲染與互動模式見 `references/svg-circular-dial.md`（極座標、弧線路徑、旋轉拖曳、刻度標籤、中心分割圓）。
 
-- LangGraph graph 的 checkpoint/persist node 放置原則見 `references/langgraph-checkpoint-patterns.md`（provider 呼叫前必 persist，不掛在 conditional route 上）。
+- LangGraph graph 的 checkpoint/persist node 放置原則見 `references/langgraph-checkpoint-patterns.md`（provider 呼叫前必 persist、worked-state resume、verification failure recovery routing、failed-checkpoint resume、audit provider persistence、"complete" status equivalence）。
+- Markdown verification section 的 parsing 規則（backtick 剝除、prose 偵測、env-assignment wrap）見 `references/verification-parsing.md`。
 - Codex/OpenAI structured-output JSON Schema 合規鏈與遞迴測試模式見 `references/codex-structured-output-schema.md`（kind.type → additionalProperties → required completeness → array items 的順序與驗證）。
 - 只做解決需求的最小變更；不過度設計、不做推測性實作。
 - 只輸出新增或修改的部分；修改既有程式碼時，只輸出該函式或區塊，不輸出 boilerplate。

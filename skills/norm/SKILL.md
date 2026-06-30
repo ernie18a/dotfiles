@@ -11,7 +11,7 @@ Convert raw intent into the smallest useful normalized spec.
 
 Use it when a request, `enable*.md`, feature list, draft plan, chat summary, or broad requirement is too raw, broad, duplicated, or underspecified to guide the next executable step.
 
-The output is a standalone intermediate spec.
+The output is a standalone intermediate spec document named incrementally as `normNN.md`, for example `norm01.md`, `norm02.md`.
 
 ## Boundary
 
@@ -26,7 +26,7 @@ Keep the output limited to input shaping: goal, current slice, scope, evidence, 
 ## Workflow
 
 1. Check the premise.
-   If the source already has a clear small action, scope, evidence, and stop condition, return it as already executable.
+   If the source already has a clear small action, scope, evidence, and stop condition, compile it into `normNN.md`.
 
 2. Normalize the source.
    Replace feature inventory with execution boundaries:
@@ -47,11 +47,13 @@ Keep the output limited to input shaping: goal, current slice, scope, evidence, 
 
 ## Output
 
-Return a compact normalized spec.
+Write a compact normalized spec document as `normNN.md`.
 
 Use this shape by default:
 
 ```md
+# normNN
+
 ## Normalized Execution Spec
 
 Goal:
