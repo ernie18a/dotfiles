@@ -1,6 +1,6 @@
 ---
 name: lg
-description: Compile, repair, or tighten user requests into robust LangGraph runtime entry/index markdown for lg-run workflows. Use when the user wants to prepare work for the future LangGraph runtime, convert natural-language requirements into a verifiable task contract, update an existing entry after clarification or runtime feedback, or discuss the skill/runtime boundary for this tool.
+description: Create one lgNN.md for LangGraph runtime entry/index workflows, or repair an explicitly identified existing entry.
 ---
 
 # LG
@@ -9,7 +9,7 @@ description: Compile, repair, or tighten user requests into robust LangGraph run
 
 Prepare stable input for the LangGraph runtime. Treat the skill as an entry/index compiler, not as the runtime.
 
-The skill may create or edit entry markdown and referenced task docs. It must not execute worker tasks, mutate `PROGRESS/state.json`, decide terminal completion, or treat model claims, stdout, chat history, `STATUS.md`, or `CONTEXT/*` as canonical state.
+The skill creates one new `lgNN.md` entry by default, named incrementally like `osNN.md`. It may edit an existing entry only when the user explicitly identifies it as the target or asks for repair. It must not execute worker tasks, mutate `PROGRESS/state.json`, decide terminal completion, or treat model claims, stdout, chat history, `STATUS.md`, or `CONTEXT/*` as canonical state.
 
 ## Boundary
 
