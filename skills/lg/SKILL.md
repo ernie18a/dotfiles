@@ -43,7 +43,7 @@ Borrow description discipline from narrower handoff formats without copying thei
 - From planner-worker briefs, use high-value boundaries, fresh evidence requirements, and `Completion Criteria` that make false terminal success hard to satisfy.
 - Translate those ideas into the existing LG entry fields; do not add phase-completion status, planner-worker protocol details, runtime state fields, or handoff-only report sections unless they are required by the LangGraph runtime contract.
 
-Treat external formats as input-quality lessons, not output templates. The generated artifact must remain usable by `/g/app/longGraph` and compatible `lg-run` workflows.
+Treat external formats as input-quality lessons, not output templates. The generated artifact must remain compatible with the active `lg-run` entry contract and the project-specific wrapper, if one exists.
 
 ## Entry Contract
 

@@ -20,6 +20,7 @@ description: 實作、修改或執行程式，建立或調整專案，或處理 
 3. **批次實作** — 對同一階段的檔案修改一次完成（獨立修改批次化），減少回合數。
 4. **逐階段驗證** — 每完成一個階段標記為 completed，但完整驗證在 Final Verification 階段一次執行。
 5. **Final Verification** — 按規格指定的驗證指令執行（`py_compile`、`node --check`、serve + curl 測試、server 停止確認），全部通過後才標記完成。
+6. **Close the spec loop** — 更新 spec 本身的 Completed checkpoints 區塊（`[ ]` → `[x]`）與 Report 區塊（filled work、verification、result）。讓 spec 本身成為可審計的執行記錄。
 
 關鍵守則：
 - 規格中的 **Forbidden** 區塊是硬約束；列入絕對不做的事。
