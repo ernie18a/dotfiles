@@ -1,0 +1,4 @@
+interface:
+  display_name: "LG34"
+  short_description: "Compile LG3/LG4 Deep Agents entries"
+  default_prompt: "Use $lg34 to compile this request into an LG3 or LG4 entry contract."
