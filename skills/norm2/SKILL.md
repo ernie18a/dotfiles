@@ -1,21 +1,21 @@
 ---
 name: norm2
-description: Create a compact contract skeleton before using os when raw intent has unstable paths, implicit technical seams, broad concepts, or hidden-memory risk; preserves invariants, execution boundaries, adapter seams, verification oracles, and local dependencies without writing a full handoff.
+description: Create a compact contract skeleton when raw intent has unstable paths, implicit technical seams, broad concepts, or hidden-memory risk; preserves invariants, execution boundaries, adapter seams, verification oracles, and local dependencies without writing a full handoff.
 ---
 
 # Norm2
 
 ## Role
 
-Convert raw intent into a compact contract skeleton for a later handoff generator such as `os`.
+Convert raw intent into a compact contract skeleton for a later execution or handoff step.
 
-Use it when direct handoff generation would rely on hidden memory, stale paths, broad concept text, or inferred technical seams.
+Use it when direct execution or handoff generation would rely on hidden memory, stale paths, broad concept text, or inferred technical seams.
 
-`norm2` preserves constraints that determine whether the later handoff can become executable. It does not write the implementation plan.
+`norm2` preserves constraints that determine whether the later step can become executable. It does not write the implementation plan.
 
 ## Output
 
-Write one standalone `normNN.md`-style document. It must be short enough to read before `os`, and explicit enough that `os` does not need hidden memory to recover critical constraints.
+Write one standalone `normNN.md`-style document. It must be short enough to read before the next step, and explicit enough that the next step does not need hidden memory to recover critical constraints.
 
 ## Required Sections
 
@@ -58,7 +58,7 @@ Stop when the slice cannot remain true without changing scope.
 - Do not create phase-by-phase implementation steps unless phase order is itself a contract.
 - Preserve implementation hooks that materially affect verification.
 - Remove stale fixed paths or convert them into local dependencies with a stated base.
-- If a detail matters to `os`, put it in the contract skeleton.
+- If a detail matters to the next executable step, put it in the contract skeleton.
 - Keep one source of truth for each dependency.
 
 ## Default Shape
