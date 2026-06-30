@@ -1,19 +1,19 @@
 ---
-name: lg
-description: Create one lgNN.md for LangGraph runtime entry/index workflows, or repair an explicitly identified existing entry.
+name: lg2
+description: Create one lg2NN.md for LangGraph runtime entry/index workflows, or repair an explicitly identified existing entry.
 ---
 
-# LG
+# LG2
 
 ## Role
 
 Prepare stable input for the LangGraph runtime. Treat the skill as an entry/index compiler, not as the runtime.
 
-The skill creates one new `lgNN.md` entry by default, named incrementally like `osNN.md`. It may edit an existing entry only when the user explicitly identifies it as the target or asks for repair. It must not execute worker tasks, mutate `PROGRESS/state.json`, decide terminal completion, or treat model claims, stdout, chat history, `STATUS.md`, or `CONTEXT/*` as canonical state.
+The skill creates one new `lg2NN.md` entry by default, named incrementally like `osNN.md`. It may edit an existing entry only when the user explicitly identifies it as the target or asks for repair. It must not execute worker tasks, mutate `PROGRESS/state.json`, decide terminal completion, or treat model claims, stdout, chat history, `STATUS.md`, or `CONTEXT/*` as canonical state.
 
 ## Boundary
 
-`lg` owns input quality:
+`lg2` owns input quality:
 - Convert user intent into a compact entry/index contract.
 - Preserve only requirements that affect execution, safety, verification, or recovery.
 - Identify missing goal, scope, evidence, stop condition, next action, or audit boundary.
@@ -22,7 +22,7 @@ The skill creates one new `lgNN.md` entry by default, named incrementally like `
 - For code-affecting entries, derive scope and action boundaries from directly inspected code contracts and observable behavior.
 - Repair an entry when runtime feedback shows ambiguity, missing evidence, or blocker context.
 
-`lg-run` owns execution:
+`lg2-run` owns execution:
 - Load entry markdown and compute its digest.
 - Create or resume `PROGRESS/state.json`.
 - Load only referenced task docs needed for the current decision.
@@ -41,16 +41,16 @@ Write for the LangGraph runtime's actual decisions:
 Borrow description discipline from narrower handoff formats without copying their execution model:
 - From one-shot handoffs, use concrete allowed/forbidden scope, small executable actions, direct verification, and hard stop conditions.
 - From planner-worker briefs, use high-value boundaries, fresh evidence requirements, and `Completion Criteria` that make false terminal success hard to satisfy.
-- Translate those ideas into the existing LG entry fields; do not add phase-completion status, planner-worker protocol details, runtime state fields, or handoff-only report sections unless they are required by the LangGraph runtime contract.
+- Translate those ideas into the existing `LG2 Entry` fields; do not add phase-completion status, planner-worker protocol details, runtime state fields, or handoff-only report sections unless they are required by the LangGraph runtime contract.
 
-Treat external formats as input-quality lessons, not output templates. The generated artifact must remain compatible with the active `lg-run` entry contract and the project-specific wrapper, if one exists.
+Treat external formats as input-quality lessons, not output templates. The generated artifact must remain compatible with the active `lg2-run` entry contract and the project-specific wrapper, if one exists.
 
 ## Entry Contract
 
 Use the smallest entry/index that can be executed, audited, and resumed safely:
 
 ```md
-# LG Entry
+# LG2 Entry
 
 ## Goal
 - terminal:
@@ -124,7 +124,7 @@ Rules:
    Never mark the task done. Never claim that verification passed unless the runtime or user provides actual evidence.
 
 6. Give the next command when useful.
-   Prefer `lg-run <entry.md>` or the project-specific wrapper once it exists.
+   Prefer `lg2-run <entry.md>` or the project-specific wrapper once it exists.
 
 ## Repair Rules
 

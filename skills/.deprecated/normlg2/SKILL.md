@@ -1,15 +1,15 @@
 ---
-name: normlg
-description: Create one normlgNN.md LG entry from raw requests, feature lists, messy specs, or broad plans by applying an internal normalization pass first. Use when direct lg generation would be too raw because the source lacks executable scope, evidence, verification, or stop conditions.
+name: normlg2
+description: Create one normlg2NN.md LG2 entry from raw requests, feature lists, messy specs, or broad plans by applying an internal normalization pass first. Use when direct lg2 generation would be too raw because the source lacks executable scope, evidence, verification, or stop conditions.
 ---
 
-# NormLG
+# NormLG2
 
 ## Role
 
-Create one LG entry from raw source material in a single pass.
+Create one LG2 entry from raw source material in a single pass.
 
-Use normalization as an internal compiler step: shape the source into goal, current slice, scope, evidence, verification, and stop conditions, then compile those decisions into the LG entry.
+Use normalization as an internal compiler step: shape the source into goal, current slice, scope, evidence, verification, and stop conditions, then compile those decisions into the LG2 entry.
 
 ## Workflow
 
@@ -27,7 +27,7 @@ Use normalization as an internal compiler step: shape the source into goal, curr
    - verification
    - stop conditions
 
-3. Write `normlgNN.md`.
+3. Write `normlg2NN.md`.
    Use the next available number. The entry must identify:
    - terminal and current goal
    - execution scope
@@ -45,7 +45,7 @@ Use normalization as an internal compiler step: shape the source into goal, curr
 
 ## Output
 
-Create or update the LG entry:
-- `normlgNN.md`
+Create or update the LG2 entry:
+- `normlg2NN.md`
 
-Report the created files and any blocker that prevents a trustworthy LG entry.
+Report the created files and any blocker that prevents a trustworthy LG2 entry.
