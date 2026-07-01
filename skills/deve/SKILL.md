@@ -3,20 +3,23 @@ name: deve
 description: 實作、修改或執行程式，建立或調整專案，或處理 Python、Rust、GPU 推論時使用。
 ---
 # 開發規約
+- 人工智慧模組沒有權限執行 git 相關指令，除非使用者準許。
 - 只做解決需求的最小變更；不過度設計、不做推測性實作。
 - 只輸出新增或修改的部分；修改既有程式碼時，只輸出該函式或區塊，不輸出 boilerplate。
 - 優先低耦合與明確 I/O 邊界，讓變動點可局部替換；不為形式過度拆模組。
 - 優先 fail fast、明確契約、可驗證型別與顯式轉換；測試優先覆蓋高風險與核心邊界。
 
+# 需求拆解
+- 規劃多項實作需求時，按觸碰同一函式的功能聚合排序，範圍由大至小，確保開發連續性。
+- 修改規格、規約、提示詞或文件時，先刪除、替換與合併，最後才新增。
+
 # I/O 與寫入隔離
-- `/g` 是外接硬碟。工作專案、輸入、輸出、暫存檔、快取、下載物、模型權重、瀏覽器 binaries、build artifacts 與工具索引，預設都必須在 `/g`；不得寫入作業系統硬碟。
+- `/g` 是工作硬碟。工作專案、輸入、輸出、暫存檔、快取、下載物、模型權重、瀏覽器 binaries、build artifacts 與工具索引，預設都必須在 `/g`；不得寫入作業系統硬碟。
 - 專案內 `INPUT/` 存原始輸入，`OUTPUT/` 存最終輸出，`TMP/` 存中間檔。
 - 全域可重建的快取與下載物放在 `/g/.TMP/`，禁止 fallback 到 `~/`、`/tmp`、`~/.cache`。
-- Provider/CLI 工具的暫存檔（schema、output JSON）不得寫入目標專案目錄。解決模式見 `references/provider-artifact-isolation.md`。
 
 # Python 執行環境
 - 新增或執行 Python 專案與腳本時，使用 `uv run` 獨立環境。
-- 輕量靜態前端 + API 專案：在 stdlib `http.server` 上直接加入 GET/POST 路由可避免框架依賴。模式見 `references/stdlib-http-api.md`。
 - 每個專案根目錄須有 `uv.toml`，並設定 `python-preference = "only-managed"`。
 - 腳本依賴使用 PEP 723 宣告；`requires-python` 設明確上限，以最重依賴的最高支援版本為準；優先官方 wheel，僅在 PyPI 缺失必要功能時使用 Git source。
 - 每支腳本在所有 import 前隔離 `sys.path`，防止系統 site-packages 滲入 venv。
