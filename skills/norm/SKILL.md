@@ -1,5 +1,5 @@
 ---
-name: norm2
+name: norm
 description: Create a compact contract skeleton when raw intent has unstable paths, implicit technical seams, broad concepts, or hidden-memory risk; preserves invariants, execution boundaries, adapter seams, verification oracles, and local dependencies without writing a full handoff.
 ---
 
