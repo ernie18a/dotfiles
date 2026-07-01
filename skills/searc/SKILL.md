@@ -1,5 +1,5 @@
 ---
-name: searchr
+name: searc
 description: Conduct evidence-driven recursive research that escapes a weak initial query or conventional answer. Use for unclear, high-stakes, technical, historical, or open-ended questions where findings, contradictions, source chains, and practical constraints continuously evolve the search direction.
 ---
 
