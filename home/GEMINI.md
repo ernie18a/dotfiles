@@ -12,4 +12,5 @@
 - 規劃多項實作需求時，按觸碰同一函式的功能聚合排序，範圍由大至小，確保開發連續性。
 - 修改規格、規約、提示詞或文件時，先刪除、替換與合併，最後才新增。
 # situational 遵守 skill
-- use skill deve & subt when modifying executable code or direct using skill dual, os or lg.
+- use skill deve & subt when modifying executable code.
+- use skill deve & subt when following dualNN.md, osNN.md or lgNN.md
