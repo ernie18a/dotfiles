@@ -61,7 +61,7 @@ touch ~/.hushlogin
 WHEN() { local t=$(( $(date -d "${1:0:2}:${1:2:2}" +%s) - $(date +%s) )); sleep $(( t < 0 ? t + 86400 : t )); }
 alias GGG=' gcloud compute ssh a '
 alias KKK=' cat ~/.55H '
-alias UUU=' GRCA & GGRCA & UU & '
+alias UUU=' GRCA & GGRCA & UU  '
 alias SKILL=' cd  ~/.G/dotfiles/skills ; ls -l --color '
 # alias USAGE="  date ; sudo -i bash -lc 'cd /g/app/usage && uv run main.py'"
 alias HYC='hermes --yolo -c'
