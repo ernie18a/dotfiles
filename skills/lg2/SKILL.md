@@ -100,7 +100,10 @@ Rules:
 - Describe `Scope` as an execution boundary: what may be read, modified, run, or must not be touched.
 - Describe `Stop` as concrete runtime blockers: missing required input, scope expansion, unverifiable evidence, unsafe writes, or external authority that cannot be resolved from the workspace.
 - Make `Evidence Required` observable through file/content changes, command results, or explicit external input.
-- Use `Verification` for concrete commands or deterministic evidence rules. If none is known, state the missing verification instead of inventing one. Put destructive, production-facing, costly, long-running, or real-service checks behind explicit permission or into `Stop`.
+- Use `Verification` for concrete commands or deterministic evidence rules. If none is known, state the missing verification instead of inventing one.
+- Verification commands must encode their own pass/fail semantics. If success means an operation must fail, wrap that operation in an assertion command that exits 0 only when the expected failure is observed; do not pair a raw failing command with prose that says the failure is acceptable.
+- Keep prose-only verification constraints as audit rules, not commands. Prefer clear labels such as `Audit:` for rules like offline-only checks, evidence freshness, protected paths, or no-network requirements.
+- Put destructive, production-facing, costly, long-running, or real-service checks behind explicit permission or into `Stop`.
 - Treat `Completion Criteria` as the audit oracle. Include what is sufficient, what evidence is required, and what is explicitly not sufficient.
 - Use `Handoff` only when the next run cannot continue from the other fields. Keep it short.
 - Use `Task Index` only when it reduces repeated reading or editing. Reference stable project-owned docs by path and purpose; do not copy raw logs, chat history, or source files into the entry.
