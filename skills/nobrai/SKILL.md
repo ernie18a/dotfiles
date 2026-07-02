@@ -1,6 +1,6 @@
 ---
 name: nobrai
-description: Use when the user asks for a direct operation, fixed transformation, simple file edit, batch overwrite, literal command, or one-step implementation and the task should not be expanded with unrequested discovery, filtering, abstraction, fallback logic, preservation logic, configuration, or framework design.
+description: Manual invocation only
 ---
 
 # Nobrai
