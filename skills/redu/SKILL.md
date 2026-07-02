@@ -1,29 +1,21 @@
 ---
 name: redu
-description: Use as a deletion-only ablation-minimality pass to reduce any set of elements (functions, sections, rules, steps, parameters) to a minimal generating set under an explicit fitness function. Domain-agnostic; produces no domain-specific constants or examples.
+description: Use as a  ablation-minimality short standalone pass to reduce any set of elements (functions, sections, rules, steps, parameters) to its minimal generating set, whenever a target must remain "as small as possible while still functioning." Domain-agnostic; produces no domain-specific constants or examples.
 ---
 
 # Ablation Minimality
 
-## Role
-
-Reduce a finite set of elements by deletion only until every remaining element is load-bearing under a binary fitness function.
-
-## Preconditions
-
-Define:
-- $S = \{e_1, ..., e_n\}$: the current set of elements
-- $F(S)$: a binary fitness function indicating whether the target system still satisfies the required behavior given $S$
-
-This skill is valid only when $F$ is explicit enough to evaluate removals.
-
 ## Definition
+
+Let $S = \{e_1, ..., e_n\}$ be the current set of elements composing the artifact.
+Let $F(S)$ be a binary function: the target system operates correctly given $S$.
 
 $S$ is minimal iff:
 
 $$\forall e_i \in S,\quad F(S \setminus \{e_i\}) = \text{false}$$
 
-Equivalently, every remaining element is load-bearing.
+That is, every remaining element is load-bearing. $S$ is not minimal if any single
+element can be removed while $F$ remains true.
 
 ## Procedure
 
@@ -38,16 +30,18 @@ Repeat over the full set until one full pass produces zero removals.
 
 ## Termination
 
-Stop after a full pass with zero removals. At that point:
+Stop when:
 
 $$\forall e_i \in S,\quad F(S \setminus \{e_i\}) = \text{false}$$
 
-$S$ is a minimal generating set for $F$.
+At this point $S$ is a minimal generating set for $F$. No further reduction is attempted
+by this skill — reaching this state is the definition of done, not a heuristic estimate of it.
 
 ## Output
 
 List only:
 - **Removed**: elements where step 3 applied.
-- **Retained**: elements where step 4 applied.
+- **Retained**: elements where step 4 applied, i.e. $F(S \setminus \{e_i\}) = \text{false}$ was observed for each.
 
-No other commentary. A retained element requires no justification beyond having failed the removal test.
+No other commentary. A retained element requires no justification beyond having failed
+the removal test — the test result is the justification.
