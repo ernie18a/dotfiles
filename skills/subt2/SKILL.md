@@ -1,6 +1,6 @@
 ---
 name: subt2
-description: Use when compressing, refining, or simplifying any prompt, script, spec, or policy by applying Minimum Description Length (MDL) and delta debugging (ddmin) principles. Replaces subjective adjectives with formalized concepts to prevent LLM comprehension hallucination.
+description: Manual invocation only
 ---
 
 # Subt2

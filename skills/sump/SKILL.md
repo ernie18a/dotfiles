@@ -1,6 +1,6 @@
 ---
 name: sump
-description: Use when Codex needs a concise, up-to-date consolidation of the current session's user messages after iterative clarification, correction, or refinement.
+description: Manual invocation only
 ---
 
 # Sum

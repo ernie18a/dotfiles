@@ -1,6 +1,6 @@
 ---
 name: conc
-description: Use Concrete before turning messy human descriptions into a SKILL.md, prompt, spec, or policy. Extract what is explicit and do not invent the rest.
+description: Manual invocation only
 ---
 
 # Alignment

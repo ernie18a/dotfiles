@@ -1,6 +1,6 @@
 ---
 name: lg2
-description: Create one lg2NN.md for LangGraph runtime entry/index workflows, or repair an explicitly identified existing entry.
+description: Manual invocation only
 ---
 
 # LG2

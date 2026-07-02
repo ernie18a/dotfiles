@@ -1,6 +1,6 @@
 ---
 name: misc
-description: Use when refining a prompt, script, spec, policy, or other editable text by formalizing subjective wording, translating intent into explicit decision rules, regrouping related constraints, consolidating overlaps, and adding the minimum missing text needed to preserve invariants. Not for deletion-only minimization.
+description: Manual invocation only
 ---
 
 # Misc

@@ -1,6 +1,6 @@
 ---
 name: deve
-description: 實作、修改或執行程式，建立或調整專案，或處理 Python、Rust、GPU 推論時使用。
+description: Manual invocation only
 ---
 # 開發規約
 - 人工智慧模組沒有權限執行 git 相關指令，除非使用者準許。

@@ -1,6 +1,6 @@
 ---
 name: redu
-description: Use as a  ablation-minimality short standalone pass to reduce any set of elements (functions, sections, rules, steps, parameters) to its minimal generating set, whenever a target must remain "as small as possible while still functioning." Domain-agnostic; produces no domain-specific constants or examples.
+description: Manual invocation only
 ---
 
 # Ablation Minimality

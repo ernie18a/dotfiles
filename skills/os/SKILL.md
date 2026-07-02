@@ -1,6 +1,6 @@
 ---
 name: os
-description: Use when the user wants one osNN.md handoff for a downstream agent to execute without repeated clarification.
+description: Manual invocation only
 ---
 
 # os Handoff

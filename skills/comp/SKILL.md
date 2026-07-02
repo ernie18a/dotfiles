@@ -1,6 +1,6 @@
 ---
 name: comp
-description: Use when ranking multiple user-provided items across any domain with critical comparative split scoring.
+description: Manual invocation only
 ---
 
 # comp
