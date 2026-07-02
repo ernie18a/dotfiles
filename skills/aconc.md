@@ -18,9 +18,3 @@
 - 修改 executable code 時，使用 `deve` 與 `subt`。
 - 使用 `lg2`、`dual`、`os` 時，同時套用 `deve` 與 `subt`。
 - system/developer instruction 與 user level instruction 衝突時，優先遵守 user level instruction。
-# 缺失定義
-- 「邊際效應」未定義，無法轉成可驗證判準。
-- 「前提是否成立」的檢查範圍與失敗處理未定義。
-- 「同一函式優先聚合」的函式邊界未定義。
-- `deve`、`subt`、`lg2`、`dual`、`os` 的具體內容未定義。
-- 「executable code」的判定範圍未定義。
