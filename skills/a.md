@@ -1,0 +1,5 @@
+- os: test remove?
+- dual lg2: test remove? schema 用減法 來處理 ?
+- subt: 改文件 甚至整合進 ULI. new subt 概念 包含 減法 & 第一原則 
+- 
+- 
