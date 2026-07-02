@@ -1,4 +1,0 @@
-interface:
-  display_name: "Nobrai"
-  short_description: "Direct execution without extra machinery"
-  default_prompt: "Use $nobrai to perform the requested operation directly without adding unrequested machinery."
