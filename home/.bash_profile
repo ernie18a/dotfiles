@@ -61,7 +61,7 @@ touch ~/.hushlogin
 WHEN() { local t=$(( $(date -d "${1:0:2}:${1:2:2}" +%s) - $(date +%s) )); sleep $(( t < 0 ? t + 86400 : t )); }
 alias GGG=' gcloud compute ssh a '
 alias KKK=' cat ~/.55H '
-alias UUU=' GRCA & GGRCA & UU  '
+alias UUU=' GRCA & GGRCA & ' #& UU  '
 alias SKILL=' cd  ~/.G/dotfiles/skills ; ls -l --color '
 # alias USAGE="  date ; sudo -i bash -lc 'cd /g/app/usage && uv run main.py'"
 alias HYC='hermes --yolo -c'
@@ -184,7 +184,7 @@ alias SHK=' sort -hk '
 alias SB=' source ~/.G/dotfiles/home/.bash_profile 2>/dev/null || source /dev/stdin <<< "$(curl -Ls "https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile?v=$(date +%s)")" ; cd - &>/dev/null '
 alias SS=' ss -lutn '
 alias SSG=' ss -lutn |grep -i --color '
-alias UU=' sudo npm install -g @openai/codex  ; hermes update -y ' #  sudo agy update ;  sudo apt update && sudo apt install claude-code -y '
+alias UU=' sudo npm install -g @openai/codex ' # ; hermes update -y ' #  sudo agy update ;  sudo apt update && sudo apt install claude-code -y '
 alias AGP2=' sudo apt-get purge -y ; dpkg -l | grep "^rc" | awk "{print\$2}" | xargs sudo apt-get purge -y ; sudo apt-get autoremove -y '
 alias AGU=' sudo apt-get purge -y >/dev/null '
 alias AGR=' sudo apt-get remove -y >/dev/null '
