@@ -1,0 +1,4 @@
+interface:
+  display_name: "Redu 2"
+  short_description: "Deletion-only reduction for finite sets"
+  default_prompt: "Use $redu2 to remove non-load-bearing elements while preserving the stated target condition."
