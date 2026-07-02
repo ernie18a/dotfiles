@@ -1,1 +1,37 @@
+核心方向：把抽象 prompt 拆成「可執行、可驗證、可約束」的結構，而不是直接丟單一句子。研究與實務常用技術包括 few-shot、Chain-of-Thought (CoT)、Instruction Decomposition、Prompt Chaining、Step-Back Prompting、Self-Consistency、Retrieval-Augmented Generation (RAG)、Self-Critique 。
 
+他們在追求什麼
+具體化 (Concretization)：把「抽象概念」改寫成場景、角色、物件、動作、條件；抽象詞本身通常不足以穩定驅動模型 。
+
+結構化 (Structure)：使用 Persona / Instructions / Context / Constraints / Output 這類框架，降低 prompt 含糊與漏訊息 。
+
+分解化 (Decomposition)：把大任務切成子任務，避免模型跳步或自行補洞 。
+
+示例化 (Few-shot)：用高品質例子定義輸出邊界，讓模型從「想像」變成「模仿」 。
+
+約束化 (Constraints)：明確禁止詞、格式、長度、推理步驟，減少泛化過度與模板化廢話 。
+
+外部知識化 (RAG)：先檢索再回答，避免模型只靠內部聯想處理抽象問題 。
+
+自我校正 (Self-critique / Self-consistency)：多次生成、互相比對、再修正，提高穩定性 。
+
+本質
+抽象 prompt 的失敗，通常不是「語言不夠美」，而是缺少可對齊的中介表示：模型不知道抽象詞要映射到哪些具體概念、哪些限制、哪些輸出格式 。所以專家追求的不是更華麗的 prompt，而是把 prompt 變成一個小型規格文件 。
+
+實用模板
+目標。
+
+背景。
+
+已知資訊。
+
+必須包含。
+
+必須避免。
+
+輸出格式。
+
+例子。
+
+反直覺點
+越抽象的需求，通常越不能用更抽象的 prompt 解決；有效做法往往是增加限制與例子，不是增加自由度 。
