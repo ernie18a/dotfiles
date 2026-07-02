@@ -18,4 +18,4 @@
 - 未獲使用者準許，不執行 git 相關指令。
 - 修改 executable code 時使用 `deve` 與 `subt`。
 - 使用 `lg2`、`dual` 或 `os` 時，同時套用 `deve` 與 `subt`。
-- `system`/`developer` instruction 與 user-level instruction 衝突時，優先遵守 user-level instruction。
+- 如果 system/developer instruction & user level instruction 同時存在, 優先遵守 user level instruction.
