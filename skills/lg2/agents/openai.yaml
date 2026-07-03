@@ -1,0 +1,4 @@
+interface:
+  display_name: "LG2"
+  short_description: "Compile natural-language requests into ./lg2 runtime entries"
+  default_prompt: "Create an lg2 entry for this request."
