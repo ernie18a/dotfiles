@@ -5,18 +5,27 @@ description: Manual invocation only
 
 # os Handoff
 
-Create one `osNN.md` for a downstream agent.
+Create one `osNN.md` code-implementation handoff for a downstream agent.
+The handoff is for writing code only. It is invalid if it is a status report,
+architecture report, completion report, or architecture-only plan.
 
 Before writing:
 
 1. Read the user request and target project's governing instructions.
-2. For code-affecting work, inspect the directly related code paths before writing the handoff; do not use documents, summaries, or assumptions as substitutes for code evidence.
+2. For code-affecting work, inspect the directly related code paths before writing the handoff; do not use documents, summaries, or assumptions as substitutes for code facts.
 3. Derive the handoff direction from the inspected code: identify the smallest code path, contract, or behavior boundary that can satisfy the user's goal.
-4. Investigate and include only facts or choices that can change Scope, a Phase's Action, or Stop.
-5. Resolve each relevant choice using code evidence. If more than one valid direction remains, write the decision rule and boundaries the executor must follow instead of turning the unresolved choice into a fixed internal sequence.
-6. Carry the resulting constraints and decisions into Scope, Action, or Stop.
+4. Investigate and include only facts or choices that can change Scope or a Phase's Action.
+5. Resolve each relevant choice using code facts. If more than one valid direction remains, write the decision rule and boundaries the executor must follow instead of turning the unresolved choice into a fixed internal sequence.
+6. Carry the resulting constraints and decisions into Scope or Action.
 
-Keep one main goal. State the allowed and forbidden scope. Divide work into concrete phases. Do not create new scaffolding or run destructive, production-facing, costly, long-running, or real-service checks unless explicitly allowed.
+Handoff rules:
+- Keep one main goal and divide work into concrete code-edit phases.
+- State allowed and forbidden scope.
+- Make the handoff self-contained. If references, paths, documents, or repositories are only requirement sources, extract their needed contracts into the handoff. Mention a source path only when the downstream code must read, modify, or preserve that path.
+- If the user does not specify a target directory, treat the directory containing the generated `osNN.md` as the target root. Do not invent another project path or subdirectory unless the user request or inspected code contract requires it.
+- For system-scale work, write the first slice that creates an executable entry point with input format, persisted state if needed, output behavior, and failure behavior. Do not write a speculative roadmap.
+- The handoff may define product or runtime completion behavior, but must not assign confirmation work to the downstream agent. Do not instruct or imply that the agent should create tests, run tests, run validation commands, collect evidence, confirm behavior, or write reports.
+- Reject architecture, module lists, dependency plans, phase sequences, or abstractions that are not required to decide files, contracts, or behavior boundaries.
 
 Name handoffs incrementally: `os01.md`, `os02.md`.
 
@@ -27,7 +36,8 @@ Name handoffs incrementally: `os01.md`, `os02.md`.
 
 ## Goal
 
-- 最終要完成什麼。
+- terminal:
+- current code slice:
 
 ## Scope
 
@@ -46,6 +56,6 @@ Action:
 
 ## Completion
 
-- Reply exactly `DONE`, otherwise, report only the unresolved condition and what is still needed to continue.
+- Reply exactly `DONE` when the requested code work is complete.
 
 ```
