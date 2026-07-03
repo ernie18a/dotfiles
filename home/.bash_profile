@@ -59,7 +59,7 @@ source ~/.55H 2>/dev/null
 source ~/.IPS 2>/dev/null
 touch ~/.hushlogin
 WHEN() { local t=$(( $(date -d "${1:0:2}:${1:2:2}" +%s) - $(date +%s) )); sleep $(( t < 0 ? t + 86400 : t )); }
-alias GGG=' gcloud compute ssh a '
+alias GGG=' eval "$(ssh-agent -s)" ; ssh-add ~/.ssh/id_ed25519 ; gcloud compute ssh a --ssh-flag="-A" --ssh-flag="-L 1455:localhost:1455" '
 alias KKK=' cat ~/.55H '
 alias UU=' GRCA & GGRCA & '
 alias SKILL=' cd  ~/.G/dotfiles/skills ; ls -l --color '
