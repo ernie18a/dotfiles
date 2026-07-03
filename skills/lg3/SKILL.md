@@ -1,6 +1,6 @@
 ---
 name: lg3
-description: Manual invocation only. Compile natural-language implementation requests into root-level gl3NN.md entries for the gl3 runtime. Use when the user wants a gl3 entry, wants to convert requirements into a gl3 task index, or wants to repair an existing gl3 entry without running the runtime.
+description: Manual invocation only
 ---
 
 # LG3

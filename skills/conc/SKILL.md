@@ -1,6 +1,6 @@
 ---
 name: conc
-description: Translates abstract human prompts/inputs into deterministic, boundary-enforced instructions for AI execution.
+description: Manual invocation only
 ---
 
 # Operational Framework
