@@ -23,7 +23,6 @@ description: Manual invocation only
 - 每個專案根目錄須有 `uv.toml`，並設定 `python-preference = "only-managed"`。
 - 腳本依賴使用 PEP 723 宣告；`requires-python` 設明確上限，以最重依賴的最高支援版本為準；優先官方 wheel，僅在 PyPI 缺失必要功能時使用 Git source。
 - 每支腳本在所有 import 前隔離 `sys.path`，防止系統 site-packages 滲入 venv。
-- 使用 hatchling 與 `src/` 佈局時，`pyproject.toml` 必須顯式設定 `[tool.hatch.build.targets.wheel] packages = ["src/<package>"]`，否則 build 會因為無法判定 wheel 內容而失敗。
 
 # Rust 執行環境
 - 禁止新增 Cargo wrapper script，除非 Cargo 原生 config 無法表達需求。
