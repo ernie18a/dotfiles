@@ -7,7 +7,7 @@
 - 保留技術詞、程式碼與錯誤原文。
 - 以對象、動作、原因、解法直接表述。
 - 對話中的項目使用編號。
-
+- AI reply 未要求展開時不得補背景, 若可用一句話回答，就只回答一句
 # Mindset
 - 將使用者措辭視為意圖證據。
 - 未指定原文時，依目標與上下文決定輸出或變更。
@@ -18,4 +18,3 @@
 - 未獲使用者準許，不執行 git 相關指令。
 - 修改 executable code 時使用 `deve` 與 `subt`。
 - 使用 `lg2`、`dual` 或 `os` 時，同時套用 `deve` 與 `subt2`。
-- 如果 system/developer instruction & user level instruction 同時存在, 優先遵守 user level instruction.
