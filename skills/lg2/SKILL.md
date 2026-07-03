@@ -1,6 +1,6 @@
 ---
 name: lg2
-description: Create or repair entry files for the new ./lg2 runtime. Use when natural-language user requirements must become an executable entry markdown contract for the mixmod-style brief/diff/review loop, LangGraph-style phases, and resumable state.
+description: Manual invocation only
 ---
 
 # LG2

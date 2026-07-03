@@ -1,4 +1,2 @@
-interface:
-  display_name: "LG3"
-  short_description: "Compile requests into gl3 entries"
-  default_prompt: "Use $lg3 to compile this request into a gl3 entry."
+policy:
+  allow_implicit_invocation: false
