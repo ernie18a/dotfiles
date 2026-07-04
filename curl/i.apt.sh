@@ -1,11 +1,12 @@
 #!/bin/bash
+APT() { local ok=() p; for p in "$@"; do apt-cache show "$p" >/dev/null 2>&1 && ok+=("$p"); done; [ ${#ok[@]} -gt 0 ] && apt-get install -yq "${ok[@]}"; }
 case "$1" in
   default)
 	# default zone
 	timedatectl set-timezone Asia/Taipei
 	apt-get remove -y --allow-remove-essential needrestart ufw* apparmor* firewall* unattended-upgrades landscape-common ubuntu-advantage-tools cloud-init popularity-contest ubuntu-report apport whoopsie fwupd
 	apt-get update
-	apt-get install -yq \
+	APT \
 		bash-completion file git jq ripgrep rsync tmux tree vim \
 		apt-transport-https software-properties-common ffmpeg acl
 	echo ServerAliveInterval\ 30 >> /etc/ssh/ssh_config
@@ -27,7 +28,7 @@ case "$1" in
 	curl -fsSL https://deb.nodesource.com/setup_current.x | bash -
 	curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.claude.sh | bash
 	apt-get update
-	apt-get install -yq nodejs claude-code acl
+	APT nodejs claude-code acl
 	curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.rust.sh | bash
 	curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.uv.sh | bash
 	curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.codex.sh | bash
