@@ -14,15 +14,12 @@ description: Manual invocation only
 - 修改規格、規約、提示詞或文件時，先刪除、替換與合併，最後才新增。
 
 # I/O 與寫入隔離
-- `/g` 是工作硬碟。工作專案、輸入、輸出、暫存檔、快取、下載物、模型權重、瀏覽器 binaries、build artifacts 與工具索引，預設都必須在 `/g`；不得寫入作業系統硬碟。
 - 專案內 `INPUT/` 存原始輸入，`OUTPUT/` 存最終輸出，`TMP/` 存中間檔。
-- 全域可重建的快取與下載物放在 `/g/.TMP/`，禁止 fallback 到 `~/`、`/tmp`、`~/.cache`。
 
 # Python 執行環境
 - 新增或執行 Python 專案與腳本時，使用 `uv run` 獨立環境。
-- 每個專案根目錄須有 `uv.toml`，並設定 `python-preference = "only-managed"`。
+- 每個專案根目錄須有 `uv.toml`
 - 腳本依賴使用 PEP 723 宣告；`requires-python` 設明確上限，以最重依賴的最高支援版本為準；優先官方 wheel，僅在 PyPI 缺失必要功能時使用 Git source。
-- 每支腳本在所有 import 前隔離 `sys.path`，防止系統 site-packages 滲入 venv。
 
 # Rust 執行環境
 - 禁止新增 Cargo wrapper script，除非 Cargo 原生 config 無法表達需求。
