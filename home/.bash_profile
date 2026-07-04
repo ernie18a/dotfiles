@@ -1,62 +1,62 @@
 if [ -f '/home/e/.google-cloud-sdk/path.bash.inc' ]; then . '/home/e/.google-cloud-sdk/path.bash.inc'; fi
 if [ -f '/home/e/.google-cloud-sdk/completion.bash.inc' ]; then . '/home/e/.google-cloud-sdk/completion.bash.inc'; fi
 source /etc/bash_completion.d/* 2>/dev/null
-export BERT_MODELS_DIR=/g/.TMP/bert-models
-export CLOAKBROWSER_CACHE_DIR=/g/.TMP/cloakbrowser
+#export BERT_MODELS_DIR=/g/.TMP/bert-models
+#export CLOAKBROWSER_CACHE_DIR=/g/.TMP/cloakbrowser
 export COLORTERM=truecolor
-export CUDA_CACHE_MAXSIZE=2147483647
-export CUDA_CACHE_PATH=/g/.TMP/cuda-cache
-export CUDA_DEVICE_MAX_CONNECTIONS=32
-export CUDA_MANAGED_FORCE_DEVICE_ALLOC=1
+#export CUDA_CACHE_MAXSIZE=2147483647
+#export CUDA_CACHE_PATH=/g/.TMP/cuda-cache
+#export CUDA_DEVICE_MAX_CONNECTIONS=32
+#export CUDA_MANAGED_FORCE_DEVICE_ALLOC=1
 export DBUS_SESSION_BUS_ADDRESS=/dev/null
 export DEBCONF_NOWARNINGS="yes"
 export DEBIAN_FRONTEND=noninteractive
 export EDITOR=vim
 export FIREBASE_KEY_PATH=~/.G/fb/.fb.55H.json
 export GIT_EDITOR=vim
-export HF_HOME=/g/.TMP/huggingface
-export HF_HUB_CACHE=/g/.TMP/huggingface/hub
+#export HF_HOME=/g/.TMP/huggingface
+#export HF_HUB_CACHE=/g/.TMP/huggingface/hub
 export HISTCONTROL=ignoredups:erasedups &>/dev/null
 export HISTFILESIZE= &>/dev/null
 export HISTSIZE= &>/dev/null
-export HUGGINGFACE_HUB_CACHE=/g/.TMP/huggingface/hub
+#export HUGGINGFACE_HUB_CACHE=/g/.TMP/huggingface/hub
 export KUBE_EDITOR=/bin/vim &>/dev/null
 export MAILCHECK=0 &>/dev/null
-export MECABRC=/g/.TMP/mecab/mecabrc
-export MODELSCOPE_CACHE=/g/.TMP/modelscope
-export MPLCONFIGDIR=/g/.TMP/matplotlib
-export NUMBA_CACHE_DIR=/g/.TMP/numba-cache
-export NVM_DIR="$HOME/.nvm"
+#export MECABRC=/g/.TMP/mecab/mecabrc
+#export MODELSCOPE_CACHE=/g/.TMP/modelscope
+#export MPLCONFIGDIR=/g/.TMP/matplotlib
+#export NUMBA_CACHE_DIR=/g/.TMP/numba-cache
+#export NVM_DIR="$HOME/.nvm"
 export OLLAMA_API_BASE=http://127.0.0.1:11434
-export OPEN_JTALK_DICT_DIR=/g/.TMP/open-jtalk-dict
+#export OPEN_JTALK_DICT_DIR=/g/.TMP/open-jtalk-dict
 export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/go/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/snap/bin:/opt/homebrew/bin:$HOME/.docker/cli-plugins:$HOME/bin:$HOME/.google-cloud-sdk/bin/"
-export PIP_CACHE_DIR=/g/.TMP/pip-cache
-export PLAYWRIGHT_BROWSERS_PATH=/g/.TMP/playwright-browsers
-export PYTHONPYCACHEPREFIX=/g/.TMP/python-pycache
-export PYTORCH_KERNEL_CACHE_PATH=/g/.TMP/torch-kernel
-export TEMP=/g/.TMP/tmp
+#export PIP_CACHE_DIR=/g/.TMP/pip-cache
+#export PLAYWRIGHT_BROWSERS_PATH=/g/.TMP/playwright-browsers
+#export PYTHONPYCACHEPREFIX=/g/.TMP/python-pycache
+#export PYTORCH_KERNEL_CACHE_PATH=/g/.TMP/torch-kernel
+#export TEMP=/g/.TMP/tmp
 export TERM=xterm-256color
-export TMP=/g/.TMP/tmp
-export TMPDIR=/g/.TMP/tmp
-export TORCHINDUCTOR_CACHE_DIR=/g/.TMP/torchinductor-cache
-export TORCH_HOME=/g/.TMP/torch
-export TRANSFORMERS_CACHE=/g/.TMP/huggingface/transformers
-export TRITON_CACHE_DIR=/g/.TMP/triton-cache
-export ULTRALYTICS_DIR=/g/.TMP/ultralytics
-export UV_CACHE_DIR=/g/.TMP/uv-cache
+#export TMP=/g/.TMP/tmp
+#export TMPDIR=/g/.TMP/tmp
+#export TORCHINDUCTOR_CACHE_DIR=/g/.TMP/torchinductor-cache
+#export TORCH_HOME=/g/.TMP/torch
+#export TRANSFORMERS_CACHE=/g/.TMP/huggingface/transformers
+#export TRITON_CACHE_DIR=/g/.TMP/triton-cache
+#export ULTRALYTICS_DIR=/g/.TMP/ultralytics
+#export UV_CACHE_DIR=/g/.TMP/uv-cache
 export UV_VENV_CLEAR=1
 export WIN_USER=`ls /mnt/c/Users 2>/dev/null |grep -iv "All\|Default\|desktop.ini\|Public\|USER\|Administrator\|super"`
 export WIN_USER_DIR=/mnt/c/Users/$WIN_USER
-export XDG_CACHE_HOME=/g/.TMP/xdg-cache
+#export XDG_CACHE_HOME=/g/.TMP/xdg-cache
 export XDG_CONFIG_HOME=/g/.TMP/xdg-config
-export XDG_DATA_HOME=/g/.TMP/xdg-data
-export YOLO_CONFIG_DIR=/g/.TMP/ultralytics/config
-export YTDLP_CACHE_DIR=/g/.TMP/ytdlp-cache
-export YTDLP_PATHS=temp:/g/.TMP/ytdlp-temp
+#export XDG_DATA_HOME=/g/.TMP/xdg-data
+#export YOLO_CONFIG_DIR=/g/.TMP/ultralytics/config
+#export YTDLP_CACHE_DIR=/g/.TMP/ytdlp-cache
+#export YTDLP_PATHS=temp:/g/.TMP/ytdlp-temp
 which git &>/dev/null && export PS1="[ \\u@\\h \w \$(git rev-parse --abbrev-ref HEAD 2>/dev/null)] \\$ " || export PS1="[ \\u@\\h \w ] \\$ "
 PROMPT_COMMAND=' history -a '
 source ~/.55H 2>/dev/null
-source ~/.IPS 2>/dev/null
+#source ~/.IPS 2>/dev/null
 touch ~/.hushlogin
 WHEN() { local t=$(( $(date -d "${1:0:2}:${1:2:2}" +%s) - $(date +%s) )); sleep $(( t < 0 ? t + 86400 : t )); }
 alias GGG=' eval "$(ssh-agent -s)" ; ssh-add ~/.ssh/id_ed25519 ; gcloud compute ssh a --ssh-flag="-A" --ssh-flag="-L 1455:localhost:1455" '
