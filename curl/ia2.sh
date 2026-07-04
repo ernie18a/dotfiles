@@ -1,8 +1,7 @@
 timedatectl set-timezone Asia/Taipei
 apt-get remove -y --allow-remove-essential needrestart ufw* apparmor* firewall* unattended-upgrades landscape-common ubuntu-advantage-tools cloud-init popularity-contest ubuntu-report apport whoopsie fwupd
 apt-get update
-apt-get install -yq acl apt-transport-https autossh bash-completion file ffmpeg git jq ripgrep rsync software-properties-common sshpass tmux tree unzip vim
-apt-get install -yq build-essential cargo cmake pkg-config rustc rustfmt
+apt-get install -yq acl apt-transport-https autossh bash-completion file ffmpeg git jq ripgrep rsync software-properties-common sshpass tmux tree unzip vim build-essential cargo cmake pkg-config rustc rustfmt
 install -d -m 0755 /etc/apt/keyrings
 curl -fsSL https://downloads.claude.ai/keys/claude-code.asc -o /etc/apt/keyrings/claude-code.asc
 echo "deb [signed-by=/etc/apt/keyrings/claude-code.asc] https://downloads.claude.ai/claude-code/apt/stable stable main" | tee /etc/apt/sources.list.d/claude-code.list
