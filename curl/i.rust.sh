@@ -1,1 +1,2 @@
-sudo apt install -y rustc cargo build-essential pkg-config rustfmt # libssl-dev
+sudo apt install -y  build-essential pkg-config libssl-dev
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh

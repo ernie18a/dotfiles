@@ -3,6 +3,7 @@ case "$1" in
   default)
 	# default zone
 	timedatectl set-timezone Asia/Taipei
+	apt-get remove -y --allow-remove-essential needrestart ufw* apparmor* firewall* unattended-upgrades landscape-common ubuntu-advantage-tools cloud-init popularity-contest ubuntu-report apport whoopsie fwupd
 	apt-get update
 	apt-get install -yq \
 		bash-completion file git jq ripgrep rsync tmux tree vim \
@@ -18,13 +19,17 @@ case "$1" in
 	echo "ubuntu ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 	rm -f /etc/update-motd.d/50-motd-news
 	echo 'source /dev/stdin <<< "$(curl -Ls "https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile?v=$(date +%s)")"' | tee ~/.bash_profile ~/.bashrc /home/e/.bash_profile /home/e/.bashrc /home/ubuntu/.bash_profile /home/ubuntu/.bashrc
+	touch ~/.hushlogin /home/e/.hushlogin /home/ubuntu/.hushlogin
 	curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/e.ssh.pub.sh | bash
 	;;
   dev)
 	# dev zone
-	apt-get install -yq \
-		build-essential cargo pkg-config rustc rustfmt \
-		acl cmake
+	curl -fsSL https://deb.nodesource.com/setup_current.x | bash -
+	curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.claude.sh | bash
+	apt-get update
+	apt-get install -yq nodejs claude-code build-essential cargo pkg-config rustc rustfmt acl cmake
+	curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.codex.sh | bash
+	curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.agy.sh | bash
 	;;
   wsl)
 # wsl zone
@@ -62,3 +67,4 @@ case "$1" in
 	# Replace this comment with the actual commands to be executed for Ampere
 	;;
 esac
+chown -R e:e /home/e
