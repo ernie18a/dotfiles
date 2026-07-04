@@ -7,7 +7,7 @@ case "$1" in
 	apt-get update
 	apt-get install -yq \
 		bash-completion file git jq ripgrep rsync tmux tree vim \
-		apt-transport-https software-properties-common ffmpeg
+		apt-transport-https software-properties-common ffmpeg acl
 	echo ServerAliveInterval\ 30 >> /etc/ssh/ssh_config
 	echo StrictHostKeyChecking\ no >> /etc/ssh/ssh_config
 	echo TCPKeepAlive\ no >> /etc/ssh/ssh_config
@@ -21,6 +21,7 @@ case "$1" in
 	echo 'source /dev/stdin <<< "$(curl -Ls "https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile?v=$(date +%s)")"' | tee ~/.bash_profile ~/.bashrc /home/e/.bash_profile /home/e/.bashrc /home/ubuntu/.bash_profile /home/ubuntu/.bashrc
 	touch ~/.hushlogin /home/e/.hushlogin /home/ubuntu/.hushlogin
 	curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/e.ssh.pub.sh | bash
+	curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/e.users.sh | bash -s default
 	;;
   dev)
 	# dev zone
