@@ -1,6 +1,34 @@
 #!/bin/bash
 APTINSTALL() { local ok=() p; for p in "$@"; do apt-cache show "$p" >/dev/null 2>&1 && ok+=("$p"); done; [ ${#ok[@]} -gt 0 ] && apt-get install -yq "${ok[@]}"; }
 APTREMOVE() { local ok=() p; for p in "$@"; do dpkg-query -W "$p" >/dev/null 2>&1 && ok+=("$p"); done; [ ${#ok[@]} -gt 0 ] && apt-get remove -y --allow-remove-essential "${ok[@]}"; }
+EUSER() {
+	rm -rf /home/e/.gitconfig
+	rm -rf /home/e/.tmux.conf
+	rm -rf /home/e/.vimrc
+	rm -rf /home/e/.bash_profile
+	rm -rf /home/e/.bashrc
+	rm -rf /home/e/.codex
+	rm -rf /home/e/.gemini
+	rm -rf /home/e/.hermes
+	rm -rf /home/e/.claude
+	mkdir -p /home/e/.codex
+	mkdir -p /home/e/.gemini
+	mkdir -p /home/e/.hermes
+	mkdir -p /home/e/.claude
+	echo 'source /dev/stdin <<< "$(curl -Ls "https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile?v=$(date +%s)")"' > /home/e/.bash_profile
+	ln -snf /home/e/.G/dotfiles/home/.gitconfig /home/e/.gitconfig
+	ln -snf /home/e/.G/dotfiles/home/.tmux.conf /home/e/.tmux.conf
+	ln -snf /home/e/.G/dotfiles/home/.vimrc /home/e/.vimrc
+	ln -snf /home/e/.G/dotfiles/home/GEMINI.md /home/e/.codex/AGENTS.md
+	ln -snf /home/e/.G/dotfiles/skills /home/e/.codex/skills
+	ln -snf /home/e/.G/dotfiles/home/GEMINI.md /home/e/.gemini/GEMINI.md
+	ln -snf /home/e/.G/dotfiles/skills /home/e/.gemini/skills
+	ln -snf /home/e/.G/dotfiles/home/GEMINI.md /home/e/.hermes/SOUL.md
+	ln -snf /home/e/.G/dotfiles/skills /home/e/.hermes/skills
+	ln -snf /home/e/.G/dotfiles/home/GEMINI.md /home/e/.claude/CLAUDE.md
+	ln -snf /home/e/.G/dotfiles/skills /home/e/.claude/skills
+	chown -R e:e /home/e
+}
 case "$1" in
   default)
 	# default zone
@@ -19,6 +47,7 @@ case "$1" in
 	rm -f /etc/update-motd.d/50-motd-news
 	echo 'source /dev/stdin <<< "$(curl -Ls "https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile?v=$(date +%s)")"' | tee ~/.bash_profile ~/.bashrc /home/e/.bash_profile /home/e/.bashrc
 	touch ~/.hushlogin /home/e/.hushlogin
+	EUSER
 	curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/e.ssh.pub.sh | bash
 	curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/e.users.sh | bash
 	;;
@@ -32,7 +61,6 @@ case "$1" in
 	curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.uv.sh | bash
 	curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.codex.sh | bash
 #	curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.agy.sh | bash
-	curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/e.users.sh | bash
 	;;
   wsl)
 # wsl zone
@@ -57,6 +85,7 @@ case "$1" in
 	git clone git@github.com:ernie18a/deprecated.git .deprecated
 	git clone https://github.com/tmux-plugins/tpm /home/e/.G/.tmux_plugins_manager
 	sed -i 's/https:\/\/github.com\/ernie18a\/dotfiles.git/git@github.com:ernie18a\/dotfiles.git/g' /home/e/.G/dotfiles/.git/config
+	chown -R e:e /home/e
 	curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/e.users.sh | bash
 		;;
   vm)

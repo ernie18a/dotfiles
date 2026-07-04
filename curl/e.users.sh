@@ -26,7 +26,7 @@ if [ -d /home/e/.G ]; then
         cp -r /home/e/.55H /home/$user/
       fi
     done
-    for user in e o n; do
+    for user in o n; do
       if id -u "$user" >/dev/null 2>&1; then
         rm -rf /home/$user/.gitconfig
         rm -rf /home/$user/.tmux.conf
@@ -54,14 +54,9 @@ if [ -d /home/e/.G ]; then
         chown -R $user:$user /home/$user/
       fi
     done
-    if id -u e >/dev/null 2>&1; then
-      ln -snf /home/e/.G/dotfiles/home/GEMINI.md /home/e/.claude/CLAUDE.md
-      ln -snf /home/e/.G/dotfiles/skills /home/e/.claude/skills
-      chown -R e:e /home/e/.claude
-    fi
 fi
 
-for user in e o n; do
+for user in o n; do
   if id -u "$user" >/dev/null 2>&1; then
     chown -R $user:$user /home/$user
   fi
