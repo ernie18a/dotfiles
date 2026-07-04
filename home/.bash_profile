@@ -228,7 +228,7 @@ NUP() { useradd $1 -ms/bin/bash && echo "$1:$1" | chpasswd ; }
 mkdirc() { mkdir $1 ; cd $1 ; }
 WHOIS() { whois $1 | grep -Ev "^\s*(#|$)" |grep -i NetName ; }
 AWK() { awk $2 "{print\$$1}" ; }
-ECDZ() { echo 'source /dev/stdin <<< "$(curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile)"' |tee ~/.bash_profile /home/e/.bash_profile /home/ubuntu/.bash_profile ; }
+ECDZ() { echo 'source /dev/stdin <<< "$(curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile)"' |tee ~/.bash_profile ; }
 l() { ls -A | grep "^\." | xargs -d '\n' ls -d --color ; }
 NSP() { nmap -T5 -snP $1 |G report | AWK 5 ; }
 DF() { df -h |sort -hk2 |sed -e 1b -e '$!d' ; }
