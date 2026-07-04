@@ -1,25 +1,23 @@
 #!/bin/bash
 
-case "$1" in
-  default)
-    groupadd -f g
-    for user in o n; do
-      if ! id -u "$user" >/dev/null 2>&1; then
-        useradd "$user" -ms /bin/bash
-        echo "$user:$user" | chpasswd
-      fi
-    done
-    for user in e o n; do
-      if id -u "$user" >/dev/null 2>&1; then
-        usermod -aG g "$user"
-      fi
-    done
-    mkdir -p /g
-    chown -R :g /g
-    chmod -R 2777 /g
-    setfacl -R -m u::rwx,g::rwx,o::rwx,m:rwx,d:u::rwx,d:g::rwx,d:o::rwx,d:m:rwx /g
-    ;;
-  reset)
+groupadd -f g
+for user in o n; do
+  if ! id -u "$user" >/dev/null 2>&1; then
+    useradd "$user" -ms /bin/bash
+    echo "$user:$user" | chpasswd
+  fi
+done
+for user in e o n; do
+  if id -u "$user" >/dev/null 2>&1; then
+    usermod -aG g "$user"
+  fi
+done
+mkdir -p /g
+chown -R :g /g
+chmod -R 2777 /g
+setfacl -R -m u::rwx,g::rwx,o::rwx,m:rwx,d:u::rwx,d:g::rwx,d:o::rwx,d:m:rwx /g
+
+if [ -d /home/e/.G ]; then
     for user in o n; do
       if id -u "$user" >/dev/null 2>&1; then
         rm -rf /home/$user/.*
@@ -61,5 +59,10 @@ case "$1" in
       ln -snf /home/e/.G/dotfiles/skills /home/e/.claude/skills
       chown -R e:e /home/e/.claude
     fi
-    ;;
-esac
+fi
+
+for user in e o n; do
+  if id -u "$user" >/dev/null 2>&1; then
+    chown -R $user:$user /home/$user
+  fi
+done
