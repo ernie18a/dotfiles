@@ -1,7 +1,24 @@
 #!/bin/bash
 APTINSTALL() { local ok=() p; for p in "$@"; do apt-cache show "$p" >/dev/null 2>&1 && ok+=("$p"); done; [ ${#ok[@]} -gt 0 ] && apt-get install -yq "${ok[@]}"; }
 APTREMOVE() { local ok=() p; for p in "$@"; do dpkg-query -W "$p" >/dev/null 2>&1 && ok+=("$p"); done; [ ${#ok[@]} -gt 0 ] && apt-get remove -y --allow-remove-essential "${ok[@]}"; }
-EUSER() {
+case "$1" in
+  default)
+	# default zone
+	timedatectl set-timezone Asia/Taipei
+	APTREMOVE needrestart 'ufw*' 'apparmor*' 'firewall*' unattended-upgrades landscape-common ubuntu-advantage-tools cloud-init popularity-contest ubuntu-report apport whoopsie fwupd
+	apt-get update
+	APTINSTALL bash-completion file git jq ripgrep rsync tmux tree vim apt-transport-https software-properties-common ffmpeg acl
+	echo ServerAliveInterval\ 30 >> /etc/ssh/ssh_config
+	echo StrictHostKeyChecking\ no >> /etc/ssh/ssh_config
+	echo TCPKeepAlive\ no >> /etc/ssh/ssh_config
+	echo ForwardAgent\ yes >> /etc/ssh/ssh_config
+	echo ClientAliveInterval\ 60 >> /etc/ssh/sshd_config
+	echo ClientAliveCountMax\ 3 >> /etc/ssh/sshd_config
+	swapoff -a ; sed -i '/swap/ s/^/#/' /etc/fstab
+	echo "e ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+	rm -f /etc/update-motd.d/50-motd-news
+	echo 'source /dev/stdin <<< "$(curl -Ls "https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile?v=$(date +%s)")"' | tee ~/.bash_profile ~/.bashrc /home/e/.bash_profile /home/e/.bashrc
+	touch ~/.hushlogin /home/e/.hushlogin
 	rm -rf /home/e/.gitconfig
 	rm -rf /home/e/.tmux.conf
 	rm -rf /home/e/.vimrc
@@ -28,26 +45,6 @@ EUSER() {
 	ln -snf /home/e/.G/dotfiles/home/GEMINI.md /home/e/.claude/CLAUDE.md
 	ln -snf /home/e/.G/dotfiles/skills /home/e/.claude/skills
 	chown -R e:e /home/e
-}
-case "$1" in
-  default)
-	# default zone
-	timedatectl set-timezone Asia/Taipei
-	APTREMOVE needrestart 'ufw*' 'apparmor*' 'firewall*' unattended-upgrades landscape-common ubuntu-advantage-tools cloud-init popularity-contest ubuntu-report apport whoopsie fwupd
-	apt-get update
-	APTINSTALL bash-completion file git jq ripgrep rsync tmux tree vim apt-transport-https software-properties-common ffmpeg acl
-	echo ServerAliveInterval\ 30 >> /etc/ssh/ssh_config
-	echo StrictHostKeyChecking\ no >> /etc/ssh/ssh_config
-	echo TCPKeepAlive\ no >> /etc/ssh/ssh_config
-	echo ForwardAgent\ yes >> /etc/ssh/ssh_config
-	echo ClientAliveInterval\ 60 >> /etc/ssh/sshd_config
-	echo ClientAliveCountMax\ 3 >> /etc/ssh/sshd_config
-	swapoff -a ; sed -i '/swap/ s/^/#/' /etc/fstab
-	echo "e ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
-	rm -f /etc/update-motd.d/50-motd-news
-	echo 'source /dev/stdin <<< "$(curl -Ls "https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile?v=$(date +%s)")"' | tee ~/.bash_profile ~/.bashrc /home/e/.bash_profile /home/e/.bashrc
-	touch ~/.hushlogin /home/e/.hushlogin
-	EUSER
 	curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/e.ssh.pub.sh | bash
 	curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/e.users.sh | bash
 	;;
