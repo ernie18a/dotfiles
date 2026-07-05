@@ -1,9 +1,9 @@
 ---
-name: subt2
+name: subt
 description: Manual invocation only
 ---
 
-# Subt2
+# Subt
 
 ## Role
 
