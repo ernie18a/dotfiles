@@ -24,7 +24,7 @@ Handoff rules:
 - Make the handoff self-contained. If references, paths, documents, or repositories are only requirement sources, extract their needed contracts into the handoff. Mention a source path only when the downstream code must read, modify, or preserve that path.
 - If the user does not specify a target directory, treat the directory containing the generated `osNN.md` as the target root. Do not invent another project path or subdirectory unless the user request or inspected code contract requires it.
 - For system-scale work, write the first slice that creates an executable entry point with input format, persisted state if needed, output behavior, and failure behavior. Do not write a speculative roadmap.
-- The handoff may define product or runtime completion behavior, but must not assign confirmation work to the downstream agent. Do not instruct or imply that the agent should create tests, run tests, run validation commands, collect evidence, confirm behavior, or write reports.
+- Unless the user explicitly asks for testing, validation, or checks, the handoff must not instruct or imply that the downstream agent should create tests, run tests, run validation commands, inspect output, collect evidence, confirm behavior, or write reports. The handoff may still define product or runtime completion behavior.
 - Reject architecture, module lists, dependency plans, phase sequences, or abstractions that are not required to decide files, contracts, or behavior boundaries.
 
 Name handoffs incrementally: `os01.md`, `os02.md`.
