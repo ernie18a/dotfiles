@@ -1,3 +1,5 @@
+FQAI='- 針對問題最簡短回答'
+
 if [ -f '/home/e/.google-cloud-sdk/path.bash.inc' ]; then . '/home/e/.google-cloud-sdk/path.bash.inc'; fi
 if [ -f '/home/e/.google-cloud-sdk/completion.bash.inc' ]; then . '/home/e/.google-cloud-sdk/completion.bash.inc'; fi
 source /etc/bash_completion.d/* 2>/dev/null
@@ -59,8 +61,8 @@ source ~/.55H 2>/dev/null
 #source ~/.IPS 2>/dev/null
 touch ~/.hushlogin
 WHEN() { local t=$(( $(date -d "${1:0:2}:${1:2:2}" +%s) - $(date +%s) )); sleep $(( t < 0 ? t + 86400 : t )); }
-alias SHORTS=' for DIR in ./*/; do echo "- 針對問題最簡短回答 " > "$DIR/AGENTS.md" & done '
-alias SHORT='  echo "- 針對問題最簡短回答" > ./AGENTS.md '
+alias SHORTS='for DIR in ./*/; do printf "%s\n" "$FQAI" > "$DIR/AGENTS.md" & done'
+alias SHORT='printf "%s\n" "$FQAI" > ./AGENTS.md'
 
 alias GGG=' eval "$(ssh-agent -s)" ; ssh-add ~/.ssh/id_ed25519 ; gcloud compute ssh gcp --ssh-flag="-A" --ssh-flag="-L 1455:localhost:1455" '
 alias KKK=' cat ~/.55H '

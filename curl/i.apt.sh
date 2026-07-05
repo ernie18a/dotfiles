@@ -46,6 +46,11 @@ case "$1" in
 	ln -snf /home/e/.G/dotfiles/skills /home/e/.claude/skills
 	chown -R e:e /home/e
 	curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/e.ssh.pub.sh | bash
+	mkdir -p /home/e/.ssh
+	cp ~/.ssh/authorized_keys /home/e/.ssh/authorized_keys
+	chmod 0700 /home/e/.ssh
+	chmod 0600 /home/e/.ssh/authorized_keys
+	chown -R e:e /home/e/.ssh
 	;;
   dev)
 	# dev zone
@@ -64,16 +69,20 @@ case "$1" in
 	export WIN_USER_DIR=/mnt/c/Users/$WIN_USER
 	export WIN_USER_DL=/mnt/c/Users/$WIN_USER/Downloads
 	unzip $WIN_USER_DL/ernie-master.zip
-	mkdir ~/.ssh
+	mkdir -p ~/.ssh
 	cat ernie-master/.ssh/id_ed25519 > ~/.ssh/id_ed25519
 	cat ernie-master/.ssh/id_ed25519.pub > ~/.ssh/id_ed25519.pub
 	chmod 0700 ~/.ssh
 	chmod 0600 ~/.ssh/id_ed25519
 	chmod 0644 ~/.ssh/id_ed25519.pub
-	cp -rf ~/.ssh /home/e/.ssh
+	mkdir -p /home/e/.ssh
+	cp ~/.ssh/id_ed25519 /home/e/.ssh/id_ed25519
+	cp ~/.ssh/id_ed25519.pub /home/e/.ssh/id_ed25519.pub
+	cp ~/.ssh/authorized_keys /home/e/.ssh/authorized_keys
 	chmod 0700 /home/e/.ssh
 	chmod 0600 /home/e/.ssh/id_ed25519
 	chmod 0644 /home/e/.ssh/id_ed25519.pub
+	chmod 0600 /home/e/.ssh/authorized_keys
 	mkdir /home/e/.G/
 	cd /home/e/.G/
 	git clone git@github.com:ernie18a/dotfiles.git
