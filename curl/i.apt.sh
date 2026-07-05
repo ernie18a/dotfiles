@@ -82,7 +82,7 @@ case "$1" in
 	chmod 0600 /home/e/.ssh/id_ed25519
 	chmod 0644 /home/e/.ssh/id_ed25519.pub
 	chmod 0600 /home/e/.ssh/authorized_keys
-	mkdir /home/e/.G/
+	mkdir -p /home/e/.G/
 	cd /home/e/.G/
 	git clone git@github.com:ernie18a/dotfiles.git
 	git clone git@github.com:ernie18a/misc.git
@@ -93,65 +93,47 @@ case "$1" in
 		;;
   mu)
 	groupadd -f g
-	for user in o n; do
-	  if ! id -u "$user" >/dev/null 2>&1; then
-	    useradd "$user" -ms /bin/bash
-	    echo "$user:$user" | chpasswd
-	  fi
-	done
-	for user in e o n; do
-	  if id -u "$user" >/dev/null 2>&1; then
-	    usermod -aG g "$user"
-	  fi
-	done
+	useradd o -ms /bin/bash
+	useradd n -ms /bin/bash
+	echo "o:o" | chpasswd
+	echo "n:n" | chpasswd
+	usermod -aG g e
+	usermod -aG g o
+	usermod -aG g n
 	mkdir -p /g
 	chown -R :g /g
 	chmod -R 2777 /g
 	setfacl -R -m u::rwx,g::rwx,o::rwx,m:rwx,d:u::rwx,d:g::rwx,d:o::rwx,d:m:rwx /g
 
-	if [ -d /home/e/.G ]; then
-	    for user in o n; do
-	      if id -u "$user" >/dev/null 2>&1; then
-	        rm -rf /home/$user/.*
-	        cp -r /home/e/.G /home/$user/.G
-	        cp -r /home/e/.ssh /home/$user/.ssh
-	        cp -r /home/e/.55H /home/$user/
-	      fi
-	    done
-	    for user in o n; do
-	      if id -u "$user" >/dev/null 2>&1; then
-	        rm -rf /home/$user/.gitconfig
-	        rm -rf /home/$user/.tmux.conf
-	        rm -rf /home/$user/.vimrc
-	        rm -rf /home/$user/.bash_profile
-	        rm -rf /home/$user/.bashrc
-	        rm -rf /home/$user/.codex
-	        rm -rf /home/$user/.gemini
-	        rm -rf /home/$user/.hermes
-	        rm -rf /home/$user/.claude
-	        mkdir -p /home/$user/.codex
-	        mkdir -p /home/$user/.gemini
-	        mkdir -p /home/$user/.hermes
-	        mkdir -p /home/$user/.claude
-	        echo 'source /dev/stdin <<< "$(curl -Ls "https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile?v=$(date +%s)")"' > /home/$user/.bash_profile
-	        ln -snf /home/$user/.G/dotfiles/home/.gitconfig /home/$user/.gitconfig
-	        ln -snf /home/$user/.G/dotfiles/home/.tmux.conf /home/$user/.tmux.conf
-	        ln -snf /home/$user/.G/dotfiles/home/.vimrc /home/$user/.vimrc
-	        ln -snf /home/$user/.G/dotfiles/home/GEMINI.md /home/$user/.codex/AGENTS.md
-	        ln -snf /home/$user/.G/dotfiles/skills /home/$user/.codex/skills
-	        ln -snf /home/$user/.G/dotfiles/home/GEMINI.md /home/$user/.gemini/GEMINI.md
-	        ln -snf /home/$user/.G/dotfiles/skills /home/$user/.gemini/skills
-	        ln -snf /home/$user/.G/dotfiles/home/GEMINI.md /home/$user/.hermes/SOUL.md
-	        ln -snf /home/$user/.G/dotfiles/skills /home/$user/.hermes/skills
-	        chown -R $user:$user /home/$user/
-	      fi
-	    done
-	fi
-
 	for user in o n; do
-	  if id -u "$user" >/dev/null 2>&1; then
-	    chown -R $user:$user /home/$user
-	  fi
+	  rm -rf /home/$user/.*
+	  cp -r /home/e/.G /home/$user/.G
+	  cp -r /home/e/.ssh /home/$user/.ssh
+	  cp -r /home/e/.55H /home/$user/
+	  rm -rf /home/$user/.gitconfig
+	  rm -rf /home/$user/.tmux.conf
+	  rm -rf /home/$user/.vimrc
+	  rm -rf /home/$user/.bash_profile
+	  rm -rf /home/$user/.bashrc
+	  rm -rf /home/$user/.codex
+	  rm -rf /home/$user/.gemini
+	  rm -rf /home/$user/.hermes
+	  rm -rf /home/$user/.claude
+	  mkdir -p /home/$user/.codex
+	  mkdir -p /home/$user/.gemini
+	  mkdir -p /home/$user/.hermes
+	  mkdir -p /home/$user/.claude
+	  echo 'source /dev/stdin <<< "$(curl -Ls "https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile?v=$(date +%s)")"' > /home/$user/.bash_profile
+	  ln -snf /home/$user/.G/dotfiles/home/.gitconfig /home/$user/.gitconfig
+	  ln -snf /home/$user/.G/dotfiles/home/.tmux.conf /home/$user/.tmux.conf
+	  ln -snf /home/$user/.G/dotfiles/home/.vimrc /home/$user/.vimrc
+	  ln -snf /home/$user/.G/dotfiles/home/GEMINI.md /home/$user/.codex/AGENTS.md
+	  ln -snf /home/$user/.G/dotfiles/skills /home/$user/.codex/skills
+	  ln -snf /home/$user/.G/dotfiles/home/GEMINI.md /home/$user/.gemini/GEMINI.md
+	  ln -snf /home/$user/.G/dotfiles/skills /home/$user/.gemini/skills
+	  ln -snf /home/$user/.G/dotfiles/home/GEMINI.md /home/$user/.hermes/SOUL.md
+	  ln -snf /home/$user/.G/dotfiles/skills /home/$user/.hermes/skills
+	  chown -R $user:$user /home/$user
 	done
 	;;
   vm)
