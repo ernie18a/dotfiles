@@ -6,7 +6,7 @@ case "$1" in
 	timedatectl set-timezone Asia/Taipei
 	APTREMOVE needrestart 'ufw*' 'apparmor*' 'firewall*' unattended-upgrades landscape-common ubuntu-advantage-tools cloud-init popularity-contest ubuntu-report apport whoopsie fwupd
 	apt-get update
-	APTINSTALL bash-completion file git jq ripgrep rsync tmux tree vim apt-transport-https software-properties-common ffmpeg acl
+	APTINSTALL bash-completion file git jq ripgrep rsync tmux tree vim apt-transport-https software-properties-common ffmpeg acl zip
 	echo ServerAliveInterval\ 30 >> /etc/ssh/ssh_config
 	echo StrictHostKeyChecking\ no >> /etc/ssh/ssh_config
 	echo TCPKeepAlive\ no >> /etc/ssh/ssh_config
