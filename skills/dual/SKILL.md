@@ -5,7 +5,7 @@ description: Manual invocation only
 
 # Dual3
 
-Create root-level `dualNN.md` entry briefs for `/g/app/dual`.
+Create root-level `dualNN.md` entry briefs for the current target project root.
 
 Write for the runtime's actual readers:
 - The planner reads the full brief to choose the next `batch_plan`.
@@ -14,6 +14,12 @@ Write for the runtime's actual readers:
 
 The brief is not an archive, status report, or complete requirements dump. It is a compact planner/audit contract.
 
+## Execution Target
+
+Use one target root. The target root is the directory where `DUAL dualNN.md` will run, or the directory passed to `dual --directory`. Create `dualNN.md` in that target root. The entry root, runtime state root, provider cwd, and fresh evidence workspace must all be that same directory.
+
+Do not create an entry in one project to modify another project. If the user names another workspace as the work target, make that workspace the target root instead. Other workspaces are read-only unless the user explicitly makes one of them the target.
+
 ## Preflight
 
 Inspect only inputs that can change the contract:
@@ -21,7 +27,7 @@ Inspect only inputs that can change the contract:
 - existing `dualNN.md`, `STATUS.md`, or indexed context files when present
 - files, logs, commands, or notes needed to define scope, boundaries, verification, or completion
 
-If the task is a direct one-shot fix that does not benefit from planner-worker execution, say `/g/app/dual` is likely overhead and provide a smaller handoff instead.
+If the task is a direct one-shot fix that does not benefit from planner-worker execution, say `dual` is likely overhead and provide a smaller handoff instead.
 
 Do not ask for choices when the worker can inspect, derive, acquire, or implement the smallest in-scope path.
 
