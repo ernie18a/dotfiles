@@ -60,6 +60,7 @@ source ~/.55H 2>/dev/null
 #source ~/.IPS 2>/dev/null
 touch ~/.hushlogin
 WHEN() { local t=$(( $(date -d "${1:0:2}:${1:2:2}" +%s) - $(date +%s) )); sleep $(( t < 0 ? t + 86400 : t )); }
+alias SPK=' cat ~/.ssh/id_ed25519.pub '
 alias SHORTS='for DIR in ./*/; do printf "%s\n" "$FQAI" > "$DIR/AGENTS.md" & done'
 alias SHORT='printf "%s\n" "$FQAI" > ./AGENTS.md'
 
