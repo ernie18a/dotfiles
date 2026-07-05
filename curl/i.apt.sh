@@ -1,6 +1,69 @@
 #!/bin/bash
 APTINSTALL() { local ok=() p; for p in "$@"; do apt-cache show "$p" >/dev/null 2>&1 && ok+=("$p"); done; [ ${#ok[@]} -gt 0 ] && apt-get install -yq "${ok[@]}"; }
 APTREMOVE() { local ok=() p; for p in "$@"; do dpkg-query -W "$p" >/dev/null 2>&1 && ok+=("$p"); done; [ ${#ok[@]} -gt 0 ] && apt-get remove -y --allow-remove-essential "${ok[@]}"; }
+MU() {
+	groupadd -f g
+	for user in o n; do
+	  if ! id -u "$user" >/dev/null 2>&1; then
+	    useradd "$user" -ms /bin/bash
+	    echo "$user:$user" | chpasswd
+	  fi
+	done
+	for user in e o n; do
+	  if id -u "$user" >/dev/null 2>&1; then
+	    usermod -aG g "$user"
+	  fi
+	done
+	mkdir -p /g
+	chown -R :g /g
+	chmod -R 2777 /g
+	setfacl -R -m u::rwx,g::rwx,o::rwx,m:rwx,d:u::rwx,d:g::rwx,d:o::rwx,d:m:rwx /g
+
+	if [ -d /home/e/.G ]; then
+	    for user in o n; do
+	      if id -u "$user" >/dev/null 2>&1; then
+	        rm -rf /home/$user/.*
+	        cp -r /home/e/.G /home/$user/.G
+	        cp -r /home/e/.ssh /home/$user/.ssh
+	        cp -r /home/e/.55H /home/$user/
+	      fi
+	    done
+	    for user in o n; do
+	      if id -u "$user" >/dev/null 2>&1; then
+	        rm -rf /home/$user/.gitconfig
+	        rm -rf /home/$user/.tmux.conf
+	        rm -rf /home/$user/.vimrc
+	        rm -rf /home/$user/.bash_profile
+	        rm -rf /home/$user/.bashrc
+	        rm -rf /home/$user/.codex
+	        rm -rf /home/$user/.gemini
+	        rm -rf /home/$user/.hermes
+	        rm -rf /home/$user/.claude
+	        mkdir -p /home/$user/.codex
+	        mkdir -p /home/$user/.gemini
+	        mkdir -p /home/$user/.hermes
+	        mkdir -p /home/$user/.claude
+	        echo 'source /dev/stdin <<< "$(curl -Ls "https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile?v=$(date +%s)")"' > /home/$user/.bash_profile
+	        ln -snf /home/$user/.G/dotfiles/home/.gitconfig /home/$user/.gitconfig
+	        ln -snf /home/$user/.G/dotfiles/home/.tmux.conf /home/$user/.tmux.conf
+	        ln -snf /home/$user/.G/dotfiles/home/.vimrc /home/$user/.vimrc
+	        ln -snf /home/$user/.G/dotfiles/home/GEMINI.md /home/$user/.codex/AGENTS.md
+	        ln -snf /home/$user/.G/dotfiles/skills /home/$user/.codex/skills
+	        ln -snf /home/$user/.G/dotfiles/home/GEMINI.md /home/$user/.gemini/GEMINI.md
+	        ln -snf /home/$user/.G/dotfiles/skills /home/$user/.gemini/skills
+	        ln -snf /home/$user/.G/dotfiles/home/GEMINI.md /home/$user/.hermes/SOUL.md
+	        ln -snf /home/$user/.G/dotfiles/skills /home/$user/.hermes/skills
+	        chown -R $user:$user /home/$user/
+	      fi
+	    done
+	fi
+
+	for user in o n; do
+	  if id -u "$user" >/dev/null 2>&1; then
+	    chown -R $user:$user /home/$user
+	  fi
+	done
+}
 case "$1" in
   default)
 	# default zone
@@ -46,7 +109,7 @@ case "$1" in
 	ln -snf /home/e/.G/dotfiles/skills /home/e/.claude/skills
 	chown -R e:e /home/e
 	curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/e.ssh.pub.sh | bash
-	curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/e.users.sh | bash
+	MU
 	;;
   dev)
 	# dev zone
@@ -83,8 +146,11 @@ case "$1" in
 	git clone https://github.com/tmux-plugins/tpm /home/e/.G/.tmux_plugins_manager
 	sed -i 's/https:\/\/github.com\/ernie18a\/dotfiles.git/git@github.com:ernie18a\/dotfiles.git/g' /home/e/.G/dotfiles/.git/config
 	chown -R e:e /home/e
-	curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/e.users.sh | bash
+	MU
 		;;
+  mu)
+	MU
+	;;
   vm)
 # vm zone
 	# Replace this comment with the actual commands to be executed for Ampere
