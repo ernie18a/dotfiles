@@ -272,9 +272,3 @@ VT() { vim ~/.T$1 ; }
 HG() { cat ~/.bash_history | grep -ai --color "$1" ; }
 CG() { cat ~/.gemini/GEMINI.md 2>/dev/null || curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/GEMINI.md ; }
 USAGE() { date ; sudo -i bash -lc 'cd /g/app/usage && uv run main.py' ; }
-
-# The next line updates PATH for the Google Cloud SDK.
-#if [ -f '/home/e/google-cloud-sdk/path.bash.inc' ]; then . '/home/e/google-cloud-sdk/path.bash.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-#if [ -f '/home/e/google-cloud-sdk/completion.bash.inc' ]; then . '/home/e/google-cloud-sdk/completion.bash.inc'; fi
