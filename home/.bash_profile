@@ -1,5 +1,4 @@
-FQAI='- 針對問題最簡短回答'
-
+FQAI='- 只針對問題最簡短回答'
 if [ -f '/home/e/.google-cloud-sdk/path.bash.inc' ]; then . '/home/e/.google-cloud-sdk/path.bash.inc'; fi
 if [ -f '/home/e/.google-cloud-sdk/completion.bash.inc' ]; then . '/home/e/.google-cloud-sdk/completion.bash.inc'; fi
 source /etc/bash_completion.d/* 2>/dev/null
