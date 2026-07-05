@@ -59,7 +59,7 @@ source ~/.55H 2>/dev/null
 #source ~/.IPS 2>/dev/null
 touch ~/.hushlogin
 WHEN() { local t=$(( $(date -d "${1:0:2}:${1:2:2}" +%s) - $(date +%s) )); sleep $(( t < 0 ? t + 86400 : t )); }
-alias SHORTS=' for DIR in ./*/; do echo "- 簡短回答" > "$DIR/AGENTS.md" ; done '
+alias SHORTS=' for DIR in ./*/; do echo "- 簡短回答" > "$DIR/AGENTS.md" & done '
 alias SHORT='  echo "- 簡短回答" > ./AGENTS.md '
 
 alias GGG=' eval "$(ssh-agent -s)" ; ssh-add ~/.ssh/id_ed25519 ; gcloud compute ssh gcp --ssh-flag="-A" --ssh-flag="-L 1455:localhost:1455" '
