@@ -8,3 +8,4 @@ policy:
   allow_implicit_invocation: false
 YAML
 done
+sed -i 's/^description:.*/description: Manual invocation only/' */SKILL.md
