@@ -56,7 +56,7 @@ case "$1" in
 	curl -fsSL https://deb.nodesource.com/setup_current.x | bash -
 #	curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.claude.sh | bash
 	apt-get update
-	APTINSTALL nodejs claude-code acl
+	APTINSTALL nodejs
 	curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.rust.sh | bash
 	curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.uv.sh | bash
 	curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.codex.sh | bash
@@ -103,6 +103,7 @@ case "$1" in
 	mkdir -p /g
 	chown -R :g /g
 	chmod -R 2777 /g
+	apt update ; apt install -yq acl
 	setfacl -R -m u::rwx,g::rwx,o::rwx,m:rwx,d:u::rwx,d:g::rwx,d:o::rwx,d:m:rwx /g
 
 	for user in o n; do
