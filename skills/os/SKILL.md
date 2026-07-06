@@ -16,10 +16,11 @@ Before writing:
 1. Read the user request and project's governing instructions.
 2. For code-affecting work, inspect the directly related code before writing the handoff; use code facts instead of documents, summaries, or assumptions.
 3. Use inspected code facts to define the bounded implementation that satisfies the requested runtime behavior.
-4. Resolve choices the executor would otherwise infer: target files, behavior boundary, forbidden changes, and fallback direction.
+4. Resolve choices the executor would otherwise infer: target files, behavior boundary, forbidden changes, and local choice rules.
 5. Stop inspecting when additional code facts no longer change Scope, contracts, or Phase Actions.
 6. Include only facts, decisions, or choice rules whose removal would change Scope, contracts, or Phase Actions.
-7. If more than one valid direction remains, write the executor-facing decision rule and boundaries instead of a fixed internal sequence.
+7. If implementation choices remain, choose only the smallest local detail needed to satisfy explicit constraints.
+8. If more than one valid direction remains, write the executor-facing decision rule and boundaries instead of a fixed internal sequence.
 
 Handoff rules:
 - Keep one main goal and divide work into concrete code-edit phases.
