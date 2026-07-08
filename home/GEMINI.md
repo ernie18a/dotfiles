@@ -17,3 +17,4 @@
 
 # Situational
 - 未獲使用者準許，不執行 git 相關指令。
+- use skill os, dual, lg* 寫文件時要把 skill deve & subt 的概念也寫進去.
