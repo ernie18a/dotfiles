@@ -1,4 +1,4 @@
-FQAI='- use shortest answer to reply '
+FQAI='- reply with shortest answer'
 if [ -f '/home/e/.google-cloud-sdk/path.bash.inc' ]; then . '/home/e/.google-cloud-sdk/path.bash.inc'; fi
 if [ -f '/home/e/.google-cloud-sdk/completion.bash.inc' ]; then . '/home/e/.google-cloud-sdk/completion.bash.inc'; fi
 source /etc/bash_completion.d/* 2>/dev/null
