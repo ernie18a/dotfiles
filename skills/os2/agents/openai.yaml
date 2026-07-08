@@ -1,0 +1,4 @@
+interface:
+  display_name: "os2"
+  short_description: "Behavior-first implementation handoffs"
+  default_prompt: "Use $os2 to write a minimal behavior-first implementation handoff from my request."
