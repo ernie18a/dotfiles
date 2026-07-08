@@ -1,18 +1,18 @@
 ---
 name: os4
-description: Manual invocation only. Convert a multi-requirement system specification into requirement IDs, collision boundaries, implementation packets, dependency order, blocked items, and runtime evidence; use when Codex must preserve all stated requirements while deciding which work can run in parallel.
+description: Manual invocation only. Convert one or more stated requirements into requirement IDs, collision boundaries when needed, implementation packets, dependency order, blocked items, and runtime evidence; use when Codex must preserve all stated requirements while deciding whether work is single-packet, sequential, integration, or parallel.
 ---
 
 # os4
 
-Create one `osNN.md` execution manual from a multi-requirement specification.
+Create one `osNN.md` execution manual from one request or a multi-requirement specification.
 
 ## Required Outputs
 
 1. Requirement ledger: one stable `R#` for each stated requirement.
-2. Collision map: shared paths, functions, state, schemas, routes, commands, APIs, UI surfaces, migrations, and external integrations.
+2. Collision map: required only when two or more requirements or packets may share paths, functions, state, schemas, routes, commands, APIs, UI surfaces, migrations, or external integrations.
 3. Execution packets: grouped requirements with ownership, contracts, dependencies, and evidence.
-4. Integration section: required when two or more packets join into one runtime path.
+4. Integration section: required only when two or more packets join into one runtime path.
 5. Blocked or planned table: every stated requirement not assigned to an implementable packet.
 
 ## Decision Rules
@@ -20,13 +20,14 @@ Create one `osNN.md` execution manual from a multi-requirement specification.
 1. If a requirement has no observable runtime behavior, mark it `blocked` with `MISSING:observable_behavior`.
 2. If a requirement lacks input, output, or failure behavior, write `MISSING:<field>`.
 3. If related code exists, inspect runtime code before packet assignment.
-4. If requirements touch the same function, route, command, schema, state file, shared store, migration, public API, or UI surface, group them in one packet or mark the later packet `sequential`.
-5. If requirements have disjoint allowed paths and disjoint runtime boundaries, they may be separate `parallel` packets.
-6. If a packet consumes another packet's contract, mark it `sequential` and set `blocked by: P#`.
-7. If packet outputs must be wired together, create one `integration` packet.
-8. If a requirement cannot be implemented from the specification and inspected code facts, mark it `blocked`.
-9. If a stated requirement is outside the first runtime path, mark it `planned`.
-10. If a sentence does not change requirement coverage, packet ownership, dependency order, runtime contract, evidence, invalid state, or blocked/planned status, delete it.
+4. If the request has one implementable requirement and no shared boundary, create one `sequential` packet and omit collision rows unrelated to that packet.
+5. If requirements touch the same function, route, command, schema, state file, shared store, migration, public API, or UI surface, group them in one packet or mark the later packet `sequential`.
+6. If requirements have disjoint allowed paths and disjoint runtime boundaries, they may be separate `parallel` packets.
+7. If a packet consumes another packet's contract, mark it `sequential` and set `blocked by: P#`.
+8. If packet outputs must be wired together, create one `integration` packet.
+9. If a requirement cannot be implemented from the specification and inspected code facts, mark it `blocked`.
+10. If a stated requirement is outside the first runtime path, mark it `planned`.
+11. If a sentence does not change requirement coverage, packet ownership, dependency order, runtime contract, evidence, invalid state, or blocked/planned status, delete it.
 
 ## Parallel Test
 
