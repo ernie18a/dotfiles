@@ -1,9 +1,9 @@
 ---
-name: lg4
+name: lg3
 description: Manual invocation only
 ---
 
-# lg4
+# lg3
 
 ## Purpose
 
