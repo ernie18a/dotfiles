@@ -223,7 +223,8 @@ alias vun=' vim '
 alias vvim=' vim '
 alias NVS=' watch nvidia-smi '
 alias VGP='cd ~/.G/dotfiles ; git pull >/dev/null ; vim ~/.G/dotfiles/home/GEMINI.md ; git rm -r --cached . >/dev/null ; git add -A && git commit -amVGP &> /dev/null && git push 1>/dev/null ; cd - &>/dev/null'
-CBG() { curl  --connect-timeout 2 -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile |grep -i --color $1 2>/dev/null || cat ~/.bash_profile 2>/dev/null |grep -i --color $1 ; }
+#CBG() { curl  --connect-timeout 2 -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile |grep -i --color $1 2>/dev/null || cat ~/.bash_profile 2>/dev/null |grep -i --color $1 ; }
+CBG() { curl  https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/.bash_profile  |grep -i --color $1 2>/dev/null || cat  ~/.G/dotfiles/home/.bash_profile 2>/dev/null || cat ~/.bash_profile 2>/dev/null |grep -i --color $1 ; }
 WATCH() { watch "$@" ; }
 DIG() { echo "dig $1 |grep -vE ^\;\|^$" ; dig $1 | grep -vE ^\;\|^$ ; }
 lgc() { cat $(ls -Ah |grep -i $1 ) || ls -Ah | grep -i $i ; }
