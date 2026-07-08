@@ -1,0 +1,4 @@
+interface:
+  display_name: "OS4"
+  short_description: "Requirement-to-runtime execution packets"
+  default_prompt: "Use $os4 to convert a multi-requirement spec into evidence-based parallel implementation packets."

@@ -1,40 +1,40 @@
 ---
 name: os2
-description: Manual invocation only. Create behavior-first implementation handoffs from user requests when Codex must avoid architecture-only plans, placeholder modules, mock success paths, and feature-inventory documents.
+description: Manual invocation only. Create one behavior-first implementation handoff from a user request; use when Codex must define the first runtime path, completion evidence, planned items, and invalid completion states for a downstream code executor.
 ---
 
 # os2
 
-Create one implementation handoff for a downstream code executor. The handoff must convert the user request into the smallest real program change that can produce observable runtime behavior.
+Create one `osNN.md` handoff for one downstream code executor.
 
-## Invariants
+## Decision Rules
 
-1. Use inspected code facts for code-affecting work. Do not base implementation scope on documents, summaries, or feature names when related code can be read.
-2. Define the first usable runtime path before listing supporting work.
-3. Treat a feature name as invalid unless the handoff defines the external behavior that proves the feature is active.
-4. Mark unsupported or underspecified features as `planned`, not `implemented`.
-5. Require real program evidence for each completed phase: command output, file change, state transition, network attempt, error path, or user-visible result.
-6. Do not require new test scripts unless the user explicitly asks for tests.
-7. Do not use mocks, fake success paths, placeholder modules, flag-only behavior, state-only behavior, or test-only behavior as completion evidence.
-8. Stop adding scope when the next item would not change the first usable runtime path, a required contract, or a forbidden shortcut.
+1. If related code exists, inspect code paths that can change the implementation boundary.
+2. If a requested feature has no external behavior, mark it `planned`.
+3. If a feature is unsupported or underspecified, mark it `planned`.
+4. If work does not change the first runtime path, a required contract, or an invalid completion state, omit it.
+5. Do not require new test scripts unless the user requests tests.
 
-## Procedure
+## Required Fields
 
-1. Extract the user-requested runtime behavior.
-2. Inspect only code paths that can change the implementation boundary.
-3. Define the minimal end-to-end path from input to observable result.
-4. Define invalid states before implementation phases:
-   - placeholder represents completion
-   - enabled flag represents behavior
-   - state file represents success without runtime effect
-   - mock or synthetic local path replaces the real path
-   - generated module has no called behavior
-5. Split phases by the same runtime path, not by architecture layer or feature category.
-6. For each phase, write:
-   - action
-   - real program evidence
-   - invalid completion states
-7. Omit architecture reports, module inventories, dependency wishlists, and broad roadmaps unless their removal changes execution.
+1. requested behavior
+2. first runtime path
+3. execution boundary
+4. allowed paths, behaviors, contracts
+5. forbidden paths, behaviors, invalid completion states
+6. phase actions
+7. phase evidence
+8. planned items
+
+## Invalid Completion
+
+Do not accept completion evidence based on:
+- mock path replacing the real path
+- placeholder file or module
+- enabled flag without behavior
+- state file without runtime effect
+- test-only behavior
+- generated code not called by runtime code
 
 ## Output Shape
 
@@ -44,7 +44,7 @@ Create one implementation handoff for a downstream code executor. The handoff mu
 ## Goal
 
 - requested behavior:
-- first usable path:
+- first runtime path:
 - execution boundary:
 
 ## Scope
@@ -64,23 +64,19 @@ Forbidden:
 ### Phase N: Name
 
 Action:
-- 
+-
 
 Evidence:
-- 
+-
 
 Invalid:
-- 
+-
 
 ## Planned
 
-- Include only features named by the user or governing input that cannot be implemented in the first usable path.
+-
 
 ## Completion
 
-- Reply exactly `DONE` when the requested code work is complete and the evidence listed above exists.
+- Reply exactly `DONE` when the requested code work is complete and the listed evidence exists.
 ```
-
-## Compression Rule
-
-Delete any sentence that does not change one of these outputs: first usable path, allowed scope, forbidden scope, phase action, evidence, invalid completion state, or planned status.
