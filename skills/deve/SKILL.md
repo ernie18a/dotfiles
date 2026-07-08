@@ -14,7 +14,7 @@ description: Manual invocation only
 - 修改規格、規約、提示詞或文件時，先刪除、替換與合併，最後才新增。
 
 # I/O 與寫入隔離
-- 專案內 `INPUT/` 存原始輸入，`OUTPUT/` 存最終輸出，`TMP/` 存中間檔。
+- 專案內 `INPUT/` 存原始輸入，`OUTPUT/` 存最終輸出，`TMP/` 存放快取檔 or 暫存檔 or 中間檔，`DATA` 存放設定檔或 necessary stateful 檔案 。
 
 # Python 執行環境
 - 新增或執行 Python 專案與腳本時，使用 `uv run` 獨立環境。
