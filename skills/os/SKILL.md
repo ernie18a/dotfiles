@@ -7,14 +7,16 @@ description: Manual invocation only. Create one multi-executor code handoff from
 
 Create one `osNN.md` handoff for multiple downstream code executors.
 The handoff is for code implementation only. It is invalid if it is a status report, completion report, architecture-only plan, or requirement expansion outside the explicit requirement set.
+Name handoffs incrementally as `os01.md`, `os02.md`, using the next unused `osNN.md`.
 
 ## Source Boundary
 
 1. Treat explicit requirement files, user request, and inspected code facts as the only input set.
-2. If a requirement list exists, it is the coverage boundary: every listed runtime behavior must map to one packet, integration contract, planned item, or blocked item.
+2. If a requirement list exists, it is the coverage boundary: every listed runtime behavior must map to one packet, integration contract, or local decision rule.
 3. Do not delete, narrow, or defer a listed requirement because it is system-scale.
 4. Do not add runtime behavior, product mode, provider, protocol, storage target, command, route, schema, or user workflow absent from the input set.
-5. If an input value required for a contract is absent, write `MISSING:<field>` and keep the owning packet blocked.
+5. If an input value required for a contract is absent, write the bounded local decision rule or forbidden scope needed for execution from available inputs.
+6. Make the handoff self-contained: do not depend on prior conversation, external references, or unstated context for executor completion.
 
 ## Before Writing
 
@@ -31,21 +33,21 @@ The handoff is for code implementation only. It is invalid if it is a status rep
 3. Do not split by feature label, architecture layer, executor count, or module shape.
 4. If one listed requirement spans multiple packets, add the shared contract and one integration packet.
 5. If two packets share a schema, command, event, state file, route, or output path, assign one owner and make other packets depend on it.
-6. If a packet depends on unimplemented upstream behavior, set `blocked by: P#`.
-7. If a code fact and requirement conflict, write the collision as a blocked item instead of choosing an unlisted behavior.
+6. If a packet depends on upstream behavior, declare the dependency order and owning packet.
+7. If a code fact and requirement conflict, write the collision boundary as forbidden behavior or a local decision rule instead of choosing an unlisted behavior.
 
 ## Design Rules
 
 1. Prefer local replacement boundaries: each packet must declare input contract, output contract, state owner, and failure contract.
 2. Do not require a new module, abstraction, dependency, or file unless its absence prevents a listed requirement from having an owned path or contract.
 3. Do not prohibit architecture, dependency, packet, or phase description when it is required to preserve listed requirement coverage, dependency order, I/O boundary, or integration evidence.
-4. Use skill `deve` for implementation packets: actions must be executable code edits with owned paths and runtime evidence.
-5. Use skill `subt` for handoff text: remove any sentence whose deletion does not change coverage, dependency order, contract, evidence, or invalid completion states.
+4. In the generated handoff, write contracts, decisions, actions, and evidence as exact paths, runtime conditions, state changes, commands, or observable outputs; abstract labels alone are invalid.
+5. Use skill `deve` for implementation packets: actions must be executable code edits with owned paths and runtime evidence.
+6. Use skill `subt` for handoff text: remove any sentence whose deletion does not change coverage, dependency order, contract, evidence, or invalid completion states.
 
 ## Dependency Types
 
 - `P`: packet can run without undeclared dependencies.
-- `S`: packet is blocked by another packet or by `MISSING:<field>`.
 - `I`: packet integrates outputs from two or more packets into the first runtime path.
 
 ## Packet Fields
@@ -53,21 +55,21 @@ The handoff is for code implementation only. It is invalid if it is a status rep
 1. executor role
 2. requirement IDs
 3. dependency type
-4. blocked by
-5. allowed paths
-6. forbidden paths
-7. state owner
-8. input contract
-9. output contract
-10. failure contract
-11. action
-12. evidence
-13. invalid completion states
+4. allowed paths
+5. forbidden paths
+6. state owner
+7. input contract
+8. output contract
+9. failure contract
+10. action
+11. evidence
+12. invalid completion states
 
 ## Invalid Completion
 
 Do not accept completion based on:
-- requirement without packet, integration contract, planned item, or blocked item
+- requirement without packet, integration contract, or local decision rule
+- packet fields filled only with abstract labels
 - mock path replacing the first runtime path
 - placeholder file or module
 - TODO-only implementation
@@ -89,7 +91,7 @@ Do not accept completion based on:
 - R1:
   - source:
   - requirement:
-  - owner: P# | I# | Planned | Blocked
+  - owner: P# | I# | Decision
 
 ## Goal
 
@@ -101,8 +103,8 @@ Do not accept completion based on:
 ## Dependency Graph
 
 - P1:
-  - type: P | S | I
-  - blocked by:
+  - type: P | I
+  - depends on:
   - owns:
   - exposes:
 
@@ -113,7 +115,7 @@ Do not accept completion based on:
 - executor role:
 - requirement IDs:
 - type:
-- blocked by:
+- depends on:
 - action:
 - allowed paths:
 - forbidden paths:
@@ -134,15 +136,11 @@ Do not accept completion based on:
 - evidence:
 - invalid:
 
-## Planned
-
--
-
-## Blocked
+## Decisions
 
 -
 
 ## Completion
 
-- Reply exactly `DONE` only when every requirement ID is owned and every non-blocked packet has evidence, with integration proving the first runtime path.
+- Reply exactly `DONE` only when every requirement ID is owned and every packet has evidence, with integration proving the first runtime path.
 ```
