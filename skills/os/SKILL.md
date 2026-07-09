@@ -24,7 +24,7 @@ Name handoffs incrementally as `os01.md`, `os02.md`, using the next unused `osNN
 2. Read explicit requirement files named or implied by the request.
 3. For code-affecting work, inspect code paths that can change runtime boundaries, shared contracts, write targets, state transitions, or dependency edges.
 4. Use code facts to bind packets to existing paths when those paths already own the runtime behavior.
-5. Stop inspecting when additional code facts no longer change packet ownership, dependency order, contracts, evidence, or invalid states.
+5. Stop inspecting when additional code facts no longer change packet ownership, dependency order, contracts, coverage trace, or invalid states.
 
 ## Split Rules
 
@@ -40,10 +40,10 @@ Name handoffs incrementally as `os01.md`, `os02.md`, using the next unused `osNN
 
 1. Prefer local replacement boundaries: each packet must declare input contract, output contract, state owner, and failure contract.
 2. Do not require a new module, abstraction, dependency, or file unless its absence prevents a listed requirement from having an owned path or contract.
-3. Do not prohibit architecture, dependency, packet, or phase description when it is required to preserve listed requirement coverage, dependency order, I/O boundary, or integration evidence.
-4. In the generated handoff, write contracts, decisions, actions, and evidence as exact paths, runtime conditions, state changes, commands, or observable outputs; abstract labels alone are invalid.
-5. Use skill `deve` for implementation packets: actions must be executable code edits with owned paths and runtime evidence.
-6. Use skill `subt` for handoff text: remove any sentence whose deletion does not change coverage, dependency order, contract, evidence, or invalid completion states.
+3. Do not prohibit architecture, dependency, packet, or phase description when it is required to preserve listed requirement coverage, dependency order, or I/O boundary.
+4. In the generated handoff, write contracts, decisions, and actions as exact paths, runtime conditions, and state changes; abstract labels alone are invalid.
+5. The generated handoff must not instruct or imply running tests, verification, validation, or writing test code or test scripts.
+6. Use skill `deve` for implementation packets: actions must be executable code edits with owned paths.
 
 ## Dependency Types
 
@@ -62,7 +62,7 @@ Name handoffs incrementally as `os01.md`, `os02.md`, using the next unused `osNN
 8. output contract
 9. failure contract
 10. action
-11. evidence
+11. coverage trace
 12. invalid completion states
 
 ## Invalid Completion
@@ -75,7 +75,6 @@ Do not accept completion based on:
 - TODO-only implementation
 - enabled flag without runtime behavior
 - state file without runtime effect
-- test-only behavior
 - generated code not called by runtime code
 - shared contract changed without integration packet
 - another packet's owned path changed without dependency update
@@ -123,7 +122,7 @@ Do not accept completion based on:
 - input contract:
 - output contract:
 - failure contract:
-- evidence:
+- coverage trace:
 - invalid:
 
 ### Packet I1: Integration
@@ -133,7 +132,7 @@ Do not accept completion based on:
 - allowed paths:
 - input contract:
 - output contract:
-- evidence:
+- coverage trace:
 - invalid:
 
 ## Decisions
@@ -142,5 +141,5 @@ Do not accept completion based on:
 
 ## Completion
 
-- Reply exactly `DONE` only when every requirement ID is owned and every packet has evidence, with integration proving the first runtime path.
+- Reply exactly `DONE` only when every requirement ID is owned by a packet, integration contract, or local decision rule.
 ```
