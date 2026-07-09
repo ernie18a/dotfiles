@@ -1,71 +1,148 @@
 ---
 name: os
-description: Manual invocation only
+description: Manual invocation only. Create one multi-executor code handoff from an explicit requirement set; preserve full requirement coverage while preventing behavior outside the requirement set.
 ---
 
-# os Handoff
+# os
 
-Create one `osNN.md` code-implementation handoff for a downstream code executor that edits files.
-The handoff is for writing code only. It is invalid if it is a status report,
-architecture report, completion report, or architecture-only plan.
-Do not ask the executor to redesign requirements, infer hidden product intent,
-or expand runtime behavior.
+Create one `osNN.md` handoff for multiple downstream code executors.
+The handoff is for code implementation only. It is invalid if it is a status report, completion report, architecture-only plan, or requirement expansion outside the explicit requirement set.
 
-Before writing:
+## Source Boundary
 
-1. Read the user request and project's governing instructions.
-2. For code-affecting work, inspect the directly related code before writing the handoff; use code facts instead of documents, summaries, or assumptions.
-3. Use inspected code facts to define the bounded implementation that satisfies the requested runtime behavior.
-4. Resolve choices the executor would otherwise infer: target files, behavior boundary, forbidden changes, and local choice rules.
-5. Stop inspecting when additional code facts no longer change Scope, contracts, or Phase Actions.
-6. Include only facts, decisions, or choice rules whose removal would change Scope, contracts, or Phase Actions.
-7. If implementation choices remain, choose only the smallest local detail needed to satisfy explicit constraints.
-8. If more than one valid direction remains, write the executor-facing decision rule and boundaries instead of a fixed internal sequence.
+1. Treat explicit requirement files, user request, and inspected code facts as the only input set.
+2. If a requirement list exists, it is the coverage boundary: every listed runtime behavior must map to one packet, integration contract, planned item, or blocked item.
+3. Do not delete, narrow, or defer a listed requirement because it is system-scale.
+4. Do not add runtime behavior, product mode, provider, protocol, storage target, command, route, schema, or user workflow absent from the input set.
+5. If an input value required for a contract is absent, write `MISSING:<field>` and keep the owning packet blocked.
 
-Handoff rules:
-- Keep one main goal and divide work into concrete code-edit phases.
-- State allowed and forbidden exact paths, behaviors, and contracts.
-- Make the handoff self-contained: the executor can complete the requested code work using only the handoff. If removing prior conversation or references makes the handoff insufficient, extract the missing contracts into the handoff.
-- For system-scale work, define the bounded implementation with its required input, output, state transition, and failure contracts.
-- Forbidden scope may include only alternate providers, extra modes, broad refactors, or behavior outside the requested runtime boundary.
-- Every file or directory created by the handoff must have an exact relative path. A handoff is invalid if any path can be derived from a command name, workspace basename, entry basename, or state directory name without a collision rule.
-- If a command name equals the workspace root basename, executable files must be placed under `bin/` and generated state must be placed under a dot-prefixed state directory.
-- The handoff defines code changes and runtime completion behavior. Include validation steps only when the user request requires validation work as part of the deliverable.
-- Reject architecture, module lists, dependency plans, phase sequences, or abstractions that are not required to decide contracts or behavior boundaries.
+## Before Writing
 
-Name handoffs incrementally: `os01.md`, `os02.md`.
+1. Read the user request and governing instructions.
+2. Read explicit requirement files named or implied by the request.
+3. For code-affecting work, inspect code paths that can change runtime boundaries, shared contracts, write targets, state transitions, or dependency edges.
+4. Use code facts to bind packets to existing paths when those paths already own the runtime behavior.
+5. Stop inspecting when additional code facts no longer change packet ownership, dependency order, contracts, evidence, or invalid states.
 
-## `osNN.md` Template
+## Split Rules
+
+1. Define the first runtime path before packet assignment.
+2. Split packets by I/O boundary, state ownership, runtime boundary, and touched paths.
+3. Do not split by feature label, architecture layer, executor count, or module shape.
+4. If one listed requirement spans multiple packets, add the shared contract and one integration packet.
+5. If two packets share a schema, command, event, state file, route, or output path, assign one owner and make other packets depend on it.
+6. If a packet depends on unimplemented upstream behavior, set `blocked by: P#`.
+7. If a code fact and requirement conflict, write the collision as a blocked item instead of choosing an unlisted behavior.
+
+## Design Rules
+
+1. Prefer local replacement boundaries: each packet must declare input contract, output contract, state owner, and failure contract.
+2. Do not require a new module, abstraction, dependency, or file unless its absence prevents a listed requirement from having an owned path or contract.
+3. Do not prohibit architecture, dependency, packet, or phase description when it is required to preserve listed requirement coverage, dependency order, I/O boundary, or integration evidence.
+4. Use skill `deve` for implementation packets: actions must be executable code edits with owned paths and runtime evidence.
+5. Use skill `subt` for handoff text: remove any sentence whose deletion does not change coverage, dependency order, contract, evidence, or invalid completion states.
+
+## Dependency Types
+
+- `P`: packet can run without undeclared dependencies.
+- `S`: packet is blocked by another packet or by `MISSING:<field>`.
+- `I`: packet integrates outputs from two or more packets into the first runtime path.
+
+## Packet Fields
+
+1. executor role
+2. requirement IDs
+3. dependency type
+4. blocked by
+5. allowed paths
+6. forbidden paths
+7. state owner
+8. input contract
+9. output contract
+10. failure contract
+11. action
+12. evidence
+13. invalid completion states
+
+## Invalid Completion
+
+Do not accept completion based on:
+- requirement without packet, integration contract, planned item, or blocked item
+- mock path replacing the first runtime path
+- placeholder file or module
+- TODO-only implementation
+- enabled flag without runtime behavior
+- state file without runtime effect
+- test-only behavior
+- generated code not called by runtime code
+- shared contract changed without integration packet
+- another packet's owned path changed without dependency update
+- output artifact that cannot be traced to listed requirements
+
+## Output Shape
 
 ```md
 # osNN
 
+## Requirement Map
+
+- R1:
+  - source:
+  - requirement:
+  - owner: P# | I# | Planned | Blocked
+
 ## Goal
 
 - requested behavior:
+- first runtime path:
 - execution boundary:
+- executor model:
 
-## Scope
+## Dependency Graph
 
-Allowed:
-- exact relative paths:
-- behaviors:
-- contracts:
+- P1:
+  - type: P | S | I
+  - blocked by:
+  - owns:
+  - exposes:
 
-Forbidden:
-- exact relative paths:
-- behaviors:
-- contracts:
+## Packets
 
-## Phases
+### Packet P1: Name
 
-### Phase N: 名稱
+- executor role:
+- requirement IDs:
+- type:
+- blocked by:
+- action:
+- allowed paths:
+- forbidden paths:
+- state owner:
+- input contract:
+- output contract:
+- failure contract:
+- evidence:
+- invalid:
 
-Action:
-- 需要完成什麼。
+### Packet I1: Integration
+
+- requirement IDs:
+- action:
+- allowed paths:
+- input contract:
+- output contract:
+- evidence:
+- invalid:
+
+## Planned
+
+-
+
+## Blocked
+
+-
 
 ## Completion
 
-- Reply exactly `DONE` when the requested code work is complete.
-
+- Reply exactly `DONE` only when every requirement ID is owned and every non-blocked packet has evidence, with integration proving the first runtime path.
 ```
