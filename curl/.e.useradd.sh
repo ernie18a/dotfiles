@@ -23,7 +23,7 @@ for user in e o n; do
     sudo mkdir -p /home/$user/.claude
     sudo mkdir -p /home/$user/.hermes 
     sudo mkdir -p /home/$user/.codex
-    echo 'source /dev/stdin <<< "$(curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile)"' | sudo tee /home/$user/.bash_profile > /dev/null
+    echo 'source /dev/stdin <<< $(curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/.bash_profile)' | sudo tee /home/$user/.bash_profile > /dev/null
     sudo ln -snf /home/$user/.G/dotfiles/home/.gitconfig    /home/$user/.gitconfig
     sudo ln -snf /home/$user/.G/dotfiles/home/.tmux.conf    /home/$user/.tmux.conf
     sudo ln -snf /home/$user/.G/dotfiles/home/.vimrc        /home/$user/.vimrc

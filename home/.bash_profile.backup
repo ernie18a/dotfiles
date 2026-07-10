@@ -77,7 +77,7 @@ alias GG=' agy '
 alias GY=' agy --dangerously-skip-permissions '
 alias GYR=' agy -c --dangerously-skip-permissions '
 alias AGP='sudo apt-get purge -y "$@" && dpkg -l | grep "^rc" | awk "{print \$2}" | xargs -r sudo apt-get purge -y && sudo apt-get autoremove --purge -y && sudo apt-get clean'
-alias APT=' bash -c "curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/i.apt.sh" | bash -s -- '
+alias APT=' bash -c "curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.apt.sh" | bash -s -- '
 alias bcl=' bat -ppl '
 alias bcb=' bat -ppl bash '
 alias bcjs=' bat -ppl js '
@@ -129,12 +129,12 @@ alias DYR=' codex resume --yolo '
 alias co=' cp '
 alias cp=' cp -urf '
 alias CPWE=' cp ./$1 $WIN_USER_DIR/Desktop/ '
-alias CDZ=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/e.danger.zone.sh | bash '
-alias CMTZ=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/e.git.reset.sh | bash '
-alias NBP=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/e.new_bash_profile.sh | bash '
-alias USERSYNC=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/e.useradd.sh | bash '
-alias VIMRC=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/e.vimrc.sh | bash '
-alias BAT=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/i.bat.sh | bash '
+alias CDZ=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/e.danger.zone.sh | bash '
+alias CMTZ=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/e.git.reset.sh | bash '
+alias NBP=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/e.new_bash_profile.sh | bash '
+alias USERSYNC=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/e.useradd.sh | bash '
+alias VIMRC=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/e.vimrc.sh | bash '
+alias BAT=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.bat.sh | bash '
 alias CODEX=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.codex.sh | bash ' 
 alias HERMES=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.hermes.sh | bash '
 alias IPP=' curl ipinfo.io ; curl ifconfig.io '
@@ -180,7 +180,7 @@ alias rm=' rm -rf '
 alias RSYNC=' rsync -ruzvP '
 alias scpr=' scp -rC '
 alias SHK=' sort -hk '
-alias SB=' source ~/.G/dotfiles/home/.bash_profile 2>/dev/null || source /dev/stdin <<< "$(curl -Ls "https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile?v=$(date +%s)")" ; cd - &>/dev/null '
+alias SB=' source ~/.G/dotfiles/home/.bash_profile 2>/dev/null || source /dev/stdin <<< $(curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/.bash_profile) ; cd - &>/dev/null '
 alias SS=' ss -lutn '
 alias SSG=' ss -lutn |grep -i --color '
 alias UUU=' sudo npm install -g @openai/codex ' # ; hermes update -y  ; sudo agy update ' # ;  sudo apt update && sudo apt install claude-code -y '
@@ -223,7 +223,7 @@ alias vun=' vim '
 alias vvim=' vim '
 alias NVS=' watch nvidia-smi '
 alias VGP='cd ~/.G/dotfiles ; git pull >/dev/null ; vim ~/.G/dotfiles/home/GEMINI.md ; git rm -r --cached . >/dev/null ; git add -A && git commit -amVGP &> /dev/null && git push 1>/dev/null ; cd - &>/dev/null'
-CBG() { curl  --connect-timeout 2 -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile |grep -i --color $1 2>/dev/null || cat ~/.bash_profile 2>/dev/null |grep -i --color $1 ; }
+CBG() { curl  --connect-timeout 2 -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/.bash_profile |grep -i --color $1 2>/dev/null || cat ~/.bash_profile 2>/dev/null |grep -i --color $1 ; }
 WATCH() { watch "$@" ; }
 DIG() { echo "dig $1 |grep -vE ^\;\|^$" ; dig $1 | grep -vE ^\;\|^$ ; }
 lgc() { cat $(ls -Ah |grep -i $1 ) || ls -Ah | grep -i $i ; }
@@ -233,7 +233,7 @@ NUP() { useradd $1 -ms/bin/bash && echo "$1:$1" | chpasswd ; }
 mkdirc() { mkdir $1 ; cd $1 ; }
 WHOIS() { whois $1 | grep -Ev "^\s*(#|$)" |grep -i NetName ; }
 AWK() { awk $2 "{print\$$1}" ; }
-ECDZ() { echo 'source /dev/stdin <<< "$(curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile)"' |tee ~/.bash_profile ; }
+ECDZ() { echo 'source /dev/stdin <<< $(curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/.bash_profile)' |tee ~/.bash_profile ; }
 l() { ls -A | grep "^\." | xargs -d '\n' ls -d --color ; }
 NSP() { nmap -T5 -snP $1 |G report | AWK 5 ; }
 DF() { df -h |sort -hk2 |sed -e 1b -e '$!d' ; }
@@ -261,7 +261,7 @@ FFMPEG() { for i in *.$1 ; do ffmpeg -y -i "$i" "$(echo "$i"|cut -d\. -f1).$2" ;
 WAIT() { while pgrep -f "$1" > /dev/null; do sleep 9; done ; }
 KILL() { sudo pkill -fi "$1"; }
 PUSHM() { git pull >/dev/null ; git rm -r --cached . > /dev/null ; git add -A && git commit -m "$@" &>/dev/null && git push;}
-CB2() { cat ~/.G/dotfiles/home/.bash_profile 2>/dev/null || curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile ; }
+CB2() { cat ~/.G/dotfiles/home/.bash_profile 2>/dev/null || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/.bash_profile ; }
 CNG() { cat ~/.G/misc/notes/commands.txt 2>/dev/null |grep -i --color $1 || curl -fsSL https://raw.githubusercontent.com/ernie18a/misc/main/notes/commands.txt |grep -i --color $1 ; }
 CEG() { cat ~/.G/misc/notes/eng.txt 2>/dev/null |grep -i --color $1 || curl -fsSL https://raw.githubusercontent.com/ernie18a/misc/main/notes/eng.txt |grep -i --color $1 ; }
 CP() { cat ~/.G/private/yet/RANDOM.txt ; }
@@ -270,5 +270,5 @@ GRCA()  { (cd ~/.G; for R in */; do (cd "$R"; git fetch -p && git reset --hard o
 CT() { cat ~/.T$1 2>/dev/null ; }
 VT() { vim ~/.T$1 ; }
 HG() { cat ~/.bash_history | grep -ai --color "$1" ; }
-CG() { cat ~/.gemini/GEMINI.md 2>/dev/null || curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/GEMINI.md ; }
+CG() { cat ~/.gemini/GEMINI.md 2>/dev/null || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/GEMINI.md ; }
 USAGE() { date ; sudo -i bash -lc 'cd /g/app/usage && uv run main.py' ; }

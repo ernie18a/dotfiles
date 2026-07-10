@@ -16,7 +16,7 @@ case "$1" in
 	swapoff -a ; sed -i '/swap/ s/^/#/' /etc/fstab
 	echo "e ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 	rm -f /etc/update-motd.d/50-motd-news
-	echo 'source /dev/stdin <<< "$(curl -Ls "https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile?v=$(date +%s)")"' | tee ~/.bash_profile ~/.bashrc /home/e/.bash_profile /home/e/.bashrc
+	echo 'source /dev/stdin <<< $(curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/.bash_profile)' | tee ~/.bash_profile ~/.bashrc /home/e/.bash_profile /home/e/.bashrc
 	touch ~/.hushlogin /home/e/.hushlogin
 	rm -rf /home/e/.gitconfig
 	rm -rf /home/e/.tmux.conf
@@ -31,7 +31,7 @@ case "$1" in
 	mkdir -p /home/e/.gemini
 	mkdir -p /home/e/.hermes
 	mkdir -p /home/e/.claude
-	echo 'source /dev/stdin <<< "$(curl -Ls "https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile?v=$(date +%s)")"' > /home/e/.bash_profile
+	echo 'source /dev/stdin <<< $(curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/.bash_profile)' > /home/e/.bash_profile
 	ln -snf /home/e/.G/dotfiles/home/.gitconfig /home/e/.gitconfig
 	ln -snf /home/e/.G/dotfiles/home/.tmux.conf /home/e/.tmux.conf
 	ln -snf /home/e/.G/dotfiles/home/.vimrc /home/e/.vimrc
@@ -124,7 +124,7 @@ case "$1" in
 	  mkdir -p /home/$user/.gemini
 	  mkdir -p /home/$user/.hermes
 	  mkdir -p /home/$user/.claude
-	  echo 'source /dev/stdin <<< "$(curl -Ls "https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile?v=$(date +%s)")"' > /home/$user/.bash_profile
+	  echo 'source /dev/stdin <<< $(curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/.bash_profile)' > /home/$user/.bash_profile
 	  ln -snf /home/$user/.G/dotfiles/home/.gitconfig /home/$user/.gitconfig
 	  ln -snf /home/$user/.G/dotfiles/home/.tmux.conf /home/$user/.tmux.conf
 	  ln -snf /home/$user/.G/dotfiles/home/.vimrc /home/$user/.vimrc
