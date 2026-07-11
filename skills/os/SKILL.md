@@ -1,6 +1,6 @@
 ---
 name: os
-description: Manual invocation only. Create one multi-executor code handoff from an explicit requirement set; preserve full requirement coverage while preventing behavior outside the requirement set.
+description: Manual invocation only
 ---
 
 # os

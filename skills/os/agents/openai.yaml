@@ -1,4 +1,2 @@
-interface:
-  display_name: "OS3"
-  short_description: "Parallel runtime implementation handoffs"
-  default_prompt: "Use $os3 to split a large request into implementation packets with owned paths, dependencies, and runtime evidence."
+policy:
+  allow_implicit_invocation: false
