@@ -1,0 +1,4 @@
+interface:
+  display_name: "os2"
+  short_description: "Compact worker handoffs"
+  default_prompt: "Use $os2 to write a compact os2NN.md worker handoff for this task."
