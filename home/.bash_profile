@@ -282,3 +282,4 @@ USAGE() { date; sudo -i bash -lc 'cd /g/app/usage && uv run main.py' 2>/dev/null
 
 # The next line enables shell command completion for gcloud.
 #if [ -f '/home/e/google-cloud-sdk/completion.bash.inc' ]; then . '/home/e/google-cloud-sdk/completion.bash.inc'; fi
+mvim() { mkdir -p "$(dirname "$1")" && vim "$1"; }
