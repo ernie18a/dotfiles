@@ -7,54 +7,53 @@ description: Manual invocation only
 
 ## Role
 
-Apply Minimum Description Length (MDL) compression to editable artifacts, preserving necessary and sufficient conditions of the user's intent while removing redundant constraints through delta debugging (ddmin).
+Apply Minimum Description Length (MDL) compression to text and descriptions. Preserve the necessary and sufficient conditions of the user's intent, remove redundant constraints through delta debugging (ddmin), and return the smallest text state that satisfies the preserved intent.
+
+The text carrier may be an existing document, conversation state, concept, requirement, or any other user-provided description. A file is an optional input and output mechanism, not a prerequisite.
 
 ## Core Principle (Formalized Intent)
 
-1. **Anti-Hallucination Boundary**: Never use subjective adjectives (e.g., "clean", "over-engineered", "simple") to define quality. Instead, express quality constraints via formalized concepts (e.g., algorithmic complexity, logic boundaries, strict invariants).
-2. **Intent as Evidence**: Treat user wording as raw data representing intended system invariants. Translate the wording into deterministic decision rules rather than transcribing the exact phrasing.
-3. **Necessary and Sufficient Conditions**: A rule or constraint must only exist if its removal alters the target system's behavior. If behavior remains unchanged, the rule is redundant and violates the MDL principle.
+1. **Intent as Evidence**: Treat user wording as evidence of intended invariants. Translate it into deterministic decision rules instead of preserving wording that does not affect the intent.
+2. **Necessary and Sufficient Conditions**: Retain a rule only when removing it can change the required behavior or outcome. Otherwise remove it as redundant.
+3. **Formal Boundary**: Express quality and validity through explicit invariants, conditions, or prohibited states. Do not use subjective or unformalized descriptors as requirements.
+4. **Uncertainty Boundary**: Do not convert missing information into intent. Preserve unresolved points or identify them as required input.
 
 ## Premise Check (Initial State Definition)
 
-Before editing, define the system using the following formal elements:
-- $I$ (Invariants): The non-negotiable behaviors/outcomes the artifact must preserve.
-- $U$ (User request): The delta change requested by the user.
-- $A$ (Artifact text): The current state of the text.
-- Identify whether the transition from $A$ to $A'$ requires subset deletion, substitution, or extension.
+Before editing, define:
+
+- $I$ (Invariants): Behaviors, outcomes, and constraints that must remain true.
+- $U$ (User request): The requested change or transformation.
+- $C$ (Text carrier): The source context, such as a document, conversation, concept, requirement, or description.
+- $A$ (Current text state): The text available in $C$; it may be absent as a file while present in the conversation.
+- $A'$ (Target text state): The shortest text that satisfies $I$ after applying $U$.
+
+Determine whether $A$ to $A'$ requires deletion, replacement, consolidation, extension, or no change. If no carrier or intent can be identified, request the missing input.
 
 ## Edit Order (Compression Algorithm)
 
-Execute edits using the following deterministic flow:
+Execute this sequence on text units, regardless of whether the carrier is a file or conversation:
 
-1. **Reorder by Topology**:
-   - Group rules, exceptions, and constraints that govern the same system state or invariant together. This exposes logical overlaps and contradictions.
-
-2. **Delete (ddmin minimization)**:
-   - Apply a mental delta debugging algorithm (`ddmin`): Group text blocks into subsets. For each subset, test if the core invariants ($I$) still hold if deleted.
-   - Delete any subset where $I$ remains satisfied without it. This removes obsolete patches, literal examples, and redundant constraints.
-
-3. **Replace (Formalization)**:
-   - Replace subjective descriptions with explicit decision rules, logical invariants, or negative constraints (e.g., "Define invalid states" instead of "Be careful not to...").
-   - Replace brittle examples with mathematically or logically defined boundaries.
-
-4. **Consolidate (Unification)**:
-   - Merge overlapping rules into a single source of truth to minimize the total description length of the artifact.
-
-5. **Add (Minimal Extension)**:
-   - Append text ONLY when the target invariants ($I$) cannot be satisfied via reordering, deletion, replacement, or consolidation.
+1. **Reorder by Topology**: Group statements governing the same invariant or state to expose overlap and contradiction.
+2. **Delete (ddmin minimization)**: Test removable subsets against $I$. Delete each subset whose removal leaves $I$ satisfied.
+3. **Replace (Formalization)**: Convert implicit, subjective, or unstable wording into explicit conditions, invariants, or prohibited states.
+4. **Consolidate (Unification)**: Merge overlapping statements into one source of truth.
+5. **Add (Minimal Extension)**: Add text only when $I$ cannot be satisfied through the preceding operations. New text must derive from $U$ or explicitly identified required input.
 
 ## Validation (Termination Condition)
 
-The editing process terminates when:
-1. **MDL Achieved**: The artifact cannot be shortened further without violating the core invariants ($I$).
-2. **Necessary Condition Satisfied**: Every remaining sentence/rule $r \in A'$ is necessary ($\neg r \implies \neg I$).
-3. **No Subjective Terms**: The final text contains zero subjective, aesthetic, or un-formalized descriptors that could trigger LLM compliance hallucination.
+Terminate only when:
+
+1. $A'$ cannot be shortened without violating $I$.
+2. Every remaining statement is necessary for $I$ or directly represents $U$.
+3. No remaining requirement depends on subjective or unformalized quality terms.
+4. Unresolved information is distinguished from established intent.
 
 ## Handoff Report (Output Contract)
 
-When reporting the edits, list strictly:
-1. **Deleted ($D$)**: The exact text blocks removed (violating MDL).
-2. **Replaced ($R$)**: The mapping of subjective terms/brittle logic to formalized invariants.
-3. **Not Added ($N$)**: Requested elements that were bypassed because existing rules already cover them.
-4. **Invariant Status**: Proof of why the compressed text preserves all necessary conditions.
+Report strictly:
+
+1. **Deleted ($D$)**: Text removed because it was redundant or outside $I$.
+2. **Replaced ($R$)**: Text transformed into explicit invariants or decision rules.
+3. **Not Added ($N$)**: Requested text not added because $I$ was already satisfied.
+4. **Invariant Status**: The reason $A'$ preserves each necessary condition in $I$.
