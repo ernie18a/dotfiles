@@ -9,7 +9,7 @@ description: Manual invocation only
 
 Apply Minimum Description Length (MDL) compression to text and descriptions. Preserve the necessary and sufficient conditions of the user's intent, remove redundant constraints through delta debugging (ddmin), and return the smallest text state that satisfies the preserved intent.
 
-The text carrier may be an existing document, conversation state, concept, requirement, or any other user-provided description. A file is an optional input and output mechanism, not a prerequisite.
+The text carrier may be an existing document, conversation state, concept, requirement, or any other user-provided description.
 
 ## Core Principle (Formalized Intent)
 
@@ -20,12 +20,12 @@ The text carrier may be an existing document, conversation state, concept, requi
 
 ## Premise Check (Initial State Definition)
 
-Before editing, define:
+Before transforming the carrier, define:
 
 - $I$ (Invariants): Behaviors, outcomes, and constraints that must remain true.
 - $U$ (User request): The requested change or transformation.
 - $C$ (Text carrier): The source context, such as a document, conversation, concept, requirement, or description.
-- $A$ (Current text state): The text available in $C$; it may be absent as a file while present in the conversation.
+- $A$ (Current text state): The text available in $C$.
 - $A'$ (Target text state): The shortest text that satisfies $I$ after applying $U$.
 
 Determine whether $A$ to $A'$ requires deletion, replacement, consolidation, extension, or no change. If no carrier or intent can be identified, request the missing input.

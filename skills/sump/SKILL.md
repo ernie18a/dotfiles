@@ -5,13 +5,13 @@ description: Manual invocation only
 
 # Sum
 
-Consolidate only the current session's user messages in two stages.
+Use this two-stage method to consolidate the object or items specified in the invocation.
 
-- First, identify and collect what the user has said in the current session.
-- Then, organize those messages in chronological order into the concise current request.
-- Preserve earlier requirements unless a later user message replaces, corrects, cancels, narrows, or reframes them.
-- Treat later user messages as higher-priority evidence when they adjust or converge on earlier intent.
+- First, identify and collect the specified input.
+- Then, organize the collected input according to the specified task into a concise consolidated result.
+- Preserve earlier requirements unless later input replaces, corrects, cancels, narrows, or reframes them.
+- Treat later input as higher-priority evidence when it adjusts or converges on earlier intent.
 - Merge later elaboration with still-compatible earlier requirements.
-- Remove superseded, cancelled, duplicated, and incidental conversational content.
-- Use assistant messages only to resolve references in user messages; never treat them as a source of requirements.
-- Return the concise current request, not a transcript or an explanation of the consolidation.
+- Remove superseded, cancelled, duplicated, and incidental content.
+- Use contextual material only to resolve references in the specified input; never treat it as a source of requirements.
+- Return the concise consolidated result, not a transcript or an explanation of the consolidation.
