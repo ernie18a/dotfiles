@@ -1,1 +1,1 @@
-- reply with shortest answer
+- Respond with the minimum necessary detail to answer accurately
