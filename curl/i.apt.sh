@@ -31,6 +31,7 @@ case "$1" in
 	mkdir -p /home/e/.gemini
 	mkdir -p /home/e/.hermes
 	mkdir -p /home/e/.claude
+	mkdir -p /home/e/.pi/agent
 	echo 'source /dev/stdin <<< $(curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/.bash_profile)' > /home/e/.bash_profile
 	ln -snf /home/e/.G/dotfiles/home/.gitconfig /home/e/.gitconfig
 	ln -snf /home/e/.G/dotfiles/home/.tmux.conf /home/e/.tmux.conf
@@ -43,6 +44,8 @@ case "$1" in
 	ln -snf /home/e/.G/dotfiles/skills /home/e/.hermes/skills
 	ln -snf /home/e/.G/dotfiles/home/GEMINI.md /home/e/.claude/CLAUDE.md
 	ln -snf /home/e/.G/dotfiles/skills /home/e/.claude/skills
+	ln -snf /home/e/.G/dotfiles/home/GEMINI.md /home/e/.pi/agent/AGENTS.md
+	ln -snf /home/e/.G/dotfiles/skills /home/e/.pi/agent/skills
 	chown -R e:e /home/e
 	curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/e.ssh.pub.sh | bash
 	mkdir -p /home/e/.ssh
@@ -124,6 +127,7 @@ case "$1" in
 	  mkdir -p /home/$user/.gemini
 	  mkdir -p /home/$user/.hermes
 	  mkdir -p /home/$user/.claude
+	  mkdir -p /home/$user/.pi/agent
 	  echo 'source /dev/stdin <<< $(curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/.bash_profile)' > /home/$user/.bash_profile
 	  ln -snf /home/$user/.G/dotfiles/home/.gitconfig /home/$user/.gitconfig
 	  ln -snf /home/$user/.G/dotfiles/home/.tmux.conf /home/$user/.tmux.conf
@@ -134,6 +138,8 @@ case "$1" in
 	  ln -snf /home/$user/.G/dotfiles/skills /home/$user/.gemini/skills
 	  ln -snf /home/$user/.G/dotfiles/home/GEMINI.md /home/$user/.hermes/SOUL.md
 	  ln -snf /home/$user/.G/dotfiles/skills /home/$user/.hermes/skills
+	  ln -snf /home/$user/.G/dotfiles/home/GEMINI.md /home/$user/.pi/agent/AGENTS.md
+	  ln -snf /home/$user/.G/dotfiles/skills /home/$user/.pi/agent/skills
 	  chown -R $user:$user /home/$user
 	done
 	;;

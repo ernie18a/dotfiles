@@ -41,6 +41,7 @@ if [ -d /home/e/.G ]; then
         mkdir -p /home/$user/.gemini
         mkdir -p /home/$user/.hermes
         mkdir -p /home/$user/.claude
+		mkdir -p /home/$user/.pi/agent
         echo 'source /dev/stdin <<< $(curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/.bash_profile)' > /home/$user/.bash_profile
         ln -snf /home/$user/.G/dotfiles/home/.gitconfig /home/$user/.gitconfig
         ln -snf /home/$user/.G/dotfiles/home/.tmux.conf /home/$user/.tmux.conf
@@ -51,6 +52,8 @@ if [ -d /home/e/.G ]; then
         ln -snf /home/$user/.G/dotfiles/skills /home/$user/.gemini/skills
         ln -snf /home/$user/.G/dotfiles/home/GEMINI.md /home/$user/.hermes/SOUL.md
         ln -snf /home/$user/.G/dotfiles/skills /home/$user/.hermes/skills
+		ln -snf /home/$user/.G/dotfiles/home/GEMINI.md /home/$user/.pi/agent/AGENTS.md
+		ln -snf /home/$user/.G/dotfiles/skills /home/$user/.pi/agent/skills
         chown -R $user:$user /home/$user/
       fi
     done
