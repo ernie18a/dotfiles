@@ -1,7 +1,8 @@
 #!/bin/bash
 APTINSTALL() { local ok=() p; for p in "$@"; do apt-cache show "$p" >/dev/null 2>&1 && ok+=("$p"); done; [ ${#ok[@]} -gt 0 ] && apt-get install -yq "${ok[@]}"; }
 APTREMOVE() { local ok=() p; for p in "$@"; do dpkg-query -W "$p" >/dev/null 2>&1 && ok+=("$p"); done; [ ${#ok[@]} -gt 0 ] && apt-get remove -y --allow-remove-essential "${ok[@]}"; }
-case "$1" in
+for action in "$@"; do
+case "$action" in
   init)
 	timedatectl set-timezone Asia/Taipei
 	APTREMOVE needrestart 'ufw*' 'apparmor*' 'firewall*' unattended-upgrades landscape-common ubuntu-advantage-tools cloud-init popularity-contest ubuntu-report apport whoopsie fwupd
@@ -148,3 +149,4 @@ case "$1" in
 	# Replace this comment with the actual commands to be executed for Ampere
 	;;
 esac
+done
