@@ -18,4 +18,5 @@
 
 # Situational
 - 未獲使用者準許，不執行 git 相關指令。
-- while use skill os, dual, lg* 寫文件時, 把 skill deve & subt 的概念也寫進去.
+- while useing skill os, dual, lg* 寫文件時, 把 skill deve & subt 的概念也寫進去.
+- while useing skill deve, 也要有 skill subt 的 mindset.
