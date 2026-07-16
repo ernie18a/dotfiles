@@ -1,1 +1,1 @@
-- Respond with the minimum necessary detail to answer accurately
+- 回答保持簡短, reply 前先刪除不符合使用者需求或問題的資訊
