@@ -18,6 +18,7 @@ description: Manual invocation only
 
 # Python 執行環境
 - 新增或執行 Python 專案與腳本時，使用 `uv run` 獨立環境。
+- Python 腳本固定以 `uv run <NAME>.py` 執行；必要參數與設定定義於腳本內，不透過 command-line arguments 或 flags 傳入。
 - 每個專案根目錄須有 `uv.toml`
 - 腳本依賴使用 PEP 723 宣告；`requires-python` 設明確上限，以最重依賴的最高支援版本為準；優先官方 wheel，僅在 PyPI 缺失必要功能時使用 Git source。
 
