@@ -1,6 +1,6 @@
 ---
 name: jewjewjew
-description: pearson correlation coefficient (ρ)
+description: Manual invocation only
 ---
 
 pearson correlation coefficient (ρ) or 全歷史 Pearson

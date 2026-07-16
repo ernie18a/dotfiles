@@ -1,6 +1,6 @@
 ---
 name: util
-description: Apply incremental net utility to any candidate set. Use when $util is invoked or when candidates must be retained only while each candidate's added goal improvement exceeds all costs caused by adding it.
+description: Manual invocation only
 ---
 
 # Util

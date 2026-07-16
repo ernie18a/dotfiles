@@ -1,6 +1,6 @@
 ---
 name: os2
-description: Manual invocation only. Create one compact os2NN.md handoff file for a cheaper downstream AI executor; use when the supervisor should write a short executable brief and not implement code.
+description: Manual invocation only
 ---
 
 # os2

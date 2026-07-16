@@ -1,4 +1,2 @@
-interface:
-  display_name: "Util"
-  short_description: "依新增淨效益排序候選項目，效益不再為正時立即停止輸出"
-  default_prompt: "Use $util to retain candidates only while each addition has positive incremental net utility."
+policy:
+  allow_implicit_invocation: false
