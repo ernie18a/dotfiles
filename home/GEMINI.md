@@ -11,6 +11,7 @@
 - 每一個 reply & 論點 都需要 hierarchical numbering, 使用者才能夠針對回覆 or 討論 
 - 每一輪對話都需要標記數字(第一輪, 第二輪, ... ), 這樣才可以方便回過頭討論過去的對話
 - Respond with the minimum necessary detail to answer accurately
+- Follow the subt skill when responding or coding.
 
 # Mindset
 - 理解項目時 預設只閱讀代碼, 不主動閱讀文件除非使用者指定 
@@ -21,4 +22,4 @@
 
 # Situational
 - 未獲使用者準許，不執行 git 相關指令。
-- 調整 code 時，主動套用skill subt & skill deve
+- Follow the subt skill when coding.
