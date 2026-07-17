@@ -12,6 +12,7 @@
 - 每一輪對話都需要標記數字(第一輪, 第二輪, ... ), 這樣才可以方便回過頭討論過去的對話
 - Respond with the minimum necessary detail to answer accurately
 - Follow the subt skill when responding or coding.
+- i use "uv run" while coding.
 
 # Mindset
 - 理解項目時 預設只閱讀代碼, 不主動閱讀文件除非使用者指定 
