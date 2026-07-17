@@ -195,7 +195,8 @@ alias AGR=' sudo apt-get remove -y >/dev/null '
 alias AGG=' sudo apt-get update >/dev/null ; apt list |tee ~/.APT |grep -i --color '
 alias AGI=' sudo apt-get update >/dev/null ; sudo apt-get install -y >/dev/null '
 #alias ACL2='sudo chown -R e:g /g && sudo chmod -R u+rwX,g+rwX,o-rwx /g && sudo chmod -R g+s /g && sudo setfacl -R -m u::rwx,g::rwx,o::-,m::rwx,d:u::rwx,d:g::rwx,d:o::-,d:m::rwx /g'
-ACL() { sudo chown -R e:g /g & sudo find /g -type f -exec chmod a-x {} + & wait && sudo chmod -R u+rwX,g+rwX,o-rwx,g+s /g && sudo setfacl -R -m u::rwX,g::rwX,o::-,m::rwX,d:u::rwx,d:g::rwx,d:o::-,d:m::rwx /g; }
+ACL() { sudo chown -R e:g /g & sudo find /g -type d -exec chmod 2770 {} + & sudo find /g -type f -exec chmod 660 {} + & sudo setfacl -R -m d:u::rwx,d:g::rwx,d:o::-,d:m::rwx /g & wait; }
+#ACL() { sudo chown -R e:g /g & sudo find /g -type f -exec chmod a-x {} + & wait && sudo chmod -R u+rwX,g+rwX,o-rwx,g+s /g && sudo setfacl -R -m u::rwX,g::rwX,o::-,m::rwX,d:u::rwx,d:g::rwx,d:o::-,d:m::rwx /g; }
 # ACL() { sudo chown -R e:g /g & sudo chmod -R u+rwX,g+rwX,o-rwx,g+s /g & wait && sudo setfacl -R -m u::rwx,g::rwx,o::-,m::rwx,d:u::rwx,d:g::rwx,d:o::-,d:m::rwx /g; }
 #alias ACL3=' sudo chown -R :g /g ; sudo chmod -R 2777 /g ; sudo setfacl -R -m u::rwx,g::rwx,o::rwx,m:rwx,d:u::rwx,d:g::rwx,d:o::rwx,d:m:rwx /g '
 #alias ACL4=' sudo chown -R e:g /g ; sudo chmod -R 2777 /g ; sudo setfacl -R -m u::rwx,g::rwx,o::rwx,m:rwx,d:u::rwx,d:g::rwx,d:o::rwx,d:m:rwx /g '
