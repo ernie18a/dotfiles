@@ -3,42 +3,11 @@ name: os2
 description: Manual invocation only
 ---
 
-# os2
+# 開發前推理
 
-Create one `os2NN.md` file for a cheaper AI executor.
-Use the next unused filename: `os201.md`, `os202.md`, ...
-
-## Rules
-
-1. Do not implement code.
-2. Use only the user task, named requirement files, and code facts you inspected.
-3. Inspect only enough code to name executable paths or anchors.
-4. Write a short handoff, not a plan document.
-5. Output one executable slice; do not decompose the whole project.
-6. Omit empty fields.
-
-## Output
-
-````md
-# os2NN
-
-```json
-{"handoff":"guided","expect_patch":true,"message_to_worker":"","files":[],"exact_edits":[],"checks":[],"forbidden_actions":["ask questions"]}
-```
-````
-
-## Field Contract
-
-1. `message_to_worker`: one command-style instruction for the executor.
-2. `files`: concrete relative file paths only.
-3. `exact_edits`: concrete edits when known; omit if the executor must infer from requirements.
-4. `checks`: exact commands only when known.
-5. `forbidden_actions`: only actions that would violate the task boundary.
-
-## Invalid
-
-- long requirement map
-- packet graph
-- architecture-only plan
-- status report
-- invented file, command, dependency, provider, API, or workflow
+- 先驗證需求前提與現有行為，再修改。
+- 從受影響的 runtime path 開始閱讀程式碼；只在新資訊可能改變範圍、契約、狀態、相依關係、失敗路徑或驗證方式時擴大探索。
+- 區分已確認事實、未知資訊與實作決策；缺少必要資訊時指出，不以假設補足。
+- 比較可行解法及其連帶影響，選擇滿足需求的最小完整變更；不加入推測性功能或非必要抽象。
+- 新資訊不再改變實作判斷時停止探索，直接修改並驗證。
+- 不建立或輸出 handoff、規劃文件、需求圖或內部推理過程；只回報影響執行與驗證的結論。
