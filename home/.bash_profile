@@ -196,7 +196,7 @@ alias AGI=' sudo apt-get update >/dev/null ; sudo apt-get install -y >/dev/null 
 ACL() { sudo chown -R e:g /g & sudo chmod -R u+rwX,g+rwX,o-rwx,g+s /g & wait && sudo setfacl -R -m u::rwx,g::rwx,o::-,m::rwx,d:u::rwx,d:g::rwx,d:o::-,d:m::rwx /g; }
 #alias ACL=' sudo chown -R :g /g ; sudo chmod -R 2777 /g ; sudo setfacl -R -m u::rwx,g::rwx,o::rwx,m:rwx,d:u::rwx,d:g::rwx,d:o::rwx,d:m:rwx /g '
 #alias ACL=' sudo chown -R e:g /g ; sudo chmod -R 2777 /g ; sudo setfacl -R -m u::rwx,g::rwx,o::rwx,m:rwx,d:u::rwx,d:g::rwx,d:o::rwx,d:m:rwx /g '
-alias llll=' sudo find . '
+#alias llll=' sudo find . '
 alias llllg=' sudo find . |grep -i '
 alias tmprm=' sudo rm -rf /tmp/{,.}* 2>/dev/null ; cd /tmp '
 alias SU=' sudo su - '
