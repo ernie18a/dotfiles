@@ -3,7 +3,7 @@ FQAI='- 回答保持簡短, reply 前先刪除不符合使用者需求或問題�
 if [ -f '/home/e/.google-cloud-sdk/path.bash.inc' ]; then . '/home/e/.google-cloud-sdk/path.bash.inc'; fi
 if [ -f '/home/e/.google-cloud-sdk/completion.bash.inc' ]; then . '/home/e/.google-cloud-sdk/completion.bash.inc'; fi
 source /etc/bash_completion.d/* 2>/dev/null
-export LS_COLORS="$LS_COLORS:sg=0"
+#export LS_COLORS="$LS_COLORS:sg=0"
 #export BERT_MODELS_DIR=/g/.TMP/bert-models
 #export CLOAKBROWSER_CACHE_DIR=/g/.TMP/cloakbrowser
 export COLORTERM=truecolor
