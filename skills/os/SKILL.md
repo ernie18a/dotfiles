@@ -9,13 +9,6 @@ Create one `osNN.md` handoff for multiple downstream code executors.
 The handoff is for code implementation only. It is invalid if it is a status report, completion report, architecture-only plan, or requirement expansion outside the explicit requirement set.
 Name handoffs incrementally as `os01.md`, `os02.md`, using the next unused `osNN.md`.
 
-## Reasoning Boundary
-
-1. The agent invoking this skill owns requirement interpretation, code inspection, planning, packet boundaries, dependency decisions, and coverage decisions.
-2. Resolve every decision supported by the input set before writing the handoff. Preserve absent required input as a bounded local decision rule or forbidden scope.
-3. Downstream executors only apply the explicit code edits and contracts in their assigned packets.
-4. The generated handoff must not instruct downstream executors to read or apply a skill, interpret requirements, inspect unspecified code, plan implementation, resolve ambiguity, or make coverage decisions.
-
 ## Source Boundary
 
 1. Treat explicit requirement files, user request, and inspected code facts as the only input set.
@@ -50,7 +43,8 @@ Name handoffs incrementally as `os01.md`, `os02.md`, using the next unused `osNN
 3. Do not prohibit architecture, dependency, packet, or phase description when it is required to preserve listed requirement coverage, dependency order, or I/O boundary.
 4. In the generated handoff, write contracts, decisions, and actions as exact paths, runtime conditions, and state changes; abstract labels alone are invalid.
 5. The generated handoff must not instruct or imply running tests, verification, validation, or writing test code or test scripts.
-6. When authoring implementation packets, the invoking agent applies skill `deve`: actions must be executable code edits with owned paths.
+6. Use skill `deve` for implementation packets: actions must be executable code edits with owned paths.
+7. Resolve planning decisions before writing; the generated handoff must not delegate requirement or skill interpretation to executors.
 
 ## Dependency Types
 
