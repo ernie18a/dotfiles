@@ -23,4 +23,3 @@
 
 # Situational
 - 未獲使用者準許，不執行 git 相關指令。
-- Follow the subt skill when coding.
