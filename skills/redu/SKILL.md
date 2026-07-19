@@ -5,16 +5,13 @@ description: Manual invocation only
 
 # Redu
 
-Apply one invariant to the current scope:
+Preserve the outcome required by the current task.
 
-> Retain a candidate only when removing it makes the established success condition false or undecidable.
+For each removable part:
 
-Let $P$ be the established success condition and $S$ the candidates currently in scope. Reduce $S$ to an inclusion-minimal $S'$ such that:
+1. Temporarily remove it.
+2. Check whether the required outcome still holds.
+3. Permanently remove it only when the outcome demonstrably still holds.
+4. Repeat until removing any remaining part would break the outcome or make it undecidable.
 
-$$
-P(S') = \mathrm{true}
-\quad\land\quad
-\forall e \in S',\ P(S' \setminus \{e\}) \ne \mathrm{true}
-$$
-
-Do not invent or change $P$, expand the scope, authorize actions, replace the governing workflow, or impose an output format. If $P$ is absent or ambiguous, do not reduce.
+Do not change the required outcome, expand the task, or treat this analysis as authorization to act. If the required outcome cannot be determined, stop without reducing.
