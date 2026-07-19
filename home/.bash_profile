@@ -68,7 +68,7 @@ alias SHORT='printf "%s\n" "$FQAI" > ./AGENTS.md'
 alias GGG=' eval "$(ssh-agent -s)" ; ssh-add ~/.ssh/id_ed25519 ; gcloud compute ssh gcp --ssh-flag="-A" --ssh-flag="-L 1455:localhost:1455" '
 alias KKK=' cat ~/.55H '
 alias UU=' GRCA & GGRCA & '
-alias SKILL=' cd  ~/.G/dotfiles/skills ; ls -l --color '
+alias SKILL=' cd  ~/.G/dotfiles/skills ; ls -1p --color '
 # alias USAGE="  date ; sudo -i bash -lc 'cd /g/app/usage && uv run main.py'"
 alias HYC='hermes --yolo -c'
 alias HY='hermes --yolo'
