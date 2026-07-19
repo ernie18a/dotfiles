@@ -1,4 +1,3 @@
-
 FQAI='- 回答保持簡短, reply 前先刪除不符合使用者需求或問題的資訊'
 if [ -f '/home/e/.google-cloud-sdk/path.bash.inc' ]; then . '/home/e/.google-cloud-sdk/path.bash.inc'; fi
 if [ -f '/home/e/.google-cloud-sdk/completion.bash.inc' ]; then . '/home/e/.google-cloud-sdk/completion.bash.inc'; fi
@@ -112,6 +111,7 @@ alias ......=' cd ../../../../../ '
 alias ll=' ls -1p --color '
 alias CDg=' cd /g ;  ls -1p --color '
 alias CDA=' cd /g/app/ ; ls -1p --color '
+alias CDU=' cd /g/auto/ ; ls -1p --color '
 alias CDN=' cd /g/nf/  ;   ls -1p --color '
 alias CDT=' cd /g/tools/ ;   ls -1p --color '
 alias CDP=' cd /g/private/ ;  ls -1p --color '
