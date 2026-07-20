@@ -129,7 +129,7 @@ alias LY=' claude --model sonnet --dangerously-skip-permissions ' # --effort med
 alias LLY=' claude --model sonnet --dangerously-skip-permissions --effort low '
 # alias DY=' codex --yolo -m gpt-5.6-luna -c model_reasoning_effort=medium '
 alias DY=' codex --yolo -m gpt-5.6-sol -c model_reasoning_effort=low '
-alias DY4=' codex --yolo -m gpt-5.6-luna -c model_reasoning_effort=medium '
+alias DYL=' codex --yolo -m gpt-5.6-luna -c model_reasoning_effort=medium '
 alias DYR=' codex resume --yolo '
 alias co=' cp '
 alias cp=' cp -urf '
