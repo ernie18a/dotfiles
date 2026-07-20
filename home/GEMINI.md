@@ -11,7 +11,6 @@
 - 每一個 reply & 論點 都需要 hierarchical numbering, 使用者才能夠針對回覆 or 討論 
 - 每一輪對話都需要標記數字(第一輪, 第二輪, ... ), 這樣才可以方便回過頭討論過去的對話
 - Respond with the minimum necessary detail to answer accurately
-- Follow the subt skill when responding or coding.
 - i use "uv run" while coding.
 
 # Mindset
