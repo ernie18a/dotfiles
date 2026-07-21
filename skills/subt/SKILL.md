@@ -40,9 +40,9 @@ Execute this sequence on text units, regardless of whether the carrier is a file
 4. **Consolidate (Unification)**: Merge overlapping statements into one source of truth.
 5. **Add (Minimal Extension)**: Add text only when $I$ cannot be satisfied through the preceding operations. New text must derive from $U$ or explicitly identified required input.
 
-## Validation (Termination Condition)
+## Validation (Compression Completion)
 
-Terminate only when:
+End only the compression pass, not the carrier task. If $A'$ identifies a concrete, in-scope next action required by $I$, execute it before handoff. Complete compression only when:
 
 1. $A'$ cannot be shortened without violating $I$.
 2. Every remaining statement is necessary for $I$ or directly represents $U$.
