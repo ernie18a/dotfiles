@@ -256,7 +256,7 @@ GGRCA() { (cd /g; for R in */; do [[ -d "$R/.git" ]] || continue; (cd "$R"; git 
 CPTM() { rm /mnt/c/Users/e/Desktop/_tmp/* ; cp *.txt *.md *.py /mnt/c/Users/e/Desktop/_tmp/ ; }
 sl() { for SOMETHING in $(cat ./$1); do $2 $SOMETHING; done; }
 GRC2() { local T=$(git rev-parse --show-toplevel 2>/dev/null) || return 1; local U=$(git -C "$T" remote get-url origin) || return 1; local R=$(basename "$T"); local P="${PWD#$T}"; cd "$(dirname "$T")" && sudo rm -rf "$R" && git clone "$U" "$R" && cd "$R$P"; }
-DUAL() { UV_PROJECT_ENVIRONMENT=/g/.TMP/dual-venv UV_CACHE_DIR=/g/.TMP/uv-cache XDG_CACHE_HOME=/g/.TMP/xdg-cache uv run --project /g/app/dual --with-editable /g/app/dual --directory "$PWD" python -m dual --config /g/app/dual/dual.toml "$@"; }
+# DUAL() { UV_PROJECT_ENVIRONMENT=/g/.TMP/dual-venv UV_CACHE_DIR=/g/.TMP/uv-cache XDG_CACHE_HOME=/g/.TMP/xdg-cache uv run --project /g/app/dual --with-editable /g/app/dual --directory "$PWD" python -m dual --config /g/app/dual/dual.toml "$@"; }
 LG2() { local lg2_root=/g/app/lg2; [ -d "$lg2_root" ] || lg2_root=/g/app/lG; UV_PROJECT_ENVIRONMENT=/g/.TMP/lg2-venv UV_CACHE_DIR=/g/.TMP/uv-cache XDG_CACHE_HOME=/g/.TMP/xdg-cache TMPDIR=/g/.TMP/tmp UV_VENV_CLEAR=0 uv run --project "$lg2_root" --directory "$PWD" lg2-run --config "$lg2_root/lg2.toml" "$@"; }
 #LG3() { local lg3_root=/g/app/lg3; UV_PROJECT_ENVIRONMENT=/g/.TMP/lg3-venv UV_CACHE_DIR=/g/.TMP/uv-cache XDG_CACHE_HOME=/g/.TMP/xdg-cache TMPDIR=/g/.TMP/tmp UV_VENV_CLEAR=0 uv run --project "$lg3_root" --directory "$PWD" LG3 "$@"; }
 #LG4() { local lg4_root=/g/app/lg4; UV_PROJECT_ENVIRONMENT=/g/.TMP/lg4-venv UV_CACHE_DIR=/g/.TMP/uv-cache XDG_CACHE_HOME=/g/.TMP/xdg-cache TMPDIR=/g/.TMP/tmp UV_VENV_CLEAR=0 uv run --project "$lg4_root" --directory "$PWD" LG4 "$@"; }
