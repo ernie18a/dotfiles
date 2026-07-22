@@ -450,3 +450,58 @@ export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.krew/bin:$HOME/go/bin:/bin
 #alias CSG=' cat ~/.ssh/config | grep -i --color '
 #BRC() { curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile |grep -vEi raw.githubusercontent.com\|git_ps1 | ssh $1 "cat > .BRC" ; }
 #DUAL() { UV_PROJECT_ENVIRONMENT=/g/.TMP/sdk-venv UV_CACHE_DIR=/g/.TMP/uv-cache XDG_CACHE_HOME=/g/.TMP/xdg-cache uv run --project /g/app/dual --directory "$PWD" python -m dual "$@"; }
+#export LS_COLORS="$LS_COLORS:sg=0"
+#export BERT_MODELS_DIR=/g/.TMP/bert-models
+#export CLOAKBROWSER_CACHE_DIR=/g/.TMP/cloakbrowser
+#export CUDA_CACHE_MAXSIZE=2147483647
+#export CUDA_CACHE_PATH=/g/.TMP/cuda-cache
+#export CUDA_DEVICE_MAX_CONNECTIONS=32
+#export CUDA_MANAGED_FORCE_DEVICE_ALLOC=1
+#export HF_HOME=/g/.TMP/huggingface
+#export HF_HUB_CACHE=/g/.TMP/huggingface/hub
+#export HUGGINGFACE_HUB_CACHE=/g/.TMP/huggingface/hub
+#export MECABRC=/g/.TMP/mecab/mecabrc
+#export MODELSCOPE_CACHE=/g/.TMP/modelscope
+#export MPLCONFIGDIR=/g/.TMP/matplotlib
+#export NUMBA_CACHE_DIR=/g/.TMP/numba-cache
+#export NVM_DIR="$HOME/.nvm"
+#export OPEN_JTALK_DICT_DIR=/g/.TMP/open-jtalk-dict
+#export PIP_CACHE_DIR=/g/.TMP/pip-cache
+#export PLAYWRIGHT_BROWSERS_PATH=/g/.TMP/playwright-browsers
+#export PYTHONPYCACHEPREFIX=/g/.TMP/python-pycache
+#export PYTORCH_KERNEL_CACHE_PATH=/g/.TMP/torch-kernel
+#export TEMP=/g/.TMP/tmp
+#export TMP=/g/.TMP/tmp
+#export TMPDIR=/g/.TMP/tmp
+#export TORCHINDUCTOR_CACHE_DIR=/g/.TMP/torchinductor-cache
+#export TORCH_HOME=/g/.TMP/torch
+#export TRANSFORMERS_CACHE=/g/.TMP/huggingface/transformers
+#export TRITON_CACHE_DIR=/g/.TMP/triton-cache
+#export ULTRALYTICS_DIR=/g/.TMP/ultralytics
+#export UV_CACHE_DIR=/g/.TMP/uv-cache
+#export XDG_CACHE_HOME=/g/.TMP/xdg-cache
+#export XDG_DATA_HOME=/g/.TMP/xdg-data
+#export YOLO_CONFIG_DIR=/g/.TMP/ultralytics/config
+#export YTDLP_CACHE_DIR=/g/.TMP/ytdlp-cache
+#export YTDLP_PATHS=temp:/g/.TMP/ytdlp-temp
+#source ~/.IPS 2>/dev/null
+# alias USAGE="  date ; sudo -i bash -lc 'cd /g/app/usage && uv run main.py'"
+# alias DY=' codex --yolo -m gpt-5.6-luna -c model_reasoning_effort=medium '
+#alias QUOTE=' echo -e "\nflexibility to improve adaptability\n\nuser-level instructions\n" '
+# alias ll=' ls -l --color '
+# alias CDB=' mkdir ~/.BACKUP &>/dev/null ; cd ~/.BACKUP ; ls -A --color |sort '
+#alias ACL2='sudo chown -R e:g /g && sudo chmod -R u+rwX,g+rwX,o-rwx /g && sudo chmod -R g+s /g && sudo setfacl -R -m u::rwx,g::rwx,o::-,m::rwx,d:u::rwx,d:g::rwx,d:o::-,d:m::rwx /g'
+#ACL() { sudo chown -R e:g /g & sudo find /g -type f -exec chmod a-x {} + & wait && sudo chmod -R u+rwX,g+rwX,o-rwx,g+s /g && sudo setfacl -R -m u::rwX,g::rwX,o::-,m::rwX,d:u::rwx,d:g::rwx,d:o::-,d:m::rwx /g; }
+# ACL() { sudo chown -R e:g /g & sudo chmod -R u+rwX,g+rwX,o-rwx,g+s /g & wait && sudo setfacl -R -m u::rwx,g::rwx,o::-,m::rwx,d:u::rwx,d:g::rwx,d:o::-,d:m::rwx /g; }
+#alias ACL3=' sudo chown -R :g /g ; sudo chmod -R 2777 /g ; sudo setfacl -R -m u::rwx,g::rwx,o::rwx,m:rwx,d:u::rwx,d:g::rwx,d:o::rwx,d:m:rwx /g '
+#alias ACL4=' sudo chown -R e:g /g ; sudo chmod -R 2777 /g ; sudo setfacl -R -m u::rwx,g::rwx,o::rwx,m:rwx,d:u::rwx,d:g::rwx,d:o::rwx,d:m:rwx /g '
+#alias llll=' sudo find . '
+#CBG() { curl  --connect-timeout 2 -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/.bash_profile |grep -i --color $1 2>/dev/null || cat ~/.bash_profile 2>/dev/null |grep -i --color $1 ; }
+# DUAL() { UV_PROJECT_ENVIRONMENT=/g/.TMP/dual-venv UV_CACHE_DIR=/g/.TMP/uv-cache XDG_CACHE_HOME=/g/.TMP/xdg-cache uv run --project /g/app/dual --with-editable /g/app/dual --directory "$PWD" python -m dual --config /g/app/dual/dual.toml "$@"; }
+#LG3() { local lg3_root=/g/app/lg3; UV_PROJECT_ENVIRONMENT=/g/.TMP/lg3-venv UV_CACHE_DIR=/g/.TMP/uv-cache XDG_CACHE_HOME=/g/.TMP/xdg-cache TMPDIR=/g/.TMP/tmp UV_VENV_CLEAR=0 uv run --project "$lg3_root" --directory "$PWD" LG3 "$@"; }
+#LG4() { local lg4_root=/g/app/lg4; UV_PROJECT_ENVIRONMENT=/g/.TMP/lg4-venv UV_CACHE_DIR=/g/.TMP/uv-cache XDG_CACHE_HOME=/g/.TMP/xdg-cache TMPDIR=/g/.TMP/tmp UV_VENV_CLEAR=0 uv run --project "$lg4_root" --directory "$PWD" LG4 "$@"; }
+# USAGE() { date ; sudo -i bash -lc 'cd /g/app/usage && uv run main.py' ; }
+# The next line updates PATH for the Google Cloud SDK.
+#if [ -f '/home/e/google-cloud-sdk/path.bash.inc' ]; then . '/home/e/google-cloud-sdk/path.bash.inc'; fi
+# The next line enables shell command completion for gcloud.
+#if [ -f '/home/e/google-cloud-sdk/completion.bash.inc' ]; then . '/home/e/google-cloud-sdk/completion.bash.inc'; fi
