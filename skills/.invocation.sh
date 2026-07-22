@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+rm -rf .system
 set -euo pipefail
 
 for skill_dir in */; do

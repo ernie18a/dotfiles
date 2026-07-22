@@ -1,4 +1,2 @@
-interface:
-  display_name: "Data Source"
-  short_description: "Find and verify adaptable sources for requested data"
-  default_prompt: "Use $datasource to find verified free sources for the data required by this file."
+policy:
+  allow_implicit_invocation: false
