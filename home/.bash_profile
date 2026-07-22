@@ -1,4 +1,4 @@
-FQAI='- 只列出能夠回答使用者問題的資訊, 隱藏無法直接回答使用者問題的資訊 '
+FQAI='- 用一目了然的方式 reply. 只列出能夠回答使用者問題的資訊, 隱藏無法直接回答使用者問題的資訊 '
 if [ -f '/home/e/.google-cloud-sdk/path.bash.inc' ]; then . '/home/e/.google-cloud-sdk/path.bash.inc'; fi
 if [ -f '/home/e/.google-cloud-sdk/completion.bash.inc' ]; then . '/home/e/.google-cloud-sdk/completion.bash.inc'; fi
 source /etc/bash_completion.d/* 2>/dev/null
