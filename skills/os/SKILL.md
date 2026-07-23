@@ -20,11 +20,12 @@ Name handoffs incrementally as `os01.md`, `os02.md`, using the next unused `osNN
 
 ## Before Writing
 
-1. Read the user request and governing instructions.
-2. Read explicit requirement files named or implied by the request.
-3. For code-affecting work, inspect code paths that can change runtime boundaries, shared contracts, write targets, state transitions, or dependency edges.
-4. Use code facts to bind packets to existing paths when those paths already own the runtime behavior.
-5. Stop inspecting when additional code facts no longer change packet ownership, dependency order, contracts, coverage trace, or invalid states.
+1. Before planning or writing the handoff, read and follow the current `deve` and `subt` skills in full.
+2. Read the user request and governing instructions.
+3. Read explicit requirement files named or implied by the request.
+4. For code-affecting work, inspect code paths that can change runtime boundaries, shared contracts, write targets, state transitions, or dependency edges.
+5. Use code facts to bind packets to existing paths when those paths already own the runtime behavior.
+6. Stop inspecting when additional code facts no longer change packet ownership, dependency order, contracts, coverage trace, or invalid states.
 
 ## Split Rules
 
@@ -43,8 +44,7 @@ Name handoffs incrementally as `os01.md`, `os02.md`, using the next unused `osNN
 3. Do not prohibit architecture, dependency, packet, or phase description when it is required to preserve listed requirement coverage, dependency order, or I/O boundary.
 4. In the generated handoff, write contracts, decisions, and actions as exact paths, runtime conditions, and state changes; abstract labels alone are invalid.
 5. The generated handoff must not instruct or imply running tests, verification, validation, or writing test code or test scripts.
-6. Use skill `deve` for implementation packets: actions must be executable code edits with owned paths.
-7. Resolve planning decisions before writing; the generated handoff must not delegate requirement or skill interpretation to executors.
+6. Resolve planning decisions before writing; the generated handoff must not delegate requirement or skill interpretation to executors.
 
 ## Dependency Types
 
