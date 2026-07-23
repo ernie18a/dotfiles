@@ -17,6 +17,7 @@ Name handoffs incrementally as `os01.md`, `os02.md`, using the next unused `osNN
 4. Do not add runtime behavior, product mode, provider, protocol, storage target, command, route, schema, or user workflow absent from the input set.
 5. If an input value required for a contract is absent, write the bounded local decision rule or forbidden scope needed for execution from available inputs.
 6. Make the handoff self-contained and predecessor-independent: inline every requirement, contract, decision, and source fact needed for execution; do not reference any prior `osNN.md` in any field, including `source`, or depend on prior conversation, external references, or unstated context. Deleting every prior `osNN.md` must not reduce the handoff's meaning, traceability, or executability.
+7. The handoff must not contain or impose any constraint derived from its generation environment.
 
 ## Before Writing
 
