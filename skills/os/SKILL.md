@@ -31,8 +31,8 @@ Name handoffs incrementally as `os01.md`, `os02.md`, using the next unused `osNN
 ## Planning Boundary
 
 1. The agent invoking this skill owns requirement interpretation, code inspection, planning, packet boundaries, dependency decisions, and coverage decisions.
-2. Resolve every decision supported by the input set before writing the handoff. Preserve absent required input as a bounded local decision rule or forbidden scope.
-3. Downstream executors apply only the explicit code edits and contracts in their assigned packets; do not delegate requirement or skill interpretation, planning, ambiguity resolution, or coverage decisions to them.
+2. Before packet assignment, resolve every supported choice whose alternatives would change a packet's declared contracts, state owner, runtime conditions or state changes, coverage trace, or invalid states. Preserve absent required input as a bounded local decision rule or forbidden scope.
+3. Downstream executors may choose only implementations that leave those declarations unchanged; do not delegate requirement or skill interpretation, planning, ambiguity resolution, or coverage decisions to them.
 
 ## Split Rules
 
@@ -76,6 +76,7 @@ Name handoffs incrementally as `os01.md`, `os02.md`, using the next unused `osNN
 
 Do not accept completion based on:
 - requirement without packet, integration contract, or local decision rule
+- packet assignment that leaves a downstream executor to choose between implementations that would change the packet declarations
 - packet fields filled only with abstract labels
 - mock path replacing the first runtime path
 - placeholder file or module
