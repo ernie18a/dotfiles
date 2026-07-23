@@ -9,6 +9,13 @@ Create one `osNN.md` handoff for multiple downstream code executors.
 The handoff is for code implementation only. It is invalid if it is a status report, completion report, architecture-only plan, or requirement expansion outside the explicit requirement set.
 Name handoffs incrementally as `os01.md`, `os02.md`, using the next unused `osNN.md`.
 
+## Reasoning Boundary
+
+1. The agent invoking this skill owns requirement interpretation, code inspection, planning, packet boundaries, dependency decisions, and coverage decisions.
+2. Resolve every decision supported by the input set before writing the handoff. Preserve absent required input as a bounded local decision rule or forbidden scope.
+3. Downstream executors only apply the explicit code edits and contracts in their assigned packets.
+4. The generated handoff must not instruct downstream executors to read or apply a skill, interpret requirements, inspect unspecified code, plan implementation, resolve ambiguity, or make coverage decisions.
+
 ## Source Boundary
 
 1. Treat explicit requirement files, user request, and inspected code facts as the only input set.
@@ -20,18 +27,11 @@ Name handoffs incrementally as `os01.md`, `os02.md`, using the next unused `osNN
 
 ## Before Writing
 
-1. Before planning or writing the handoff, read and follow the current `deve` and `subt` skills in full.
-2. Read the user request and governing instructions.
-3. Read explicit requirement files named or implied by the request.
-4. For code-affecting work, inspect code paths that can change runtime boundaries, shared contracts, write targets, state transitions, or dependency edges.
-5. Use code facts to bind packets to existing paths when those paths already own the runtime behavior.
-6. Stop inspecting when additional code facts no longer change packet ownership, dependency order, contracts, coverage trace, or invalid states.
-
-## Planning Boundary
-
-1. The agent invoking this skill owns requirement interpretation, code inspection, planning, packet boundaries, dependency decisions, and coverage decisions.
-2. Resolve every decision supported by the input set before writing the handoff. Preserve absent required input as a bounded local decision rule or forbidden scope.
-3. Downstream executors apply only the explicit code edits and contracts in their assigned packets; do not delegate requirement or skill interpretation, planning, ambiguity resolution, or coverage decisions to them.
+1. Read the user request and governing instructions.
+2. Read explicit requirement files named or implied by the request.
+3. For code-affecting work, inspect code paths that can change runtime boundaries, shared contracts, write targets, state transitions, or dependency edges.
+4. Use code facts to bind packets to existing paths when those paths already own the runtime behavior.
+5. Stop inspecting when additional code facts no longer change packet ownership, dependency order, contracts, coverage trace, or invalid states.
 
 ## Split Rules
 
@@ -50,6 +50,7 @@ Name handoffs incrementally as `os01.md`, `os02.md`, using the next unused `osNN
 3. Do not prohibit architecture, dependency, packet, or phase description when it is required to preserve listed requirement coverage, dependency order, or I/O boundary.
 4. In the generated handoff, write contracts, decisions, and actions as exact paths, runtime conditions, and state changes; abstract labels alone are invalid.
 5. The generated handoff must not instruct or imply running tests, verification, validation, or writing test code or test scripts.
+6. When authoring implementation packets, the invoking agent applies skill `deve`: actions must be executable code edits with owned paths.
 
 ## Dependency Types
 
