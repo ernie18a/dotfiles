@@ -16,7 +16,7 @@ Name handoffs incrementally as `os01.md`, `os02.md`, using the next unused `osNN
 3. Do not delete, narrow, or defer a listed requirement because it is system-scale.
 4. Do not add runtime behavior, product mode, provider, protocol, storage target, command, route, schema, or user workflow absent from the input set.
 5. If an input value required for a contract is absent, write the bounded local decision rule or forbidden scope needed for execution from available inputs.
-6. Make the handoff self-contained: do not depend on prior conversation, external references, or unstated context for executor completion.
+6. Make the handoff self-contained and predecessor-independent: inline every requirement, contract, decision, and source fact needed for execution; do not reference any prior `osNN.md` in any field, including `source`, or depend on prior conversation, external references, or unstated context. Deleting every prior `osNN.md` must not reduce the handoff's meaning, traceability, or executability.
 
 ## Before Writing
 
@@ -85,6 +85,7 @@ Do not accept completion based on:
 - shared contract changed without integration packet
 - another packet's owned path changed without dependency update
 - output artifact that cannot be traced to listed requirements
+- any field references a prior `osNN.md`, or deleting prior handoffs reduces meaning, traceability, or executability
 
 ## Output Shape
 
