@@ -49,7 +49,7 @@ Name handoffs incrementally as `os01.md`, `os02.md`, using the next unused `osNN
 2. Do not require a new module, abstraction, dependency, or file unless its absence prevents a listed requirement from having an owned path or contract.
 3. Do not prohibit architecture, dependency, packet, or phase description when it is required to preserve listed requirement coverage, dependency order, or I/O boundary.
 4. In the generated handoff, write contracts, decisions, and actions as exact paths, runtime conditions, and state changes; abstract labels alone are invalid.
-5. The generated handoff must not instruct or imply running tests, verification, validation, or writing test code or test scripts.
+5. Downstream executors may read and edit code and run syntax-only static checks. They must not execute or import project code.
 
 ## Dependency Types
 
