@@ -1,4 +1,4 @@
-export MICRO_CONFIG_HOME="$HOME/.config/micro"
+#export MICRO_CONFIG_HOME="$HOME/.config/micro"
 source /etc/bash_completion.d/* 2>/dev/null
 export COLORTERM=truecolor
 export DBUS_SESSION_BUS_ADDRESS=/dev/null
@@ -26,7 +26,7 @@ which git &>/dev/null && export PS1="[ \\u@\\h \w \$(git rev-parse --abbrev-ref 
 PROMPT_COMMAND=' history -a '
 source ~/.55H 2>/dev/null
 touch ~/.hushlogin
-# alias micro='micro -softwrap true -wordwrap true'
+alias micro='micro -softwrap true -wordwrap true'
 alias PI=' sudo npm install -g --ignore-scripts @earendil-works/pi-coding-agent '
 alias SHORT='printf "%s\n" "$FQAI" > ./AGENTS.md'
 alias HYC='hermes --yolo -c'
