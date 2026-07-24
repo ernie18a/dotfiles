@@ -16,6 +16,7 @@ description: Manual invocation only
 - Use only explicit requirements and inspected code facts as authority.
 - Inspect only until further facts cannot change instructions or decisions.
 - Do not add, narrow, defer, or reinterpret requested behavior.
+- After writing, do not check or validate the manual.
 
 # Situational
 
@@ -46,10 +47,11 @@ description: Manual invocation only
 
 - End every manual with the following executor directive.
 - `Implement exactly as written; do not replan, redesign, simplify, or add behavior.`
-- `Do not run checks, tests, imports, or project code.`
+- `Do not write tests or perform any check, validation, or verification.`
+- `Do not run tests, imports, or project code.`
 - `After editing, reply exactly DONE with no report.`
 
 # Completion
 
 - Write the manual only after every requested behavior has an executable instruction.
-- Reply exactly `DONE` after the valid `osNN.md` exists.
+- Reply exactly `DONE` after the `osNN.md` exists.
