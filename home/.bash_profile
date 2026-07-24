@@ -1,6 +1,4 @@
-
-
-
+export MICRO_CONFIG_HOME="$HOME/.config/micro"
 source /etc/bash_completion.d/* 2>/dev/null
 export COLORTERM=truecolor
 export DBUS_SESSION_BUS_ADDRESS=/dev/null
