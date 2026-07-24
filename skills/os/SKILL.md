@@ -3,152 +3,97 @@ name: os
 description: Manual invocation only
 ---
 
-# os
+# Purpose
 
-Create one `osNN.md` handoff for multiple downstream code executors.
-The handoff is for code implementation only. It is invalid if it is a status report, completion report, architecture-only plan, or requirement expansion outside the explicit requirement set.
-Name handoffs incrementally as `os01.md`, `os02.md`, using the next unused `osNN.md`.
+- Create one implementation handoff named with the next unused `osNN.md`.
+- The handoff may serve one or more downstream code executors.
+- Do not produce a status report, completion report, or architecture-only plan.
 
-## Source Boundary
+# Situational
 
-1. Treat explicit requirement files, user request, and inspected code facts as the only input set.
-2. If a requirement list exists, it is the coverage boundary: every listed runtime behavior must map to one packet, integration contract, or local decision rule.
-3. Do not delete, narrow, or defer a listed requirement because it is system-scale.
-4. Do not add runtime behavior, product mode, provider, protocol, storage target, command, route, schema, or user workflow absent from the input set.
-5. If an input value required for a contract is absent, write the bounded local decision rule or forbidden scope needed for execution from available inputs.
-6. Make the handoff self-contained and predecessor-independent: inline every requirement, contract, decision, and source fact needed for execution; do not reference any prior `osNN.md` in any field, including `source`, or depend on prior conversation, external references, or unstated context. Deleting every prior `osNN.md` must not reduce the handoff's meaning, traceability, or executability.
-7. The handoff must not contain or impose any constraint derived from its generation environment.
+- Classify work by unresolved decision load, not task size or code volume.
+- `Execution-dominant`: inspected facts already determine behavior and contracts.
+- Keep execution-dominant work in one end-to-end packet with minimal planning.
+- `Decision-dominant`: plausible choices materially change important boundaries.
+- Resolve decision-dominant choices before assigning implementation packets.
+- `Mixed`: resolve critical choices, then merge the remaining execution work.
+- Do not split when handoff and repeated-understanding cost exceeds gained independence.
 
-## Before Writing
+# Sources
 
-1. Before planning or writing the handoff, read and follow the current `deve` and `subt` skills in full.
-2. Read the user request and governing instructions.
-3. Read explicit requirement files named or implied by the request.
-4. For code-affecting work, inspect code paths that can change runtime boundaries, shared contracts, write targets, state transitions, or dependency edges.
-5. Use code facts to bind packets to existing paths when those paths already own the runtime behavior.
-6. Stop inspecting when additional code facts no longer change packet ownership, dependency order, contracts, coverage trace, or invalid states.
+- Use only the user request, explicit requirement files, and inspected code facts.
+- A requirement list defines the complete coverage boundary.
+- Do not delete, narrow, defer, or expand requirements.
+- Do not add behavior, interfaces, dependencies, or workflows absent from sources.
+- Do not derive product constraints from the handoff generation environment.
+- Encode missing contract inputs as bounded local decisions or forbidden scope.
 
-## Planning Boundary
+# Preparation
 
-1. The agent invoking this skill owns requirement interpretation, code inspection, planning, packet boundaries, dependency decisions, and coverage decisions.
-2. Before packet assignment, resolve every supported choice whose alternatives would change a packet's declared contracts, state owner, runtime conditions or state changes, coverage trace, or invalid states. Preserve absent required input as a bounded local decision rule or forbidden scope.
-3. Downstream executors may choose only implementations that leave those declarations unchanged; do not delegate requirement or skill interpretation, planning, ambiguity resolution, or coverage decisions to them.
+- Read and follow the current `deve` and `subt` skills in full.
+- Read the user request, governing instructions, and explicit requirement files.
+- Inspect code that owns runtime paths, I/O, state, writes, or dependencies.
+- Stop inspection when more facts cannot change ownership or contracts.
 
-## Split Rules
+# Decisions
 
-1. Define the first runtime path before packet assignment.
-2. Split packets by I/O boundary, state ownership, runtime boundary, and touched paths.
-3. Do not split by feature label, architecture layer, executor count, or module shape.
-4. If one listed requirement spans multiple packets, add the shared contract and one integration packet.
-5. If two packets share a schema, command, event, state file, route, or output path, assign one owner and make other packets depend on it.
-6. If a packet depends on upstream behavior, declare the dependency order and owning packet.
-7. If a code fact and requirement conflict, write the collision boundary as forbidden behavior or a local decision rule instead of choosing an unlisted behavior.
+- The current agent owns interpretation, inspection, planning, and coverage.
+- Resolve choices that would change contracts, state, runtime, or dependencies.
+- Do not delegate requirement interpretation or material ambiguity.
+- Let executors choose details only when declared boundaries remain unchanged.
+- Record requirement and code collisions as forbidden behavior or local decisions.
 
-## Design Rules
+# Packets
 
-1. Prefer local replacement boundaries: each packet must declare input contract, output contract, state owner, and failure contract.
-2. Do not require a new module, abstraction, dependency, or file unless its absence prevents a listed requirement from having an owned path or contract.
-3. Do not prohibit architecture, dependency, packet, or phase description when it is required to preserve listed requirement coverage, dependency order, or I/O boundary.
-4. In the generated handoff, write contracts, decisions, and actions as exact paths, runtime conditions, and state changes; abstract labels alone are invalid.
-5. Downstream executors may read and edit code and run syntax-only static checks. They must not execute or import project code.
+- Define the first runtime path before assigning packets.
+- Use the fewest packets that preserve independent ownership.
+- Split only by I/O, state ownership, runtime boundary, or touched paths.
+- Do not split by feature name, architecture layer, module shape, or executor count.
+- Give every shared schema, command, event, state, route, or output one owner.
+- Declare dependencies whenever a packet consumes another packet's behavior.
+- Add one integration packet when a requirement or contract spans packets.
+- `P` packets run without undeclared dependencies.
+- `I` packets integrate multiple packet outputs into the first runtime path.
 
-## Dependency Types
+# Contracts
 
-- `P`: packet can run without undeclared dependencies.
-- `I`: packet integrates outputs from two or more packets into the first runtime path.
+- Bind actions and contracts to exact paths, runtime conditions, and state changes.
+- Each packet declares inputs, outputs, state ownership, and failure behavior.
+- Prefer local replacement boundaries over new architecture.
+- Add no module, abstraction, dependency, or file unless coverage requires it.
+- Bind existing behavior to its current owning path whenever possible.
 
-## Packet Fields
+# Executor
 
-1. executor role
-2. requirement IDs
-3. dependency type
-4. allowed paths
-5. forbidden paths
-6. state owner
-7. input contract
-8. output contract
-9. failure contract
-10. action
-11. coverage trace
-12. invalid completion states
+- Executors may read and edit only their allowed code paths.
+- Executors may run syntax-only static checks.
+- Executors must not execute or import project code.
+- Executors must not change another packet's contract or owned path.
 
-## Invalid Completion
+# Handoff
 
-Do not accept completion based on:
-- requirement without packet, integration contract, or local decision rule
-- packet assignment that leaves a downstream executor to choose between implementations that would change the packet declarations
-- packet fields filled only with abstract labels
-- mock path replacing the first runtime path
-- placeholder file or module
-- TODO-only implementation
-- enabled flag without runtime behavior
-- state file without runtime effect
-- generated code not called by runtime code
-- shared contract changed without integration packet
-- another packet's owned path changed without dependency update
-- output artifact that cannot be traced to listed requirements
-- any field references a prior `osNN.md`, or deleting prior handoffs reduces meaning, traceability, or executability
+- Make the handoff self-contained and independent of prior `osNN.md` files.
+- Inline every requirement, decision, code fact, and contract needed to execute.
+- Do not rely on conversation, external references, or unstated context.
+- Include `Requirement Map`, `Goal`, `Dependency Graph`, `Packets`, and `Decisions`.
+- Map every requirement to one packet, integration contract, or local decision.
+- State the requested behavior, first runtime path, and execution boundary.
+- State each packet's owner, type, dependencies, owned paths, and exposed contract.
+- State allowed paths, forbidden paths, action, contracts, coverage, and invalid states.
 
-## Output Shape
+# Invalid
 
-```md
-# osNN
+- A requirement has no packet, integration contract, or local decision.
+- An executor must make a choice that changes a declared boundary.
+- A packet contains abstract labels instead of executable facts.
+- A mock, placeholder, TODO, flag, or inert state replaces runtime behavior.
+- Generated code is not reached from the first runtime path.
+- A shared contract changes without an integration packet.
+- An owned path changes without its owner or dependency update.
+- An output cannot be traced to an explicit requirement.
+- Removing prior handoffs reduces meaning, traceability, or executability.
 
-## Requirement Map
+# Completion
 
-- R1:
-  - source:
-  - requirement:
-  - owner: P# | I# | Decision
-
-## Goal
-
-- requested behavior:
-- first runtime path:
-- execution boundary:
-- executor model:
-
-## Dependency Graph
-
-- P1:
-  - type: P | I
-  - depends on:
-  - owns:
-  - exposes:
-
-## Packets
-
-### Packet P1: Name
-
-- executor role:
-- requirement IDs:
-- type:
-- depends on:
-- action:
-- allowed paths:
-- forbidden paths:
-- state owner:
-- input contract:
-- output contract:
-- failure contract:
-- coverage trace:
-- invalid:
-
-### Packet I1: Integration
-
-- requirement IDs:
-- action:
-- allowed paths:
-- input contract:
-- output contract:
-- coverage trace:
-- invalid:
-
-## Decisions
-
--
-
-## Completion
-
-- Reply exactly `DONE` only when every requirement ID is owned by a packet, integration contract, or local decision rule.
-```
+- Write the handoff only after every requirement has an owner and coverage trace.
+- Reply exactly `DONE` after the valid `osNN.md` handoff exists.
