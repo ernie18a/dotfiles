@@ -7,7 +7,7 @@ description: Manual invocation only
 
 ## Intent over Wording
 
-Treat the user's wording as evidence of intent. Preserve the intended outcomes and invariants rather than the original form of expression. Leave intent unresolved when the available evidence does not determine it.
+Treat the user's wording as evidence of intent. Preserve the intended outcomes and invariants rather than the original form of expression. Exclude roles, stances, rationale, and other meta-context used only to explain the intent. Leave intent unresolved when the available evidence does not determine it.
 
 ## Recomposition
 
