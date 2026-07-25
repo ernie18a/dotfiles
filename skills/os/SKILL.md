@@ -25,7 +25,6 @@ description: Manual invocation only
 - For execution-dominant work, write only the necessary actions and boundaries.
 - `Decision-dominant`: plausible choices materially change important outcomes.
 - For decision-dominant work, resolve every material choice before writing.
-- `Mixed`: resolve critical choices, then keep routine implementation compact.
 - Add detail only when its absence would force the executor to plan or guess.
 - Do not leave choices whose alternatives could change the required outcome.
 - Split only when work can proceed independently without repeated context.
