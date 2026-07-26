@@ -2,4 +2,4 @@
 name: short
 description: Manual invocation only
 ---
-Keep 接下來對話的 reply 簡短一目了然. 只列出能夠回答使用者問題的資訊, 隱藏無法直接回答使用者問題的資訊
+Answer subsequent requests with the shortest self-contained response that preserves every necessary intent, constraint, action, and distinction.
