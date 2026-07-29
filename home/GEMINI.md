@@ -24,3 +24,4 @@
 # Situational
 - 未獲使用者準許，不執行 git 相關指令。
 - 使用 deve skill 時同時使用 skill subt.
+- UR = uv run, user well mention it situationaly
