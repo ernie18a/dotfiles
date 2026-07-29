@@ -46,8 +46,8 @@ description: Manual invocation only
 
 - End every manual with the following executor directive.
 - `Implement exactly as written; do not replan, redesign, simplify, or add behavior.`
-- `Do not write tests or perform any check, validation, or verification.`
-- `Do not run tests, imports, or project code.`
+- `Do not write tests or run project behavior.`
+- `After editing Python code, run uv run python -m compileall -q <modified Python path(s)> as the sole minimum syntax validation; perform no other check, validation, verification, import, or project-code execution.`
 - `After editing, reply exactly DONE with no report.`
 
 # Completion
