@@ -19,7 +19,7 @@ export TERM=xterm-256color
 export UV_VENV_CLEAR=1
 export WIN_USER=`ls /mnt/c/Users 2>/dev/null |grep -iv "All\|Default\|desktop.ini\|Public\|USER\|Administrator\|super"`
 export WIN_USER_DIR=/mnt/c/Users/$WIN_USER
-export XDG_CONFIG_HOME=/g/.TMP/xdg-config
+#export XDG_CONFIG_HOME=/g/.TMP/xdg-config
 if [ -f '/home/e/.google-cloud-sdk/completion.bash.inc' ]; then . '/home/e/.google-cloud-sdk/completion.bash.inc'; fi
 if [ -f '/home/e/.google-cloud-sdk/path.bash.inc' ]; then . '/home/e/.google-cloud-sdk/path.bash.inc'; fi
 which git &>/dev/null && export PS1="[ \\u@\\h \w \$(git rev-parse --abbrev-ref HEAD 2>/dev/null)] \\$ " || export PS1="[ \\u@\\h \w ] \\$ "
