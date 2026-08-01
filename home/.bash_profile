@@ -26,6 +26,7 @@ which git &>/dev/null && export PS1="[ \\u@\\h \w \$(git rev-parse --abbrev-ref 
 PROMPT_COMMAND=' history -a '
 source ~/.55H 2>/dev/null
 touch ~/.hushlogin
+alias S86=' ssh 192.168.213.86 '
 alias RMDIR=' rm -rf -- */ '
 alias micro='micro -softwrap true -wordwrap true'
 alias PI=' sudo npm install -g --ignore-scripts @earendil-works/pi-coding-agent '
