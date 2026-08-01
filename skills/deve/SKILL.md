@@ -10,6 +10,7 @@ description: Manual invocation only
 - 優先低耦合與明確 I/O 邊界，讓變動點可局部替換；不為形式過度拆模組。
 - 優先 fail fast、明確契約、靜態型別、顯式轉換
 - Straight-line programming, 除非無法運作, 盡量不使用判斷式
+- 根據 skill util 決定是否需要 multi-thread 處理 或者 GPU 有效運算? 
 
 # 需求拆解
 - 規劃多項實作需求時，按觸碰同一函式的功能聚合排序，範圍由大至小，確保開發連續性。
