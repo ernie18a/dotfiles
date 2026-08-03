@@ -26,3 +26,4 @@
 - 使用 deve skill 時同時使用 skill subt.
 - UR = uv run, user well mention it situationaly
 - spec: rtx 4050 6G
+- rm -rf 改由 " source ~/.bash_profile ; RMRF " 取代 
