@@ -32,13 +32,9 @@ description: Manual invocation only
 
 - Make the manual sufficient for implementation without independent planning.
 - State critical contracts, state transitions, and failure behavior when relevant.
-- Preserve existing ownership and interfaces unless the requirement changes them.
-- Group related changes by touched function, ordered from broad to narrow.
 - Prefer replacement, deletion, and consolidation before adding new structure.
 - Omit alternatives, rationale, repetition, and facts that do not guide execution.
-- Do not require packets, graphs, maps, or formal sections without practical value.
 - Prevent redesign, scope expansion, shortcuts, speculative work, and embellishment.
-- Never reference prior `osNN.md` files or unstated conversation context.
 
 # Executor
 
@@ -49,5 +45,4 @@ description: Manual invocation only
 
 # Completion
 
-- Write the manual only after every requested behavior has an executable instruction.
 - Reply exactly `DONE` after the `osNN.md` exists.
