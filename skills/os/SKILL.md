@@ -6,32 +6,31 @@ description: Manual invocation only
 # Purpose
 
 - Create the next unused `osNN.md` as an implementation manual.
-- Transfer resolved decisions as instructions an executor can implement directly.
 - The manual is not a report, architecture document, or rationale record.
 
 # Author
 
 - Read the user request, relevant code, and current `deve` skill.
 - Apply these authoring rules directly; do not pass them to the executor.
-- Use only explicit requirements and inspected code facts as authority.
-- Inspect only until further facts cannot change instructions or decisions.
-- Do not add, narrow, defer, or reinterpret requested behavior.
+- Use the requested outcome, explicit requirements, inspected facts, and technical judgment to resolve implementation decisions.
+- Inspect relevant implementation evidence until further facts cannot materially change instructions or decisions.
+- Preserve the requested behavior, scope, and meaning.
 - After writing, do not check or validate the manual.
 
 # Situational
 
-- Identify material decisions in every task, regardless of its overall type.
-- A decision is material when plausible alternatives could produce observably different required behavior, interfaces, data semantics, state transitions, failure behavior, side effects, or acceptance results.
-- Resolve each material decision only from explicit requirements or inspected facts.
-- If multiple outcome-changing choices remain plausible, do not write the manual; ask the user to resolve them.
-- Do not treat implementation freedom as unresolved when all reasonable implementations preserve the same required outcome.
+- Classify by unresolved decision load, not file count or code volume.
+- `Execution-dominant`: facts already determine the implementation.
+- For execution-dominant work, write only the necessary actions and boundaries.
+- `Decision-dominant`: plausible choices materially change important outcomes.
+- For decision-dominant work, inspect relevant evidence, compare outcome-changing alternatives, and select every material choice before writing.
 - Add detail only when its absence would force the executor to plan or guess.
+- Express outcome-changing choices as exact instructions.
 - Split only when work can proceed independently without repeated context.
 
 # Manual
 
 - Make the manual sufficient for implementation without independent planning.
-- State the exact target paths, changes, order, boundaries, and final behavior.
 - State critical contracts, state transitions, and failure behavior when relevant.
 - Preserve existing ownership and interfaces unless the requirement changes them.
 - Group related changes by touched function, ordered from broad to narrow.
@@ -50,7 +49,5 @@ description: Manual invocation only
 
 # Completion
 
-- Before writing, verify that the executor can implement every requested behavior without selecting among materially different outcomes.
-- Missing implementation detail is acceptable only when all reasonable implementations preserve the same required outcome.
-- Write the manual only after every requested behavior has an executable instruction and every material decision is resolved.
+- Write the manual only after every requested behavior has an executable instruction.
 - Reply exactly `DONE` after the `osNN.md` exists.
