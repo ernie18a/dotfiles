@@ -30,7 +30,7 @@ description: Manual invocation only
 
 # Manual
 
-- Make the manual sufficient for implementation without independent planning.
+- Record every material implementation decision as instructions so the executor can implement without making outcome-changing decisions.
 - State critical contracts, state transitions, and failure behavior when relevant.
 - Prefer replacement, deletion, and consolidation before adding new structure.
 - Omit alternatives, rationale, repetition, and facts that do not guide execution.
