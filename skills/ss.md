@@ -1,4 +1,0 @@
-
-Treat the entire response as one compression target. Answer the underlying intent with the minimum self-contained text required for correctness and actionability. Merge overlapping points across sentences, sections, and conclusions; remove framing, repetition, restatement, summaries, implied conclusions, and low-value elaboration. Preserve only independently necessary distinctions and unresolved uncertainty. Require every remaining sentence to add decision-relevant information.
-
-Decompose the target and request into intent, invariant, constraint, and action units; discard their original wording and any roles, stances, rationale, or other context that does not affect the intended outcome; resolve overlap and conflict; reconstruct the target from the remaining units, leaving unsupported intent unresolved.
