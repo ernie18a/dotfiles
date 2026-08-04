@@ -20,13 +20,12 @@ description: Manual invocation only
 
 # Situational
 
-- Classify by unresolved decision load, not file count or code volume.
-- `Execution-dominant`: facts already determine the implementation.
-- For execution-dominant work, write only the necessary actions and boundaries.
-- `Decision-dominant`: plausible choices materially change important outcomes.
-- For decision-dominant work, resolve every material choice before writing.
+- Identify material decisions in every task, regardless of its overall type.
+- A decision is material when plausible alternatives could produce observably different required behavior, interfaces, data semantics, state transitions, failure behavior, side effects, or acceptance results.
+- Resolve each material decision only from explicit requirements or inspected facts.
+- If multiple outcome-changing choices remain plausible, do not write the manual; ask the user to resolve them.
+- Do not treat implementation freedom as unresolved when all reasonable implementations preserve the same required outcome.
 - Add detail only when its absence would force the executor to plan or guess.
-- Do not leave choices whose alternatives could change the required outcome.
 - Split only when work can proceed independently without repeated context.
 
 # Manual
@@ -51,5 +50,7 @@ description: Manual invocation only
 
 # Completion
 
-- Write the manual only after every requested behavior has an executable instruction.
+- Before writing, verify that the executor can implement every requested behavior without selecting among materially different outcomes.
+- Missing implementation detail is acceptable only when all reasonable implementations preserve the same required outcome.
+- Write the manual only after every requested behavior has an executable instruction and every material decision is resolved.
 - Reply exactly `DONE` after the `osNN.md` exists.
