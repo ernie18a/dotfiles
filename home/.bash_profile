@@ -1,4 +1,3 @@
-#export MICRO_CONFIG_HOME="$HOME/.config/micro"
 source /etc/bash_completion.d/* 2>/dev/null
 export COLORTERM=truecolor
 export DBUS_SESSION_BUS_ADDRESS=/dev/null
@@ -19,21 +18,16 @@ export TERM=xterm-256color
 export UV_VENV_CLEAR=1
 export WIN_USER=`ls /mnt/c/Users 2>/dev/null |grep -iv "All\|Default\|desktop.ini\|Public\|USER\|Administrator\|super"`
 export WIN_USER_DIR=/mnt/c/Users/$WIN_USER
-#export XDG_CONFIG_HOME=/g/.TMP/xdg-config
 if [ -f '/home/e/.google-cloud-sdk/completion.bash.inc' ]; then . '/home/e/.google-cloud-sdk/completion.bash.inc'; fi
 if [ -f '/home/e/.google-cloud-sdk/path.bash.inc' ]; then . '/home/e/.google-cloud-sdk/path.bash.inc'; fi
 which git &>/dev/null && export PS1="[ \\u@\\h \w \$(git rev-parse --abbrev-ref HEAD 2>/dev/null)] \\$ " || export PS1="[ \\u@\\h \w ] \\$ "
 PROMPT_COMMAND=' history -a '
 source ~/.55H 2>/dev/null
 touch ~/.hushlogin
-alias RMRF=' rm -rf '
-alias S86=' ssh 192.168.213.86 '
-alias RMDIR=' rm -rf -- */ '
-alias micro='micro -softwrap true -wordwrap true'
-alias PI=' sudo npm install -g --ignore-scripts @earendil-works/pi-coding-agent '
 alias SHORT='printf "%s\n" "$FQAI" > ./AGENTS.md'
 alias HYC='hermes --yolo -c'
 alias HY='hermes --yolo'
+alias micro='micro -softwrap true -wordwrap true'
 alias MM2=' DEV=$(blkid -L g) && mountpoint -q /g || sudo mount -o defaults,noatime,commit=300 $DEV /g '
 alias MM=" DEV=\$(blkid -L g) && mountpoint -q /g || sudo mount -o defaults,noatime,commit=300 \$DEV /g "
 alias SHORTS='for DIR in ./*/; do printf "%s\n" "$FQAI" > "$DIR/AGENTS.md" ; done'
@@ -94,8 +88,8 @@ alias LOY=' claude --model Opus --dangerously-skip-permissions '
 alias LY=' claude --model sonnet --dangerously-skip-permissions ' # --effort medium '
 alias LLY=' claude --model sonnet --dangerously-skip-permissions --effort low '
 alias DYL=' codex --yolo -m gpt-5.6-luna -c model_reasoning_effort=medium '
-alias DYT=' codex --yolo -m gpt-5.6-terra -c model_reasoning_effort=medium '
 alias DY=' codex --yolo -m gpt-5.6-sol -c model_reasoning_effort=low '
+alias DYT=' codex --yolo -m gpt-5.6-terra -c model_reasoning_effort=medium '
 alias DYR=' codex resume --yolo '
 alias co=' cp '
 alias cp=' cp -urf '
@@ -146,20 +140,23 @@ alias NC=' nc -zvw2 '
 alias PS5=' ps aux | sort -nrk 3,3 | head -n 5 '
 alias PUSH2="git pull >/dev/null && git add -A && git commit -mPUSH --no-verify && git push --no-verify"
 alias PY=' python3 '
+alias RMRF=' rm -rf '
 alias rm=' rm -rf '
+alias RMDIR=' rm -rf -- */ '
 alias RSYNC=' rsync -ruzvP '
 alias scpr=' scp -rC '
 alias SHK=' sort -hk '
 alias SB=' source ~/.G/dotfiles/home/.bash_profile 2>/dev/null || source /dev/stdin <<< $(curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/.bash_profile) ; cd - &>/dev/null '
 alias SS=' ss -lutn '
 alias SSG=' ss -lutn |grep -i --color '
+alias S86=' ssh 192.168.213.86 '
 alias AGP2=' sudo apt-get purge -y ; dpkg -l | grep "^rc" | awk "{print\$2}" | xargs sudo apt-get purge -y ; sudo apt-get autoremove -y '
 alias AGU=' sudo apt-get purge -y >/dev/null '
 alias AGR=' sudo apt-get remove -y >/dev/null '
 alias AGG=' sudo apt-get update >/dev/null ; apt list |tee ~/.APT |grep -i --color '
 alias AGI=' sudo apt-get update >/dev/null ; sudo apt-get install -y >/dev/null '
 alias llllg=' sudo find . |grep -i '
-alias UUU=' sudo systemctl restart systemd-timesyncd ; sudo npm install -g npm ; sudo npm install -g @openai/codex ; sudo agy update ' # ; hermes update -y  ; sudo agy update ' # ;  sudo apt update && sudo apt install claude-code -y ;  gcloud components update '
+alias PI=' sudo npm install -g --ignore-scripts @earendil-works/pi-coding-agent '
 alias tmprm=' sudo rm -rf /tmp/{,.}* 2>/dev/null ; cd /tmp '
 alias SU=' sudo su - '
 alias SUF=' sudo su - f '
@@ -168,6 +165,7 @@ alias SUO=' sudo su - o '
 alias SYSD=' sudo systemctl disable '
 alias SYSE=' sudo systemctl enable '
 alias SYSR=' sudo systemctl restart '
+alias UUU=' sudo systemctl restart systemd-timesyncd ; sudo npm install -g npm ; sudo npm install -g @openai/codex ; sudo agy update ' # ; hermes update -y  ; sudo agy update ' # ;  sudo apt update && sudo apt install claude-code -y ;  gcloud components update '
 alias SYSS=' sudo systemctl stop '
 alias SVH=' sudo vim /mnt/c/Windows/System32/drivers/etc/hosts '
 alias YI=' sudo yum install -y >/dev/null '

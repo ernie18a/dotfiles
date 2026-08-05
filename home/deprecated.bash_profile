@@ -505,3 +505,5 @@ export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.krew/bin:$HOME/go/bin:/bin
 #if [ -f '/home/e/google-cloud-sdk/path.bash.inc' ]; then . '/home/e/google-cloud-sdk/path.bash.inc'; fi
 # The next line enables shell command completion for gcloud.
 #if [ -f '/home/e/google-cloud-sdk/completion.bash.inc' ]; then . '/home/e/google-cloud-sdk/completion.bash.inc'; fi
+#export MICRO_CONFIG_HOME="$HOME/.config/micro"
+#export XDG_CONFIG_HOME=/g/.TMP/xdg-config
