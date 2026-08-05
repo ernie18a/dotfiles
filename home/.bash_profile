@@ -208,7 +208,11 @@ mvim() { mkdir -p "$(dirname "$1")" && vim "$1"; }
 MTK() { mkdir ./$1 ; touch ./$1/.gitkeep; }
 NTPL() { growpart /dev/sda 2 ; resize2fs /dev/sda2 ; echo 'network: {config: disabled}' >> /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg ; sed -i "s/\(- \).*\(\/\)/\1$1\2/g" /etc/netplan/50-cloud-init.yaml ; echo "hostnamectl set-hostname" ; }
 GGRCA2() { (cd /g; for R in */; do [[ -d "$R/.git" ]] || continue; (U=$(git -C "$R" remote get-url origin) && sudo rm -rf "$R" && git clone -q "$U" "$R") & done; wait); }
-GGRCA() { (cd /g; for R in */; do [[ -d "$R/.git" ]] || continue; (cd "$R"; git fetch -p && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD) && git clean -fd) & done; wait); }
+#GGRCA() { (cd /g; for R in */; do [[ -d "$R/.git" ]] || continue; (cd "$R"; git fetch -p && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD) && git clean -fd) & done; wait); }
+GRCA2() { (cd ~/.G; for R in */; do (U=$(git -C "$R" remote get-url origin) && sudo rm -rf "$R" && git clone -q "$U" "$R") & done; wait); }
+#GRCA()  { (cd ~/.G; for R in */; do (cd "$R"; git fetch -p && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD) && git clean -fd) & done; wait); }
+GGRCA() { (cd /g; for R in */; do [[ -d "$R/.git" ]] || continue; (cd "$R"; find .git/objects -type f -empty -delete; git fetch -p && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD) && git clean -fd) & done; wait); }
+GRCA()  { (cd ~/.G; for R in */; do (cd "$R"; find .git/objects -type f -empty -delete; git fetch -p && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD) && git clean -fd) & done; wait); }
 CPTM() { rm /mnt/c/Users/e/Desktop/_tmp/* ; cp *.txt *.md *.py /mnt/c/Users/e/Desktop/_tmp/ ; }
 sl() { for SOMETHING in $(cat ./$1); do $2 $SOMETHING; done; }
 GRC2() { local T=$(git rev-parse --show-toplevel 2>/dev/null) || return 1; local U=$(git -C "$T" remote get-url origin) || return 1; local R=$(basename "$T"); local P="${PWD#$T}"; cd "$(dirname "$T")" && sudo rm -rf "$R" && git clone "$U" "$R" && cd "$R$P"; }
@@ -231,8 +235,6 @@ CB2() { cat ~/.G/dotfiles/home/.bash_profile 2>/dev/null || curl -fsSL https://r
 CNG() { cat ~/.G/misc/notes/commands.txt 2>/dev/null |grep -i --color $1 || curl -fsSL https://raw.githubusercontent.com/ernie18a/misc/main/notes/commands.txt |grep -i --color $1 ; }
 CEG() { cat ~/.G/misc/notes/eng.txt 2>/dev/null |grep -i --color $1 || curl -fsSL https://raw.githubusercontent.com/ernie18a/misc/main/notes/eng.txt |grep -i --color $1 ; }
 CP() { cat ~/.G/private/yet/RANDOM.txt ; }
-GRCA2() { (cd ~/.G; for R in */; do (U=$(git -C "$R" remote get-url origin) && sudo rm -rf "$R" && git clone -q "$U" "$R") & done; wait); }
-GRCA()  { (cd ~/.G; for R in */; do (cd "$R"; git fetch -p && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD) && git clean -fd) & done; wait); }
 CT() { cat ~/.T$1 2>/dev/null ; }
 VT() { vim ~/.T$1 ; }
 HG() { cat ~/.bash_history | grep -ai --color "$1" ; }
