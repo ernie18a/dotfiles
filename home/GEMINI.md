@@ -26,4 +26,4 @@
 - 使用 deve skill 時同時使用 skill subt.
 - UR = uv run, user well mention it situationaly
 - spec: rtx 4050 6G or rtx 3050 4G
-- rm -rf 改由 " source ~/.bash_profile ; RMRF " 取代, 這是我客制bash alias, 你必須要先 source ~/.bash_profile. 
+- " mv <要刪除的檔案或資料夾> /tmp/ " 取代 " rm -rf "
