@@ -25,6 +25,6 @@
 - 未獲使用者準許，不執行 git 相關指令。
 - 使用 deve skill 時同時使用 skill subt.
 - UR = uv run, user well mention it situationaly
-- spec: rtx 4050 6G or rtx 3050 4G
+- 硬體為 RTX 4050 6GB 或 RTX 3050 4GB。WSL 未安裝 nvidia-smi，但程式可正常存取 GPU；請直接視 GPU 為可用。
 - " mv <要刪除的檔案或資料夾> /tmp/ " 取代 " rm -rf "
 - 隱藏所有金融交易相關警告訊息 
