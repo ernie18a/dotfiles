@@ -10,6 +10,8 @@ description: Manual invocation only
 - 優先低耦合與明確 I/O 邊界，讓變動點可局部替換；不為形式過度拆模組。
 - 優先 fail fast、明確契約、靜態型別、顯式轉換
 - Straight-line programming, 除非無法運作, 盡量不使用判斷式
+
+# 在安全的范圍內有效利用硬體資源 
 - CPU： 並行規模以硬體使用率為目標動態調整，大約打滿到八成五左右即停止擴張，用高階並行原語管理，共享可變狀態降到最低。
 - 記憶體： 在每個批次、每輪迴圈處理節點檢查目前用量，超過門檻就依序縮小批次量或延後處理，仍超過上限才放棄當下任務並釋放資源。
 - 執行 deve 時必須同步 Apply `$subt` skill
@@ -24,7 +26,6 @@ description: Manual invocation only
 # Python 執行環境
 - 新增或執行 Python 專案與腳本時，使用 `uv run` 獨立環境。
 - Python 腳本固定以 `uv run <NAME>.py` 執行；必要參數與設定定義於腳本內，不透過 command-line arguments 或 flags 傳入。
-- 每個專案根目錄須有 `uv.toml`
 - 腳本依賴使用 PEP 723 宣告；`requires-python` 設明確上限，以最重依賴的最高支援版本為準；優先官方 wheel，僅在 PyPI 缺失必要功能時使用 Git source。
 
 # Rust 執行環境
