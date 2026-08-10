@@ -1,2 +1,2 @@
-curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash
 touch ~/.hermes/.no-bundled-skills
+curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
