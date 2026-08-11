@@ -11,6 +11,7 @@ description: Manual invocation only
 - 優先 fail fast、明確契約、靜態型別、顯式轉換
 - Straight-line programming, 除非無法運作, 盡量不使用判斷式
 - 執行 deve 時必須同步 Apply `$subt` skill
+- 所有腳本預設禁止使用" Options / Optional Arguments / Flag ", 除非使用者要求 
 
 # 在安全的范圍內有效利用硬體資源 
 - CPU： 並行規模以硬體使用率為目標動態調整，大約打滿到八成五左右即停止擴張，用高階並行原語管理，共享可變狀態降到最低。
