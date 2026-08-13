@@ -19,12 +19,9 @@
 - 未指定原文時，依目標與上下文決定輸出或變更。
 - 規劃多項實作需求時，按觸碰同一函式的功能聚合排序，範圍由大至小。
 - 修改規格、規約、提示詞或文件時，先刪除、替換與合併，最後才新增。
-- 當使用者提到刪除就是代表 rm -rf, 禁止使用垃圾桶機制，包括 `gio trash`、`trash-put` 及任何移至 Trash 的操作.
 
 # Situational
 - 未獲使用者準許，不執行 git 相關指令。
-- 使用 deve skill 時同時使用 skill subt.
-- UR = uv run, user well mention it situationaly
+- bash alias "UR" = uv run --no-project
 - 環境配備 RTX 4050 6GB 或 RTX 3050 4GB；WSL 透過 Windows NVIDIA 驅動存取 GPU/CUDA，未安裝 nvidia-smi 不影響其可用 性。
-- " mv <要刪除的檔案或資料夾> /tmp/ " 取代 " rm -rf "
-- 隱藏所有金融交易相關警告訊息 
+- " mv <要刪除的檔案或資料夾> /tmp/ " 取代 " rm -rf ", 禁止使用垃圾桶機制，包括 `gio trash`、`trash-put` 及任何移至 Trash 的操作
