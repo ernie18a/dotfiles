@@ -22,7 +22,7 @@ description: Manual invocation only
 - 修改規格、規約、提示詞或文件時，先刪除、替換與合併，最後才新增。
 
 # I/O 與寫入隔離
-- 專案內 `INPUT/` 存原始輸入，`OUTPUT/` 存最終輸出，`TMP/` 存放__pycache__, 快取檔 or 暫存檔 or 中間檔，`DATA` 存放2個以上的設定檔或 necessary stateful 檔案, 也就是說如果 只有2個符合條件的檔案不需要這個資料夾.
+- 將外部輸入存入 `INPUT/`，最終成果存入 `OUTPUT/`，程式產生的非最終檔案存入 `TMP/`，`config.*` 存於專案根目錄。
 
 # Python 執行環境
 - 新增或執行 Python 專案與腳本時，使用 `uv run` 獨立環境。
