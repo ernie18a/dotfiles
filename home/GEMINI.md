@@ -19,3 +19,4 @@
 - 環境配備 RTX 4050 6GB 或 RTX 3050 4GB；WSL 透過 Windows NVIDIA 驅動存取 GPU/CUDA，未安裝 nvidia-smi 不影響其可用 性。
 - bash alias "UR" = uv run --no-project
 - " mv <要刪除的檔案或資料夾> /tmp/ " 取代 " rm -rf ", 禁止使用垃圾桶機制，包括 `gio trash`、`trash-put` 及任何移至 Trash 的操作
+- 當『隻』出現在異常位置時，極可能是『只』的 typo。
