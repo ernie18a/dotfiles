@@ -5,14 +5,9 @@ description: Manual invocation only
 
 # Pyramid
 
-Decompose and sort the target content into a top-down pyramid hierarchy by structural significance and constraint dominance:
+Decompose and sort target content into a top-down pyramid hierarchy determined by purpose:
 
-1. Identify the core intent, dominant invariants, structural boundaries, operational mechanisms, and declarative details across the target.
-2. Form mutually exclusive thematic groups for extracted elements.
-3. Rank groups into descending hierarchical levels (Level 1 at apex):
-   - **Level 1 (Apex)**: Core contract, primary outcome invariant, top-level interface, or ultimate decision criteria.
-   - **Level 2**: Primary semantics, transformation logic, generative rules, or core behavior.
-   - **Level 3**: Invariants, causality, state constraints, or temporal validity.
-   - **Level 4**: Operational mechanisms, runtime performance, resource boundaries, or execution details.
-   - **Level 5 (Base)**: Declarations, source inputs, environment configs, or auxiliary metadata.
-4. Output strictly in hierarchical numbering (`Level > Group > Item`), maintaining objective structural boundaries without domain bias.
+1. Identify the primary purpose and core objective of the target content.
+2. Rank content into descending hierarchical levels based on its necessity to the primary purpose (Apex = direct core purpose and essential outcome; Base = auxiliary details, environment declarations, and implementation specifics). The number of levels is dynamic and determined by the content depth.
+3. Form distinct thematic groups under each hierarchical level.
+4. Output strictly in hierarchical numbering (`Level > Group > Item`).
