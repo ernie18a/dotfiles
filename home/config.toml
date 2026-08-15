@@ -15,11 +15,16 @@ enabled = false
 
 [mcp_servers.operator2]
 command = "/usr/bin/bash"
-args = ["/g/app/crawlerlive/operator2.sh"]
+args = ["/g/app/mcp.chrome/operator2.sh"]
+enabled = false
+
+[mcp_servers.debug]
+command = "/usr/bin/bash"
+args = ["/g/app/mcp.chrome/debug.sh"]
+enabled = false
 
 [tui]
 session_picker_view = "dense"
 
 [notice]
 hide_rate_limit_model_nudge = true
-
