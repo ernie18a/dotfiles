@@ -1,6 +1,6 @@
 ---
 name: sss
-description: Decompose any text-representable target into outcome-bearing units, reconstruct it, and iteratively remove parts only when the required outcome demonstrably remains intact. Use for reducing conversations, documents, code, concepts, discussions, or requirements.
+description: Manual invocation only
 ---
 
 # SSS

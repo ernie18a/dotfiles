@@ -1,7 +1,2 @@
-interface:
-  display_name: "SSS"
-  short_description: "Decompose, reconstruct, and verify reductions"
-  default_prompt: "Use $sss to reduce this target while preserving its required outcome."
-
 policy:
   allow_implicit_invocation: false

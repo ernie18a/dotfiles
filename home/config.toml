@@ -1,6 +1,3 @@
-model = "gpt-5.6-sol"
-model_reasoning_effort = "high"
-
 approval_policy = "never"
 sandbox_mode = "workspace-write"
 
@@ -9,13 +6,20 @@ network_access = true
 
 [features]
 apps = false
+plugins = false
+remote_plugin = false
+recommended_plugins = false
+
+[skills.bundled]
+enabled = false
+
+[mcp_servers.operator2]
+command = "/usr/bin/bash"
+args = ["/g/app/crawlerlive/operator2.sh"]
 
 [tui]
 session_picker_view = "dense"
 
-[tui.model_availability_nux]
-"gpt-5.5" = 4
-"gpt-5.6-sol" = 4
-
 [notice]
 hide_rate_limit_model_nudge = true
+
