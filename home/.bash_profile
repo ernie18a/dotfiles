@@ -228,7 +228,7 @@ FFMPEG1() { for i in *.$1 ; do ffmpeg -y -i "$i" "$(echo "$i"|cut -d\. -f1).$2" 
 FFMPEG() { for i in *.$1 ; do ffmpeg -y -i "$i" "$(echo "$i"|cut -d\. -f1).$2" ; done ; }
 LG2() { local lg2_root=/g/app/lg2; [ -d "$lg2_root" ] || lg2_root=/g/app/lG; UV_PROJECT_ENVIRONMENT=/g/.TMP/lg2-venv UV_CACHE_DIR=/g/.TMP/uv-cache XDG_CACHE_HOME=/g/.TMP/xdg-cache TMPDIR=/g/.TMP/tmp UV_VENV_CLEAR=0 uv run --project "$lg2_root" --directory "$PWD" lg2-run --config "$lg2_root/lg2.toml" "$@"; }
 WAIT() { while pgrep -f "$1" > /dev/null; do sleep 9; done ; }
-KILL() { sudo pkill -fi "$1"; }
+KILL() { sudo pkill -9 -fi "$1"; }
 PUSHM() { git pull >/dev/null ; git rm -r --cached . > /dev/null ; git add -A && git commit -m "$@" &>/dev/null && git push;}
 USAGE() { sudo uv run /g/app/usage/main.py; }
 WHEN() { local t=$(( $(date -d "${1:0:2}:${1:2:2}" +%s) - $(date +%s) )); sleep $(( t < 0 ? t + 86400 : t )); }
