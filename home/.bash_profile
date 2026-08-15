@@ -201,7 +201,7 @@ AWK() { awk $2 "{print\$$1}" ; }
 ECDZ() { echo 'source /dev/stdin <<< $(curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/.bash_profile)' |tee ~/.bash_profile ; }
 l() { ls -A | grep "^\." | xargs -d '\n' ls -d --color ; }
 NSP() { nmap -T5 -snP $1 |G report | AWK 5 ; }
-CBG() { curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/.bash_profile  |grep -i --color $1 2>/dev/null || cat  ~/.G/dotfiles/home/.bash_profile 2>/dev/null || cat ~/.bash_profile 2>/dev/null |grep -i --color $1 ; }
+CBG() { { curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/.bash_profile || cat ~/.G/dotfiles/home/.bash_profile 2>/dev/null || cat ~/.bash_profile 2>/dev/null; } | grep -i --color "$1" 2>/dev/null; }
 DF() { df -h |sort -hk2 |sed -e 1b -e '$!d' ; }
 SEDID() { sed -i "/$1/d" $2 ; }
 SEDIS() { sed -i "s/$1/$2/g" $3 ; }
