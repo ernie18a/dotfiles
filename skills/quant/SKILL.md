@@ -243,10 +243,3 @@ description: Manual invocation only
      4.6.3. 資料漂移監控（Data Drift Monitoring）
      4.6.4. 概念漂移監控（Concept Drift Monitoring）
      4.6.5. 模型效能衰退監控（Model Performance Degradation Monitoring）
-
-     4.7. Agentic 因子研究（Agentic Factor Research）
-
-     4.7.1. 大型語言模型（Large Language Models, LLMs）
-     4.7.2. 檢索增強生成（Retrieval-Augmented Generation, RAG）
-     4.7.3. Agentic 工作流（Agentic Workflows）
-     4.7.4. Agentic 因子自動化探測（Agentic Factor Discovery）
