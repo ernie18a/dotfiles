@@ -21,5 +21,3 @@ Order candidates by expected \(\Delta U\), highest first, then evaluate each can
 3. If the available information cannot determine \(\Delta U_i\), state the missing input; do not invent a value.
 
 Evaluate only added net utility relative to retained candidates, not whether a candidate is reasonable in isolation.
-
-Apply `$subt` to this skill's interpretation and output: retain no instruction or output whose removal leaves the rules above unchanged.
