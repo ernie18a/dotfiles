@@ -36,7 +36,6 @@ description: Manual invocation only
      1.3.7. 數值微分與數值積分（Numerical Differentiation & Integration）
      1.3.8. 插值與近似方法（Interpolation & Approximation Methods）
      1.3.9. 常微分方程數值解法（Numerical Methods for Ordinary Differential Equations）
-     1.3.10. 偏微分方程數值解法（Numerical Methods for Partial Differential Equations）
 
   2. 機率統計、時間序列與隨機系統（Probability, Statistics, Time Series & Stochastic Systems）
 
@@ -72,7 +71,6 @@ description: Manual invocation only
      2.3.6. Elastic Net（Elastic Net）
      2.3.7. 分位數迴歸（Quantile Regression）
      2.3.8. 橫斷面迴歸（Cross-Sectional Regression）
-     2.3.9. Fama–MacBeth 迴歸（Fama–MacBeth Regression）
 
      2.4. 多變量與高維統計（Multivariate & High-Dimensional Statistics）
 
@@ -82,7 +80,6 @@ description: Manual invocation only
      2.4.4. 主成分分析（Principal Component Analysis, PCA）
      2.4.5. 獨立成分分析（Independent Component Analysis, ICA）
      2.4.6. 因子分析（Factor Analysis）
-     2.4.7. 多因子模型（Multi-Factor Models）
      2.4.8. 特徵選擇與降維（Feature Selection & Dimensionality Reduction）
 
      2.5. 非參數、穩健與尾部分布方法（Nonparametric, Robust & Tail-Distribution Methods）
@@ -96,7 +93,6 @@ description: Manual invocation only
 
      2.6. 因果推論與實驗設計（Causal Inference & Experimental Design）
 
-     2.6.1. 隨機實驗與 A/B 測試（Randomized Experiments & A/B Testing）
      2.6.2. 傾向分數方法（Propensity Score Methods）
      2.6.3. 工具變數法（Instrumental Variables）
      2.6.4. 差異中的差異法（Difference-in-Differences）
@@ -113,7 +109,6 @@ description: Manual invocation only
      2.7.8. 狀態空間模型（State-Space Models）
      2.7.9. 協整分析與單根檢定（Cointegration Analysis & Unit-Root Tests）
      2.7.10. 結構突變檢測（Structural Break Detection）
-     2.7.11. 面板資料模型（Panel Data Models）
      2.7.12. 隱藏馬可夫模型（Hidden Markov Models, HMM）
      2.7.13. 狀態切換模型（Regime-Switching Models）
      2.7.14. 滾動視窗估計（Rolling-Window Estimation）
@@ -126,7 +121,6 @@ description: Manual invocation only
      2.8.3. 布朗運動與擴散過程（Brownian Motion & Diffusion Processes）
      2.8.4. 伊藤微積分與伊藤引理（Itô Calculus & Itô’s Lemma）
      2.8.5. 隨機微分方程（Stochastic Differential Equations, SDEs）
-     2.8.6. 點過程與 Hawkes 過程（Point Processes & Hawkes Processes）
      2.8.7. 均值回歸過程（Mean-Reverting Processes）
 
      2.9. 蒙地卡羅與抽樣方法（Monte Carlo & Sampling Methods）
@@ -144,7 +138,6 @@ description: Manual invocation only
      2.10.1. 貝葉斯濾波（Bayesian Filtering）
      2.10.2. 卡爾曼濾波（Kalman Filtering）
      2.10.3. 擴展與無跡卡爾曼濾波（Extended & Unscented Kalman Filtering）
-     2.10.4. 粒子濾波（Particle Filtering）
      2.10.5. 傅立葉分析（Fourier Analysis）
      2.10.6. 頻譜分析（Spectral Analysis）
      2.10.7. 小波與時頻分析（Wavelet & Time-Frequency Analysis）
@@ -215,31 +208,19 @@ description: Manual invocation only
      4.3.6. DBSCAN 密度聚類（Density-Based Spatial Clustering, DBSCAN）
      4.3.7. 異常檢測（Anomaly Detection）
 
-     4.4. 序列模型與 Attention（Sequence Models & Attention）
+     4.4. 序列模型（Sequence Models）
 
      4.4.1. 循環神經網路（Recurrent Neural Networks, RNN）
      4.4.2. 長短期記憶網路（Long Short-Term Memory, LSTM）
      4.4.3. 門控循環單元（Gated Recurrent Units, GRU）
      4.4.4. 時序卷積網路（Temporal Convolutional Networks, TCN）
-     4.4.5. Attention 機制（Attention Mechanisms）
-     4.4.6. Transformer（Transformers）
-     4.4.7. 時間序列 Transformer（Time-Series Transformers）
 
      4.5. 表徵學習與深度模型（Representation Learning & Deep Models）
 
      4.5.1. 多層感知器（Multilayer Perceptrons, MLP）
      4.5.2. 卷積神經網路（Convolutional Neural Networks, CNN）
-     4.5.3. 圖神經網路（Graph Neural Networks, GNN）
-     4.5.4. 自編碼器（Autoencoders）
-     4.5.5. 變分自編碼器（Variational Autoencoders, VAE）
-     4.5.6. 對比學習（Contrastive Learning）
-     4.5.7. 自監督學習（Self-Supervised Learning）
-     4.5.8. 多任務學習（Multi-Task Learning）
 
      4.6. 特徵解釋與模型監控（Feature Attribution & Model Monitoring）
 
      4.6.1. 特徵重要性（Feature Importance）
      4.6.2. SHAP 特徵歸因（SHAP Feature Attribution）
-     4.6.3. 資料漂移監控（Data Drift Monitoring）
-     4.6.4. 概念漂移監控（Concept Drift Monitoring）
-     4.6.5. 模型效能衰退監控（Model Performance Degradation Monitoring）
