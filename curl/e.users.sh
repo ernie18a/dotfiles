@@ -42,7 +42,7 @@ if [ -d /home/e/.G ]; then
         mkdir -p /home/$user/.hermes
         mkdir -p /home/$user/.claude
 		mkdir -p /home/$user/.pi/agent
-        echo 'source /dev/stdin <<< $(curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/.bash_profile)' > /home/$user/.bash_profile
+        echo 'source ~/.G/dotfiles/home/.bash_profile 2>/dev/null || source /dev/stdin <<< "$(curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile)"' > /home/$user/.bash_profile
         ln -snf /home/$user/.G/dotfiles/home/.gitconfig /home/$user/.gitconfig
         ln -snf /home/$user/.G/dotfiles/home/.tmux.conf /home/$user/.tmux.conf
         ln -snf /home/$user/.G/dotfiles/home/.vimrc /home/$user/.vimrc

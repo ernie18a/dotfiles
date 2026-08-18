@@ -17,7 +17,7 @@ case "$action" in
 	swapoff -a ; sed -i '/swap/ s/^/#/' /etc/fstab
 	echo "e ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 	rm -f /etc/update-motd.d/50-motd-news
-	echo 'source /dev/stdin <<< $(curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/.bash_profile)' | tee ~/.bash_profile ~/.bashrc /home/e/.bash_profile /home/e/.bashrc
+	echo 'source ~/.G/dotfiles/home/.bash_profile 2>/dev/null || source /dev/stdin <<< "$(curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile)"' | tee ~/.bash_profile ~/.bashrc /home/e/.bash_profile /home/e/.bashrc
 	touch ~/.hushlogin /home/e/.hushlogin
 	rm -rf /home/e/.gitconfig
 	rm -rf /home/e/.tmux.conf
@@ -33,7 +33,7 @@ case "$action" in
 	mkdir -p /home/e/.hermes
 	mkdir -p /home/e/.claude
 	mkdir -p /home/e/.pi/agent
-	echo 'source /dev/stdin <<< $(curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/.bash_profile)' > /home/e/.bash_profile
+	echo 'source ~/.G/dotfiles/home/.bash_profile 2>/dev/null || source /dev/stdin <<< "$(curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile)"' > /home/e/.bash_profile
 	ln -snf /home/e/.G/dotfiles/home/.gitconfig /home/e/.gitconfig
 	ln -snf /home/e/.G/dotfiles/home/.tmux.conf /home/e/.tmux.conf
 	ln -snf /home/e/.G/dotfiles/home/.vimrc /home/e/.vimrc
@@ -129,7 +129,7 @@ case "$action" in
 	  mkdir -p /home/$user/.hermes
 	  mkdir -p /home/$user/.claude
 	  mkdir -p /home/$user/.pi/agent
-	  echo 'source /dev/stdin <<< $(curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/.bash_profile)' > /home/$user/.bash_profile
+	  echo 'source ~/.G/dotfiles/home/.bash_profile 2>/dev/null || source /dev/stdin <<< "$(curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile)"' > /home/$user/.bash_profile
 	  ln -snf /home/$user/.G/dotfiles/home/.gitconfig /home/$user/.gitconfig
 	  ln -snf /home/$user/.G/dotfiles/home/.tmux.conf /home/$user/.tmux.conf
 	  ln -snf /home/$user/.G/dotfiles/home/.vimrc /home/$user/.vimrc
