@@ -14,4 +14,4 @@ For each removable part:
 3. Permanently remove it only when the outcome demonstrably still holds.
 4. Repeat until removing any remaining part would break the outcome or make it undecidable.
 
-Do not change the required outcome, expand the task, or treat this analysis as authorization to act. If the required outcome cannot be determined, stop without reducing.
+Do not change the required outcome, expand the task, or treat this analysis as authorization to act.
