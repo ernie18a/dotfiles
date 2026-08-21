@@ -19,7 +19,7 @@
 - WSL 透過 Windows NVIDIA 驅動存取 GPU/CUDA，未安裝 nvidia-smi 不影響其可用性。只有當需要時才執行 "(/usr/lib/wsl/lib/nvidia-smi --query-gpu=name --format=csv,noheader" 查看.
 - bash alias "UR" = uv run --no-project
 - " mv <要刪除的檔案或資料夾> /tmp/ " 取代 " rm -rf ", 禁止使用垃圾桶機制，包括 `gio trash`、`trash-put` 及任何移至 Trash 的操作
-- 當『隻』出現在異常位置時，可能是『只』的 typo。
-- 當『拿』出現在異常位置時，可能是『哪』的 typo。
-- 當『pump』出現在異常位置時，可能是『prompt』的 typo。
-- 當『來一個』出現在異常位置時，可能是『哪一個』的 typo。
+- 當`隻`出現在異常位置時，可能是`只`的 typo。
+- 當`拿`出現在異常位置時，可能是`哪`的 typo。
+- 當`pump`出現在異常位置時，可能是`prompt`的 typo。
+- 當`來一個`出現在異常位置時，可能是`哪一個`的 typo。
