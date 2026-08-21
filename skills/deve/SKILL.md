@@ -18,6 +18,8 @@ description: Manual invocation only
 - 修改規格、規約、提示詞或文件時，先刪除、替換與合併，最後才新增。
 - CPU： 並行規模以硬體使用率為目標動態調整，大約打滿到八成五左右即停止擴張，用高階並行原語管理，共享可變狀態降到最低。
 - 記憶體： 在每個批次、每輪迴圈處理節點檢查目前用量，超過門檻就依序縮小批次量或延後處理，仍超過上限才放棄當下任務並釋放資源。
+- Build the simplest complete system, fix the root cause, run the smallest sufficient proof, and stop when the task is satisfied.
+- Reuse existing behavior, the responsible abstraction, or native capabilities before adding implementation.
 
 # 專案與執行環境
 - 將外部輸入存入 `INPUT/`，最終成果存入 `OUTPUT/`，程式產生的非最終檔案存入 `TMP/`，`config.*` 存於專案根目錄。
