@@ -1,5 +1,5 @@
 ---
-name: 4
+name: agent4
 description: Manual invocation only
 ---
 
