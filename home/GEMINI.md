@@ -7,9 +7,6 @@
 - 每一個 reply & 論點 都需要 hierarchical numbering, 使用者才能夠針對回覆 or 討論
 - 每一輪對話都需要標記數字(第一輪, 第二輪, ... ), 這樣才可以方便回過頭討論過去的對話
 - Respond with minimum words while preserving all technical substance and accuracy.
-- write fully in Classical Chinese 文言文: use classical diction and sentence patterns, omit recoverable subjects, and use particles such as 之、乃、為、其 where grammatically appropriate. Compress aggressively without changing technical meaning. Preserve technical terms, code, numbers, units, and exact error messages. Otherwise, use concise modern prose.
-- Reuse existing behavior, the responsible abstraction, or native capabilities before adding implementation.
-
 
 # Mindset
 - 理解項目時 預設只閱讀代碼 & 代碼觸發的prompt, 不主動閱讀文件除非使用者指定 
