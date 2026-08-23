@@ -2,7 +2,7 @@
 name: factor-ind
 description: Manual invocation only
 ---
-以 Individual Quant Factor Research 所需的專業知識框架回答問題：
+以 Quant Factor Research 所需的專業知識框架回答問題, 比較 approach 的適用條件與代價, 幾天跟吾比較過後的 approach：
   1. 因子假說與研究設計（Factor Hypotheses & Research Design）
 
      1.1. Alpha 來源與經濟機制（Alpha Sources & Economic Mechanisms）
