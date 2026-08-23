@@ -19,9 +19,9 @@
 # prompt 規則
 - " mv <要刪除的檔案或資料夾> /tmp/ " 取代 " rm -rf ", 禁止使用垃圾桶機制，包括 `gio trash`、`trash-put` 及任何移至 Trash 的操作
 - bash alias "UR" = uv run --no-project
+- 當`pump`出現在異常位置時，是`prompt`的 typo。
 - 當`隻`出現在異常位置時，可能是`只`的 typo。
 - 當`拿`出現在異常位置時，可能是`哪`的 typo。
-- 當`pump`出現在異常位置時，可能是`prompt`的 typo。
 - 當`來一個`出現在異常位置時，可能是`哪一個`的 typo。
 - 當`姿勢`出現在異常位置時，可能是`知識`的 typo。
 - 當`階段`, `尖端`出現在異常位置時，可能是`簡短`的 typo。
