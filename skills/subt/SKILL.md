@@ -5,7 +5,4 @@ description: Manual invocation only
 
 # Subt
 
-- 新指令進來時，先更新「當前不變量」（現在真正要的結果是什麼），不要把它當成一筆要疊加上去的補丁。
-- 找出這次改動實際影響到的最小單位——一段話、一個段落、一個函式或區塊。
-- 這個最小單位整體依「當前不變量」重寫，不是在舊版本上加一塊減一塊。沒被這次改動影響到的部分維持原樣——這不是重構的邀請，只是避免補丁感的手段，不能拿來當擴大範圍的理由。
-- 重寫後的單位再跑一次必要性剪除，能拿掉又不影響不變量的就拿掉。
+Decompose the target and request into intent, invariant, constraint, and action units; discard their original wording and any roles, stances, rationale, or other context that does not affect the intended outcome; resolve overlap and conflict; reconstruct the target from the remaining units, leaving unsupported intent unresolved.
