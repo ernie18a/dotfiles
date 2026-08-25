@@ -12,6 +12,7 @@ Create `/g/app/dual` entry briefs. Convert messy input into a concrete task cont
 Target runtime: `/g/app/dual`.
 
 The runtime owns:
+
 - provider invocation
 - planner and worker JSON protocol
 - `PROGRESS/state.json`
@@ -20,6 +21,7 @@ The runtime owns:
 - worker fallback and recovery
 
 This skill owns:
+
 - extracting durable task requirements from user input and project files
 - writing root-level `dualNN.md` files in the target project
 - defining what work is allowed, forbidden, verifiable, blocked, and complete
@@ -29,6 +31,7 @@ Do not write runtime protocol schemas, `worker_report.json`, checkpoint rules, p
 ## Input Compiler
 
 Treat these as extraction inputs:
+
 - user request
 - rough requirement notes
 - robustness, safety, or reliability notes
@@ -40,6 +43,7 @@ Treat these as extraction inputs:
 - target project instructions
 
 Convert extraction inputs into durable brief terms:
+
 - terminal goal
 - current batch
 - current state
@@ -58,6 +62,7 @@ Do not make the brief depend on chat history, temporary files, deleted notes, so
 ## Preflight
 
 Before writing a brief, inspect only what changes the brief:
+
 - target project root
 - applicable project instructions
 - existing `dualNN.md` files
@@ -65,6 +70,7 @@ Before writing a brief, inspect only what changes the brief:
 - files directly named by the user or needed to define scope and verification
 
 Then decide:
+
 - If the task is a small direct fix that does not benefit from planner-worker execution, tell the user `/g/app/dual` is overhead and offer a smaller direct handoff.
 - If the task needs staged execution, recovery, verification review, or a worker batch, create a `dualNN.md` brief.
 - If a missing fact would change scope, contracts, verification, or completion criteria, derive it from files first.
@@ -164,51 +170,61 @@ Forbidden:
 ## Section Rules
 
 `Goal`:
+
 - `terminal` is the final user or product outcome.
 - `current batch` is the next bounded worker phase.
 - Do not make the terminal goal a partial fix, investigation step, or runtime status.
 
 `Current State`:
+
 - Name the task authority as extracted requirements, project files, or product contracts.
 - Record known progress only if it affects the next plan.
 - Record unresolved work as action-oriented remaining work.
 
 `Progress`:
+
 - Use stable `Pxx` ids.
 - Mark only durable product progress, not runtime phase state.
 
 `Context Index`:
+
 - Include only project-owned files that the planner or worker may need later.
 - Each item must say when to read the file.
 - Do not list `PROGRESS/*`, runtime logs, protocol errors, `worker_report.json`, chat transcripts, or deleted source notes.
 
 `Scope`:
+
 - Allowed scope names files, directories, modules, commands, or behavior the worker may change.
 - Forbidden scope names files, directories, behaviors, contracts, or commands the worker must not change.
 - If a path is unknown, define a discovery boundary instead of inventing a path.
 
 `Contracts`:
+
 - Include only externally visible behavior, data shape, CLI/API behavior, file format, error behavior, invariants, or compatibility requirements.
 - Do not include implementation preferences unless they protect a contract.
 
 `Verification`:
+
 - List commands the worker may run autonomously.
 - Include expected evidence, not only command names.
 - If a command is risky, unavailable, expensive, or forbidden by the project, put it under `restricted commands`.
 - Do not require user approval for checks the worker can run within its available tools and project rules.
 
 `Escalation Policy`:
+
 - Require the planner to issue the next batch when completion criteria remain unmet.
 - Allow `done` only when terminal goal and completion criteria are satisfied.
 - Allow `failed` or `blocked` only after bounded in-scope attempts have evidence and no immediate autonomous action remains.
 - Do not ask the user for clarification, approval, input, or a decision unless the remaining issue is outside workspace authority and cannot be derived.
 
 `Completion Criteria`:
+
 - Define terminal success in observable terms.
 - List required evidence for each terminal condition.
 - List conditions that are not sufficient by themselves, such as "tests passed but feature not wired" or "batch complete but inventory remains".
 
 `Handoff State`:
+
 - Define how worker reports should summarize changes for planner review.
 - Use project-relative paths only.
 - Put external blockers in `blocker`, not in `remaining autonomous actions`.
@@ -216,6 +232,7 @@ Forbidden:
 ## Provenance Rules
 
 Include:
+
 - user task requirements
 - target project instructions
 - product contracts
@@ -223,6 +240,7 @@ Include:
 - verification limits from the project
 
 Exclude:
+
 - global assistant rules
 - current sandbox or approval policy
 - temporary chat permissions
@@ -236,6 +254,7 @@ Do not turn a temporary approval or environment limitation into a product task r
 ## Runtime Artifact Rules
 
 Never require the worker or planner to read, write, patch, validate, or preserve:
+
 - `worker_report.json`
 - `OUTPUT/worker_report.json`
 - `PROGRESS/state.json`
@@ -249,6 +268,7 @@ If recovery context matters, extract the product-relevant fact into `STATUS.md`,
 ## Quality Check
 
 Before finishing, verify:
+
 - the brief can be executed without chat history
 - the terminal goal is broader than the current batch
 - every allowed change has a boundary

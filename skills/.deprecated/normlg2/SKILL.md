@@ -18,6 +18,7 @@ Use normalization as an internal compiler step: shape the source into goal, curr
 
 2. Normalize the source.
    Derive the execution contract:
+
    - terminal goal
    - current executable slice
    - allowed scope
@@ -29,6 +30,7 @@ Use normalization as an internal compiler step: shape the source into goal, curr
 
 3. Write `normlg2NN.md`.
    Use the next available number. The entry must identify:
+
    - terminal and current goal
    - execution scope
    - inputs and task index
@@ -46,6 +48,7 @@ Use normalization as an internal compiler step: shape the source into goal, curr
 ## Output
 
 Create or update the LG2 entry:
+
 - `normlg2NN.md`
 
 Report the created files and any blocker that prevents a trustworthy LG2 entry.

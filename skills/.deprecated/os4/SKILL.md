@@ -32,6 +32,7 @@ Create one `osNN.md` execution manual from one request or a multi-requirement sp
 ## Parallel Test
 
 Mark a packet `parallel` only if all conditions are true:
+
 1. `allowed paths` is exact.
 2. `allowed paths` does not overlap another parallel packet, or ownership is limited to named functions, classes, sections, routes, or commands.
 3. The packet does not redefine a contract consumed by another packet.
@@ -43,6 +44,7 @@ Else mark it `sequential`, `integration`, or `blocked`.
 ## Invalid Completion
 
 Do not accept completion evidence based on:
+
 - mock path replacing the real path
 - placeholder file or module
 - TODO-only implementation

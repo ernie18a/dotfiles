@@ -21,11 +21,13 @@ Compile user intent into a compact LG3/LG4 entry/index contract. Create a new en
 ## Authority Boundary
 
 The skill defines only runtime input:
+
 - target runtime
 - goal, scope, evidence, verification, completion criteria, and stop conditions
 - minimal index references when one entry would grow too large
 
 The runtime decides:
+
 - progress state under `LG3_PROGRESS/` or `LG4_PROGRESS/`
 - worker/backend execution
 - verification result
@@ -75,6 +77,7 @@ Use the shared LG3/LG4 contract unless the local parser or README says otherwise
 ````
 
 Required sections:
+
 - `Goal`
 - `Scope` or `Boundaries`
 - `Evidence`
@@ -101,6 +104,7 @@ Required sections:
 `Stop`: concrete blockers such as missing runtime choice, ambiguous scope, missing permission, parser mismatch, unsafe writes, unverifiable evidence, or unavailable external authority.
 
 High-value failure boundaries:
+
 - partial work counted as terminal success
 - wrong files or contracts changed
 - verification passes while requested behavior remains unwired
@@ -114,6 +118,7 @@ Use index references only when they reduce repeated reading or editing. Referenc
 ## Repair Rules
 
 For blocked, failed, rejected, malformed, or no-progress feedback:
+
 - Add missing required sections.
 - Replace weak verification with a concrete command or a `Stop` blocker.
 - Tighten scope when the worker acted too broadly.

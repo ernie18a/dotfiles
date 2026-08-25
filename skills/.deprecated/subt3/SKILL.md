@@ -18,6 +18,7 @@ Reduce editable artifacts by deletion only, preserving the necessary and suffici
 ## Premise Check
 
 Before editing, define:
+
 - $I$ (Invariants): the required behaviors or outcomes that must survive reduction
 - $U$ (User request): the requested delta or target behavior
 - $A$ (Artifact text): the current text
@@ -28,13 +29,16 @@ If the request requires rewriting, reordering, consolidation, or extension, this
 ## Procedure
 
 1. Partition
+
    - Split $A$ into candidate elements $E$ at the sentence, rule, list-item, paragraph, or section level.
 
 2. Remove
+
    - For each subset or element, test whether $I$ still holds if that text is deleted.
    - Delete any text whose removal does not violate $I$.
 
 3. Repeat
+
    - Continue passes until no remaining element can be removed without violating $I$.
 
 ## Validation
@@ -44,6 +48,7 @@ Stop when all remaining elements are load-bearing:
 $$\forall e_i \in E,\quad I(A' \setminus \{e_i\}) = \text{false}$$
 
 At termination:
+
 1. The artifact is shorter than the original.
 2. Every remaining element is necessary for preserving $I$.
 3. No non-load-bearing text remains.
@@ -51,6 +56,7 @@ At termination:
 ## Output
 
 List only:
+
 1. **Removed**: text deleted because $I$ remained satisfied without it.
 2. **Retained**: text that failed the removal test.
 3. **Invariant Status**: why the reduced artifact still preserves $I$.

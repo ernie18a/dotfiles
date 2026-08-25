@@ -23,6 +23,7 @@ Before writing:
 8. If more than one valid direction remains, write the executor-facing decision rule and boundaries instead of a fixed internal sequence.
 
 Handoff rules:
+
 - Keep one main goal and divide work into concrete code-edit phases.
 - State allowed and forbidden exact paths, behaviors, and contracts.
 - Make the handoff self-contained: the executor can complete the requested code work using only the handoff. If removing prior conversation or references makes the handoff insufficient, extract the missing contracts into the handoff.

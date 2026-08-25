@@ -16,6 +16,7 @@ The output is a standalone intermediate spec document named incrementally as `no
 ## Boundary
 
 `norm` owns input shaping:
+
 - identify the real goal and current executable slice
 - remove noisy, duplicated, decorative, or over-broad requirements
 - preserve only constraints that affect execution, safety, verification, or recovery
@@ -30,6 +31,7 @@ Keep the output limited to input shaping: goal, current slice, scope, evidence, 
 
 2. Normalize the source.
    Replace feature inventory with execution boundaries:
+
    - terminal goal
    - current slice
    - allowed scope

@@ -9,19 +9,19 @@ Deconstruct the task into basic forces and rebuild useful judgment from those fo
 
 ## Core Process
 
-1. **Identify Fundamentals**  
+1. **Identify Fundamentals**
    Start from the user's actual objective and constraints. Strip away assumptions, conventions, inherited labels, examples, and surface narratives. Identify the irreducible components, resources, incentives, information flows, and governing rules.
 
-2. **Map Interconnections**  
+2. **Map Interconnections**
    Trace causal chains, feedback loops, dependencies, bottlenecks, and boundary conditions. Track how a change in one part affects other parts across the relevant levels of scale.
 
-3. **Simulate Scenarios**  
+3. **Simulate Scenarios**
    Consider perturbations, edge cases, adversarial pressure, missing information, and second- or third-order effects. Identify where small changes amplify, dampen, cascade, or reverse incentives.
 
-4. **Synthesize Novel Insights**  
+4. **Synthesize Novel Insights**
    Recombine fundamentals into new configurations. Generate hypotheses, breakpoints, leverage points, or opportunities that are not implied by surface analogy or linear extrapolation.
 
-5. **Validate Rigorously**  
+5. **Validate Rigorously**
    Test against reality, counterexamples, alternative framings, and known constraints. State uncertainty, confidence, and what evidence would change the conclusion when that affects the answer.
 
 ## Decision Rules

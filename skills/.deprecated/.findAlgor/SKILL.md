@@ -1,6 +1,7 @@
 ---
 name: findAlgor
-description: Apply this skill whenever the user faces any decision-making problem, optimization challenge, selection task, ranking need, search/filter requirement, scheduling dilemma, resource allocation, trade-off analysis, or any situation involving "which option to choose", "how to prioritize", "what's the best way", "is this feasible", "how to automate this judgment". This skill brings computational complexity theory and algorithm design thinking to bear on the problem — treating decisions as computable problems with tractability bounds, and selecting or designing an algorithm-style reasoning process that matches the problem's actual structure. Use this skill regardless of domain: business, personal, medical, legal, creative, technical, social, financial, or any other. If the user is trying to make a decision or automate a judgment process, use this skill.
+description: >-
+  Apply this skill whenever the user faces any decision-making problem, optimization challenge, selection task, ranking need, search/filter requirement, scheduling dilemma, resource allocation, trade-off analysis, or any situation involving "which option to choose", "how to prioritize", "what's the best way", "is this feasible", "how to automate this judgment". This skill brings computational complexity theory and algorithm design thinking to bear on the problem — treating decisions as computable problems with tractability bounds, and selecting or designing an algorithm-style reasoning process that matches the problem's actual structure. Use this skill regardless of domain: business, personal, medical, legal, creative, technical, social, financial, or any other. If the user is trying to make a decision or automate a judgment process, use this skill.
 ---
 
 # Complexity & Algorithm Decision Skill
@@ -13,6 +14,7 @@ Every decision is a computable problem. Two fundamental tools determine how to a
 2. **Algorithm Design** — answers: *given that hardness, what's the best reasoning process?*
 
 Together they prevent two failure modes:
+
 - Applying brute-force thinking to easy problems (wasted effort)
 - Applying simple heuristics to hard problems (wrong answers with false confidence)
 
@@ -54,13 +56,17 @@ Ask these diagnostic questions about the user's problem:
 Match strategy to complexity class:
 
 ### For Trivial / O(1) Problems
+
 **Strategy: Direct Rule Application**
+
 - Identify the decision rule explicitly
 - Apply it without search
 - Output: deterministic answer + the rule stated clearly
 
 ### For P Problems
+
 **Strategy: Systematic Enumeration or Structured Search**
+
 - Define the solution space precisely
 - Apply the appropriate algorithmic pattern:
   - *Divide & Conquer*: split problem into independent subproblems, solve each, combine
@@ -70,7 +76,9 @@ Match strategy to complexity class:
 - Output: optimal or near-optimal answer with reasoning trace
 
 ### For NP-Hard Problems
+
 **Strategy: Constraint Reduction + Heuristic + Bounded Search**
+
 - **Reduce the space first**: apply hard constraints to eliminate infeasible options
 - **Use a heuristic**: greedy initialization, simulated annealing logic, or domain-informed scoring
 - **Set a satisficing threshold**: define "good enough" explicitly — don't chase the optimal
@@ -78,7 +86,9 @@ Match strategy to complexity class:
 - Output: best feasible option found + confidence level + what was traded off
 
 ### For Intractable / Ill-Defined Problems
+
 **Strategy: Reframe**
+
 - Identify what makes the problem intractable (missing information, undefined objective, infinite search space)
 - Propose a reformulation that is tractable
 - Output: reframed problem statement + proposed tractable version
@@ -88,22 +98,27 @@ Match strategy to complexity class:
 Once complexity class and strategy are chosen, execute:
 
 ### 3a. State the Problem Formally
+
 - What are the **inputs** (the options, variables, candidates)?
 - What are the **constraints** (hard limits that must be satisfied)?
 - What is the **objective** (what are we optimizing for)?
 - What is the **output type** (single best, ranked list, yes/no, threshold)?
 
 ### 3b. Prune the Search Space
+
 Apply hard constraints first — this is free speedup regardless of complexity class.
+
 - Eliminate options that violate non-negotiable constraints
 - State what was eliminated and why
 
 ### 3c. Score or Traverse Remaining Options
+
 - For small spaces: enumerate and score each
 - For large spaces: apply the selected algorithm strategy
 - Make scoring criteria explicit and weighted if multiple objectives exist
 
 ### 3d. Output the Decision
+
 - **Primary recommendation**: the selected option or action
 - **Reasoning trace**: how the algorithm arrived here
 - **Complexity note**: what class this problem is, and therefore what confidence level is warranted

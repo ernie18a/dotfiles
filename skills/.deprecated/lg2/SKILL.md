@@ -14,6 +14,7 @@ The skill creates one new `lg2NN.md` entry by default, named incrementally like 
 ## Boundary
 
 `lg2` owns input quality:
+
 - Convert user intent into a compact entry/index contract.
 - Preserve only requirements that affect execution, safety, verification, or recovery.
 - Identify missing goal, scope, evidence, stop condition, next action, or audit boundary.
@@ -23,6 +24,7 @@ The skill creates one new `lg2NN.md` entry by default, named incrementally like 
 - Repair an entry when runtime feedback shows ambiguity, missing evidence, or blocker context.
 
 `lg2-run` owns execution:
+
 - Load entry markdown and compute its digest.
 - Create or resume `PROGRESS/state.json`.
 - Load only referenced task docs needed for the current decision.
@@ -33,12 +35,14 @@ The skill creates one new `lg2NN.md` entry by default, named incrementally like 
 ## Description Discipline
 
 Write for the LangGraph runtime's actual decisions:
+
 - load the entry and any referenced task docs
 - choose the next smallest executable action
 - reject unsafe, stale, too broad, or unverifiable work
 - audit terminal success against observable evidence
 
 Borrow description discipline from narrower handoff formats without copying their execution model:
+
 - From one-shot handoffs, use concrete allowed/forbidden scope, small executable actions, direct verification, and hard stop conditions.
 - From planner-worker briefs, use high-value boundaries, fresh evidence requirements, and `Completion Criteria` that make false terminal success hard to satisfy.
 - Translate those ideas into the existing `LG2 Entry` fields; do not add phase-completion status, planner-worker protocol details, runtime state fields, or handoff-only report sections unless they are required by the LangGraph runtime contract.
@@ -94,6 +98,7 @@ Forbidden:
 ```
 
 Rules:
+
 - Keep one primary goal per entry.
 - Keep `Next Action` to the next smallest executable workspace action; for code-affecting work, derive it from inspected code rather than documents, summaries, chat history, or assumptions.
 - Keep `Boundaries` to the smallest set that blocks high-risk failure: wrong files, false terminal success, stale evidence, unsafe breadth, or hidden external blockers.
@@ -132,6 +137,7 @@ Rules:
 ## Repair Rules
 
 When runtime feedback says `blocked`, `failed`, or no progress:
+
 - If the blocker is missing input or authority, update `Stop` or ask for the missing input.
 - If the blocker is ambiguity, narrow `Goal`, `Scope`, `Task Index`, or `Next Action`.
 - If evidence is missing, add `Evidence Required` or `Verification`; do not weaken completion criteria.
@@ -143,6 +149,7 @@ When runtime feedback says `blocked`, `failed`, or no progress:
 ## Output Discipline
 
 When editing an entry, report only:
+
 - what changed
 - what was removed or tightened
 - what remains blocked or unverifiable

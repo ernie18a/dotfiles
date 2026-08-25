@@ -19,23 +19,23 @@ Extract segments that can function as independent short-form content units withi
 
 A high-value segment may contain one or more of the following characteristics:
 
-### 1. Counterintuitive Insight
+## 1. Counterintuitive Insight
 
 * Challenges common assumptions
 * Corrects a widespread misunderstanding
 * Creates a clear contrast between expectation and reality
 
-### 2. Actionable Knowledge
+## 2. Actionable Knowledge
 
 * Includes practical steps, methods, frameworks, or strategies
 * Enables immediate application
 
-### 3. Complete Narrative Structure
+## 3. Complete Narrative Structure
 
 * Contains a clear beginning, conflict/problem, turning point, and outcome
 * Or presents a complete standalone event
 
-### 4. Emotional Dynamics
+## 4. Emotional Dynamics
 
 * Includes noticeable emotional shifts such as:
 
@@ -46,12 +46,12 @@ A high-value segment may contain one or more of the following characteristics:
   * realization
   * disbelief
 
-### 5. Quotable Statements
+## 5. Quotable Statements
 
 * Contains memorable phrases that remain meaningful without additional context
 * Suitable for titles, hooks, or social sharing
 
-### 6. High Information Density
+## 6. High Information Density
 
 * Delivers multiple meaningful insights in a short duration
 * Avoids unnecessary setup or repetition
@@ -62,13 +62,13 @@ A high-value segment may contain one or more of the following characteristics:
 
 Apply the following requirements when selecting segments:
 
-### Include
+## Include
 
 * Segments that can be understood independently
 * Segments that maintain meaning without surrounding context
 * Segments suitable for the target short-form format
 
-### Exclude
+## Exclude
 
 * Greetings and introductions
 * Transitional statements

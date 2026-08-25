@@ -8,6 +8,7 @@ description: Manual invocation only
 Create root-level `dualNN.md` entry briefs for the current target project root.
 
 Write for the runtime's actual readers:
+
 - The planner reads the full brief to choose the next `batch_plan`.
 - The worker receives only the active plan, not the whole brief.
 - The terminal audit rereads the brief to decide whether the terminal goal and all Completion Criteria are satisfied.
@@ -23,6 +24,7 @@ Do not create an entry in one project to modify another project. If the user nam
 ## Preflight
 
 Inspect only inputs that can change the contract:
+
 - the target project root and applicable project instructions
 - existing `dualNN.md`, `STATUS.md`, or indexed context files when present
 - files, logs, commands, or notes needed to define scope, boundaries, verification, or completion
@@ -36,6 +38,7 @@ Do not ask for choices when the worker can inspect, derive, acquire, or implemen
 Before writing sections, identify the smallest set of high-value failure boundaries. Prefer three; use at most five unless more are independently necessary for terminal correctness.
 
 A boundary is high value only if it prevents one of these failures:
+
 - the planner declares a partial batch as terminal success
 - the worker changes the wrong files or violates a non-negotiable contract
 - verification passes while the real product behavior is still wrong
@@ -72,6 +75,7 @@ Use this shape by default:
 ```
 
 Add other sections only when they materially improve planner batch selection or terminal audit:
+
 - `Current State`: only facts that change the next plan.
 - `Progress`: only durable completed work across batches.
 - `Context Index`: only stable project-owned references the planner may need later.
@@ -97,6 +101,7 @@ When real external systems can block completion, require bounded attempts with o
 Treat `Completion Criteria` as the audit oracle. It must be short, observable, and hard to satisfy accidentally.
 
 Include:
+
 - terminal success conditions
 - required evidence that proves those conditions
 - conditions that are explicitly not sufficient
@@ -110,6 +115,7 @@ Write one root-level `dualNN.md` in the target project unless multiple entry fil
 Keep paths relative to the target project root.
 
 Do not include:
+
 - chat history, raw logs, source-file copies, or background narrative
 - runtime protocol schemas or provider implementation details
 - `PROGRESS/*`, `worker_report.json`, or runtime debug artifacts as source-of-truth files

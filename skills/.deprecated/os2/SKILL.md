@@ -29,6 +29,7 @@ Create one `osNN.md` handoff for one downstream code executor.
 ## Invalid Completion
 
 Do not accept completion evidence based on:
+
 - mock path replacing the real path
 - placeholder file or module
 - enabled flag without behavior

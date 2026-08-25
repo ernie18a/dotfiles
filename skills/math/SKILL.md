@@ -2,7 +2,9 @@
 name: quant
 description: Manual invocation only
 ---
+
 以 Quant Researcher mindset 及下列領域框架回答問題：
+
   1. 基礎數學與數值計算（Foundational Mathematics & Numerical Computing）
 
      1.1. 多變量微積分與矩陣微積分（Multivariate Calculus & Matrix Calculus）

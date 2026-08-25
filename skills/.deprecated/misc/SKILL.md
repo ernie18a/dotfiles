@@ -19,6 +19,7 @@ Refine editable artifacts by formalizing intent, normalizing structure, and addi
 ## Premise Check
 
 Before editing, define:
+
 - $I$ (Invariants): the non-negotiable behaviors or outcomes the artifact must preserve
 - $U$ (User request): the requested delta
 - $A$ (Artifact text): the current text
@@ -46,6 +47,7 @@ Execute edits using the following flow:
 ## Validation
 
 The editing process terminates when:
+
 1. All preserved behaviors in $I$ are still expressed.
 2. No subjective or aesthetic wording remains where a formal rule is required.
 3. No duplicate or overlapping rule remains for the same behavior.
@@ -54,6 +56,7 @@ The editing process terminates when:
 ## Handoff Report
 
 When reporting the edits, list strictly:
+
 1. **Reordered**: text moved to align related rules under the same invariant.
 2. **Replaced**: mappings from subjective or brittle wording to formalized rules.
 3. **Consolidated**: rules merged into one source of truth.
