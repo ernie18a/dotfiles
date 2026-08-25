@@ -1,5 +1,7 @@
 approval_policy = "never"
 sandbox_mode = "workspace-write"
+model = "gpt-5.6-sol"
+model_reasoning_effort = "low"
 
 [sandbox_workspace_write]
 network_access = true
@@ -26,5 +28,44 @@ enabled = false
 [tui]
 session_picker_view = "dense"
 
+[tui.model_availability_nux]
+"gpt-5.6-sol" = 1
+
 [notice]
 hide_rate_limit_model_nudge = true
+
+[projects."/home/e/.G/dotfiles"]
+trust_level = "trusted"
+
+[projects."/home/e"]
+trust_level = "trusted"
+
+[projects."/g/app"]
+trust_level = "trusted"
+
+[projects."/g/hedge"]
+trust_level = "trusted"
+
+[projects."/tmp/investing-algorithm-framework"]
+trust_level = "trusted"
+
+[projects."/g/auto"]
+trust_level = "trusted"
+
+[projects."/g/a"]
+trust_level = "trusted"
+
+[projects."/tmp/b"]
+trust_level = "trusted"
+
+[projects."/g/tools"]
+trust_level = "trusted"
+
+[projects."/g/private"]
+trust_level = "trusted"
+
+[projects."/tmp/alpha-forge"]
+trust_level = "trusted"
+
+[projects."/tmp/vectorbt"]
+trust_level = "trusted"
