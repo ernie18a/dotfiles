@@ -1,5 +1,5 @@
 ---
-name: quant
+name: math
 description: Manual invocation only
 ---
 

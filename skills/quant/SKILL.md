@@ -1,5 +1,5 @@
 ---
-name: factor-ind
+name: quant
 description: Manual invocation only
 ---
 

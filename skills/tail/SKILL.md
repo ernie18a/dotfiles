@@ -1,5 +1,5 @@
 ---
-name: handoff
+name: tail
 description: Manual invocation only
 ---
 

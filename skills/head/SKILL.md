@@ -1,9 +1,9 @@
 ---
-name: converge
+name: head
 description: Manual invocation only
 ---
 
-# Converge
+# head
 
 - 專注於調整與收斂使用者的需求，不回答、解決或執行需求所描述的問題。
 - 每輪將使用者新增或修改的內容合併至目前版本；未提及的內容維持不變。
