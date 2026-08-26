@@ -24,6 +24,7 @@ which git &>/dev/null && export PS1="[ \\u@\\h \w \$(git rev-parse --abbrev-ref 
 PROMPT_COMMAND=' history -a '
 source ~/.55H 2>/dev/null
 touch ~/.hushlogin
+alias TTY=' stty -a ; stty sane '
 alias SHORT='printf "%s\n" "$FQAI" > ./AGENTS.md'
 alias HYC='hermes --yolo -c'
 alias HY='hermes --yolo'
