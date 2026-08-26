@@ -22,3 +22,25 @@ Never access the following paths on any domain:
 - `https://<DOMAIN_NAME>/policies`
 - `https://<DOMAIN_NAME>/policies/*`
 - `https://<DOMAIN_NAME>/.well-known/*`
+
+Never access the following paths on specifying file type:
+
+圖片、PDF、部分影音的 XMP：
+
+- `XMP-dc:Rights`
+- `XMP-xmpRights:Marked`
+- `XMP-xmpRights:UsageTerms`
+- `XMP-xmpRights:WebStatement`
+
+圖片的舊式備援位置：
+
+- `EXIF:Copyright`
+- `IPTC:CopyrightNotice`
+
+影片／音訊在 ffprobe JSON 中：
+
+- `format.tags.license`
+- `format.tags.copyright`
+- `format.tags.terms_of_use`
+- `streams[].tags.license`
+- `streams[].tags.copyright`
