@@ -16,7 +16,7 @@
 # prompt alias
 - " mv <要刪除的檔案或資料夾> /tmp/ " 取代 " rm -rf ", 禁止使用垃圾桶機制，包括 `gio trash`、`trash-put` 及任何移至 Trash 的操作
 - bash alias "UR" = uv run --no-project
-- 當`pump`出現在異常位置時，是`prompt`的 typo。
+- 當`pump`,`trump`出現在異常位置時，是`prompt`的 typo。
 - 當`隻`出現在異常位置時，可能是`只`的 typo。
 - 當`拿`出現在異常位置時，可能是`哪`的 typo。
 - 當`偷啃`出現在異常位置時，可能是`token`的 typo。
