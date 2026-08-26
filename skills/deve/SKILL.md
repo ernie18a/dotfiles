@@ -24,7 +24,7 @@ description: Manual invocation only
 
 # 專案與執行環境
 
-- 將外部輸入存入 `INPUT/`，最終成果存入 `OUTPUT/`，程式產生的非最終檔案存入 `TMP/`，`config.*` 存於專案根目錄。
+- 使用者提供的輸入、指定產出、程式執行時自動產生的非指定產出，分別存入 `./INPUT/`、`./OUTPUT/`、`./TMP/`；三者一律視為不納入版本控制，需納入版本控制的檔案不得置入其中。
 - 新增或執行 Python 專案與腳本時，使用 `uv run` 獨立環境。
 - Python 腳本固定以 `uv run <NAME>.py` 執行；必要參數與設定定義於腳本內，不透過 command-line arguments 或 flags 傳入。
 - 腳本依賴使用 PEP 723 宣告；requires-python 設明確上限，以最重依賴的最高支援版本為準；僅使用 PyPI 官方 wheel；[tool.uv] 加入 exclude-newer 設為撰寫當下日期以確保跨設備解析一致，不產生 .lock 檔。
