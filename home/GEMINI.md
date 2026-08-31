@@ -15,20 +15,18 @@
 
 # prompt alias
 - " mv <要刪除的檔案或資料夾> /tmp/ " 取代 " rm -rf ", 禁止使用垃圾桶機制，包括 `gio trash`、`trash-put` 及任何移至 Trash 的操作
-- bash alias "UR" = uv run --no-project
+- `UR`是`uv run --no-project`的 bash alias。
 - 當`pump`,`trump`出現在異常位置時，是`prompt`的 typo。
 - 當`隻`出現在異常位置時，可能是`只`的 typo。
-- 
 - 當`四`出現在異常位置時，可能是`是`的 typo。
 - 當`拿`出現在異常位置時，可能是`哪`的 typo。
-- 當`偷啃`出現在異常位置時，可能是`token`的 typo。
+- 當`階段`, `尖端`出現在異常位置時，可能是`簡短`的 typo。
 - 當`極致`出現在異常位置時，可能是`機制`的 typo。
 - 當`二國`出現在異常位置時，可能是`俄國`的 typo。
-- `開源工具` = `huggingface or github`。
+- `偷啃`是`token`的 typo。
+- `開源工具`是指`huggingface`或`github`。
 - `墓地`是`目的`的 typo。
-- `迴車`, `回車` = `backtesting`。
-- `意識` = `意思`。
-- 當`墓地`出現在異常位置時，可能是`目的`的 typo。
-- 當`姿勢`,`芝士`,`執事`出現在異常位置時，可能是`知識`的 typo。
-- 當`階段`, `尖端`出現在異常位置時，可能是`簡短`的 typo。
-- 
+- `迴車`、`回車`是`backtesting`的 typo。
+- `意識`是`意思`的 typo。
+- `墓地`是`目的`的 typo。
+- `姿勢`,`芝士`,`執事`是`知識`的 typo。
