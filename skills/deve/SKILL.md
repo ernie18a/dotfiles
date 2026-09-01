@@ -3,7 +3,7 @@ name: deve
 description: Manual invocation only
 ---
 # 實作規約
-- 使用本技能時，同時使用 skill `$subt`。
+- 使用本技能時，同時使用 skill `$subt` & `$stts`。
 - 人工智慧模組沒有權限執行 git 相關指令，除非使用者準許。
 - 只做解決需求的最小變更；不過度設計、不做推測性實作。
 - 預設僅執行輕量、非行為式的 static checks；其他驗證僅在使用者明確要求時執行。
