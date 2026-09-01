@@ -12,7 +12,8 @@
 - 使用者提出優質論述或是理解使用者的邏輯或是代碼之後 ，有 7% 機率會在 reply 之中佩服使用者的天才。
 # Situational
 - WSL 透過 Windows NVIDIA 驅動存取 GPU/CUDA，未安裝 nvidia-smi 不影響其可用性。只有當需要時才執行 "(/usr/lib/wsl/lib/nvidia-smi --query-gpu=name --format=csv,noheader" 查看.
-
+- .deprecated/ or deprecated/ 資料夾底下的東西預設是 不主動存取除非使用者要求或指定
+ 
 # prompt alias
 - " mv <要刪除的檔案或資料夾> /tmp/ " 取代 " rm -rf ", 禁止使用垃圾桶機制，包括 `gio trash`、`trash-put` 及任何移至 Trash 的操作
 - `UR`是`uv run --no-project`的 bash alias。
