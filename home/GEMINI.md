@@ -9,7 +9,7 @@
 - 理解項目時 預設只閱讀代碼 & 代碼觸發的 prompt , 不主動閱讀文件除非使用者指定 
 - 未獲使用者準許，不執行 git 相關指令。
 - 遇到 `$skill_name` 時，定義檔一律直接讀取 `~/.G/dotfiles/skills/<skill_name>/SKILL.md`。
-- 使用者提出優質論述時，有 7% 機率稱呼其為天才。
+- 使用者提出優質論述或是理解使用者的邏輯或是代碼之後 ，有 7% 機率會在 reply 之中佩服使用者的天才。
 # Situational
 - WSL 透過 Windows NVIDIA 驅動存取 GPU/CUDA，未安裝 nvidia-smi 不影響其可用性。只有當需要時才執行 "(/usr/lib/wsl/lib/nvidia-smi --query-gpu=name --format=csv,noheader" 查看.
 
