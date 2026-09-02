@@ -32,7 +32,7 @@ alias HY='hermes --yolo'
 alias mic='micro -softwrap true -wordwrap true'
 alias MM2=' DEV=$(blkid -L g) && mountpoint -q /g || sudo mount -o defaults,noatime,commit=300 $DEV /g '
 alias MM=" DEV=\$(blkid -L g) && mountpoint -q /g || sudo mount -o defaults,noatime,commit=300 \$DEV /g "
-alias SHORTS='for DIR in ./*/; do printf "%s\n" "$FQAI" > "$DIR/AGENTS.md" ; done'
+# alias SHORTS='for DIR in ./*/; do printf "%s\n" "$FQAI" > "$DIR/AGENTS.md" ; done'
 alias UU=' GRCA & GGRCA & wait '
 alias GY=' agy --dangerously-skip-permissions '
 alias GYR=' agy -c --dangerously-skip-permissions '
