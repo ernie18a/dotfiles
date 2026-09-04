@@ -23,7 +23,7 @@ description: Manual invocation only
 - 使用者提供的輸入存入 `./INPUT/`，指定產出存入 `./OUTPUT/`，程式執行時自動產生的非指定產出存入 `./TMP/`；寫入或更新 `./OUTPUT/` 時禁止原地修改，先在同一檔案系統完成暫存產出，再以 atomic replace/switch 一次切換至目標路徑。
 - 新增或執行 Python 專案與腳本時，使用 `uv run` 獨立環境。
 - Python 腳本固定以 `uv run <NAME>.py` 執行；必要參數與設定集中定義於腳本最上方獨立的 config 區塊（與邏輯分離），不透過 command-line arguments 或 flags 傳入。
-- 腳本依賴使用 PEP 723 宣告；requires-python 設明確上限，以最重依賴的最高支援版本為準；僅使用 PyPI 官方 wheel；[tool.uv] 加入 exclude-newer 設為撰寫當下日期以確保跨設備解析一致，不產生 .lock 檔。
+- 腳本依賴使用 PEP 723 宣告；requires-python 設明確上限，以最重依賴的最高支援版本為準；依賴來源限 PyPI 官方發布；不產生 .lock 檔。
 - 程式碼禁止新增或保留任何註解，PEP 723 metadata 註解除外。
 - 禁止新增 Cargo wrapper script，除非 Cargo 原生 config 無法表達需求。
 # situational
