@@ -3,7 +3,7 @@ name: deve
 description: Manual invocation only
 ---
 # 實作規約
-- 使用本技能時，同時使用 skill `$subt` & `$stts`。
+- 使用本技能時，同時使用 ~/.G/dotfiles/skills/subt/SKILL.md (or `/home/*/.G/dotfiles/skills/subt/SKILL.md`)
 - 僅在使用者準許時執行 git 相關指令。
 - 以最小變更完整解決需求的根因。
 - 除非使用者明確要求，僅執行輕量、非行為式的 static checks。
