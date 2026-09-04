@@ -3,4 +3,4 @@ name: tail
 description: Manual invocation only
 ---
 
-- Write a handoff distilling the user's converged requirements across the conversation, excluding assistant-provided information.
+- Write a handoff distilling only the converged requirements provided by the user across the conversation.

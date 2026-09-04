@@ -7,9 +7,9 @@ description: Manual invocation only
 
 Remove work and content that do not improve the requested goal enough to justify their costs.
 
-Treat every contemplated or retained unit as a candidate \(x_i\), regardless of whether it is an action, implementation, sentence, explanation, constraint, or other contribution. For an existing unit, evaluate retaining it as an addition to the reconstructed result.
+Treat every contemplated or retained action, implementation, sentence, explanation, constraint, or other contribution as a candidate \(x_i\). For an existing unit, evaluate retaining it as an addition to the reconstructed result.
 
-First establish the requested goal and its required invariants, constraints, and supported inputs. Decompose the target and proposed work into candidate units, resolve overlap and conflict, and consolidate units that make the same contribution.
+First establish the requested goal and its required invariants, constraints, and supported inputs. Decompose the target and proposed work into candidate units, resolve overlap and conflict, consolidate units that make the same contribution, and integrate each retained constraint or exception into its governing rule or abstraction instead of preserving it as a corrective add-on.
 
 For each candidate:
 
@@ -24,6 +24,6 @@ Order candidates by expected \(\Delta U\), highest first, and evaluate each only
 
 1. If \(\Delta U_i>0\), retain it.
 2. If \(\Delta U_i\le0\), omit it and all following candidates.
-3. If the available information cannot determine \(\Delta U_i\), state the missing input and leave the candidate unresolved; do not invent a value.
+3. If the available information cannot determine \(\Delta U_i\), state the missing input and leave the candidate unresolved.
 
-Reconstruct the result from the retained units within the target's existing abstractions and structure. Do not preserve or reject a unit merely because it is conventional, reasonable in isolation, part of the original, or belongs to a particular medium. Preserve it only when its incremental contribution justifies its full cost.
+Reconstruct the result from the retained units within the target's existing abstractions and structure.
