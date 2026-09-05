@@ -1,0 +1,18 @@
+    # A = agy
+    alias AC='agy --model claude-sonnet-4-6 --dangerously-skip-permissions'
+    alias AG='agy --model gemini-3.8-flash --effort high --dangerously-skip-permissions'
+    alias AR='agy -c --dangerously-skip-permissions'
+
+    # D = codex
+    alias DL='codex -m gpt-5.6-luna -c model_reasoning_effort=xhigh'
+    alias DS='codex -m gpt-5.6-sol -c model_reasoning_effort=medium'
+    alias DSL='codex -m gpt-5.6-sol -c model_reasoning_effort=low'
+    alias DT='codex -m gpt-5.6-terra -c model_reasoning_effort=high'
+    alias DR='codex resume'
+
+    # L = claude
+    alias LH='claude --model Haiku --dangerously-skip-permissions'
+    alias LS='claude --model sonnet --dangerously-skip-permissions'
+    alias LSL='claude --model sonnet --dangerously-skip-permissions --effort low'
+    alias LO='claude --model Opus --dangerously-skip-permissions'
+    alias LSR='claude --model sonnet --dangerously-skip-permissions --resume'
