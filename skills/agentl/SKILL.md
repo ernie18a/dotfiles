@@ -1,5 +1,5 @@
 ---
-name: agent4t
+name: agentl
 description: Manual invocation only
 ---
 
@@ -10,4 +10,4 @@ description: Manual invocation only
 
 # Sub-agent settings
 
-- 呼叫 `spawn_agent` 時，必須傳入 `model: "gpt-5.6-terra"`、`reasoning_effort: "high"` 與 `fork_turns: "none"`。
+- 呼叫 `spawn_agent` 時，必須傳入 `model: "gpt-5.6-luna"`、`reasoning_effort: "xhigh"` 與 `fork_turns: "none"`。
