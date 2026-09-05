@@ -5,7 +5,7 @@ description: Manual invocation only
 
 # Purpose
 
-- 依當次 session prompt 指定的數量同時協調 sub-agent；有剩餘任務時，任一完成後即遞補。
+- 同時協調指定數量的 sub-agent；有剩餘任務時，任一完成後即遞補。
 
 # Sub-agent settings
 
