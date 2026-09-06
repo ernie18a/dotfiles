@@ -3,10 +3,7 @@ name: agent
 description: Manual invocation only
 ---
 
-# Purpose
-
-- 啟動時，將可獨立完成、不依賴其他任務輸出、不與其他任務產生寫入衝突，且能產出可獨立驗證結果的任務，交派給盡可能多的 sub-agent，直到用盡可用並行容量或沒有符合條件的任務。
-- 任一 sub-agent 完成後，若仍有符合條件的任務，立即遞補。
+- 將不依賴其他任務輸出、不會產生寫入衝突，且可獨立完成與驗證的任務交派給 sub-agent；啟動時填滿可用並行容量，並在任一 sub-agent 完成後以符合條件的任務立即遞補。
 
 # Sub-agent settings
 

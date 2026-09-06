@@ -5,29 +5,17 @@ description: Manual invocation only
 
 # Purpose
 
-- Create the next unused `osNN.md` as an implementation manual.
+- Create the next unused `osNN.md` implementation manual from the user request, relevant code, and current `deve` skill.
 
-# Author
-
-- Read the user request, relevant code, and current `deve` skill.
-- Apply these authoring rules directly.
-- Resolve implementation decisions using explicit requirements, inspected facts, and technical judgment while preserving the requested outcome, behavior, scope, and meaning.
-- Inspect relevant implementation evidence until further facts cannot materially change instructions or decisions.
-- After writing, do not check or validate the manual.
-
-# Situational
+# Authoring
 
 - Classify work by unresolved decision load.
 - `Execution-dominant`: facts already determine the implementation; write only the necessary actions and boundaries.
-- `Decision-dominant`: plausible choices materially change important outcomes; inspect relevant evidence, compare outcome-changing alternatives, and select every material choice before writing.
+- `Decision-dominant`: when plausible choices materially change important outcomes, inspect implementation evidence until further facts cannot materially change the instructions or decisions, compare the alternatives, and resolve every material choice from explicit requirements, inspected facts, and technical judgment without changing the requested outcome, behavior, scope, or meaning.
 - Split only when work can proceed independently without repeated context.
-
-# Manual
-
-- Record every material implementation decision as an exact instruction, with only the detail required to prevent the executor from planning, guessing, or making outcome-changing decisions.
-- State critical contracts, state transitions, and failure behavior when relevant.
+- Record only implementation-guiding facts and exact instructions, including relevant contracts, state transitions, and failure behavior, with enough detail to prevent the executor from planning, guessing, or making outcome-changing decisions.
 - Prefer replacement, deletion, and consolidation before adding new structure.
-- Include only implementation instructions and facts that guide execution.
+- Do not check or validate the completed manual.
 
 # Executor
 
@@ -38,4 +26,4 @@ description: Manual invocation only
 
 # Completion
 
-- Reply exactly `DONE` after the `osNN.md` exists.
+- After the `osNN.md` exists, reply exactly `DONE`.

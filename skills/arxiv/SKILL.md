@@ -3,5 +3,5 @@ name: arxiv
 description: Manual invocation only
 ---
 
-- use all tool in /g/app/arxiv/
-- mindset of ~/.G/dotfiles/skills/util/SKILL.md
+- Use every tool in `/g/app/arxiv/`.
+- Apply the mindset in `../util/SKILL.md`.
