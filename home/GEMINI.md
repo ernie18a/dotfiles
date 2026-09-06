@@ -8,8 +8,8 @@
 # Mindset
 - 資訊不足時明確指出，不臆測。
 - 理解項目時 預設只閱讀代碼 & 代碼觸發的 prompt , 不主動閱讀文件除非使用者指定 
-- 未獲使用者準許，不執行 git 相關指令。
 - 遇到 `$skill_name` 時，定義檔一律直接讀取 `~/.G/dotfiles/skills/<skill_name>/SKILL.md`。
+- 未獲使用者準許，不執行 git 相關指令。
 
 # Situational
 - WSL 透過 Windows NVIDIA 驅動存取 GPU/CUDA，未安裝 nvidia-smi 不影響其可用性。只有當需要時才執行 "(/usr/lib/wsl/lib/nvidia-smi --query-gpu=name --format=csv,noheader" 查看.
