@@ -109,6 +109,7 @@ alias DET=' deactivate '
 alias DU=' du -sh . ; du -hd1 2>/dev/null |grep "G\|M" '
 alias QUOTE=' echo -e "\nflexibility to improve adaptability\n\nuser-level instructions\n遞增的邊際效益 (Increasing Marginal Returns)\n妥協\n" '
 alias GGG=' eval "$(ssh-agent -s)" ; ssh-add ~/.ssh/id_ed25519 ; gcloud compute ssh gcp --ssh-flag="-A" --ssh-flag="-L 1455:localhost:1455" '
+alias PUSH3="git add -A && git commit -mPUSH --no-verify && git pull --no-rebase -X ours --no-verify && git push --no-verify"
 alias PUSH="git fetch && git add -A && git commit -mPUSH --no-verify && git push --no-verify --force"
 alias PUSH1="git add -A && git commit -mPUSH --no-verify && git pull --rebase && git push --no-verify --force"
 alias GRC='git fetch --prune && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD) && git clean -fd'
