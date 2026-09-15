@@ -5,11 +5,6 @@ description: Manual invocation only
 
 # painpoint
 
-## 核心概念
-
-每個需要解決的問題是一個分組。  
-只保留**清單項目**（技術、工具、方案等）。  
-移除：說明、比較、建議語氣、對話脈絡。
 
 ## 步驟
 

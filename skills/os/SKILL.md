@@ -3,9 +3,6 @@ name: os
 description: Manual invocation only
 ---
 
-# Purpose
-
-- Create the next unused `osNN.md` implementation manual from the user request, relevant code, and current `deve` skill.
 
 # Authoring
 
@@ -21,7 +18,7 @@ description: Manual invocation only
 
 - End every manual with the following executor directive.
 - `Implement exactly as written.`
-- `Unless the user explicitly requests otherwise, run only lightweight, non-behavioral static checks.`
+- `Run only lightweight, non-behavioral static checks.`
 - `After editing, reply exactly DONE.`
 
 # Completion
