@@ -10,7 +10,7 @@ description: Manual invocation only
 - 優先重用既有行為、權責抽象或原生能力，以最小變更完整解決需求根因。
 - 僅執行輕量、非行為式的 static checks。
 - 輸出新增或修改的非 boilerplate 內容；既有程式碼以函式或區塊為單位。
-- 將具有獨立變更原因的職責拆成模組；模組須可獨立理解、測試或替換，並僅透過明確 I/O 與其他模組協作。
+- 將具有獨立變更原因的職責拆成獨立 executable（stage）；每個 stage 須可獨立執行、測試或替換，並僅透過 stdin/stdout/file/pipe 與其他 stage 協作，組合成 pipeline。
 - 優先 fail fast、明確契約、靜態型別、顯式轉換。
 - 僅在使用者要求判斷情境時使用判斷式，其餘採 straight-line programming。
 - 修改或新增程式碼前，先完整檢查所有受影響的程式碼環節及其串接機制，再開始實作。
