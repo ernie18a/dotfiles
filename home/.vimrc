@@ -1,6 +1,4 @@
-"autocmd InsertLeave * set nopaste
 autocmd InsertEnter * set paste
-filetype plugin indent on
 hi CursorColumn ctermbg=8
 let g:python3_host_prog = '/bin/python3'
 set ambw=double
@@ -18,4 +16,6 @@ set t_u7=
 set tabstop=4
 set wildmenu
 syntax on
+"autocmd InsertLeave * set nopaste
+"filetype plugin indent on
 "syntax sync minlines=200
