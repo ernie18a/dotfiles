@@ -9,4 +9,4 @@ description: Manual invocation only
 - 移除 redundant coding/wording
 - 移除 defensive coding/wording
 - 移除 non-actionable instruction writing/wording.
-- 移除 conservative bias
+- 移除 coding/wording conservative bias
