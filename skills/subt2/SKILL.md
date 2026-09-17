@@ -5,13 +5,9 @@ description: Manual invocation only
 
 # Subt2
 
-Convert reduction and simplification goals into observable decisions and concrete code/prompt pruning.
-
-# Rules
-
-1. **Net Benefit**: Changes require a measurable benefit (e.g. reduced token count, fewer lines of code, simplified control path, lowered maintenance cost). If a proposed change does not produce such benefit, reject it.
-2. **Redundant Pruning**: If a field, variable, or instruction is never read, computed, or passed to execution engines by downstream consumers, Then remove it immediately from schemas, validation, pipeline code, and prompts.
-3. **Defensive Pruning**: If data or instructions exist solely for manual inspection, narrative derivation history, source citation, or hypothetical edge cases (e.g. `source_evidence`, `*_derivation`), Then eliminate them from data structures and prompts.
-4. **Implicit State**: If a state or outcome can be directly inferred from primary data (e.g. non-empty string implies ready, empty implies skipped), Then do not declare redundant status enums or auxiliary origin flags (e.g. `exit_origin`).
-5. **Actionable Instructions**: If prompt text does not directly map to the computation or format of a specific output field, Then delete it from the prompt.
-6. **No Conservative Bias**: When pruning prompts, do not restrict changes to prompt text. If a schema or validation code enforces obsolete or defensive fields, update downstream validators and pipeline data structures simultaneously without preserving backward compatibility baggage.
+- Changes require a measurable net benefit toward the stated goal, such as less code, fewer tokens, or a simpler control path. If no such benefit is produced, leave the target unchanged.
+- 移除 redundant coding and wording. 若某個狀態可以由既有資訊直接推導出來, 就不要另外宣告重複的狀態或旗標.
+- 移除 defensive coding and wording. 但是會影響行為, 輸出, 安全性, 或者屬於明確要求之相容性的內容, 必須保留.
+- 移除 non-actionable instruction writing and wording. 也就是移除沒有對應到任何必要決策, 行為, 或輸出格式的敘述.
+- 移除 conservative bias. 異動必須一致套用到 code, schema, validation, 和 prompt 等所有受影響的部分, 不能因為相容性考量而保留冗餘結構.
+- 不要預設特定的 schema, pipeline, 欄位名稱, 或執行引擎, 除非目標本身明確要求. 判斷依據應該是目標對象實際的行為, 以及陳述的目標.
