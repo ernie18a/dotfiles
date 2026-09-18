@@ -23,8 +23,7 @@ description: Manual invocation only
 - 記憶體：在每個批次、每輪迴圈處理節點檢查目前用量，超過門檻就依序縮小批次量或延後處理，仍超過上限才放棄當下任務並釋放資源。
 
 # 專案與執行環境
-
-- 預設使用者提供的輸入存入 `./INPUT/`，指定產出存入 `./OUTPUT/`，程式執行時自動產生的非指定產出存入 `./TMP/`；寫入或更新 `./OUTPUT/` 時，先在同一檔案系統完成暫存產出，再以 atomic replace/switch 一次切換至目標路徑。
+- 預設讀取 `./INPUT/` 內所有相符類型的檔案，無需指定檔案名稱；使用者提供的輸入存入 `./INPUT/`，產出存入 `./OUTPUT/`，程式執行時自動產生的產出存入 `./TMP/`；寫入或更新 `./OUTPUT/` 時，先在同一檔案系統完成暫存產出，再以 atomic replace/switch 一次切換至目標路徑。
 - 新增或執行 Python 專案與腳本時，使用 `uv run` 獨立環境；腳本固定以 `uv run <NAME>.py` 執行，必要參數集中定義於腳本最上方、與邏輯分離的 config 區塊；僅在需外部提供或覆寫時使用根目錄 `conf.*`，內部實作常數維持於腳本內。
 - 腳本依賴使用 PEP 723 宣告；requires-python 設明確上限，以最重依賴的最高支援版本為準；依賴來源限 PyPI 官方發布；不產生 .lock 檔。
 - 僅在 Cargo 原生 config 無法表達需求時新增 Cargo wrapper script。
