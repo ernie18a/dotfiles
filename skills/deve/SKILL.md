@@ -6,12 +6,12 @@ description: Manual invocation only
 # 實作規約
 
 - 同時套用 `../subt/SKILL.md`。
-- 僅在使用者準許時執行 git 相關指令。
-- 優先重用既有行為、權責抽象或原生能力，以最小變更完整解決需求根因。
+- 以最小變更完整解決需求根因。
 - 僅執行輕量、非行為式的 static checks。
-- 輸出新增或修改的非 boilerplate 內容；既有程式碼以函式或區塊為單位。
+- 輸出新增或修改的非 boilerplate 內容
 - 將具有獨立變更原因的職責拆成獨立 executable（stage）；每個 stage 須可獨立執行、測試或替換，並僅透過 stdin/stdout/file/pipe 與其他 stage 協作，組合成 pipeline。
-- 優先 fail fast、明確契約、靜態型別、顯式轉換。
+- 預設 fail fast、straight-line programming、branchless programming
+- 明確契約、靜態型別、顯式轉換。
 - 僅在使用者要求判斷情境時使用判斷式，其餘採 straight-line programming。
 - 修改或新增程式碼前，先完整檢查所有受影響的程式碼環節及其串接機制，再開始實作。
 - 僅在使用者要求時，為腳本提供 Options、Optional Arguments 或 Flags。
