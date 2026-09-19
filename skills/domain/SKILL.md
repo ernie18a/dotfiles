@@ -5,6 +5,8 @@ description: Manual invocation only
 
 # Domain
 
+Search the web as requested and follow the rules below:
+
 Never access these paths on any domain:
 
 - `/robots.txt`
