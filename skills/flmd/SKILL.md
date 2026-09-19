@@ -3,4 +3,4 @@ name: flmd
 description: Manual invocation only
 ---
 
-- 執行 latest osNN.md
+- execute latest `os*.md` IF exists ELSE fix issue in `./log` generated via &>log
