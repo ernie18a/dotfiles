@@ -15,6 +15,7 @@ description: Manual invocation only
 - 修改或新增程式碼前，先完整檢查所有受影響的程式碼環節及其串接機制，再開始實作。
 - 預設不使用 Options、Optional Arguments 或 Flags。
 - 規劃多項實作需求時，按觸碰同一函式的功能聚合排序，範圍由大至小，確保開發連續性。
+- 完成任務後只能回復 `DONE`, 不回復其他資訊
 
 # 資源
 
