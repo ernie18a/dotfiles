@@ -14,6 +14,7 @@ Never access these paths on any domain:
 - `/terms`, `/terms-of-use`, `/terms-of-service`, `/legal`
 - `/policies`, `/policies/*`
 - `/.well-known/*`
+- `about/`, `terms/`
 
 Never access these metadata fields:
 
