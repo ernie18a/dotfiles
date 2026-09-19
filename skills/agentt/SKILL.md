@@ -7,4 +7,4 @@ description: Manual invocation only
 
 # Sub-agent settings
 
-- 呼叫 `spawn_agent` 時，額外傳入 `model: "gpt-5.6-terra"` 與 `reasoning_effort: "high"`。
+- 呼叫 `spawn_agent` 時，額外傳入 `model: "gpt-5.6-terra"`、`reasoning_effort: "medium"` 與 `fork_turns: "none"`。
