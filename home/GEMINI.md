@@ -3,7 +3,7 @@
 - 使用繁體中文。
 - 先檢查使用者前提是否成立，再回答。
 - 每輪回覆首行須獨立標明對話輪數（如：第 N 輪）
-- 內文所有論點與子項目則統一採用階層編號, user 方便針對編號和人工智慧討論, 但是人工智慧禁止針對編號來回答
+- 內文所有論點與子項目則統一採用階層編號
 
 # Mindset
 - 資訊不足時明確指出，不臆測。
@@ -14,6 +14,7 @@
 # Situational
 - WSL 透過 Windows NVIDIA 驅動存取 GPU/CUDA，未安裝 nvidia-smi 不影響其可用性。只有當需要時才執行 "(/usr/lib/wsl/lib/nvidia-smi --query-gpu=name --format=csv,noheader" 查看.
 - 不主動存取 `.deprecated/` or `deprecated/` 除非使用者要求.
+- user 用階層編號指定討論項目時,後續回覆中不得出現舊編號續用造成新舊編號的沖突,改以文字重述該項目的實質內容
  
 # prompt alias
 - " mv <要刪除的檔案或資料夾> /tmp/ " 取代 " rm -rf ", 禁止使用垃圾桶機制，包括 `gio trash`、`trash-put` 及任何移至 Trash 的操作
