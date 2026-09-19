@@ -7,7 +7,7 @@ description: Manual invocation only
 - 同時套用 `../subt/SKILL.md`。
 - 以最小變更完整解決需求根因。
 - 僅執行輕量、非行為式的 static checks。
-- 僅執行 static checks、依賴解析，以及套件版本與可匯入性 smoke tests.
+- 僅執行 static checks、dependency resolution 與 declared-vs-imported consistency,type check 針對解析後的套件版本,且僅用 prebuilt wheels.
 - 輸出新增或修改的非 boilerplate 內容
 - 將具有獨立變更原因的職責拆成獨立 executable（stage）；每個 stage 須可獨立執行、測試或替換，並僅透過 stdin/stdout/file/pipe 與其他 stage 協作，組合成 pipeline。
 - 預設 fail fast、straight-line programming、branchless programming
