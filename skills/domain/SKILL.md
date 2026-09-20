@@ -6,7 +6,7 @@ description: Manual invocation only
 # Domain
 
 Search the web as requested and follow the rules below:
-
+預設搜索關鍵字使用的 key word 語言是英文 
 Never access these paths on any domain:
 
 - `/robots.txt`
