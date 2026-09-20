@@ -6,6 +6,7 @@ description: Manual invocation only
 
 # Authoring
 
+- 用 `../subt/SKILL.md` 的 mindset 來寫這份文件.
 - Classify work by unresolved decision load.
 - `Execution-dominant`: facts already determine the implementation; write only the necessary actions and boundaries.
 - `Decision-dominant`: when plausible choices materially change important outcomes, inspect implementation evidence until further facts cannot materially change the instructions or decisions, compare the alternatives, and resolve every material choice from explicit requirements, inspected facts, and technical judgment without changing the requested outcome, behavior, scope, or meaning.
