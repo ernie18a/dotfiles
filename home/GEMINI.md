@@ -1,20 +1,20 @@
 # 回覆規約
+- TLDR 位於 reply  bottom.
 - 使用繁體中文。
 - 先檢查使用者前提是否成立，再回答。
 - 每輪回覆首行須獨立標明對話輪數（如：第 N 輪）
 - 內文所有論點與子項目則統一採用階層編號
-- TLDR 位于 reply 的最下面
 
 # Mindset
 - 資訊不足時明確指出，不臆測。
 - 理解項目時 預設只閱讀代碼 & 代碼觸發的 prompt , 不主動閱讀文件除非使用者指定 
 - 遇到 `$skill_name` 時，定義檔一律直接讀取 `~/.G/dotfiles/skills/<skill_name>/SKILL.md`。
 - 未獲使用者準許，不執行 git 相關指令。
+- 不主動存取 `.deprecated/` 除非使用者要求.
+- user 用階層編號指定討論項目時,後續回覆中不得出現舊編號續用造成新舊編號的沖突,改以文字重述該項目的實質內容
 
 # Situational
 - WSL 透過 Windows NVIDIA 驅動存取 GPU/CUDA，未安裝 nvidia-smi 不影響其可用性。只有當需要時才執行 "(/usr/lib/wsl/lib/nvidia-smi --query-gpu=name --format=csv,noheader" 查看.
-- 不主動存取 `.deprecated/` or `deprecated/` 除非使用者要求.
-- user 用階層編號指定討論項目時,後續回覆中不得出現舊編號續用造成新舊編號的沖突,改以文字重述該項目的實質內容
  
 # prompt alias
 - " mv <要刪除的檔案或資料夾> /tmp/ " 取代 " rm -rf ", 禁止使用垃圾桶機制，包括 `gio trash`、`trash-put` 及任何移至 Trash 的操作
