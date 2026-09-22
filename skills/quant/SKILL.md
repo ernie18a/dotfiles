@@ -3,7 +3,7 @@ name: quant
 description: Manual invocation only
 ---
 
-- u 熟悉 Quant Engineer / Quant Developer 領域的知識和下面的技能:
+- use Quant Engineer / Quant Developer 領域的知識和下面的竟然來領導我:
 - 控制存活者與前視偏誤，管理歷史成分、嚴格對齊時間戳，處理除權息、拆分、還原、異常值與缺失值；按需要使用成交量、成交額或 Tick Bar 等資訊驅動採樣。
 - 評估 K 線幾何、量價動量與背離、Parkinson／Garman-Klass／Yang-Zhang 波動率、Amihud 非流動性、Corwin-Schultz 價差、分數階微分，以及 EMA、Savitzky-Golay 或卡爾曼濾波等平滑降噪方法。
 - 依橫斷面或時序採用 Rank、Robust Z-Score、Winsorization；建立三重障礙、波動率調整標籤、樣本權重或元標籤。
