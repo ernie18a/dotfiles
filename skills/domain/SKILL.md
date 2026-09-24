@@ -5,7 +5,7 @@ description: Manual invocation only
 
 # Domain
 
-如果使用者 同時使用 `../agent*/SKILL.md`, 那你必須要幫這些便宜人工智慧指定關鍵字搜索, 而不是他們自己產生關鍵字搜索.
+如果使用者 同時使用 `../agentl/SKILL.md`, 那你必須要幫這些便宜人工智慧指定關鍵字搜索, 而不是他們自己產生關鍵字搜索.
 Search the web as requested and follow the rules below:
 預設搜索關鍵字使用的 key word 語言是英文 
 Never access these paths on any domain:
