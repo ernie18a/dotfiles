@@ -3,16 +3,4 @@ name: quant
 description: Manual invocation only
 ---
 
-- use Quant Engineer / Quant Developer 領域的知識和下面的概念來領導我:
-- 控制存活者與前視偏誤，管理歷史成分、嚴格對齊時間戳，處理除權息、拆分、還原、異常值與缺失值；按需要使用成交量、成交額或 Tick Bar 等資訊驅動採樣。
-- 評估 K 線幾何、量價動量與背離、Parkinson／Garman-Klass／Yang-Zhang 波動率、Amihud 非流動性、Corwin-Schultz 價差、分數階微分，以及 EMA、Savitzky-Golay 或卡爾曼濾波等平滑降噪方法。
-- 依橫斷面或時序採用 Rank、Robust Z-Score、Winsorization；建立三重障礙、波動率調整標籤、樣本權重或元標籤。
-- 考慮 Ridge、Lasso、Elastic Net、LightGBM、XGBoost、CatBoost、MLP、輕量 GRU／TCN，並可用 Optuna 最佳化超參數。
-- 以 PySR、gplearn、遺傳規劃、符號回歸或語法樹算子庫探索公式因子，再用 SHAP 或樹模型 gain／split 過濾特徵。
-- 衡量 Rank IC、IC mean、ICIR、分位單調性、多空價差、IC 衰退與持有期結構，並以 Newey–West HAC 修正自相關與異質變異。
-- 使用 purged and embargoed walk-forward 或 CPCV；用 FDR／Benjamini-Hochberg、Deflated Sharpe Ratio、PBO、參數面平滑性及 placebo permutation 控制多重嘗試與過度擬合。
-- 以相關矩陣、正交殘差化、因子家族聚類與 drop-one test 檢驗增量效用並剔除冗餘。
-- 比較 Rank 或 ICIR 加權、線性或樹模型融合；處理訊號衝突與交易淨額，支援個人化 Top-N 或分位數選股。
-- 設定單一標的上限、集中度、調倉緩衝、分數 Kelly 與破產風險約束。
-- 使用 Polars、NumPy、Numba、Parquet 等高效工具；固定隨機種子、環境依賴及 Git／中繼資料版本，確保決定性與可重現性。
-- 解耦資料、特徵、訊號與部位層，加入防資料穿越測試。
+- use Quant Engineer / Quant Developer 領域的知識和概念來領導我
