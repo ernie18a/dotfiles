@@ -229,8 +229,10 @@ GRCA()  { (cd ~/.G; for R in */; do (cd "$R"; find .git/objects -type f -empty -
 CPTM() { rm /mnt/c/Users/e/Desktop/_tmp/* ; cp *.txt *.md *.py /mnt/c/Users/e/Desktop/_tmp/ ; }
 sl() { for SOMETHING in $(cat ./$1); do $2 $SOMETHING; done; }
 GRC2() { local T=$(git rev-parse --show-toplevel 2>/dev/null) || return 1; local U=$(git -C "$T" remote get-url origin) || return 1; local R=$(basename "$T"); local P="${PWD#$T}"; cd "$(dirname "$T")" && sudo rm -rf "$R" && git clone "$U" "$R" && cd "$R$P"; }
-CIO() { if [ -n "$1" ]; then cp -urf "$1" /mnt/c/Users/e/Desktop/; else cp -urf ./* /mnt/c/Users/e/Desktop/; fi; }
-COI() { if [ -n "$1" ]; then cp -urf "/mnt/c/Users/e/Downloads/$1" .; else cp -urf /mnt/c/Users/e/Downloads/* .; fi; }
+#CIO() { if [ -n "$1" ]; then cp -urf "$1" /mnt/c/Users/e/Desktop/; else cp -urf ./* /mnt/c/Users/e/Desktop/; fi; }
+CIO() { if [ "$#" -gt 0 ]; then cp -urf "$@" /mnt/c/Users/e/Desktop/; else cp -urf ./* /mnt/c/Users/e/Desktop/; fi; }
+#COI() { if [ -n "$1" ]; then cp -urf "/mnt/c/Users/e/Downloads/$1" .; else cp -urf /mnt/c/Users/e/Downloads/* .; fi; }
+COI() { if [ "$#" -gt 0 ]; then local f=(); for x in "$@"; do f+=(/mnt/c/Users/e/Downloads/$x); done; cp -urf "${f[@]}" .; else cp -urf /mnt/c/Users/e/Downloads/* .; fi; }
 UR() { if [ -n "$1" ]; then uv run --no-project "$@"; else uv run --no-project main.py; fi; }
 GRCD() { local _old="$PWD"; cd ~/.G/dotfiles && git fetch --prune && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD) && git clean -fd; cd "$_old"; }
 ACL() { sudo chown -R e:g /g & sudo find /g -type d -exec chmod 2770 {} + & sudo find /g -type f -exec chmod 660 {} + & sudo setfacl -R -m d:u::rwx,d:g::rwx,d:o::-,d:m::rwx /g & wait; }
