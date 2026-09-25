@@ -1,4 +1,5 @@
 source /etc/bash_completion.d/* 2>/dev/null
+export DEBIAN_FRONTEND=noninteractive DEBIAN_PRIORITY=critical NEEDRESTART_SUSPEND=1 UCF_FORCE_CONFFOLD=1
 export COLORTERM=truecolor
 export DBUS_SESSION_BUS_ADDRESS=/dev/null
 export DEBCONF_NOWARNINGS="yes"
@@ -173,11 +174,7 @@ alias SUO=' sudo su - o '
 alias SYSD=' sudo systemctl disable '
 alias SYSE=' sudo systemctl enable '
 alias SYSR=' sudo systemctl restart '
-#alias UUU=' sudo systemctl restart systemd-timesyncd ; sudo npm install -g npm ; sudo npm install -g @openai/codex ; sudo agy update ; sudo apt update && sudo apt install claude-code -y ' # ; hermes update -y  ;  gcloud components update '
-#alias UUU=' sudo systemctl restart systemd-timesyncd & ( sudo npm install -g npm && sudo npm install -g @openai/codex ) & sudo agy update & ( sudo apt update -qq && i=$(apt-cache policy claude-code | awk "/Installed/{print \$2}") && c=$(apt-cache policy claude-code | awk "/Candidate/{print \$2}") && [ "$i" != "(none)" ] && [ "$i" != "$c" ] && sudo apt install claude-code -y ) & wait '
-#alias UUU='sudo systemctl restart systemd-timesyncd & ( sudo npm install -g npm && sudo npm install -g @openai/codex ) & sudo agy update & ( export DEBIAN_FRONTEND=noninteractive NEEDRESTART_MODE=a; sudo -E apt update -qq && i=$(apt-cache policy claude-code | awk "/Installed/{print \$2}") && c=$(apt-cache policy claude-code | awk "/Candidate/{print \$2}") && { [ "$i" = "(none)" ] || [ "$i" = "$c" ] || sudo -E apt install claude-code -y; } ) & wait'
-UUU() { sudo systemctl restart systemd-timesyncd & ( sudo npm install -g npm ; sudo npm install -g @openai/codex ) & sudo agy update & ( export DEBIAN_FRONTEND=noninteractive NEEDRESTART_MODE=a ; sudo apt update -qq ; i=$(apt-cache policy claude-code | awk '/Installed/{print $2}') ; c=$(apt-cache policy claude-code | awk '/Candidate/{print $2}') ; [ "$i" = "(none)" ] || [ "$i" = "$c" ] || sudo apt install claude-code -y ) & wait ; }
-#UUU() { sudo systemctl restart systemd-timesyncd & ( sudo npm install -g npm ; sudo npm install -g @openai/codex ) & sudo agy update & ( export DEBIAN_FRONTEND=noninteractive NEEDRESTART_MODE=a ; sudo -E apt update -qq ; i=$(apt-cache policy claude-code | awk '/Installed/{print $2}') ; c=$(apt-cache policy claude-code | awk '/Candidate/{print $2}') ; [ "$i" = "(none)" ] || [ "$i" = "$c" ] || sudo -E apt install claude-code -y ) & wait ; }
+UUU() { sudo systemctl restart systemd-timesyncd ; sudo npm install -g npm ; sudo npm install -g @openai/codex ; sudo agy update ; sudo apt update -qq ; i=$(apt-cache policy claude-code | awk '/Installed/{print $2}') ; c=$(apt-cache policy claude-code | awk '/Candidate/{print $2}') ; [ "$i" = "(none)" ] || [ "$i" = "$c" ] || sudo apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" install claude-code ; }
 alias SYSS=' sudo systemctl stop '
 alias SVH=' sudo vim /mnt/c/Windows/System32/drivers/etc/hosts '
 alias YI=' sudo yum install -y >/dev/null '
