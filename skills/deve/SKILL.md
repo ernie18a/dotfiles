@@ -25,7 +25,12 @@ description: Manual invocation only
 - Python 程式碼除 PEP 723 metadata 外，不得包含任何註解或 docstring。
 - 腳本依賴使用 PEP 723 宣告；requires-python 設明確上限，以最重依賴的最高支援版本為準；依賴來源限 PyPI 官方發布；不產生 .lock 檔。
 - 僅在 Cargo 原生 config 無法表達需求時新增 Cargo wrapper script。
-- 預設讀取 `./INPUT/` 內所有相符類型的檔案，無需指定檔案名稱；使用者提供的輸入存入 `./INPUT/`，產出存入 `./OUTPUT/`，程式執行時自動產生的產出存入 `./TMP/`；寫入或更新 `./OUTPUT/` 時，先在同一檔案系統完成暫存產出，再以 atomic replace/switch 一次切換至目標路徑。可調整參數集中放 `./conf.toml` 若是對應的副檔名 
+
+# 預設位置
+- `./INPUT/` 裡有 user 提供的檔案, 腳本存取時不針對檔案名稱
+- `./TMP/` 存放暫存檔, 中間檔與以 atomic replace 切換至 `./OUTPUT/` 的檔案, `./OUTPUT/` 存放 user 要求的檔案
+- 可調整參數集中放 `./conf.toml`, 若是對應的副檔名
+- ./DATA/ 預設不存在 , 底下只存放被entry script 觸發的腳本
 
 # situational
 - 硬體為 RTX 4050 6G；AI 推論僅允許使用 GPU，否則報錯。
