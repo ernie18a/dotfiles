@@ -174,7 +174,7 @@ alias SUO=' sudo su - o '
 alias SYSD=' sudo systemctl disable '
 alias SYSE=' sudo systemctl enable '
 alias SYSR=' sudo systemctl restart '
-UUU() { sudo systemctl restart systemd-timesyncd ; sudo npm install -g npm ; sudo npm install -g @openai/codex ; sudo agy update ; sudo apt update -qq ; i=$(apt-cache policy claude-code | awk '/Installed/{print $2}') ; c=$(apt-cache policy claude-code | awk '/Candidate/{print $2}') ; [ "$i" = "(none)" ] || [ "$i" = "$c" ] || sudo apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" install claude-code ; }
+UUU() { sudo systemctl restart systemd-timesyncd ; sudo npm install -g npm ; sudo npm install -g @openai/codex ; sudo npm install -g @anthropic-ai/claude-code ; sudo agy update ; sudo apt update -qq ; }
 alias SYSS=' sudo systemctl stop '
 alias SVH=' sudo vim /mnt/c/Windows/System32/drivers/etc/hosts '
 alias YI=' sudo yum install -y >/dev/null '
