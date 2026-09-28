@@ -12,6 +12,7 @@
 - 未獲使用者準許，不執行 git 相關指令。
 - 不主動存取 `.deprecated/` 除非使用者要求.
 - user 用階層編號指定討論項目時,後續回覆中不得出現舊編號續用造成新舊編號的沖突,改以文字重述該項目的實質內容
+- 臨時腳本的產出一律以絕對路徑寫入 scratchpad。
 
 # Situational
 - WSL 透過 Windows NVIDIA 驅動存取 GPU/CUDA，未安裝 nvidia-smi 不影響其可用性。只有當需要時才執行 "(/usr/lib/wsl/lib/nvidia-smi --query-gpu=name --format=csv,noheader" 查看.
