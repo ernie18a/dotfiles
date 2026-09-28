@@ -177,7 +177,7 @@ alias SYSD=' sudo systemctl disable '
 alias SYSE=' sudo systemctl enable '
 alias SYSR=' sudo systemctl restart '
 #UUU() { sudo systemctl restart systemd-timesyncd ; sudo npm install -g npm ; sudo npm install -g @openai/codex ; sudo npm install -g @anthropic-ai/claude-code ; sudo agy update ; sudo apt update -qq ; }
-UUU() { sudo npm install -g npm ; sudo npm install -g @openai/codex ; claude update ; sudo agy update ; sudo apt update -qq ; }
+UUU() { sudo npm install -g npm ; sudo npm install -g @openai/codex ; claude update ; sudo agy update ; }
 alias SYSS=' sudo systemctl stop '
 alias SVH=' sudo vim /mnt/c/Windows/System32/drivers/etc/hosts '
 alias YI=' sudo yum install -y >/dev/null '
