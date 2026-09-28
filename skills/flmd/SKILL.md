@@ -4,4 +4,4 @@ description: Manual invocation only
 ---
 
 - 同時套用 `../deve/SKILL.md`。
-- execute latest `os*.md` IF exists ELSE fix issue in 無副檔名純文字檔案 `./log`
+- process user-specified file IF specified ELSE execute latest `os*.md` OR fix issue in 無副檔名純文字檔案 `./log`
