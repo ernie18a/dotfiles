@@ -1,6 +1,7 @@
 source /etc/bash_completion.d/* 2>/dev/null
 export npm_config_dangerously_allow_all_scripts=true
 export DEBIAN_FRONTEND=noninteractive DEBIAN_PRIORITY=critical NEEDRESTART_SUSPEND=1 UCF_FORCE_CONFFOLD=1
+export CLAUDE_CODE_SUBAGENT_MODEL=sonnet
 export COLORTERM=truecolor
 export DBUS_SESSION_BUS_ADDRESS=/dev/null
 export DEBCONF_NOWARNINGS="yes"
