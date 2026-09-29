@@ -1,5 +1,5 @@
 ---
-name: comp
+name: ompa
 description: Manual invocation only
 ---
 
