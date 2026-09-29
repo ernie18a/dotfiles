@@ -254,4 +254,6 @@ CP() { cat ~/.G/private/yet/RANDOM.txt ; }
 CT() { cat ~/.T$1 2>/dev/null ; }
 VT() { vim ~/.T$1 ; }
 HG() { cat ~/.bash_history | grep -ai --color "$1" ; }
-CG() { cat ~/.gemini/GEMINI.md 2>/dev/null || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/GEMINI.md ; }
+# CG() { cat ~/.gemini/GEMINI.md 2>/dev/null || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/GEMINI.md ; }
+alias CG=' cat  ~/.G/dotfiles/home/GEMINI.md '
+alias CGG=' cat  ~/.G/dotfiles/home/GEMINI.md | grep -i --color '
