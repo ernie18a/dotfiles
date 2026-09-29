@@ -3,8 +3,6 @@ name: conc
 description: Manual invocation only
 ---
 
-# Conc
-
 Convert vague goals into observable decision conditions without changing their stated intent or scope.
 
 # Rules

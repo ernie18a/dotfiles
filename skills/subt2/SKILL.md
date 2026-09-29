@@ -3,15 +3,13 @@ name: subt2
 description: Manual invocation only
 ---
 
-# Subt
+適用於任何輸出,不限領域。
 
-適用於任何輸出:code、wording、規劃/決策等,原則不限特定領域。
-
-- Changes require a net benefit toward the stated goal.
-- 移除 redundant 輸出
-- 移除 defensive 輸出
-- 移除 non-actionable 指令/步驟
-- 移除 conservative bias
-- 移除 structurally identical or semantically overlapping 輸出
-- 移除 editorial/process residue and extraneous meta-commentary
-- 移除 括號、分號等附加限定語,重組輸出使論述/步驟連貫,將附加內容併入主句/主要步驟、拆成獨立句子/步驟,或刪除
+- 每項改動須對既定目標有淨收益。
+- 移除冗餘內容。
+- 移除防禦性內容。
+- 移除無法據以行動的內容。
+- 移除保守偏差。
+- 移除結構相同或語意重疊的內容。
+- 移除編輯與過程殘留,以及無關的後設評論。
+- 移除非必要的附加限定語,如括號、分號。重組內容使論述連貫:將附加內容併入主句、拆成獨立句子,或刪除。語法必需的結構保留。

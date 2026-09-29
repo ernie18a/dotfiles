@@ -3,8 +3,6 @@ name: painpoint
 description: Manual invocation only
 ---
 
-# painpoint
-
 
 ## 步驟
 

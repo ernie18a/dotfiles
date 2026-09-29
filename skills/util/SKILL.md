@@ -3,8 +3,6 @@ name: util
 description: Manual invocation only
 ---
 
-# Util
-
 For each candidate \(x_i\):
 
 \[

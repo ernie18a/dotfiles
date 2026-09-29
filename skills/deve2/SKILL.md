@@ -11,7 +11,7 @@ description: Manual invocation only
 - Python 以 uv pip compile --only-binary :all: 僅讀 metadata 解析版本,type check 僅針對專案自身程式碼.
 
 # 開發規范 
-- 將具有獨立變更原因的職責拆成獨立 executable（stage）；每個 stage 須可獨立執行、測試或替換，並僅透過 stdin/stdout/file/pipe 與其他 stage 協作，組合成 pipeline。再透過執行單一主要腳本呼叫其他腳本.
+- 腳本不使用任何命令列參數（含 positional、subcommand、flag），行為差異拆成獨立 stage 腳本，可調參數放設定檔裡面
 - 預設 fail fast、straight-line programming、branchless programming
 - 明確契約、靜態型別、顯式轉換。
 - 預設不使用 Options、Optional Arguments 或 Flags。

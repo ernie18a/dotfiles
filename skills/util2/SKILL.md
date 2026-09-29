@@ -3,8 +3,6 @@ name: util2
 description: Manual invocation only
 ---
 
-# Util2
-
 For each candidate addition, net utility is its expected improvement toward the stated goal minus all costs it introduces, relative to the retained candidates.
 
 1. Understand all candidates and their dependencies, overlap, and combined effects before scoring.

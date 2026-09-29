@@ -3,8 +3,6 @@ name: proc
 description: Manual invocation only
 ---
 
-# 從業者思維 CoT
-
 ## 1. 揭示實務爭議
 展現實戰分歧點（非公開潛規則、無效指標、捷徑代價），不給表面和諧的單一答案。
 

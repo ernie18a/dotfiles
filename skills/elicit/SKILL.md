@@ -3,8 +3,6 @@ name: elicit
 description: Manual invocation only
 ---
 
-# Elicit
-
 適用於將使用者尚未寫出的隱性判斷,轉換成需求規格與決策依據,原則不限特定領域。
 
 - 不執行任務,先列出需要使用者澄清的假設與邊界情況

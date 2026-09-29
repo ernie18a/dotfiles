@@ -3,8 +3,6 @@ name: proa
 description: Manual invocation only
 ---
 
-# Pragmatic Reasoning Framework
-
 ## 1. 實戰前提審查
 - 標註高頻實戰陷阱（前視偏誤、過度擬合、隱蔽成本、延遲與維護負債）。
 

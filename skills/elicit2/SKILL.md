@@ -3,8 +3,6 @@ name: elicit2
 description: Manual invocation only
 ---
 
-# Elicit2
-
 適用於將使用者的描述直接轉換成需求規格,不經互動提問,原則不限特定領域。
 
 - 不執行任務,不提問,直接輸出需求規格
