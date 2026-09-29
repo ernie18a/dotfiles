@@ -93,6 +93,7 @@ alias VPP=' cd ~/.G/private/yet ; git pull >/dev/null ; vim ./.RANDOM.txt; git r
 alias LR='claude --dangerously-skip-permissions --resume'
 alias LS='claude --model sonnet --effort medium --dangerously-skip-permissions'
 alias LO='claude --model opus --effort medium --dangerously-skip-permissions'
+alias LOP='claude --model opusplan --effort medium --dangerously-skip-permissions'
 alias OR='codex --yolo resume'
 alias OA='codex --yolo -m gpt-6-astra -c model_reasoning_effort=medium'
 alias OAL='codex --yolo -m gpt-6-astra -c model_reasoning_effort=low'
