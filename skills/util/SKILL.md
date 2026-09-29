@@ -3,17 +3,9 @@ name: util
 description: Manual invocation only
 ---
 
-For each candidate \(x_i\):
+For each candidate addition, net utility is its expected improvement toward the stated goal minus all costs it introduces, relative to the retained candidates.
 
-\[
-\Delta U_i =
-\text{goal improvement caused by adding }x_i
--
-\text{all costs caused by adding }x_i
-\]
-
-Order candidates by expected \(\Delta U\), highest first, and evaluate each only by its added net utility relative to retained candidates:
-
-1. If \(\Delta U_i>0\), retain it.
-2. If \(\Delta U_i\le0\), stop and omit it and all following candidates.
-3. If the available information cannot determine \(\Delta U_i\), state the missing input and leave the candidate unresolved.
+1. Evaluate dependent or complementary candidates together when their value depends on joint inclusion.
+2. Retain the addition with the highest positive net utility.
+3. After each addition, rescore the affected candidates. Repeat until no assessable addition has positive net utility.
+4. When information is insufficient to determine net utility, state the missing input and leave that addition unresolved.
