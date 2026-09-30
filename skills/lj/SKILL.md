@@ -3,4 +3,4 @@ name: lj
 description: Manual invocation only
 ---
 
-orientation / reconnaissance 理解使用者指定的路徑或檔案；若未指定，則從當下 directory entry script or conf*.* 開始 orientation / reconnaissance . 
+稍微理解使用者指定的路徑或檔案；若未指定，則理解當下 directory ./ entry script or conf*.* 
