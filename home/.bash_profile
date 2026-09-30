@@ -91,6 +91,7 @@ alias VNP=' cd ~/.G/misc/notes ; git pull >/dev/null ; vim ./commands.txt ; git 
 alias VEP=' cd ~/.G/misc/notes ; git pull >/dev/null ; vim ./eng.txt ; git rm -r --cached . > /dev/null ; git add -A && git commit -amVEP &> /dev/null && git push ; cd - &>/dev/null '
 alias VPP=' cd ~/.G/private/yet ; git pull >/dev/null ; vim ./.RANDOM.txt; git rm -r --cached . > /dev/null ; git add -A && git commit -amVPP &> /dev/null && git push ; cd - &>/dev/null '
 alias LR='claude --dangerously-skip-permissions --resume'
+alias LOPR='claude --model opusplan --effort medium --permission-mode plan --allow-dangerously-skip-permissions --resume'
 alias LS='claude --model sonnet --effort medium --dangerously-skip-permissions'
 alias LO='claude --model opus --effort medium --dangerously-skip-permissions'
 # alias LOP='claude --model opusplan --effort medium --dangerously-skip-permissions'
