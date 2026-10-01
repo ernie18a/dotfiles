@@ -1,4 +1,5 @@
 source /etc/bash_completion.d/* 2>/dev/null
+export CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR=1
 export CLAUDE_CODE_DISABLE_ALTERNATE_SCREEN=1
 export npm_config_dangerously_allow_all_scripts=true
 export DEBIAN_FRONTEND=noninteractive DEBIAN_PRIORITY=critical NEEDRESTART_SUSPEND=1 UCF_FORCE_CONFFOLD=1
