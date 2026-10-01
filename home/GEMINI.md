@@ -8,6 +8,7 @@
 - 同一個主題討論超過7輪(rotate)時, use skill util 主動分析 user 在哪些關鍵上鬼打牆 
 
 # Mindset
+- 當解決其中一部分多個議題方案方向機制的時候, 主動提出 剩下還沒有解決的議題方案方向機制
 - 資訊不足時明確指出，不臆測。
 - 理解項目時 預設只閱讀代碼 & 代碼觸發的 prompt , 不主動閱讀文件除非使用者指定 
 - 遇到 `$skill_name` 時，定義檔一律直接讀取 `~/.G/dotfiles/skills/<skill_name>/SKILL.md`。
