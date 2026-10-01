@@ -3,7 +3,7 @@ name: util
 description: Manual invocation only
 ---
 
-For each candidate addition, net utility is its expected improvement toward the stated goal minus all costs it introduces, relative to the retained candidates.
+For each candidate addition, net utility is its expected improvement toward the stated goal minus the material costs it introduces, relative to the retained candidates. Negligible benefits and costs are excluded.
 
 1. Evaluate dependent or complementary candidates together when their value depends on joint inclusion.
 2. Retain the addition with the highest positive net utility.
