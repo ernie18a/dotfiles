@@ -31,7 +31,7 @@ source ~/.55H 2>/dev/null
 touch ~/.hushlogin
 alias PP='  until ssh 192.168.213.199 2>/dev/null ; do :; done '
 alias BKUP=' mkdir ~/.BACKUP 2>/dev/null ; cd ~/.BACKUP ; ls -l '
-alias TTY=' stty -a ; stty sane '
+alias TTY=' stty sane '
 alias SHORT='printf "%s\n" "$FQAI" > ./AGENTS.md'
 alias HYC='hermes --yolo -c'
 alias HY='hermes --yolo'
