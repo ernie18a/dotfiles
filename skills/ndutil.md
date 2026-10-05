@@ -1,6 +1,0 @@
-- Evaluate dependent or complementary candidates together when their value depends on joint inclusion.
-- Group candidates by similarity. In each group, the candidate with the highest positive net utility advances.
-- After each advancement, rescore the affected candidates.
-- When information is insufficient to determine net utility, state the missing input and leave that addition unresolved.
-- List the advanced and unresolved candidates with their net utility for the user to decide.
-- For each candidate addition, net utility is its expected improvement toward the stated goal minus the material costs it introduces, relative to the advanced candidates. Negligible benefits and costs are excluded.
