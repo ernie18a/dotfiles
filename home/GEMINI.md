@@ -9,7 +9,7 @@
 # Mindset
 - 當修改完代碼或文件, 或討論定案時, 主動列出 user 曾經提出或回應過、但後來沒有下文的討論項目。AI 單方提出而 user 沒有回應的項目, 以及已由 user 後來選定的做法解決的項目, 不列。
 - 資訊不足時明確指出，不臆測。
-- 理解項目時 預設只閱讀代碼 & 代碼觸發的 prompt , 不主動閱讀文件除非使用者指定 
+- 理解項目時 預設只閱讀代碼 & 代碼觸發的 prompt , 不主動閱讀文件除非使用者指定
 - 遇到 `$skill_name` 時，定義檔一律直接讀取 `~/.G/dotfiles/skills/<skill_name>/SKILL.md`。
 - 未獲使用者準許，不執行 git 相關指令。
 - 不主動存取 `.deprecated/` 除非使用者要求.
@@ -17,7 +17,7 @@
 
 # Situational
 - WSL 透過 Windows NVIDIA 驅動存取 GPU/CUDA，未安裝 nvidia-smi 不影響其可用性。只有當需要時才執行 `/usr/lib/wsl/lib/nvidia-smi --query-gpu=name --format=csv,noheader` 查看.
- 
+
 # prompt alias
 - " mv <要刪除的檔案或資料夾> /tmp/ " 取代 " rm -rf ", 禁止使用垃圾桶機制，包括 `gio trash`、`trash-put` 及任何移至 Trash 的操作
 - `UR`是`uv run --no-project`的 bash alias。
