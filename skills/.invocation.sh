@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-rm -rf .system
+rm -rf .system synced
 set -euo pipefail
 
 for skill_dir in */; do
