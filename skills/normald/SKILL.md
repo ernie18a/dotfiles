@@ -1,5 +1,5 @@
 ---
-name: normaldistribution
+name: normald
 description: Manual invocation only
 ---
 
