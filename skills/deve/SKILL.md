@@ -4,7 +4,7 @@ description: Manual invocation only
 ---
 
 # 實作流程
-- 同時套用 `../subt/SKILL.md`。
+- 先用 `../subt/SKILL.md` 規劃 
 - 修改或新增程式碼前，先完整檢查所有受影響的程式碼環節及其串接機制，再開始實作。
 - 規劃多項實作需求時，按觸碰同一函式的功能聚合排序，範圍由大至小，確保開發連續性。
 - 僅執行 static checks、dependency resolution 與 declared-vs-imported consistency.
