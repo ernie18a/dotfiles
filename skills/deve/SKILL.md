@@ -20,7 +20,6 @@ description: Manual invocation only
 - 輸出新增或修改的非 boilerplate 內容
 - 完成任務後只能回復 `DONE`, 不回復其他資訊
 - 以最小變更完整解決需求根因。
-- 如果修改項目在 `/g/<對應分類>/<對應工具>/` 底下，主動把修改目的 簡短地 single line append 在 `/g/<對應分類>/<對應工具>/r2.md` 底下. 不包含實作細節.  `/g/<對應分類>/<對應工具>/r2.md` 是 approach, 不是限制. 
 
 # 專案與執行環境
 - Python 程式碼除 PEP 723 metadata 外，不得包含任何註解或 docstring。
