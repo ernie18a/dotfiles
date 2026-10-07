@@ -1,5 +1,5 @@
 ---
-name: ompa
+name: ompare
 description: Manual invocation only
 ---
 
