@@ -3,7 +3,7 @@ export CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR=1
 export CLAUDE_CODE_DISABLE_ALTERNATE_SCREEN=1
 export npm_config_dangerously_allow_all_scripts=true
 export DEBIAN_FRONTEND=noninteractive DEBIAN_PRIORITY=critical NEEDRESTART_SUSPEND=1 UCF_FORCE_CONFFOLD=1
-export CLAUDE_CODE_SUBAGENT_MODEL=sonnet
+export CLAUDE_CODE_SUBAGENT_MODEL=haiku
 export COLORTERM=truecolor
 export DBUS_SESSION_BUS_ADDRESS=/dev/null
 export DEBCONF_NOWARNINGS="yes"
