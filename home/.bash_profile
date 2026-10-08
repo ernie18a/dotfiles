@@ -96,6 +96,7 @@ alias VPP=' cd ~/.G/private/yet ; git pull >/dev/null ; vim ./.RANDOM.txt; git r
 alias LR='claude --dangerously-skip-permissions --resume'
 alias LOPR='claude --model opusplan --effort high --permission-mode plan --allow-dangerously-skip-permissions --resume'
 alias LS='claude --model sonnet --effort high --dangerously-skip-permissions'
+alias LH='claude --model haiku --effort high --dangerously-skip-permissions'
 alias LO='claude --model opus --effort high --dangerously-skip-permissions'
 # alias LOP='claude --model opusplan --effort medium --dangerously-skip-permissions'
 alias LOP=' claude --model opusplan --effort high --permission-mode plan --allow-dangerously-skip-permissions '
