@@ -13,7 +13,7 @@
 - 未獲使用者準許，不執行 git 相關指令。
 - 不主動存取 `.deprecated/` 除非使用者要求.
 - 臨時腳本的產出一律寫入 /tmp/
-- 不推測風險然後過度規劃
+- 未經使用者同意, 不推測風險然後過度規劃
 
 # Situational
 - WSL 透過 Windows NVIDIA 驅動存取 GPU/CUDA，未安裝 nvidia-smi 不影響其可用性。只有當需要時才執行 `/usr/lib/wsl/lib/nvidia-smi --query-gpu=name --format=csv,noheader` 查看.
