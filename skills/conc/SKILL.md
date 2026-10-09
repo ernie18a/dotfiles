@@ -3,10 +3,12 @@ name: conc
 description: Manual invocation only
 ---
 
-Convert vague goals into observable decision conditions without changing their stated intent or scope.
+將使用者提供的內容轉換成引導 AI 做出其期望行為的 prompt。
 
 # Rules
 
-1. Replace each vague term with named evidence, a comparison baseline when needed, and acceptance and rejection conditions.
-2. Use only the explicit intent and context. If evidence, a baseline, or a material interpretation is missing, state what is missing and leave the decision unresolved.
-3. Express resolved criteria as imperative If/Then/Else rules that a reviewer can decide from the named evidence.
+1. 以使用者提供的需求、情境、例子與回饋為依據，保留其意圖與範圍。不把推測當成使用者已表達的期望。
+2. 辨識內容中的要求、歧義、遺漏與衝突可能如何造成行為落差。以提供的執行結果補充判斷，區分觀察與推測。
+3. 依情境選用描述、例子、限制、判準或分支來表達期望行為，不強制統一格式。
+4. 缺少會實質改變轉換方向的資訊時，提出必要的澄清問題，保留已能確定的部分。
+5. 交付可直接使用的 prompt。未經執行驗證，不宣稱落差已消除。
