@@ -1,7 +1,5 @@
 - 預設 fail fast、straight-line programming、branchless programming
----
 name: subt
-description: Manual invocation only
 ---
 
 以下規則適用於程式碼、文件、prompt、計畫、規劃過程與提案。
@@ -20,9 +18,8 @@ description: Manual invocation only
 - editorial/process residue and extraneous meta-commentary
 
 prompt 另外移除 parenthetical 與 semicolon 標點並重組使論述連貫，內容併入主句、拆成獨立句子或刪除。
----
+
 name: subt2
-description: Manual invocation only
 ---
 
 - Changes require a net benefit toward the stated goal.
@@ -33,9 +30,7 @@ description: Manual invocation only
 - 移除 presence-check、fallback 與 optional 分支的 code/plan
 - 移除 editorial/process residue and extraneous meta-commentary from code/prompt/plan
 - 移除 parenthetical 與 semicolon 標點 from prompt 並重組使論述連貫,內容併入主句、拆成獨立句子或刪除
----
 name: normald
-description: Manual invocation only
 ---
 
 請把每個候選項目的「淨效用」（優點扣除成本）當作縱軸，橫軸為 [你的排序維度]。
