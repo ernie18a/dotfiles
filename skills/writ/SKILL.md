@@ -1,5 +1,5 @@
 ---
-name: writing
+name: writ
 description: Manual invocation only
 ---
 
