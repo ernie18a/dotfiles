@@ -19,6 +19,7 @@ FQAI='- 簡短回覆 '
 export MAILCHECK=0 &>/dev/null
 export OLLAMA_API_BASE=http://127.0.0.1:11434
 export PATH="$HOME/.grok/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/go/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/snap/bin:/opt/homebrew/bin:$HOME/.docker/cli-plugins:$HOME/bin:$HOME/.google-cloud-sdk/bin/"
+export PYTHONPYCACHEPREFIX="$HOME/.cache/pycache"
 export TERM=xterm-256color
 export UV_VENV_CLEAR=1
 export WIN_USER=`ls /mnt/c/Users 2>/dev/null |grep -iv "All\|Default\|desktop.ini\|Public\|USER\|Administrator\|super"`
