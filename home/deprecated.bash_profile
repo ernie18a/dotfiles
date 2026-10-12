@@ -2,21 +2,21 @@
 # 
 # AWK() { awk "{print\$$1}" ; }
 # BB() { kubectl delete pod ernie-busybox 2>/dev/null ; kubectl run -it ernie-busybox --image=busybox --rm -- $1 ; }
-# BRC() { ssh-copy-id $i && (cat ~/.ssh/authorized_keys | grep -qE "e@mac|123@tgfc" || cat ~/.ssh/id_rsa.pub | ssh $i 'cat >> ~/.ssh/authorized_keys') && curl -Ls https://gitlab.com/ernie18a/dotfiles/-/raw/main/home/.bash_profile | grep -vEi raw.githubusercontent.com\|git_ps1 | ssh $i "cat > .BRC" ; }
-# BRCL() { curl -Ls https://gitlab.com/ernie18a/dotfiles/-/raw/main/home/.bash_profile |grep -vEi raw.githubusercontent.com\|git_ps1 | ssh $1 "cat > .BRC" ; }
+# BRC() { ssh-copy-id $i && (cat ~/.ssh/authorized_keys | grep -qE "e@mac|123@tgfc" || cat ~/.ssh/id_rsa.pub | ssh $i 'cat >> ~/.ssh/authorized_keys') && curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile | grep -vEi raw.githubusercontent.com\|git_ps1 | ssh $i "cat > .BRC" ; }
+# BRCL() { curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile |grep -vEi raw.githubusercontent.com\|git_ps1 | ssh $1 "cat > .BRC" ; }
 # BUBH() { cd ~/.G/private/ ; git fetch --prune ; git reset --hard ; git clean -f ; git pull ; cat ~/.bash_history >> ~/.G/private/.bash_history ; cat .bash_history  | tr -s ' ' | sed -e 's/\r//g' -e 's/\t/ /g' -e 's/\x1B\[[0-9;]*[a-zA-Z]//g' |   sed 's/[[:space:]]*$//' | sort | uniq  | tee .bash_history >/dev/null ; git rm -r --cached . > /dev/null ; git add -A ; git commit -m backup &>/dev/null ; git push ; cd - ; } 
-# CBG() { cat ~/.bash_profile 2>/dev/null |grep -i --color $1 || curl -Ls https://gitlab.com/ernie18a/dotfiles/-/raw/main/home/.bash_profile |grep -i --color $1 ; }
-# CBG() { curl -Ls https://gitlab.com/ernie18a/dotfiles/-/raw/main/home/.bash_profile |grep -i --color $1 2>/dev/null || cat ~/.bash_profile 2>/dev/null |grep -i --color $1 ; }
+# CBG() { cat ~/.bash_profile 2>/dev/null |grep -i --color $1 || curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile |grep -i --color $1 ; }
+# CBG() { curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile |grep -i --color $1 2>/dev/null || cat ~/.bash_profile 2>/dev/null |grep -i --color $1 ; }
 # CGC() { grep -iR --color $1 ~/.G/dotfiles/curl ; }
-# CGM() { grep -iR --color $1 ~/.G/misc/deploying ; }
+# CGM() { grep -iR --color $1 ~/.G/dotfiles/deploying ; }
 # CMPL() { ls /etc/bash_completion.d && $1 completion bash > /etc/bash_completion.d/$1 ; }
-# CNG() { cat ~/.G/misc/notes/commands.txt 2>/dev/null |grep -i --color $1 || curl -fsSL https://gitlab.com/ernie18a/misc/-/raw/master/notes/commands.txt |grep -i --color $1 ; }
+# CNG() { cat ~/.G/dotfiles/notes/commands.txt 2>/dev/null |grep -i --color $1 || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/notes/commands.txt |grep -i --color $1 ; }
 # CURL() { while true ; do curl -sS $1?$(date +%s) ; echo -n $(date +%H:%M:%S.%N)\ ; done ; }
 # DLI() { docker login -u $(cat .docker/config.json |G auth.*== |AWK 2 |tr '"' ' ' |AWK 1 |base64 -d |AWK 1 -F:) -p $(cat .docker/config.json |G auth.*== |AWK 2 |tr '"' ' ' |AWK 1 |base64 -d |AWK 2 -F:) }
 # DOCKERBTP() { docker build . -t $2 ; docker tag $2 ernie18a/$1:$2 ; docker push ernie18a/$1:$2 ; }
 # DOCKERTP() { docker tag $2 ernie18a/$1:$2 ; docker push ernie18a/$1:$2 ; }
 # DRUN() { docker run -h $1 --name $1 -itd $1 ; } # might be failed if $1 is abc.io/nginx
-# ECDZ() { echo ' source /dev/stdin <<< "$(curl -Ls https://gitlab.com/ernie18a/dotfiles/-/raw/main/home/.bash_profile)" ' > ~/.bash_profile ; }
+# ECDZ() { echo ' source /dev/stdin <<< "$(curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile)" ' > ~/.bash_profile ; }
 # FPG() { find "$(pwd)" | grep -i --color $1 ; }
 # GDO() { curl -s https://api.github.com/repos/$1/$2/releases/latest |grep browser_download_url |grep linux.$(uname -m)\" |awk "{print\$2}" |xargs wget -O /bin/$3 ; chmod 0755 /bin/$3 ; }
 # GGRCA() { (cd /g; for R in */; do [[ -d "$R/.git" ]] || continue; (cd "$R"; { git fetch -p && git rm --ignore-unmatch -r . --cached && git checkout -fB main origin/main && git clean -fdx; } > /dev/null) & done; wait); }
@@ -52,7 +52,7 @@
 # KGPC() { kubectl get pods $1 -o jsonpath="{.spec.containers[*].name}" 2>/dev/null | tr " " "\n" ; }
 # KGPN() { kubectl get po $1 -n $(kubectl get po -A | grep $1 | awk "{print\$1}") ; }
 # KGR() { kubectl get rc,$1 ; }
-# KIN() { kubectl exec $1 -- bash -c "apt update ; apt install -y dnsutils watch curl iputils-ping iproute2 nmap vim lsof apt-file telnet ; curl -fsSl https://gitlab.com/ernie18a/dotfiles/-/raw/main/home/.bash_profile -o ~/.bashrc " ; }
+# KIN() { kubectl exec $1 -- bash -c "apt update ; apt install -y dnsutils watch curl iputils-ping iproute2 nmap vim lsof apt-file telnet ; curl -fsSl https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile -o ~/.bashrc " ; }
 # KL() { kubectl logs $1 -n $2 --all-containers 2>/dev/null || kubectl logs $1 --all-containers ; }
 # KL() { kubectl logs $1 -n $2 --all-containers || kubectl logs $1 --all-containers ; }
 # KL() { kubectl logs $2 -n $1 2>/dev/null || kubectl logs $1 2>/dev/null ; }
@@ -62,7 +62,7 @@
 # NTPL() { growpart /dev/sda 2 ; resize2fs /dev/sda2 ; sed -i "/\//d" /etc/netplan/00-installer-config.yaml ; sed -i "/gateway4/i \ \ \ \ \ \ - $1/24" /etc/netplan/00-installer-config.yaml ; hostnamectl set-hostname u$(echo $1 |awk -F. "{print\$4}") ; }
 # NTPL.ORIGINAL() { growpart /dev/sda 2 ; resize2fs /dev/sda2 ; sed -i "/\//d" /etc/netplan/00-installer-config.yaml ; sed -i "/gateway4/i \ \ \ \ \ \ - $1/24" /etc/netplan/00-installer-config.yaml ; hostnamectl set-hostname u$(echo $1 |awk -F. "{print\$4}") ; }
 # SUL() { sudo updatedb ; sudo locate -i $1 | grep -i --color $1 ; }
-# TEST4() { bash -c "curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/curl/i.apt.sh | bash -s \"$@\"" ; } # https://gemini.google.com/app/541a8f0e276347f3
+# TEST4() { bash -c "curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/i.apt.sh | bash -s \"$@\"" ; } # https://gemini.google.com/app/541a8f0e276347f3
 # UA() { useradd $1 -ms/bin/bash ; echo -e "$2\n$2" | passwd $1 ; }
 # YTDL1() { while read i ; do yt-dlp --prefer-ffmpeg --extract-audio --audio-format mp3 --no-check-certificate "$i" ; done <$1 ; }
 # YTDLA() { yt-dlp --js-runtimes node -x --no-check-certificate -i -a "$1"; }
@@ -75,23 +75,23 @@
 # alias 2ALL=' M2G ; M24 ; P2P ; rm -rf *webm *webp '
 # alias 8888=' ping 8.8.8.8 '
 # alias AALH=' ansible all --list-hosts '
-# alias AK=' curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/curl/e.authorized_keys.sh | bash '
-# alias AKE=' curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/curl/e.authorized_keys.ed25519.sh | bash '
-# alias ALPINE=' docker build -t alpine:ernie https://gitlab.com/ernie18a/misc/-/raw/master/deploying/Dockerfile.alpine 1>/dev/null ; echo -e "kubectl run --image=alpine:ernie alpine\nkubectl exec -it alpine -- bash\ndocker run -h alpine --name alpine -id alpine:ernie\ndocker exec -it alpine bash" '
-# alias AMPERE=' curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/curl/i.kube.ampere.sh | bash '
+# alias AK=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/e.authorized_keys.sh | bash '
+# alias AKE=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/e.authorized_keys.ed25519.sh | bash '
+# alias ALPINE=' docker build -t alpine:ernie https://raw.githubusercontent.com/ernie18a/dotfiles/main/deploying/Dockerfile.alpine 1>/dev/null ; echo -e "kubectl run --image=alpine:ernie alpine\nkubectl exec -it alpine -- bash\ndocker run -h alpine --name alpine -id alpine:ernie\ndocker exec -it alpine bash" '
+# alias AMPERE=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/i.kube.ampere.sh | bash '
 # alias AP=' ansible-playbook '
 # alias APB=' ansible-playbook '
 # alias APH=' ansible-playbook -i .hosts '
-# alias APT=' curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/curl/i.apt.sh | bash '
+# alias APT=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/i.apt.sh | bash '
 # alias AUTH=' cat ~/.ssh/authorized_keys '
-# alias AUTH=' curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/curl/e.authorizing.sh | bash '
-# alias AWX=' curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/curl/i.awx-operator.sh | bash '
+# alias AUTH=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/e.authorizing.sh | bash '
+# alias AWX=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/i.awx-operator.sh | bash '
 # alias B6=' echo "$1" | base64 -d '
-# alias BRCL=' echo source /dev/stdin <<< "$(curl -Ls https://gitlab.com/ernie18a/dotfiles/-/raw/main/home/.bash_profile)" > ~/.BRC '
-# alias C8=' curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/curl/i.c8.sh | bash '
+# alias BRCL=' echo source /dev/stdin <<< "$(curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile)" > ~/.BRC '
+# alias C8=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/i.c8.sh | bash '
 # alias CALICO=' kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml '
 # alias CAPI=' grep -B1 "^\s*export" ~/.55H | grep ^# '
-# alias CCAT=' sudo curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/.sbin/ccat -o /bin/ccat ; sudo chmod +x /bin/ccat '
+# alias CCAT=' sudo curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/.sbin/ccat -o /bin/ccat ; sudo chmod +x /bin/ccat '
 # alias CD4=' cd ~/.G/411d3 && ls -A --color |sort   '
 # alias CDA=' cd ~/.G/ac && ls -A --color |sort   '
 # alias CDF=' cd ~/.G/411d3 ; ls -l --color '
@@ -100,7 +100,7 @@
 # alias CDG=' cd ~/.G/* 2>/dev/null || mkdir ~/.G 2>/dev/null ; cd ~/.G ; ls -A --color '
 # alias CDG=' cd ~/.G/* || cd ~/.G ; ls -A --color |sort '
 # alias CDG=' cd ~/.G/* || mkdir ~/.G ; cd ~/.G ; ls -A --color |sort '
-# alias CDGM=' cd ~/.G/misc/deploying ; ls -Al --color | sort '
+# alias CDGM=' cd ~/.G/dotfiles/deploying ; ls -Al --color | sort '
 # alias CDGP=' cd ~/.G/.awx-cathay-cicd 2>/dev/null || cd ~/.G/awx-cathay-cicd '
 # alias CDI=' cd ~/.G/15 ; ls -l '
 # alias CDM=' cd ~/.G/1v9/migrate ; ls -A --color |sort '
@@ -118,15 +118,15 @@
 # alias CDWV=' cd $WIN_USER_DIR/vagrant '
 # alias CEH=' cat /etc/hosts '
 # alias CIO=' cp -urf ./* /mnt/c/Users/e/Desktop/ '
-# alias CIY=' curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/curl/i.yum.sh | bash '
-# alias CKAR=' curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/curl/.deprecated/i.kube.apt.reset.sh | bash '
-# alias CKR2=' curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/curl/_kube.reset.sh |bash '
-# alias CKYM=' curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/curl/i.kube.yum.m.sh | bash '
-# alias CKYR=' curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/curl/i.kube.yum.reset.sh | bash '
-# alias CNG=' cat ~/.G/misc/notes/commands.txt | grep --color -i '
+# alias CIY=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/i.yum.sh | bash '
+# alias CKAR=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/.deprecated/i.kube.apt.reset.sh | bash '
+# alias CKR2=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/_kube.reset.sh |bash '
+# alias CKYM=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/i.kube.yum.m.sh | bash '
+# alias CKYR=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/i.kube.yum.reset.sh | bash '
+# alias CNG=' cat ~/.G/dotfiles/notes/commands.txt | grep --color -i '
 # alias COI=' cp -urf /mnt/c/Users/e/Downloads/* . '
 # alias COLUMN=' apt-get install -y bsdmainutils || yum install -y util-linux '
-# alias CONTAINERD=' curl -fssL https://gitlab.com/ernie18a/dotfiles/-/raw/main/curl/i.containerd.sh | bash '
+# alias CONTAINERD=' curl -fssL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/i.containerd.sh | bash '
 # alias CP=' cat ~/.G/private2/_data/RANDOM.txt 2>/dev/null '
 # alias CV=' cat values.yaml '
 # alias DAE=' ls -a ~ |grep -v "ssh$\|.kube$\|.vimrc$" |xargs rm -rf '
@@ -160,8 +160,8 @@
 # alias GCU=' [ "$(npm view @google/gemini-cli version)" != "$(gemini --version 2>/dev/null)" ] && sudo npm install -g @google/gemini-cli '
 # alias GCUG=' [ "$(npm view @google/gemini-cli version)" != "$(gemini --version 2>/dev/null)" ] && sudo npm install -g @google/gemini-cli ; gemini '
 # alias GD=' git --no-pager diff '
-# alias GG2=' curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/home/GEMINI.md > ~/.gemini/GEMINI.md && curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/home/settings.json > ~/.gemini/settings.json && sleep 2 && gemini  '
-# alias GGS=' curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/home/GEMINI.md > ~/.gemini/GEMINI.md ; curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/home/settings.json > ~/.gemini/settings.json '
+# alias GG2=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/GEMINI.md > ~/.gemini/GEMINI.md && curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/settings.json > ~/.gemini/settings.json && sleep 2 && gemini  '
+# alias GGS=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/GEMINI.md > ~/.gemini/GEMINI.md ; curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/settings.json > ~/.gemini/settings.json '
 # alias GLANCES=' sudo apt-get install -y software-properties-common ; sudo add-apt-repository -y ppa:deadsnakes/ppa ; sudo apt-get update -y ; sudo apt-get install -y python3-pip ; sudo pip3 install pip glances -U '
 # alias GPP=' git pull ; git rm -r --cached . > /dev/null ; git add -A ; git commit -amxxxxx > /dev/null ; git push '
 # alias GRC2=' git fetch --prune && git reset --hard && git clean -f && git pull ' # git rm -r --cached
@@ -172,15 +172,15 @@
 # alias GSN=' git start next '
 # alias GURL=' grep -E "([a-zA-Z0-9]+\.[a-zA-Z0-9]+\.[a-zA-Z0-9]+)" ' # -r & -o removed
 # alias GURL=' grep -vE index.php\|index.htm\|log.*log\|127.0.0\|1.2.3 | grep -Eo "([a-zA-Z0-9]+\.[a-zA-Z0-9]+\.[a-zA-Z0-9]+)" ' # without -r
-# alias GY2=' curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/home/GEMINI.md > ~/.gemini/GEMINI.md ; curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/home/settings.json > ~/.gemini/settings.json ; gemini -y -m gemini-3-flash-preview '
+# alias GY2=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/GEMINI.md > ~/.gemini/GEMINI.md ; curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/settings.json > ~/.gemini/settings.json ; gemini -y -m gemini-3-flash-preview '
 # alias GY2=' gemini -y -m gemini-3-flash-preview '
-# alias GY=' curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/home/GEMINI.md > ~/.gemini/GEMINI.md ; curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/home/settings.json > ~/.gemini/settings.json ; gemini -y -m gemini-3-pro-preview '
+# alias GY=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/GEMINI.md > ~/.gemini/GEMINI.md ; curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/settings.json > ~/.gemini/settings.json ; gemini -y -m gemini-3-pro-preview '
 # alias GY=' gemini -y -m gemini-3-pro-preview '
 # alias HG=' cat ~/.bash_history |grep -ai --color '
 # alias HH=' cat ~/.bash_history '
 # alias HUA=' helm list |grep -v ^NAME |awk "{print\$1}" |xargs helm uninstall '
 # alias HUSH=' touch ~/.hushlogin '
-# alias INGDEMO=' curl -fsSL https://gitlab.com/ernie18a/misc/-/raw/master/scripts/ing.demo.sh | bash '
+# alias INGDEMO=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/scripts/ing.demo.sh | bash '
 # alias INGRESS=' kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.0.0/deploy/static/provider/cloud/deploy.yaml '
 # alias INGRESS=' kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.0.4/deploy/static/provider/baremetal/deploy.yaml '
 # alias INGRESS=' kubectl create ns ingress-nginx ; helm install ingress-nginx bitnami/nginx-ingress-controller -n ingress-nginx '
@@ -208,31 +208,31 @@
 # alias KGES=' kubectl get event -A -o custom-columns="NAME:{metadata.name},MESSAGE:{message}" '
 # alias KGY=' kubectl get -o yaml'
 # alias KL=' kubectl logs --all-containers '
-# alias KREW=' curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/curl/i.kube.krew.sh | bash '
-# alias KUS=' curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/curl/i.kube.kustomize.sh | bash '
+# alias KREW=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/i.kube.krew.sh | bash '
+# alias KUS=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/i.kube.kustomize.sh | bash '
 # alias LONGHORN=' kubectl apply -f https://raw.githubusercontent.com/longhorn/longhorn/master/deploy/longhorn.yaml '
 # alias LTH=' sed -i "/PUSHM\|rere\|nmap\|nc\|.bash_history\|help\|CNG\|CBG\|reboot\|poweroff\|HISTFILE\|help\|mtr\|gping\|BRC\|wget\|NC\|ping\|curl\|HG\|HH\|LTH\|STEALTH\|source\|SAS\|export\|history\|rm\|ernie18a\|sshrc\|rsync\|scp\|scpr/d" ~/.bash_history ; rm -rf /tmp/*sshrc* '
 # alias LTH=' sed -i "/help\|/mtr\|gping\|BRC\|wget\|NC\|ping\|curl\|HG\|HH\|LTH\|STEALTH\|source\|SAS\|export\|history\|rm\|ernie18a\|sshrc\|rsync\|scp\|scpr/d" ~/.bash_history ; rm -rf /tmp/*sshrc* '
 # alias LTH=' sed -i "/mtr\|gping\|BRC\|wget\|NC\|ping\|curl\|HG\|HH\|LTH\|STEALTH\|source\|SAS\|export\|history\|rm\|ernie18a\|sshrc\|rsync\|scp\|scpr/Id" ~/.bash_history ; rm -rf /tmp/*sshrc* '
 # alias M24=' for i in *.webm;do ffmpeg -y -i "$i" "$(echo "$i"|cut -d\. -f1).mp4"; done '
 # alias M2G=' for i in *.webm;do ffmpeg -y -i "$i" "$(echo "$i"|cut -d\. -f1).gif"; done '
-# alias MASTER=' curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/curl/i.kube.master.sh | bash '
-# alias MC=' curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/curl/i.minecraft.sh | bash '
-# alias METAL=' curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/curl/i.metallb.sh | bash '
-# alias METRICS=' kubectl apply -f https://gitlab.com/ernie18a/dotfiles/-/raw/main/misc/metrics-server.yaml '
-# alias MINI=' curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/curl/i.minikube.sh | bash '
-# alias MINI=' curl -fssL https://gitlab.com/ernie18a/dotfiles/-/raw/main/curl/e.minimum.sh | bash '
-# alias MINIO=' curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/curl/i.kube.minio.sh | bash '
-# alias NE=' curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/curl/i.node.exporter.sh | bash '
+# alias MASTER=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/i.kube.master.sh | bash '
+# alias MC=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/i.minecraft.sh | bash '
+# alias METAL=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/i.metallb.sh | bash '
+# alias METRICS=' kubectl apply -f https://raw.githubusercontent.com/ernie18a/dotfiles/main/misc/metrics-server.yaml '
+# alias MINI=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/i.minikube.sh | bash '
+# alias MINI=' curl -fssL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/e.minimum.sh | bash '
+# alias MINIO=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/i.kube.minio.sh | bash '
+# alias NE=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/i.node.exporter.sh | bash '
 # alias NN=' netstat -an -ptcp | grep LISTEN | V 127.0.0.1 | V ::1 '
 # alias NPMGG2=' sudo npm install -g npm ; sudo npm install -g @google/gemini-cli ; gemini '
 # alias NPMGG=' sudo npm install -g npm ; [ "$(npm view @google/gemini-cli version)" != "$(gemini --version 2>/dev/null)" ] && sudo npm install -g @google/gemini-cli ; gemini '
-# alias NPMGG=' sudo npm install -g npm ; sudo npm install -g @google/gemini-cli ; curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/home/GEMINI.md > ~/.gemini/GEMINI.md ; curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/home/settings.json > ~/.gemini/settings.json ; gemini  '
-# alias NVIM=' curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/curl/i.nvim.sh | bash '
+# alias NPMGG=' sudo npm install -g npm ; sudo npm install -g @google/gemini-cli ; curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/GEMINI.md > ~/.gemini/GEMINI.md ; curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/settings.json > ~/.gemini/settings.json ; gemini  '
+# alias NVIM=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/i.nvim.sh | bash '
 # alias NVS=' nvidia-smi '
 # alias OL=' ollama list ; ollama ps ; echo -e "\n" ; echo ollama run ; echo -e "\n" '
 # alias OLR=' ollama run $1 ; ollama stop $1 ; SYSS ollama ; sleep 3 ; SYSR ollama ; ollama run $1 '
-# alias ORACLE=' curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/curl/i.oracle.sh | bash '
+# alias ORACLE=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/i.oracle.sh | bash '
 # alias OVT=' apt-get update 2>/dev/null ; apt-get install -y open-vm-tools 2>/dev/null ||yum install -y open-vm-tools 2>/dev/null ; systemctl restart vmtoolsd.service ; systemctl enable vmtoolsd.service'
 # alias P2P=' for i in *.webp;do ffmpeg -y -i "$i" "$(echo "$i"|cut -d\. -f1).png"; done '
 # alias PIP2=' deactivate ; rm .venv* ; uv venv ; source .venv/bin/activate ; uv pip install -r .requirements.txt '
@@ -240,19 +240,19 @@
 # alias PIU=' sudo pip3 install -U ' # --system
 # alias PIU=' umask 022 ; sudo pip3 install -U '
 # alias PRUNE=' docker system prune -fa 2>/dev/null ; docker system prune -f --volumes 2>/dev/null '
-# alias PUB=' curl -fssL https://gitlab.com/ernie18a/dotfiles/-/raw/main/curl/e.pub.sh | bash '
+# alias PUB=' curl -fssL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/e.pub.sh | bash '
 # alias PULL=' git pull '
 # alias PUSH=' git rm -r --cached . > /dev/null ; git add -A ; git commit -amxxxxxxx > /dev/null ; git push '
 # alias PY=' python3 -m venv venv; source venv/bin/activate; pip3 install -r requirements.txt '
-# alias REPO=' curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/curl/i.rhel.repo.mount.sh | bash '
+# alias REPO=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/i.rhel.repo.mount.sh | bash '
 # alias RMH=' sed -i "/$1/d" ~/.bash_history '
-# alias RUNNER=' curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/curl/i.runner.sh | bash '
+# alias RUNNER=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/i.runner.sh | bash '
 # alias SA=' eval $(ssh-agent) 1>/dev/null ; ssh-add ~/.ssh/id_rsa &>/dev/null '
 # alias SAS=' eval $(ssh-agent) 1>/dev/null ; ssh-add ~/.ssh/id_rsa &>/dev/null ; ssh '
 # alias SCT=' ssh -o ConnectTimeout=300 '
-# alias SINGLE2=' curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/curl/_kube.single.sh | bash '
+# alias SINGLE2=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/_kube.single.sh | bash '
 # alias SN='
-# alias SOURCE=' source /dev/stdin <<< "$(curl -Ls https://gitlab.com/ernie18a/dotfiles/-/raw/main/home/.bash_profile)" '
+# alias SOURCE=' source /dev/stdin <<< "$(curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile)" '
 # alias SS=' ss -nlp |V 127.0.0 |GE ":\*" |column -t '
 # alias SS=' ss -nlp |V 127.0.0 |GE ":\*" |column -t 2>/dev/null || ss -nlp |V 127.0.0 |GE ":\*" '
 # alias SS=' ss -ntlp '
@@ -265,13 +265,13 @@
 # alias SU=' echo "source /tmp/.e.sshrc.*/.sshrc" ; echo "source /home/$(whoami)/.bash_profile " ; sudo su - '
 # alias SUDOER=' for i in $(ls /home/) ; do echo "$i ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers ; done '
 # alias SUS=' | sort | uniq -c | sort -nk2 '
-# alias TERRAFORM=' curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/curl/i.terraform.apt.sh | bash '
+# alias TERRAFORM=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/i.terraform.apt.sh | bash '
 # alias TFA=' [ -f maina.tf ] && rm .* ; vim main.tf ; terraform init ; terraform apply -auto-approve ' # terraform plan
 # alias TMP=' sudo rm -rf /tmp/{.,}* || rm -rf /tmp/{.,}* '
-# alias TMUX=' curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/curl/i.tmux.sh | bash '
+# alias TMUX=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/i.tmux.sh | bash '
 # alias TPLT=' rm ~/.ssh/known_hosts ; echo 172.16.169.2 ; ssh -o ConnectTimeout=2 root@172.16.169.251 2>/dev/null '
-# alias TRANS=' curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/curl/i.transmission.sh | bash '
-# alias TnS=' curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/curl/i.transmission.N.shadowsocks-libev.sh | bash '
+# alias TRANS=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/i.transmission.sh | bash '
+# alias TnS=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/i.transmission.N.shadowsocks-libev.sh | bash '
 # alias V200=' grep -iv " 200 \| 200$" '
 # alias VDF=' vagrant destroy -f '
 # alias VEH=' sudo vim /etc/hosts || vim /etc/hosts '
@@ -280,7 +280,7 @@
 # alias VGP=' cd ~/.G/dotfiles ; git pull >/dev/null ; vim ~/.G/dotfiles/home/GEMINI.md ; cat ~/.G/dotfiles/home/GEMINI.md > ~/.gemini/GEMINI.md ; git rm -r --cached . >/dev/null ; git add -A ; git commit -amGEMINI.md &> /dev/null ; git push 1>/dev/null ; cd - &>/dev/null '
 # alias VGP=' cd ~/.G/dotfiles ; git pull >/dev/null ; vim ~/.G/dotfiles/home/GEMINI.md ; git rm -r --cached . >/dev/null ; git add -A ; git commit -amGEMINI.md &> /dev/null ; git push 1>/dev/null ; cd - &>/dev/null '
 # alias VGP=' vim .gitlab-ci.yml ; git rm -r --cached . > /dev/null ; git add -A ; git commit -amxxxxxx &> /dev/null ; git push '
-# alias VIMRC=' curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/home/.vimrc >> ~/.vimrc '
+# alias VIMRC=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.vimrc >> ~/.vimrc '
 # alias VPP=' cd ~/.G/private/data ; git pull >/dev/null ; vim RANDOM.txt ; git rm -r --cached . > /dev/null ; git add -A && git commit -amVPP &> /dev/null && git push ; cd - &>/dev/null '
 # alias VRP=' git pull && vim README.md && git rm -r --cached . > /dev/null && git add -A && git commit -amREADME.md\ update &> /dev/null && git push '
 # alias VRP=' git pull && vim README.md && git rm -r --cached . > /dev/null && git add -A && git commit -amREADME.md\ update &> /dev/null && git push ' # DEPRECATED
@@ -290,7 +290,7 @@
 # alias WD=' date +%A '
 # alias WIDTH=' tput cols '
 # alias WKGAPFNR=' watch "kubectl get po -A |grep -v Running" '
-# alias WSL=' curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/curl/i.wsl.sh | bash '
+# alias WSL=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/i.wsl.sh | bash '
 # alias WV=' /mnt/c/HashiCorp/Vagrant/bin/vagrant.exe '
 # alias WVDF=' /mnt/c/HashiCorp/Vagrant/bin/vagrant.exe destroy -f '
 # alias WVS=' /mnt/c/HashiCorp/Vagrant/bin/vagrant.exe ssh '
@@ -362,7 +362,7 @@ KDKN() { kubectl $1 $2 $3 -n $(kubectl get $2 -A | grep $3 | awk "{print\$1}") ;
 KEI() { kubectl exec -it $1 -- $2 2>/dev/null || kubectl -n kube-system exec -it $1 -- $2 2>/dev/null ; }
 KLPN() { kubectl logs $1 -n $(kubectl get po -A | grep $1 | awk "{print\$1}") ; }
 alias CDC=' cat docker-compose.yml '
-alias CKR=' curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/curl/i.kube.reset.sh |bash '
+alias CKR=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/i.kube.reset.sh |bash '
 alias DCD=' sudo docker-compose down '
 alias DCR2=' docker-compose down ; docker-compose up -d '
 alias DCR=' sudo docker-compose down ; sudo docker-compose up -d '
@@ -370,14 +370,14 @@ alias DEI=' sudo docker exec -it '
 alias DIL=' sudo docker image list '
 alias DIR=' sudo docker image rm '
 alias DL=' sudo docker logs '
-alias DOCKER=' curl -fssL https://gitlab.com/ernie18a/dotfiles/-/raw/main/curl/i.docker.sh | bash '
+alias DOCKER=' curl -fssL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/i.docker.sh | bash '
 alias DP=' sudo docker ps -a --format "table {{.Names}}\t{{.Status}}\t{{.Ports}} " '
 alias DPG=' sudo docker ps -a --format "table {{.Names}}\t{{.Status}}\t{{.Ports}} " |grep --color -i '
 alias DPS=' for i in $(sudo docker ps |grep -v STATUS |awk "{print\$1}") ; do sudo docker inspect $i |grep -v \/var\/lib |grep Source ; done '
 alias DRF=' sudo docker rm -f '
 alias DRFA=' sudo docker rm -f $(sudo docker ps -a -q) '
 alias DS=' echo "--no-stream" ; sudo docker stats '
-alias HELM=' curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/curl/i.helm.sh | bash '
+alias HELM=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/i.helm.sh | bash '
 alias HSR=' helm search repo '
 alias HU=' helm uninstall '
 alias IPA=' ip a |grep scope\ global |grep -vE docker\|br\- |grep -iE --color "([0-9]{1,3}[\.]){3}[0-9]{1,3}" | awk "{print\$2}"| awk -F/ "{print\$1}" '
@@ -410,7 +410,7 @@ alias KL=' kubectl logs '
 alias KP=' kubectl get po -A -o custom-columns=NAME:.metadata.name,READY:.status.containerStatuses[0].ready,STATUS:.status.phase | grep -v true.*Running ' # |grep -vE Running\|Complete
 alias PRUNE=' sudo docker system prune -f --volumes 2>/dev/null ; docker volume prune -af 2>/dev/null '
 alias PRUNEI=' sudo docker system prune -fa 2>/dev/null ; docker volume prune -af 2>/dev/null '
-alias SINGLE=' curl -fsSL https://gitlab.com/ernie18a/dotfiles/-/raw/main/curl/i.kube.single.sh | bash '
+alias SINGLE=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/curl/i.kube.single.sh | bash '
 alias VDC=' vim docker-compose.yml '
 alias WKGAP=' watch kubectl get pod -A '
 alias WKGAS=' watch kubectl get svc -A '

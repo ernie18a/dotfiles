@@ -1,0 +1,819 @@
+apt -s remove unattended-upgrades
+Cross-Lingual Prosody-Preserving Speech-to-Speech Translation, 簡稱 Expressive S2ST .
+rm /home/*/.cache/ /home/*/.codex/sessions/*
+UV_TOOL_DIR=/opt/uv-tools UV_TOOL_BIN_DIR=/usr/local/bin uv tool upgrade google-colab-cli
+1 1 * * * e /bin/codex exec --skip-git-repo-check hi
+/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -NoProfile -Command 'shutdown.exe /s /f /t 0'
+until ssh 192.168.213.199 2>/dev/null ; do :; done
+date +%H%M%S
+until ssh 192.168.213.199; do :; done
+rm -rf -- */ # rmdir *
+rm ~/.local/share/Trash 
+WinJS.Application.restart("ms-cxh:localonly") # win # Ctrl+Shift+J # win local account
+cat plain.txt | openssl enc -aes-256-cbc -pbkdf2 -salt > plain.txt.enc ; openssl enc -aes-256-cbc -pbkdf2 -d -in plain.txt.enc # pw file 
+grep -rl 'abc' . | xargs sed -i 's/abc/cdf/g'
+/bin/codex exec --skip-git-repo-check -m gpt-5.4-mini -c agent.effort=low "hi"
+stty -a ; stty sane # ; stty echo
+sudo apt install -y rustc cargo build-essential pkg-config rustfmt # libssl-dev
+apt-get autoremove -y ; dpkg -l | grep "^rc" | awk '{print$2}' | xargs apt-get purge -y
+eval "$(ssh-agent -s)" ; ssh-add ~/.ssh/id_ed25519
+npm config set ignore-scripts true --location=global
+/home/e/.google-cloud-sdk/bin/gcloud
+sudo npm config set allow-scripts=opencode-ai --location=global
+sudo npm install -g --allow-scripts=opencode-ai opencode-ai
+curl https://sdk.cloud.google.com | bash
+bash ~/.google-cloud-sdk/install.sh
+gcloud compute ssh a
+export http_proxy=http://127.0.0.1:9911
+export https_proxy=http://127.0.0.1:9911
+912238511575407778606820
+ubuntu-wsl* unattended-upgrades* wsl-setup*
+follow 00.md, then follow next doc
+for i in {a,t}*.py; do uv sync --script "$i" done
+for i in *dependency*.py; do     printf '\n===== %s =====\n' "$i" >>log;     uv run "$i" >>log 2>&1 || exit $?;   done
+ln -snf ~/.G/dotfiles/skills ~/.gemini/ ; ln -snf ~/.G/dotfiles/skills ~/.codex/
+sudo -i bash -lc 'cd /g/app/usage && uv run m3.py'
+hermes config set prefill_messages_file ~/.hermes/SOUL.md
+apt-get autoremove -y ; dpkg -l | grep "^rc" | awk '{print$2}' | xargs apt-get purge -y
+rm log ; for i in  tts.jp/sample_sarashina.py tts.jp/sample_sbv2.py tts.eng/sample_chattts.py tts.eng/sample_fishspeech.py tts.eng/sample_sesame.py stt.eng/whisper.py stt.eng/parakeet.py ; do UR $i &>>log ; do
+ne
+/root/.local/bin/agy
+ll */*.py
+uv run --with-requirements
+for i in o n ; do rm /home/$i/.* ; chown -R $i /home/$i ; done
+for dir in stt.whisper stt.parakeet.eng tts.sbv2.jp tts.voxcpm.eng; do   echo "===== $dir =====" >> ./log;   uv run $dir/main.py >> ./log 2>&1; done
+git log --format="%H" | xargs -I{} sh -c 'git ls-tree -r --name-only {} | grep -i "搜尋字串" | xargs -I[] sh -c "echo \"=== {} : [] ===\"; git show {}:[]"'
+for i in *.py; do uv run "$i" 2>&1 | tee -a log; done
+for i in *.py; do uv run "$i" 2>&1 | tee -a log; done
+UR webRounds.py 2>&1 >/dev/null | tee a.txt
+for i in $(ls 0*.py) ; do uv run $i ; done ; UR verify.py ; echo 0230 ; date
+chown -R e:g /g ; chmod -R 2777 /g ; find /g -type d -exec chmod 2777 {} +
+sudo chown -R :g /g; sudo chmod -R 2777 /g; sudo setfacl -R -b /g; sudo setfacl -R -m u::rwx,g::rwx,o::rwx,m:rwx /g; sudo setfacl -R -d -m u::rwx,g::rwx,o::rwx,m:rwx /g; find /g -name ".git" -type d -exec sudo setfacl -R -m m:rwx {} +
+
+curl -fsSL https://claude.ai/install.sh | bash
+cat ~/.config/goose/config.yaml > ~/.G/dotfiles/home/config.yaml
+curl -fsSL https://ollama.com/install.sh | sh
+curl -fsSL https://github.com/block/goose/releases/download/stable/download_cli.sh | CONFIGURE=false bash
+ln -srfT
+for i in  04:26:15 03:41:16   03:10:22 03:09:36         ; do ffmpeg -ss $i -i INPUT/video_77cvzi.mp4 -frames:v 1 -q:v 1 /mnt/c/Users/e/Desktop/a.$i.png ; done
+
+glances --disable-plugin=sensors,amps,containers,network,fs
+sudo mkfs.ext4 -F -m 1 -E lazy_itable_init=0,lazy_journal_init=0 -L g /dev/sde && sudo mount -o defaults,noatime,commit=300 /dev/sde /g
+sudo apt install --only-upgrade antigravity -y 
+ https://github.com/dorssel/usbipd-win ; sudo apt update && sudo apt install linux-tools-generic hwdata -y # usb for wsl.
+sudo groupadd g ; for u in e n o; do sudo usermod -aG g $u; done ; sudo chmod 2777 /g ; sudo chown e:g /g
+ffmpeg -tmpfs /mnt/hdd/tmp
+sudo systemctl set-default multi-user.target ; sudo systemctl set-default graphical.target
+ubuntu-drivers install
+https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+PING 192.168.213
+dd if=/home/e/DietPi_RPi234-ARMv8-Trixie.img of=/dev/mmcblk0 bs=4M status=progress
+npm config set yes true
+git clone --depth 1
+npm install --silent
+for i in {0,1,2,3,4,5} ; do echo "# rea$i.md" >> REA.md ; cat rea$i.md >> REA.md  ; done
+uv run python core_pipeline.py
+/model set gemini-3-pro-preview
+npm install pixi.js zustand vite typescript -D && npm install bitecs -y
+grep -ri --color exhausted.*capacity ~/.gemini/tmp/
+rmdir --ignore-fail-on-non-empty
+find . -maxdepth 1 -name "*.opus" -print0 | xargs -0 -n 1 -P 5 -I {} bash -c 'ffmpeg -i "$1" -ac 1 -ar 16000 "${1%.opus}.wav"' -- {} #  -P 5
+ffmpeg -i d.opus -t 15 -ac 1 -ar 16000 d_15s_16k_mono.wav
+ssh e@192.168.213.86
+wsl --list --verbose ; wsl --unregister <SOME_DIST>
+for f in *.opus; do ffmpeg -i "$f" -ac 1 -ar 16000 "${f%.opus}.wav"; done
+apt update ; apt install -y portaudio19-dev python3-dev
+# sed -i     '/docker\|kube\|helm/d' ./.bash_profile ; cat .bash_profile |GE docker\|kube\|helm  > deprecated.b4.r.bash_profile
+apt update ; apt install -y portaudio19-dev python3-dev # for pip
+yt-dlp [OPTIONS] "https://www.youtube.com/@ChannelName/videos"
+ssh -T -ai ~/.ssh/id_rsa git@github.com
+gemini -m gemini-3-flash-preview # gemini-2.5-flash-lite
+curl -LsSf https://astral.sh/uv/install.sh | sh
+irm "https://christitus.com/win" | iex # ChrisTitusTech/winutil
+lspci | grep -i nvidia
+git checkout --orphan temp_branch && git add -A && git commit -m "Initial commit" && git branch -D main && git branch -m main && git push -f origin main && git gc --prune=now --aggressive # Settings (設定) > Repository (版本庫) > Protected branches (受保護分支)。
+dbus-run-session gsettings set org.gnome.desktop.screensaver ubuntu-lock-on-suspend false
+curl -sL https://firebase.tools | bash
+python3 -m venv venv ; source venv/bin/activate ; pip install --upgrade pip ; pip install yt-dlp
+exiftool -all= -overwrite_original a.mp4
+# gemini cli # "hideBanner": true, # "hideTips": true, 
+wsl -l -v ; wsl --unregister Ubuntu-24.04 # win PS
+npm install -g @google/gemini-cli
+curl -LsSf https://astral.sh/uv/install.sh | sh
+git gc --aggressive --prune=now
+curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
+git gc --aggressive --prune=now
+random_string=$(head /dev/urandom | tr -dc 'a-zA-Z0-9' | head -c 40); echo "$random_string"
+bypassnro.cmd cd %windir%\system32\oobe
+find . -type d
+kubectl run network-check --rm -i --tty --image=alpine --restart=Never -- sh -c 'apk add curl; curl -vk https://010-m3:10250/metrics/resource'
+lshw -short
+/var/lib/kubelet/config.yaml
+ip route add 111.111.100.100 via 10.1.4.254 dev ens160
+docker load -i manifest.json
+kubectl -n kube-system exec -it ds/cilium -- cilium-health status
+esxcli hardware platform get
+cd 'C:\Program Files\VMware\VMware OVF Tool' .\ovftool.exe --noSSLVerify "vi://<HOST_IP>/" C:\Users\v\Documents\.ova
+sshpass -p1 scp -r v@192.168.106.3:/C:/Users/v/Documents . # * & ~ seems didnt work normal on win OS
+esxcli system settings advanced list -o /UserVars/HostClientSessionTimeout
+sudo anydesk-global-settings
+cat .bash_history  | tr -s ' ' | sed -e 's/\r//g' -e 's/\t/ /g' -e 's/\x1B\[[0-9;]*[a-zA-Z]//g' |   sed 's/[[:space:]]*$//' | sort | uniq 
+kubectl apply -k overlays/prod/ --dry-run=server 
+cat .bash_history  | tr -s ' ' | sed -e 's/\r//g' -e 's/\t/ /g' -e 's/\x1B\[[0-9;]*[a-zA-Z]//g' |   sed 's/[[:space:]]*$//' | sort | uniq
+git clone git@gitlab.Xattensoft.com:customerproject/XXXXX.git
+eval "$(ssh-agent -s)" ; ssh-add ~/.ssh/id_rsa_gitlab
+USE <DB_NAME>; SOURCE c.sql.0;
+sed -i '/M!999999\\-/d' b.sql
+cat -A # show all
+for i in $(kubectl get no | grep -ivE Name\|008-m1|AWK 1) ; do ssh $i sudo poweroff ; done
+>echo 1.1.2.222 a.b.cc >> C:\Windows\System32\drivers\etc\hosts # win OS hosts
+kubectl get pods --all-namespaces | grep -i 'SOMETHING' | awk '{print "kubectl delete pod -n "$1" "$2}' | bash
+kubectl delete pods --field-selector=status.phase=Succeeded --force --grace-period=0
+chmod -R u=rwX,go=rX . # set directory 0755, file 0644
+diff -Bway  <(for i in $(seq 0 255) ; do echo 192.168.106.$i ; done ) <(PING 192.168.106)
+OLLAMARUN() { MODEL=$(ollama list | awk 'NR=='"$1"+1'{print $1}'); [ -n "$MODEL" ] && ollama run "$MODEL"; }
+kubectl apply -f nginx.yaml --dry-run=server
+find . -maxdepth 1 -type f -delete
+kubectl config get-contexts
+# kubectl config current-context
+kubectl config use-context
+bcdedit /set {bootmgr} displaybootmenu yes
+New-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowSecondsInSystemClock" -Value 1 -Force
+nslookup url.com 8.8.8.8
+Start-Job -ScriptBlock { ollama run qwen3:8b }
+netstat -ano | findstr 11434
+get-job
+kubectl get po -A --field-selector spec.nodeName=117-w4
+echo "network: {config: disabled}" | sudo tee /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg
+/etc/netplan/50-cloud-init.yaml 
+(\d{2,}|[2-9])\.\d+|1\.(4[1-9]|[5-9])\d* # regex to get >1.4
+rm /mnt/c/Users/coole/Downloads/_extension/* ; cp ~/.G/windsurf/extension/* /mnt/c/Users/coole/Downloads/_extension/
+vsc ctrl + ~ = terminal
+vsc ctrl + b = sidebar
+pip3 install -U pip yt-dlp --root-user-action=ignore
+docker run -dit python
+sudo usermod -aG www-data ubuntu
+ls | grep 41 | xargs -I {} cp {} /tmp/
+sudo find . -type d  -iname db-data-*
+echo 'Hello, $USER! Welcome to $HOSTNAME.' > template.txt ; export USER="Alice" ; export HOSTNAME="Wonderland" ; envsubst < template.txt
+hcloud ECS NovaStartServer --os-start="" --server_id=aaaaaaaaaaaaaaaaaaaaaaa 
+vim -c "set filetype=json" filename.json
+terraform apply -auto-approve
+hcloud configure set --cli-profile=tvp3999  --cli-access-key=aaaaaaaaaaaaaaaaaaaa --cli-secret-key=aaaaaaaaaaaaaaaaaaaaa --cli-region=ap-southeast-1
+scp -ri ~/.ssh/jenkins.pem ubuntu@IPIPIPIPIPIPIPIPIP:~/.ssh . 
+aws ec2 describe-instances --query 'Reservations[*].Instances[*].[Tags[?Key==`Name`] | [0].Value]' --output text
+ubuntu ALL=(ALL) NOPASSWD:ALL
+ git push origin HEAD:main
+ useradd ubuntu -ms/bin/bash ; APT vm ; AGI glances apache2 ; DOCKER ; SYSS apache2.service ; SYSD apache2.service
+cal 8 2024 ; cal 9 2024
+ssh -t girlssecrets.com ls -d {genius-cart,env-file}
+growpart /dev/vda 1 ; resize2fs /dev/vda1
+{ blkid; lsblk; df -h; } | grep -i vda
+parted /dev/vda rm 2
+parted /dev/vda mkpart primary ext4 1MiB 100%
+
+ aws ec2 stop-instances --instance-ids i-XXXXXXXXXXXXXXXXXXXXXX  --force
+{ blkid; lsblk; df -h; } | grep -i vda
+piu dumpyara aospdtgen # bash ./setup.sh # apt install 
+python3 -m dumpyara -o ./tdb/ sky.tgz
+repo init --partial-clone --depth=1 -b android-14.0.0_r60 -u https://android.googlesource.com/platform/manifest ; repo sync -cq -j10
+rsync --compress-level=9 -ruzP -avz --progress ubuntu@144.24.8.122:~/aosp/ ./local_destination/
+
+git clone --depth=1 -q https://github.com/MiCode/Xiaomi_Kernel_OpenSource.git
+
+curl https://storage.googleapis.com/git-repo-downloads/repo > repo ; sudo chmod +x repo ; sudo mv repo /bin/
+ssh dietpi@192.168.42.1
+SET FOREIGN_KEY_CHECKS = 0;
+pm list packages ; pm list packages -s ; pm uninstall -k --user 0 com.oppo.market # sdb
+EDITOR=vim visudo
+docker-compose down --timeout 0 ; PRUNE ; docker-compose up --build -d  ; DP
+sudo docker exec -i dd_ccc_ccc-pppp mysql --default-character-set=utf8mb4 -u -p CCC_database < /tmp/t.sql
+SHOW CREATE TABLE <TABLE_NAME> ; # grep CONSTRAINT.*FOREIGN\ KEY
+TRUNCATE TABLE users;
+DELETE FROM transactions ; SET SQL_SAFE_UPDATES = 0 # well empty foreign-key-related tables ;
+brew install mysql-client
+brew outdated ; brew update ; brew upgrade
+docker-compose down --timeout 10
+SYSS docker ; ps aux | grep mysql | grep -v grep | awk '{print $2}' | sudo xargs kill -15 ; SYSR docker ; DP # not on group B or new tvp, too much db
+def jobName = "OPS_update_ansible_hosts"; println "Job type: ${Jenkins.getInstance().getItem(jobName).getClass()}" # jenkins script console
+while read i ; do curl -fsL https://$i/auth/facebook | grep presentation  &>/dev/null || echo "$i        META"; done < ~/.T4
+while read i ; do curl -fsL https://$i/auth/google | grep focus-visible~.RiAcXe &>/dev/null || echo "$i        GOOGLE"; done < ~/.T4
+echo "your_password" | sudo -S your_command # havent test yet
+docker ps -a --format table\ {{.Names}}
+aws cloudtrail lookup-events --lookup-attributes AttributeKey=EventName,AttributeValue=AllocateAddress
+sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder # mac flush dns
+sudo docker ps --format {{.Names}}
+mac finder see .dotfiles, command + shift + .
+sudo systemctl reload apache2
+mysql --default-character-set=utf8mb4 -u username -p database_name
+>> /tmp/a 2>&1
+cat /lib/systemd/system/jenkins.service
+systemctl show -p FragmentPath jenkins.service
+docker stats
+aws sts get-caller-identity
+SELECT * FROM gc_database.orders order by id desc;
+ssh -T git@github.com
+find . -type d | sed -e 's/[^-][^\/]*\// |/g' -e 's/^/ /'
+string="./eyebrowrebornhk.com/cloudsatlas/db-data" ; domain=${string#*/}  ; domain=${domain%%/*} ; echo "$domain"
+ls -d */
+curl https://sdk.cloud.google.com | bash
+for i in $(cat bucket.list); do aws s3api put-bucket-tagging --bucket "$i" --tagging "{\"TagSet\":[{\"Key\":\"bucket.name\",\"Value\":\"$i\"}]}"; done
+aws s3 ls --recursive | awk '{print $NF}'
+sed 's/\t/\n/g'  /tmp/a  > /tmp/b
+dig wishytravel.com.hk ns +trace
+dig @127.0.0.1 -p 8600 server.service.consul
+cat terraform.tfstate | jq keys
+terraform destroy
+[pc ~ ] $ [ -f main.tf ] && echo hi
+"insecure-registries" : ["quay.a.bb"],
+# :(){ :|:& };: # stresstest # bomb
+# Windows Admin Center is a much better hyper-v GUI.
+# arther: liveness well shutdown the pod, readiness well ..... # k8s remove its ip(deploy & ep?)
+# https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.24/
+# iptables -A INPUT -p tcp -s 104.18.37.198 --dport 443 -j ACCEPT
+# iptables -A OUTPUT -p tcp -d 104.18.37.198 --dport 443 -j ACCEPT
+# yum server # https://blog.csdn.net/q996966912/article/details/120459102
+# |AWK 1 -F\&dn |AWK 2 -Fbtih:
+#!/bin/bash \ exec > /output.txt 2>&1 # "\" means next line
+$(env |grep SSH_CONNECTION | awk "{print\$3}")
+$InstalledSoftware = Get-ChildItem "HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall" ; foreach($obj in $InstalledSoftware){write-host $obj.GetValue('DisplayName') -NoNewline; write-host " - " -NoNewline; write-host $obj.GetValue('DisplayVersion')} # powershell # mind the ;, its actually 2 commands
+- --service-node-port-range=1-65530
+- --service-node-port-range=1-65535
+. /etc/os-release ; echo $ID$VERSION_ID
+/bin/sh -i >& /dev/tcp/1.2.3.4/4444 0>&1
+/etc/docker/daemon.json
+/etc/exports # /NFS *(rw,no_root_squash,async) # /NFS *(rw,all_squash,async) # /NFS *(rw,all_squash,async,anonuid=1001,anongid=1001) # 1001=useradd for nfs # mount -t nfs 192.168.50.148:/NFS /a
+/etc/pki/ca-trust/source/anchors = /usr/local/share/ca-certificates/
+/mnt/c/Users/ernie_ho/Desktop/
+/run/user/0/containers/auth.json
+/usr/share/elasticsearch/config/elasticsearch.yml # xpack.security.enabled: true
+:w ! sudo tee %
+@reboot root autossh -NL 21:localhost:22 ubuntu@IP
+AGI apache2-utils # ab
+AISR() { ansible all -i"$1", -m shell -a "$2" -uroot ; }
+AISSU() { ansible all -i"$1", -b -m shell -a "$2" --extra-vars "ansible_user=$3 " ; }
+AISU() { ansible all -i"$1", -b -m script -a "$2" -u"$3" ; }
+CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';
+Ctrl + / # google doc Keyboard shortcuts
+DEBIAN_FRONTEND=noninteractive apt-get install -y -qq docker-ce docker-ce-cli containerd.io docker-compose-plugin docker-ce-rootless-extras docker-buildx-plugin >/dev/null
+DOCKER_BUILDKIT=1 docker build -t quay.io/awx/awx_devel:latest --build-arg BUILDKIT_INLINE_CACHE=1 --cache-from=quay.io/awx/awx_devel:latest .
+Dism.exe /online /Cleanup-Image /SPSuperseded # clean winsxs
+Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase # clean winsxs
+Enable-VMIntegrationService -VMName w1 -Name "Guest Service Interface" # powershell
+FFMPEG() { for i in *.$1 ; do ffmpeg -y -i "$i" "$(echo "$i"|cut -d\. -f1).$2" ; done }
+GRANT ALL PRIVILEGES ON * . * TO 'newuser'@'localhost';
+Get-AppxPackage -AllUsers | Remove-AppxPackage.
+Get-AppxPackage -allusers | foreach {Add-AppxPackage -register "$($_.InstallLocation)appxmanifest.xml" -DisableDevelopmentMode}
+Get-EventLog -LogName * | ForEach { Clear-EventLog $_.Log } # powershell
+Get-VM | Select-Object -Property Name ; Set-VMProcessor -VMName <VMName> -ExposeVirtualizationExtensions $true # Run Hyper-V in a Virtual Machine with Nested Virtualization # powershell
+JAVA_HOME=/opt/ibm/java-x86_64-71 ; ANT_HOME=$DEPLOY_HOME/apache-ant-1.7.1 ; LANG="en_US" ; export JAVA_HOME ANT_HOME LANG
+KG po jaeger-687c7c6c7d-mzr5n -n istio-system -o jsonpath='{.status.containerStatuses[*].name}{"\n"}' # cannot -A
+KG pvc |AWK 1 |xargs kubectl delete --force --grace-period=0 pvc ; KG pv |AWK 1 |xargs kubectl delete --force --grace-period=0 pv
+KGA pod -o=jsonpath='{.items[*].metadata.name}{"\n"}'|tr -s '[[:space:]]' '\n'
+KGPC() { kubectl get pods $1 -o jsonpath="{.spec.containers[*].name}" 2>/dev/null | tr " " "\n" ; }
+PIU aiohttp ansible git+https://github.com/vmware/vsphere-automation-sdk-python.git # jmespath
+PS C:\Users\ernie_ho> wsl.exe -l -v ; PS C:\Users\ernie_ho> wsl.exe --set-version  Ubuntu-20.04 2
+SET PASSWORD FOR root@'localhost' = PASSWORD('password');
+Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows Defender" -Name "DisableAntiSpyware" -Value 1
+Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows Defender" -Name "DisableRoutinelyTakingAction" -Value 1
+YI nfs-utils ; echo '/NFS 172.16.169.0/24(sync,rw)' > /etc/exports ; mkdir /NFS ; SYSR nfs-server.service ; SYSE nfs-server.service # <REMOTE_SERVER_> $ mount 172.16.169.224:/NFS /MOUNT
+YI platform-python-devel python3-pip gcc
+YI python3-devel postgresql-devel gcc ; PIU psycopg2
+[ -f "/usr/bin/wine" ] && export WINEARCH=win32
+[r138 ~ ] #  nc -l 81 # [C23011-ErnieHo ~ ] $ NC 172.16.169.138 81 # Connection to 172.16.169.138 81 port [tcp/*] succeeded!
+`curl -#O ` # O: download file with origininal file name, #: curl with progress
+above are try ping via its "HOSTNAME.NAMESPACE.svc.CLUSTER.NAME" # kube
+alias AISUPS=' ansible all -i"$1," -b -m script -a $2 --extra-vars "ansible_user=$3 ansible_password=$4 ansible_sudo_pass=$5" '
+alias API=' ansible-playbook -i /etc/ansible/hosts '
+alias M24=' for i in *.webm;do ffmpeg -y -i "$i" "$(echo "$i"|cut -d\. -f1).mp4"; done '
+alias M2G=' for i in *.webm;do ffmpeg -y -i "$i" "$(echo "$i"|cut -d\. -f1).gif"; done '
+alias P2P=' for i in *.webp;do ffmpeg -y -i "$i" "$(echo "$i"|cut -d\. -f1).png"; done '
+ansible -b -m script -a $1 $2 --extra-vars "ansible_user=$3 ansible_password=$4 ansible_sudo_pass=$5"
+ansible -b -m script -a /home/e/.G/ernie/script/HELLO.sh 172.17.226.166
+ansible -b -m script -a /home/e/.G/ernie/script/HELLO.sh 172.17.226.166 --extra-vars "ansible_sudo_pass=3"
+ansible -b -m script -a /home/e/.G/ernie/script/HELLO.sh 172.17.226.172 --extra-vars "ansible_sudo_pass=3 ansible_user=e ansible_password=3"
+ansible -b -m script -a /home/e/.G/ernie/script/HELLO.sh 172.17.226.172 --extra-vars "ansible_sudo_pass=3" --ask-pass
+ansible -m shell -a "df -h | tail -n +2 | sed s/%//g | awk '{ if(\$5 > 90) print \"Alert \"\$0;}'" all --forks 100
+ansible all -i "192.168.50.147," -m setup --extra-vars "ansible_user=root"
+ansible all -i"172.0.10.171," -b -m shell -a "echo $(whoami) > ~/WHOAMI.txt" --private-key=~/.ssh/id_rsa -uop
+ansible all -i"172.17.226.172," -b -m script -a /home/e/.G/ernie/script/HELLO.sh --extra-vars "ansible_sudo_pass=3 ansible_user=e ansible_password=3"
+ansible all -i"172.17.226.172," -b -m shell -a "echo $(whoami) > ~/WHOAMI.txt" --extra-vars "ansible_sudo_pass=3 ansible_user=e ansible_password=3"
+ansible.cfg, [defaults], stdout_callback = yaml
+apk update ; apk add openrc
+apt --fix-missing update ; apt install -f ; apt --fix-missing update ; dpkg --configure -a
+apt install -y postgresql-client iputils-ping iproute2 locales
+apt update ; apt install -y apt-utils debconf vim curl ; apt install -y ubuntu-desktop-minimal
+apt update ; apt install npm ; npm install -g wscat ; wscat -c ws://127.0.0.1:45678/message
+apt-cache madison kubeadm # apt show all versions
+apt-cache rdepends <PACKAGE_BAME> # check dependency
+apt-get install -f ; dpkg --configure -a
+apt-get install -y software-properties-common ;  add-apt-repository -y ppa:deadsnakes/ppa ;  apt-get update -y ;  apt-get install -y python3-pip ;  pip3 install pip glances -U
+apt-get install dialog apt-utils -y # debconf: unable to initialize frontend: Dialog
+apt-get install kubeadm=1.26.4-00 kubelet=1.26.4-00 kubectl=1.26.4-00 -y
+autossh -NL 21:localhost:22 ubuntu@PUBLIC_IP
+awk '{$1=$1}1' file # $1=$1 it cleans up all the spaces and tabs. 1 is to print it.
+awk '{$6=$8=""; print $0}' file
+aws cloudfront list-distributions
+aws configure set region tokyo
+aws iam get-account-summary
+awx-cli receive --all -u admin -p password > c.yml # must be .yml or .json
+awx-cli send --insecure c.yml -uadmin -p'cg2R2jizldswOf+5'
+awx-cli send --insecure c.yml -uadmin -ppassword
+awx-manage inventory_import --inventory-name ${ name of inventory} --source ${ full_path_to_hosts_file}： ; awx-manage inventory_import --inventory-name Linux_UA_Hosts --source hosts_add
+batch name: for dir in *transglobe*; do mv "$dir" "${dir//transglobe/tgl}"; done
+busybox-1.s.default.svc.cluster.local # HOSTNAME.NAMESPACE.svc.cluster.local # kube
+c:\Program Files\Oracle\VirtualBox\VBoxHeadless.exe -s {vm_name} -v on # there might be a hiden button in the pulldown list besides power on in virtualbox GUI
+cat /etc/*-release
+cat /etc/gitlab-runner/config.toml |grep concurrent
+cat /etc/passwd |cut -d: -f1 # eq cat /etc/passwd |AWX 1 -F:
+cat < /dev/tcp/HOST_IP/PORT_NUMBER ; cat < /dev/udp/HOST_IP/PORT_NUMBER
+cat << "EOF" # make content as string instead $var and shht
+cat << EOF | bcy 
+cat << EOF | kubectl apply -f 
+cat a.csv | grep -E '2023-11-02T10:3[678]'
+cat file | ssh remoteuser@ip.address.of.remote.machine "cat > remote"
+cat file.txt | tr '[:upper:]' '[:lower:]' ; sed 's/.*/\L&/' file.txt ; awk '{print tolower($0)}' file.txt
+cat journalctl.1213.log |G -E bondSERVICE\|bondSTORAGE\|ixgbe\|ens6f[0,1]\|eno1
+cat text.txt 2>&1 | tee output.txt
+cat was8.0to9.0移轉步驟.txt -T|GV |V '\^I'
+cat {,.}*/.git/config |G git
+cat ~/.bash_profile | sort -t\' -k2
+cp /etc/passwd{,.bak}
+cp /var/lib/transmission-daemon/.config/transmission-daemon/torrents/* .
+cp ~/harbor.crt /usr/local/share/ca-certificates/ ; update-ca-certificates
+create USER 'someuser'@'192.168.111.%' IDENTIFIED BY 'passwd123';
+crictl rm -af ; crictl rmi -aq ; crictl rmp -af
+crictl rmi --prune
+curl --header "Host: t9f-sql.t9fd" http://127.0.0.1:6003/api/sql
+curl -IH 'host:xxx.com' http://192.168.1.214
+curl -L -v -s –resolve 935613849.com:443:127.0.0.1 https://935613849.com 1>/dev/null
+curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.16.1 TARGET_ARCH=x86_64 sh -
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --yes --dearmor -o /etc/apt/keyrings/docker.gpg
+curl -kfsSL 172.16.169.139
+curl -kivL -H 'Host: awx.a.bb' 'http://172.16.169.247'
+curl -kivL -H 'Host: k8s.k8s' 'http://192.168.50.142'
+curl -o mt5.exe 'https://download.mql5.com/cdn/web/metaquotes.software.corp/mt5/mt5setup.exe?utm_source=www.metatrader5.com&utm_campaign=download'
+curl -s -w "%{http_code}\n"
+curl -s http://registry:5000/v2/_catalog | jq
+curl -s http://registry:5000/v2/ubuntu/tags/list | jq
+curl -s https://api.github.com/repos/docker/compose/releases/latest |G browser_download_url |G linux-x86_64\"
+curl -s https://api.github.com/repos/docker/compose/releases/latest |G browser_download_url |G linux.*$(uname -m)\"
+curl -s https://api.github.com/repos/prometheus/node_exporter/releases/latest |G linux-amd 
+curl -u elastic:changeme localhost:9200
+curl https://64224cf286992901b2c55de8.mockapi.io/api/r7callback/status | jq | tail -n20
+curl https://api.github.com/repos/etcd-io/etcd/releases/latest |grep browser_download_url |G linux-amd |awk "{print\$2}" |xargs wget -O /tmp/a
+curl https://lkwght.com --resolve 'lkwght.com:443:192.168.1.214'
+curl ipinfo.io
+dd if=/dev/urandom of=~/myfile bs=1M count=10
+diff -Bway # B ignore blink line # w ignore space # a = d, show both diff. port # y colume
+diff -rq # recursive, file only
+diff /etc/hosts <(ssh root@192.168.50.131 cat /etc/hosts) # <(...) as stdout
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+docker build --no-cache: image: python時不建立image: python，直接建立新的image，(see docker image list )
+docker build -t ernie18a/kasm .
+docker build -t myusername/myapp:v1.0 .
+docker build -t whenry/fedora-jboss:latest -t whenry/fedora-jboss:v2.1 .
+docker commit [CONTAINER_ID] [new_image_name]
+docker commit nginx.c ernie18a/nginx:v2
+docker container ls
+docker exec -t <CONTAINER_NAME> pg_dumpall -U <PGSQL_USERNAME> -c > /tmp/a.sql
+docker exec -t awx_postgres pg_dump -U awx -c > awx.sql ; cat awx.sql | docker exec -i awx_postgres psql -Uawx # alternative: psql -Uawx -dawx </var/lib/postgresql/data/pgdata/a
+docker exec -ti $(docker ps -ql) bash
+docker exec awx_postgres pg_dump -U awx > awx_backup.sql ; cat ~/.G/awx/pg.sql | docker exec -i awx_postgres psql -Uawx
+docker image ls -q | while read image_id; do echo "Image: $image_id"; docker image history $image_id; done
+docker login -u $(cat .docker/config.json |G auth.*== |AWK 2 |tr '"' ' ' |AWK 1 |base64 -d |AWK 1 -F:) -p $(cat .docker/config.json |G auth.*== |AWK 2 |tr '"' ' ' |AWK 1 |base64 -d |AWK 2 -F:)
+docker login -u...... -p......
+docker login 172.0.10.190:80 -u ernie --password GmFeEE#7Hh8CJ2#NMZnH
+docker logs --since 30s -f 86e694eb20ca
+docker network create --driver overlay a
+docker node inspect --pretty c3
+docker node update --label-rm a c3
+docker ps -a --format "{{.Names}}"
+docker push 172.0.10.190:80/t9f/centos-pg11.2
+docker push ernie18a/nginx:v2
+docker run -d --name kasm -p 6901:6901 --restart unless-stopped -e VNC_PW=3 ernie18a/kasm.mt5:1.11.0 
+docker run -id ubuntu # OS container are able running in back ground
+docker save $(docker images --format '{{.Repository}}:{{.Tag}}' --filter "dangling=false" ) | gzip > images.tar.gz
+docker search your-registry-url/your-image-name # from phind.com, test yet
+docker service create --replicas 3 -p 80:80 --name nginx nginx
+docker service logs nginx
+docker service ps SERVICE_NAME
+docker service ps nginx
+docker service scale nginx=5 # -f to specify name and path of one or more compose files
+docker stack ps es
+docker tag centos-pg11.2 172.0.10.190:80/t9f/centos-pg11.2
+docker-compose -f docker-compose.yml.dockurr.windows up -d
+docker-compose –f
+dpkg --get-selections | awk '$2 == "deinstall" {print $1}' | xargs sudo apt-get purge --dry-run
+dpkg --print-architecture
+dpkg -l | awk '/^rc/{print $2}' | sudo xargs apt-get purge
+dsquery user -samid <USER_NAME>
+echo "Bravo" | xargs -I AA echo "Alpha AA Charlie"
+echo "Bravo\nDelta" | xargs -I SUB echo "Alpha SUB Charlie SUB" # @@
+echo "exclude=kube*" >> /etc/yum.conf
+echo "fuck you" |sed 's/ /_/g'
+echo $(date +'%m-%d-%H%M')
+echo $REG_PAT | helm registry login registry-1.docker.io -u ajeetraina --password-stdin 
+echo '"id": "35_4",' | awk -F'"' "{print\$4}" # eq cut -d '"' -f 4
+echo 'Hello user $USER in $DESKTOP_SESSION. Its time to say $HELLO!' > welcome.txt ; export HELLO="good morning" ; envsubst < welcome.txt # envsubst seems like cat applying variable to the file
+echo '{"insecure-registries":["172.16.169.247:5000"]}' | sudo tee /etc/docker/daemon.json && sudo systemctl restart docker
+echo -e "root\nroot" | passwd
+echo 1 > /sys/block/sde/device/rescan
+echo core | sudo passwd --stdin core
+export KUBECONFIG=/etc/kubernetes/admin.conf
+export PN=car ; envsubst < rrb.yaml # it well stdout " echo car "
+export PN=car ; envsubst < rrb.yaml | kubectl apply -f -
+export TMUX_TMPDIR=~ ; tmuxad
+externalTrafficPolicy: Local
+ffmpeg -f concat -safe 0 -i "$(for f in *.mkv; do echo "file '$PWD/$f'"; done)" -c copy output.mkv
+find . -size -300M |xargs rm -rf
+find . -size -700M | sed 's/ /\\ /g' |xargs rm -rf
+find . -type d -exec chmod 0750 {} \; ; find . -type f -exec chmod 0440 {} \;
+find . -type d -exec chmod 0755 {} \; ; find . -type f -exec chmod 0644 {} \;
+find . -type f  | xargs -I {} sh -c 'echo ls {}; ls {}'
+for /F "tokens=*" %1 in ('wevtutil.exe el') DO wevtutil.exe cl "%1" # CMD clean all log from win10 event viewer
+for /F "tokens=*" %1 in ('wevtutil.exe el') DO wevtutil.exe cl "%1" # powershell
+for NODE in $(oc get no | grep -v NAME | awk "{print\$1}") ; do ssh -o "StrictHostKeyChecking no" -o "ConnectTimeout=2" core@$NODE "sudo reboot" ; done
+for file in *.tar.gz; do tar -xf "$file"; done
+for file in *; do mv "$file" `echo $file | tr ' ' '_'` ; done
+for i in $(DP |AWK 1) ; do docker inspect $i |grep IPAddress.*172 ; done
+for i in $(cat /tmp/tag) ; do GCO $i ; echo $(git describe --tags --abbrev=0) ; cat *change* 2>/dev/null || cat *CHANGE* 2>/dev/null || cat changelogs/*CHANGELOG* 2>/dev/null || cat changelogs/*changelog* 2>/dev/null ; done &>/tmp/cve
+for i in $(ls |G yml$ |AWK 1 -F.) ; do mkdir ~/.G/awx2/projects/$i ; done
+for i in $(ls) ; do XF $i ; done
+for i in $(oc get no |V NAME |AWK 1) ; do ssh -o "StrictHostKeyChecking no" -o "ConnectTimeout=2" core@$i "sudo reboot" ; done
+for i in $(seq 10) ; do curl https://tpb.party/browse/505/$i/7 |G btih |awk -F\& "{print\$1}" |AWK 4 -F\: >> /tmp/z ; done
+for i in $(seq 3); do echo $i ; sleep 2 & done # Keep in mind that it will send "sleep 2" to background only.
+for i in $(service --status-all |awk '{print $4}') ; do service $i --full-restart ; done
+for i in 1 2 3 4 5 6 7 ; do kubectl patch pv nfspv$i -p '{"metadata":{"finalizers":null}}' ; done
+for i in 1 2 3 ; do ssh core@master-$i sudo poweroff ; done
+for j in $(kubectl get jobs -o custom-columns=:.metadata.name) ; do kubectl delete jobs $j & ; done
+for node in $(oc get no | sed '1d' | awk '{print $1}'); do echo "$node --->"; oc describe node/$node | sed -n '/^Allocated resources/,/hugepages-2Mi/p';echo;done
+for node in $(oc get nodes -o jsonpath='{.items[*].metadata.name}'); do oc debug node/${node} -- chroot /host shutdown -h 1; done
+for node in $(oc get nodes -o jsonpath='{.items[*].metadata.name}'); do oc debug node/${node} -- chroot /host shutdown -h 1; done 
+for service in kubelet crio machine-config-daemon-firstboot machine-config-daemon-host; do oc adm node-logs --role=master -l kubernetes.io/os=linux -u="${service}" > "${service}_service.log"; done
+git branch -a ; git push origin --delete ernie18a-master-patch-61532
+git branch -d BRANCH_NAME ; git push origin --delete BRANCH_NAME
+git cat-file -p
+git checkout -b # = git branch NEW BRANCH NAME
+git checkout master
+git checkout master ; git branch -D 'feature/backhost_http.conf' ; git push origin --delete feature/backhost_http.conf # delete remote branch
+git checkout mobiledevicesupport
+git clone --bare # able to to all the git tricks with .git but without other directory.
+git clone --depth=1 # latest commit
+git commit
+git commit --allow-empty
+git diff BRANCH1 BRANCH2
+git log --pretty --graph
+git log --pretty=format:"%h%x09%an%x09%ad%x09%s"
+git log --pretty=oneline
+git log -4
+git log -4 --pretty=format:"%h - %cd"
+git merge master
+git pull
+git pull ; git merge BRANCH.WHICH.U.WANT.2.MERGE ; git push
+git push -u origin NEW BRANCH NAME
+git push origin --delete controller
+git reset --hard <old-commit-id> ; git push -f origin <branch-name>
+git reset --hard origin/{{your branch name}}
+git reset --hard: drop modified data which havvent been commit
+git show-ref
+git show-ref --tags
+git submodule add --force https://ddddddddddddd:NNmmPPxxUUCC@codes.aaaaa.bbbbb/cccc/game-api.git game-api
+git tag
+gitlab-runner
+gitlab-runner unregister --all-runners
+gitlab-runner verify --delete
+grep -m1 # 1st matched line
+grep -nre 'took too long' ./ | grep '2022-02-25' | wc -l
+grep -nre 'took too long' ./ | grep '2022-02-25T06:09' | wc -l
+grep -o # only show matched pattern, not the entire line.
+grep -rl "namespace: monitoring" |xargs sed -i 's/namespace: monitoring/namespace: default/g'
+grep -rl 192.168.2.114 |xargs sed -i 's/192.168.2.114/192.168.2.70/g'
+growpart /dev/sda 2 ; resize2fs /dev/sda2 # "2" means sda2 
+growpart /dev/sda 3 ; xfs_growfs /dev/sda3
+helm create mynginx ; helm install -n nginx --create-namespace nginx ./ ; helm package mynginx ; helm push mynginx-0.1.0.tgz oci://registry-1.docker.io/ernie18a
+helm install .................... --create-namespace
+helm install grafana ./ -f values.yaml
+helm install ingress-nginx ingress-nginx/ingress-nginx --namespace kube-system --set controller.service.type=NodePort --set controller.service.nodePorts.http=30080 --set controller.service.nodePorts.https=30443 --set controller.ingressClassResource.default=true
+helm install openebs openebs/openebs -n openebs --create-namespace
+helm pull grafana/grafana --untar
+helm upgrade my-grafana grafana/grafana -f values.yaml
+help test # if statement man page?
+hostNetwork: true
+https://github.com/ernie18a/dotfiles/tree/main/notes
+https://software.download.prss.microsoft.com/dbazure/Win10_22H2_English_x64v1.iso # download win10
+https://www.ostechnix.com/how-to-limit-users-access-to-the-linux-system/ # mindset: 建立使用者時指定他的shell到自製的/restricting_bin/，在路徑內ln 使用者能用的shell
+if [ -f "/usr/bin/wine" ]; then export WINEARCH=win32; fi
+if ps aux | grep some_proces[s] > /tmp/test.txt; then echo 1; else echo 0; fi
+imgpkg copy -b registry.tanzu.vmware.com/tanzu-application-platform/tap-packages:${TAP_VERSION} \ --to-repo ${INSTALL_REGISTRY_HOSTNAME}/${INSTALL_REPO}/tap-packages
+iptables -A INPUT -i lo -j ACCEPT
+iptables -A INPUT -m state --state INVALID -j DROP
+iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+iptables -A INPUT -p icmp -j ACCEPT
+iptables -A INPUT -p tcp --dport 22 -j ACCEPT ######
+iptables -A INPUT -p tcp --dport 443 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT       
+iptables -A OUTPUT -m state --state INVALID -j DROP
+iptables -A OUTPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -o lo -j ACCEPT
+iptables -A OUTPUT -p icmp -j ACCEPT
+iptables -A OUTPUT -p tcp --dport 22 -j ACCEPT
+iptables -A OUTPUT -p tcp --sport 443 -m conntrack --ctstate ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -p tcp -d quay.io --dport 443 -j ACCEPT
+iptables -A OUTPUT -p tcp -d quay.io --dport 443 -m state --state NEW,ESTABLISHED -j ACCEPT 
+iptables -A OUTPUT -p udp --dport 53 -d 8.8.8.8 -j ACCEPT
+iptables -I DOCKER-USER -d 192.168.1.90 -p tcp --dport 443 -j DROP
+iptables -L --line-numbers 
+iptables -L --line-numbers ; iptables -D DOCKER-USER 1 # -D means delete
+iptables -P INPUT DROP
+iptables -P OUTPUT DROP
+iptables -nvL
+iptables-save | awk '/^[*]/ { print $1 } /^:[A-Z]+ [^-]/ { print $1 " ACCEPT" ; } /COMMIT/ { print $0; }' | iptables-restore
+join a.txt b.txt | column -t
+journalctl --since "2024-01-30" --until "2024-01-31"
+journalctl -S "5 minutes ago"
+kubeadm alpha certs check-expiration
+kubeadm alpha certs renew # If you are running an HA cluster, this command needs to be executed on all the control-plane nodes.
+kubeadm certs check-expiration
+kubeadm certs renew all
+kubeadm init --cri-socket unix:///var/run/containerd/containerd.sock
+kubeadm init --cri-socket unix:///var/run/cri-dockerd.sock # unix:///var/run/containerd/containerd.sock
+kubeadm init --cri-socket unix:///var/run/cri-dockerd.sock 2>&1 |tee INIT
+kubeadm init --cri-socket=/run/containerd/containerd.sock
+kubeadm init --upload-certs --control-plane-endpoint 172.0.10.174:443
+kubeadm init --v=5 --control-plane-endpoint 192.168.50.152:6443 --upload-certs
+kubeadm init phase upload-certs --upload-certs
+kubeadm reset
+kubeadm token create # <TOKEN> # option
+kubeadm token create --print-join-command
+kubeadm token generate # only show token string, didnt added into cluster
+kubeadm upgrade plan # dry run upgrade current cluster
+kubectl -n awx exec -it awx-demo-75f8985d5d-f5gvv -c awx-demo-task -- bash
+kubectl api-resources --namespaced=false
+kubectl api-resources --namespaced=true
+kubectl apply -f -
+kubectl apply -f . --recursive
+kubectl apply -f https://openebs.github.io/charts/openebs-operator-lite.yaml -f https://openebs.github.io/charts/openebs-lite-sc.yaml
+kubectl apply -f https://openebs.github.io/charts/openebs-operator.yaml && kubectl patch sc/openebs-hostpath -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
+kubectl apply -f https://projectcontour.io/examples/httpbin.yaml
+kubectl apply -f my-manifest.yaml --values values.yaml
+kubectl auth can-i --help
+kubectl auth can-i get pods --all-namespaces
+kubectl completion bash >/etc/bash_completion.d/kubectl
+kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl
+kubectl cordon $node
+kubectl cordon, Mark node as unschedulable.
+kubectl create deployment nginx --image=nginx
+kubectl create deployment nginx --image=nginx ; kubectl expose deployment nginx --port=80 --target-port=80 --type=LoadBalancer ; kubectl patch svc nginx -p '{"spec": {"type": "LoadBalancer", "externalIPs":["172.0.10.174"]}}' # failed
+kubectl create secret docker-registry 172.0.10.190.t9f.docker.r --docker-server='172.0.10.190:80' --docker-username='ernie' --docker-password='GmFeEE#7Hh8CJ2#NMZnH' # one and only
+kubectl create secret docker-registry 172.0.10.190.t9f.docker.r --docker-server=172.0.10.190:80 --docker-username=ernie --docker-password='GmFeEE#7Hh8CJ2#NMZnH'
+kubectl create secret generic 172.0.10.190.t9f.docker.r --from-file=.dockerconfigjson=/root/.docker/config.json --type --type=kubernetes.io/dockerconfigjson # FAIL
+kubectl create secret tls nginx-ernie18a --cert=./nginx-selfsigned.crt --key=./nginx-selfsigned.key
+kubectl debug -it nginx-ernie-test  --image=nicolaka/netshoot --target=nginx-ernie-test
+kubectl delete -f https://openebs.github.io/charts/openebs-operator-lite.yaml -f https://openebs.github.io/charts/openebs-lite-sc.yaml
+kubectl delete all --all -n {namespace}
+kubectl delete deployment nginx
+kubectl delete job $(kubectl get jobs | awk '$3 ~ 0' | awk '{print $1}')
+kubectl delete job $(kubectl get jobs | awk '$3 ~ 1' | awk '{print $1}')
+kubectl delete namespace {namespace}
+kubectl delete node <node-name>
+kubectl delete pod --field-selector=status.phase==Succeeded
+kubectl drain <node-name> [ --ignore-daemonsets --delete-local-data ]
+kubectl edit deployment.apps/cilium-operator -n kube-system
+kubectl exec -it POD_NAME -c SERVICE_NAME/deployment.apps/replicaset.apps
+kubectl exec -it pod/mc1 -c 1st -- bash
+kubectl exec -it redis-app-0 -- ls -l
+kubectl exec -it sleep-f8cbf5b76-gtwqs -c sleep -- ls
+kubectl exec -n kube-system -it pod/kube-apiserver-k1 -- sh
+kubectl exec -t awx-postgres-13-0 -n awx -- pg_dump -U awx -c > awx.$(KG secret awx-admin-password -n awx -o yaml  | bcy |G password: |AWK 2 | base64 -d).sql # cat awx.tJscjBAf2zuqU5ICEwL50yYtdjRv2kJX.sql  | kubectl exec -i awx-postgres-13-0 -n awx -- psql -Uawx
+kubectl exec -t awx-postgres-13-0 -n awx -- pg_dump -U awx -c > awx.$(KG secret awx-admin-password -n awx -o yaml | bcy |G password: |AWK 2 | base64 -d).sql
+kubectl exec -t awx-postgres-13-0 -n awx -- pg_dump -U awx -c > awx.sql ; cat awx.sql | kubectl exec -i awx-postgres-13-0 -n awx -- psql -Uawx
+kubectl exec pod/alias -- bash -c " apt update && apt install -y iputils-ping mlocate nmap iproute2 "
+kubectl expose deployment nginx --type=LoadBalancer --name=nginx-service --port=80
+kubectl expose deployment nginx-ernie18a --type=LoadBalancer --name=nginx-ernie18a --port=80
+kubectl get CURRENT.RUNNING.RESOURCES -o yaml
+kubectl get cs # karg cs
+kubectl get deployment.apps/nginx-deployment -o yaml # able to edit and ignore tons of line.
+kubectl get events -A --sort-by=lastTimestamp
+kubectl get jobs -o custom-columns=:.metadata.name
+kubectl get nodes --show-labels
+kubectl get nodes -o json | jq '.items[].spec.taints'
+kubectl get po -A --no-headers=true 
+kubectl get po nginx -o jsonpath='{.spec.containers[].image}{"\n"}'
+kubectl get pod --field-selector=status.phase==Succeeded
+kubectl get pod -A -o custom-columns="POD_NAME:.metadata.name,POD_STATUS:.status.containerStatuses[].state"
+kubectl get pod -A -o custom-columns=POD_NAME:.metadata.name,POD_STATUS:.status.phase
+kubectl get pod my-pod -o yaml
+kubectl get pod/nginx-ernie18a-6d858cc7d5-wzkcl -o custom-columns=NAME:.metadata.name,RSRC:.metadata.resourceVersion
+kubectl get pods --all-namespaces | grep Evicted | awk '{print $2 " --namespace=" $1}' | xargs kubectl delete pod # https://gist.github.com/zparnold/0e72d7d3563da2704b900e3b953a8229
+kubectl get pods -A -o custom-columns=POD_NAME:.metadata.name,POD_STATUS:.status.phase
+kubectl get pods -A -o jsonpath="{.items[*]['metadata.name', 'metadata.namespace']}"
+kubectl get pods -A -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.metadata.namespace}{"\n"}{end}'
+kubectl get pods -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.status.startTime}{"\n"}{end}'
+kubectl get pods POD_NAME -o jsonpath='{.spec.containers[*].name}'
+kubectl get pods a -o custom-columns='NAME:metadata.name,IP:status.podIP'
+kubectl get pods nginx -o jsonpath='{.metadata.name}{"\n"}{.metadata.namespace}{"\n"}'
+kubectl get pods nginx -o jsonpath='{.spec.containers[].image}{"\n"}'
+kubectl label node <nodename> color- # label: color=white
+kubectl label nodes k10-167 k8-168 k9-166 itsa=mw
+kubectl label nodes master3-173 group-
+kubectl logs --since=1h nginx
+kubectl logs -f -l name=myLabel --all-containers 
+kubectl logs -l app=elasticsearch # get multipal pod's log
+kubectl logs -n <namespace> -f deployment/<app-name> --all-containers=true # get multipal pod's log
+kubectl logs -n kube-system $(kubectl get pods -n kube-system -l k8s-app=kube-proxy -o jsonpath='{.items[0].metadata.name}') |G proxy
+kubectl patch cm/metallb-config -n kube-system --patch-file
+kubectl patch pv nfspv6 -p '{"metadata":{"finalizers":null}}'
+kubectl patch storageclass <SC_NAME> -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"false"}}}'
+kubectl port-forward kubernetes-demo-pod 0:3000:3000 (containerPort)
+kubectl proxy --insecure-skip-tls-verify
+kubectl rollout restart deploy
+kubectl rollout status ds/fluentd-elasticsearch -n kube-system # checking rollout status.
+kubectl rollout status ds/fluentd-elasticsearch -n kube-system # checking rollout status.kubectl proxy --insecure-skip-tls-verify
+kubectl run -i --tty alpine --image=alpine --restart=Never -- sh
+kubectl run -n default debug-container --rm -i --tty --overrides='{ "apiVersion": "v1", "spec": {"kubernetes.io/hostname":"tkgm14-control-plane-pv76m"}}' --image docker.io/nicolaka/netshoot -- /bin/bash # assign pod to node?
+kubectl uncordon $node
+kustomize build . | kubectl delete -f - 2>&1 # stderr tostdout(terminal)
+ldapsearch -H ldap://192.168.1.1:389 -D "CN=SunSystemsAdmin,OU=SunSystems,DC=assxxx,DC=com,DC=tw" -b "OU=SunSystems,DC=assxxx,DC=com,DC=tw" -w eas123456
+ldapsearch -H ldap://192.168.1.250:389 -D "CN=optest,OU=Service,OU=TGxx USER,DC=tgxx,DC=tw" -b "DC=tgxx,DC=tw" -w KRSKgTZRzp2w
+ln -s /path/to/source /path/to/symlink
+ls --full-time
+ls -t /GITLAB/* " |grep gitlab.rb |sed -e '1,7d' | xargs rm -
+ls /dev/{ashmem,binder}
+ls /etc/cni/net.d/ # check node cni
+ls /tmp/ ; echo $!
+lsb_release -a
+lsblk | grep disk | tail -1 | cut -d ' ' -f 1
+lsof -p <PID>
+lspci -vnn | grep VGA -A 12 # GPU
+mount 172.16.169.224:/NFS /MOUNT # /MOUNT is empty after umount /MOUNT
+mtr 132.226.173.52
+mv /a/_latest/*/* /a/_latest/
+nc -lv 4444 # listen 4444 on local host?
+nc -vz -u 172.16.169.131  161
+nc -vzu <hostname> 123
+nc -z -v -u time1.google.com 123
+ncdu # like du
+netstat --listening --tcp --udp
+nginx:alpine
+ngrep # something like log i used to see on juniper fw
+nmap -sn  172.16.211.0/24
+nmcli c modify ens192 ipv4.addresses 192.168.1.186/24
+nmcli connection modify ens192 ipv4.dns "" ; SYSR NetworkManager.service ; ping google.com
+nmcli connection modify ens192 ipv4.dns "" ; rm /etc/resolv.conf ; SYSR NetworkManager.service
+nmcli connection modify ens192 ipv6.method disable
+nsenter -n -t $pid -- tcpdump -nn -i ${INTERFACE} -w /host/tmp/${HOSTNAME}_$(date +\%d_%m_%Y-%H_%M_%S-%Z).pcap ${TCPDUMP_EXTRA_PARAMS}
+nvidia-smi --query-gpu=uuid --format=csv
+oc -n openshift-logging adm policy add-cluster-role-to-user cluster-reader -z elasticsearch
+oc adm inspect $(oc get co -o name) clusterversion/version ns/openshift-cluster-version $(oc get node -o name) ns/default ns/openshift ns/kube-system ns/openshift-etcd
+oc adm inspect <該project>
+oc adm must-gather --image=$(oc -n openshift-logging get deployment.apps/cluster-logging-operator -o jsonpath='{.spec.template.spec.containers[?(@.name == "cluster-logging-operator")].image}')
+oc adm top pods --containers=true
+oc adm uncordon m218.ocp49.test.com
+oc cluster-info | awk '/https/ {print $NF}'
+oc delete pod -A --field-selector=status.phase==Failed
+oc edit authentications.operator.openshift.io
+oc get clusterrolebinding -o wide|grep elasticsearch|grep cluster-reader
+oc get event -A -o custom-columns="LAST SEEN:{lastTimestamp},NAME:{metadata.name},KIND:{involvedObject.kind},TYPE:{type},MESSAGE:{message}"
+oc get po -A |VE Running\|Completed\|openshift-marketplace
+oc get pod kube-controller-manager-guard-m1.ocp49.example.com -n openshift-kube-controller-manager -o json |G phase
+oc patch OperatorHub cluster --type json -p '[{"op": "add", "path": "/spec/disableAllDefaultSources", "value": true}]' # ocp
+oc patch daemonset snmp -p "{\"spec\":{\"template\":{\"metadata\":{\"annotations\":{\"redeploy-timestamp\":\"`date +'%s'`\"}}}}}"
+oc patch etcd/cluster --type=merge -p '{"spec": {"unsupportedConfigOverrides": {"useUnsupportedUnsafeNonHANonProductionUnstableEtcd": true}}}'
+openssl genrsa -out rootCA.key 2048
+openssl genrsa -out ssl.key 2048
+openssl req -new -key ssl.key -out ssl.csr
+openssl req -new -key tls.key -out FILE.csr -subj '/CN=CNCNCNCNCNCNCNCNCNCNCNCNCNCN'
+openssl req -x509 -new -nodes -key rootCA.key -sha256 -days 1024 -out rootCA.pem
+openssl req -x509 -new -nodes -sha512 -days 3650 -subj "/C=CN/ST=Beijing/L=Beijing/O=example/OU=Personal/CN=yourdomain.com" -key ca.key -out ca.crt
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout nginx-selfsigned.key -out nginx-selfsigned.crt
+openssl s_client -connect $HARBOR_HOST:443 < /dev/null 2> /dev/null | openssl x509 | sed -ne '/BEGIN CERT/,/END CERT/p' > ~/harbor.crt
+openssl x509 -in /etc/kubernetes/pki/ca.crt -noout -pubkey | openssl rsa -pubin -outform DER 2>/dev/null | sha256sum | cut -d' ' -f1
+openssl x509 -in /usr/local/share/ca-certificates/harbor.crt --text
+openssl x509 -in cerfile.cer -noout -text
+openssl x509 -noout -text -in ca.pem
+openssl x509 -req -in ssl.csr -CA rootCA.pem -CAkey rootCA.key -CAcreateserial -out ssl.cert -days 356 -extensions v3_req -extfile openssl.cnf
+ping busybox-1.s.default.svc.cluster.local # HOSTNAME.NAMESPACE.svc.cluster.local # kube
+ping www.linuxbuzz.com | while read i; do echo "$(date +%H:%M:%S): $i"; done
+podman login --tls-verify=false 192.168.50.21 -u'ernie_ho@459.com.tw' -p 'THIS_IS_MY_PASSWORD'
+podman pull --authfile /var/lib/kubelet/config.json registry.redhat.io/openshift4/ose-cluster-logging-operator
+podman run --sysctl net.ipv4.ip_unprivileged_port_start=0
+podman tag docker.io/library/busybox 192.168.50.21/eeee/busybox:v1 ; podman push --tls-verify=false 192.168.50.21/eeee/busybox:v1
+qemu-img convert -f qcowq -O raw DO374.qcow2 /dev/sdb # pw: redhat
+rabbitmqctl cluster_status
+readarray -t FRUITS <<< "$(echo -e "apple\norange\nbanana")" ; echo "${FRUITS[@]}"
+redis-cli -h 1.2.3.4 CLUSTER NODESi
+redis-cli -h 172.0.10.174 pin
+redis-trib.rb create --replicas 1 172.0.10.168:6379 172.0.10.168:6380 172.0.10.166:6379 172.0.10.166:6380 172.0.10.167:6379 172.0.10.167:6380
+restart transmission-daemon.service
+rht-vmctl start all
+rm * .* ; cp ~/awx-cathay-cicd/* . ; cp ~/awx-cathay-cicd/.* . ; rm .git .G ; cp ~/GIT .git ; PUSHM rollback.a248a73
+rm -rf /var/cache/yum
+rm .* ; vim main.tf ; terraform init ; terraform plan ; terraform apply -auto-approve
+rm ./AppData/Roaming/Microsoft/Windows/PowerShell/PSReadLine/ConsoleHost_history.txt
+rm /tmp/BP* ; cp ~/.bash_profile /tmp/BP0 ; for i in curl ffmpeg ansible vagrant helm systemctl kubectl docker sshrc apt yum export git cat vim ls grep ; do cat /tmp/BP0 |GV |sort -k3 |G $i >>/tmp/BP ; sed -i "/$i/d" /tmp/BP0 ; done ; cat /tmp/BP0 |GV > /tmp/BP 
+rpm -q kernel
+rpm -ql logrotate
+rsync --timeout=30 --bwlimit=1500 --compress-level=9 -ruzP ubuntu@129.146.241.39:~/.downloads/* /mnt/d/ # 1500=12mbps
+schtasks.exe /Run /TN "\Microsoft\Windows\Servicing\StartComponentCleanup" # clean winsxs
+scp -ri ~/.G/ernie-master/.ssh/id_rsa ubuntu@129.146.86.197:~/.downloads/* /mnt/c/Users/tgxx123/Documents/
+scp root@172.16.169.222:/var/lib/docker/overlay2/be002584780a48bfc7a4e67af785a487647a4d79fa1fcc542a97774e3fde390d/diff/home/kasm-user/Desktop/* /mnt/c/Users/e/Desktop/
+scp root@192.168.50.147:~/.G/awx/configs/redis_socket/csv.csv . && ssh root@192.168.50.147 " rm ~/.G/awx/configs/redis_socket/csv.csv"
+scp root@192.168.50.148:/var/lib/docker/overlay2/*/diff/home/kasm-user/Desktop/* 
+sed '/debian/d' fileSUL setup.cfg |xargs sed 's/\\/\//g'
+sed -i '/ server: / s/^ /# /' *sed -i '/server:/a \ \ \ \ \ \ server: 172.0.10.174' *
+sed -i '/1k/Id' .bash_history
+sed -i '/STRING/A INSERT TEXT HERE' ./FILE
+sed -i '/pattern/d' file
+sed -i '/server:/a \ \ \ \ \ \ server: 172.0.10.174' * # (sed '/server:/a ^ server: 172.0.10.174' app-pvc.yaml) # add new line below matched string~
+sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+sed -i 's/FOO/BAR/g' ./SOME_PATH # replact string in file recursively
+sed -i 's/FORMER/LATER/g' file.txt
+sed -i 's/STDERR/OUTPUT/g' $(FINDD main.yml )
+sed -i 's/https:\/\/gitlab.com\/ernie18a\/dotfiles.git/git@gitlab.com:ernie18a\/dotfiles.git/g' /home/e/.G/dotfiles/.git/config
+sed -i.bak -r 's/(.+ swap .+)/#\1/' /etc/fstab
+select * from userinfo; select * from passwordpolicy; TRUNCATE userinfo; TRUNCATE passwordpolicy;
+seq -f "172.16.169.%g" 0 255
+set -euo pipefail
+sh -c " ls -t /GITLAB/* "
+skip-grant-tables # my.cnf
+snmpwalk -v 2c -c public  172.16.169.238:30161
+source /dev/stdin <<< "$(curl -Ls https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile)"
+spec.externalIPs # in case u need NodePort ingress
+ssh -L 9090:localhost:80 root@PUBLIC_IP # 127.0.0.1:9090 ; ssh -L 0.0.0.0:9090:localhost:80 root@PUBLIC # 0.0.0.0:9090 # binding lower number might need root permission. # AllowTcpForwarding yes
+ssh -NfRssh -p 8080 -D 3128 localhostssh -NfD 8888 remote_ip # -N : 不執行任何命令 # -f : 在背景執行 # -D : 建socks5 的proxy
+ssh -R 55555:127.0.0.1:22 ubuntu@129.146.190.8
+ssh -fN # 我們只要鑿隧道， 不需要命令列； 請丟到背景執行
+ssh -fNR *:4380:localhost:80 ckhung@penguin.tw
+ssh -fNR 4380:localhost:80 ckhung@penguin.tw
+ssh -o "StrictHostKeyChecking no" 
+ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 -l cisco 172.16.169.253
+ssh remoteuser@ip.address.of.remote.machine "cat > remote" < file
+ssh remoteuser@ip.address.of.remote.machine 'dd if=sda.img' | dd of=/dev/sda
+ssh remoteuser@ip.address.of.server 'bash -s' < scriptfile.sh
+ssh root@172.16.169.233 -oHostKeyAlgorithms=+ssh-dss
+stig tab ls \; tab ls --sort status
+strace kubectl version # strace 
+subPathExpr: $(POD_NAMESPACE)/$(POD_NAME) # volume location exp: ./kube-system/api/hi.txt
+sudo apt-get purge $(dpkg -l | grep '^rc' | awk '{print $2}')
+sudo apt-get update 2>&1 |sed -ne 's?^.*NO_PUBKEY ??p' |xargs -r -- sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys
+sudo dd if=/dev/sda | ssh remoteuser@ip.addresss.of.remote.machine 'dd of=sda.img'
+sudo journalctl --vacuum-size=00.1K
+sudo mount -t drvfs C: /mnt/c -o metadata,uid=1000,gid=1000,umask=22,fmask=111 # enable chmod (and chown?) on wsl's windows disk.
+sudo sh -c ' curl https://raw.githubusercontent.com/ernie18a/dotfiles/main/deploy/service.transmission.json > /etc/transmission-daemon/settings.json '
+sync ; echo 3 > /proc/sys/vm/drop_caches
+systemctl get-default ; systemctl set-default multi-user.target ; systemctl set-default graphical.target
+systemctl set-default multi-user.target
+systemctl stop transmission-daemon.service ; umount /a 2>/dev/null ; fsck -fy /dev/sda ; mount /dev/sda /a ; systemctl restart transmission-daemon.service
+systemctl stop transmission-daemon.service ; umount /a 2>/dev/null ; fsck -fy /dev/sda ; mount /dev/sda /a ; systemctl restart transmission-daemon.service
+tar czf - /home/localuser/filefolder | ssh remote-machine@ip.address.of.remote.machine tar -xvzf -C /home/remoteuser/
+tar zcvf <NEW_FILE> <TARGET_FILE>
+tcpdump -ttt -nn -vvv -i <interface> -w /tmp/$(hostname)-$(date +"%Y-%m-%d-%H-%M-%S").pcap host 10.64.40.132 and port 53
+terminationGracePeriodSeconds: 60
+timedatectl set-local-rtc 1
+timeout 2 curl 172.16.169.251:81/a.zip -o /TEST/porting/a.zip
+tmux a -r # readonly
+touch {1..4}
+touch {aa,bb}
+transmission-remote <PORT(9091)> -a "magnet:?xt=urn:btih:FD13E2D18A1A0314FB4452A80A0C7D8345BAF7D9" -nUSER_NAME:PASSWORD
+tree -df |G \/[a-zA-Z]*$
+truncate -s 0 *
+unzip -P642I72I6 image001.jpg.zip 
+update-alternatives --install /usr/bin/python python /usr/bin/python3.11 1
+var=foo.pdf ; echo ${var%.pdf}.txt
+vim /mnt/c/Windows/System32/drivers/etc/hosts
+vnstat -d
+watch 'for i in m16{2..4} ; do ssh -o "StrictHostKeyChecking no" -o "ConnectTimeout=2" core@$i.b.cc "ss -ntlp |grep -E 6443\|22623" ; done'
+wget -P OUTPUT_FILE_PATH
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm # yum install 
+wget https://projectcontour.io/quickstart/contour.yaml
+while : ; do curl -fsSL 127.0.0.1 &>/dev/null & done
+while read i ; do scp root@192.168.50.153:$i . ; done < .T3 
+while read j ; do grep $j u.kubelet* ; done < oauth.pod 
+while sleep 0.5; do echo thinking; done
+while true ; do curl --connect-timeout 0.002 192.168.2.75?$(date +%s) ; echo $(date +%s) ; done
+while true ; do curl --silent --connect-timeout 0.002 192.168.2.173?$(date +%s) ; echo -n $(date +%S%N) ; done |tee b
+while true ; do curl -sS --connect-timeout 0.001 192.168.2.173?$(date +%s) ; echo -n $(date +%H:%M:%S.%N)\ ; done |tee a
+while true ; do mv */* . ; done
+while true; do NC 146.56.160.133 22 && ssh -o ConnectTimeout=10 ubuntu@146.56.160.133 ; done
+wsl --install # powershell
+wsl --set-default-version 2
+wsl --unregister Ubuntu-20.04 # powershell
+wsl --unregister ubuntu # powershell
+wsl.exe --install -d Ubuntu-20.04 # powershell
+xz -z prod
+yum --enablerepo=elrepo-kernel install -y kernel-ml
+yum --showduplicates list <package>
+yum check-update
+yum install --downloadonly --downloaddir=. docker-compose-plugin docker-ce
+yum install -y --downloadonly --downloaddir ~/ python3-pip
+yum install -y kubelet-1.17.6 kubeadm-1.17.6 kubectl-1.17.6 --disableexcludes=kubernetes
+yum install -y ntp ; timedatectl set-ntp true ; ntpstat
+yum install -y yum-utils ; yum-config-manager --add-repo https://download.docker.com/linux/centos/8/x86_64/stable
+yum install downloadonly ; yum localinstall
+yum list available --disablerepo='*' --enablerepo=elrepo-kernel
+yum makecache ; yum history undo last -y
+yum provides */lib64/libcrypt.so.1
+zmap -p22 -i eth0 -G 00:09:0f:09:19:03 # zmap # MUST ADD bandwidth BANDWIDTH LIMITATION
+| tr '[:upper:]' '[:lower:]'
+⎈ helm

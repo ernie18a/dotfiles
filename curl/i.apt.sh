@@ -89,7 +89,6 @@ case "$action" in
 	mkdir -p /home/e/.G/
 	cd /home/e/.G/
 	git clone git@github.com:ernie18a/dotfiles.git
-	git clone git@github.com:ernie18a/misc.git
 	git clone git@github.com:ernie18a/deprecated.git .deprecated
 	git clone https://github.com/tmux-plugins/tpm /home/e/.G/.tmux_plugins_manager
 	sed -i 's/https:\/\/github.com\/ernie18a\/dotfiles.git/git@github.com:ernie18a\/dotfiles.git/g' /home/e/.G/dotfiles/.git/config

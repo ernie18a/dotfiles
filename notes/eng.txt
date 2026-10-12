@@ -1,0 +1,427 @@
+Hegemony（霸權
+Epiphany（頓悟 / 覺醒）
+sycophantic
+prosody
+Unsupervised Statistical Optimization
+Chain of Thought, Tree of Thoughts, Graph of Thoughts, Self-Correction, Self-Refine, Multi-Agent Debate, Self-Consistency,
+A contract-driven Python microkernel leveraging Gemini LLM reasoning and FFmpeg 8.0 for automated semantic video analysis and precision clipping.
+Over-specifying prompts cripples an Agent's adaptability in dynamic environments # Overconstrained
+Social Media Studies
+Inference
+TAM / Revenue Potential
+Fail-fast, minimal, ruthlessly simple Design by Contract: the most robust development and operational framework.
+Discard 80% consensus/median noise; extrapolate from 20% outliers.
+Semantic Clustering
+SNA Early Adopter Market Maven
+explicitly specify which
+linux directory hierarchy
+tar compress decompress
+proximately
+My device does not exist yet, so I cannot run source build/envsetup.sh nor lunch <REDMI_NOTE_12R>. # nor
+under any circumstance
+conflict
+bloatware
+± # plus-minus
+customized
+Appropriate, Suitable, Effective, Optimal, Ideal
+I sought to steer away from
+achieve
+combine
+customization
+especially 
+existed 
+half now, half later. all later, none now
+i suppose
+if necessary
+linux hierarchy
+mechanism 
+precise
+precisely
+prefix / suffix
+probably probably not
+simultaneously
+specifying
+summarize
+under any circumstances
+while u let fear control your life, u end up at a place that's worst then what u were trying to avoid
+worst case scenario # circumstances
+Gastric Dilatation: The dog suffered from gastric dilatation.
+Coalesced: The ideas coalesced into a single plan.
+Colossal: The colossal statue towered over the city.
+Adheres: The glue adheres to the surface well.
+Adverse: He faced adverse weather conditions.
+Approaches: Different approaches can solve the problem.
+Caveats: There are caveats to this agreement.
+Christmas held: Christmas held special memories for her.
+Comparison: A comparison of the two products.
+Concentrates: She concentrates on her studies daily.
+Concurrent: The events were concurrent and chaotic.
+Convention: The convention attracted many industry experts.
+Cryptocurrency: Cryptocurrency is gaining popularity worldwide.
+DEPRECATED: The old method is now deprecated.
+Dehumidifier: The dehumidifier reduces moisture in the air.
+Demystifying: Demystifying complex topics can be challenging.
+Disambiguation: Disambiguation helps clarify confusing terms.
+Disclaimer: The disclaimer protects against legal issues.
+Discreet: She was discreet about her plans.
+Disposable: Use disposable cups for the party.
+Distroless: Distroless images are minimal and secure.
+Ease: He completed the task with ease.
+Enumeration: The enumeration of items took hours.
+Forfeit: They had to forfeit the game.
+Gastric Rupture: Gastric rupture can be life-threatening.
+How to racially profile your new neighbor: This phrase is inappropriate and offensive.
+Improvised: He improvised a solution on the spot.
+Interdental: Use interdental brushes for better cleaning.
+Lean: The lean meat is healthier.
+Negated: His actions negated the positive effects.
+Notation: Mathematical notation can be complex.
+Padding: Add padding to the text for readability.
+Petition: They signed a petition for change.
+Protagonist: The protagonist faced many challenges.
+ROBUST: The system is robust and reliable.
+Render: The software can render 3D images.
+Reticent: She was reticent to share her thoughts.
+Retrieval: Data retrieval took longer than expected.
+SUPERSEDED: The new model superseded the old one.
+Scrape: He had to scrape the paint off.
+Spontaneous Stomach: This phrase is unclear and confusing.
+Substituting: Substituting sugar with honey is healthier.
+TORSO: The sculpture depicted a human torso.
+Utilized: The resources were utilized efficiently.
+Why is Globalisation so disdained?: Some people disdained globalization due to job losses.
+Windows 10’s November 2019 Update Is the Best Yet: The update improved performance and features.
+Abrasive: The abrasive cleaner removed the stains.
+Abrupt: His abrupt departure surprised everyone.
+Abstain alcohol: He decided to abstain from alcohol.
+Accomplice: The thief had an accomplice.
+Adhere: Please adhere to the guidelines.
+Adrenaline: The adrenaline rush was exhilarating.
+Affiliated: The company is affiliated with a larger corporation.
+Ailments: She suffered from various ailments.
+Akin: His interests are akin to mine.
+Alleged: The alleged criminal was arrested.
+Allocating: Allocating resources efficiently is crucial.
+Alloy: The alloy is strong and durable.
+Alphanumeric: Use alphanumeric characters for the password.
+Amendment: The amendment was passed unanimously.
+Amends: He made amends for his mistakes.
+Annex: They plan to annex the neighboring territory.
+Antonyms: Hot and cold are antonyms.
+Arbitrary: The decision seemed arbitrary and unfair.
+Asinine: His asinine comments were ignored.
+Assayed: The gold was assayed for purity.
+Astern: The ship moved astern slowly.
+Augmented: The reality was augmented with technology.
+Barrier: The barrier prevented entry.
+Bayou: The bayou was teeming with wildlife.
+Benchmark: The benchmark test showed improvements.
+Berating: She was berating him for his mistakes.
+Bespoke: He ordered a bespoke suit.
+Brevity: Brevity is appreciated in communication.
+Burnt: The toast was burnt to a crisp.
+Captions: The captions helped understand the video.
+Cater: They cater to all dietary needs.
+Caveat: There is a caveat to this offer.
+Chaired: She chaired the meeting efficiently.
+Che pazzo: This Italian phrase means “what a crazy person.”
+Chlorophyll: Chlorophyll gives plants their green color.
+Citadel: The citadel was heavily fortified.
+Citrus aroma: The citrus aroma was refreshing.
+Clique: The clique excluded new members.
+Cluster strength is not as robust: The cluster strength is weaker than expected.
+Cognitive induce: Cognitive tasks can induce stress.
+Cognizant: Be cognizant of your surroundings.
+Cohesive: The team was cohesive and effective.
+Coincidentally: Coincidentally, they both wore red.
+Collocation: The collocation of words matters in language.
+Colocate: They decided to colocate their servers.
+Colossal idiot: He felt like a colossal idiot.
+Compact: The compact car is fuel-efficient.
+Comparison: A comparison of prices is necessary.
+Compatibility: Compatibility issues can cause problems.
+Comprised: The committee comprised five members.
+Concatenate: Concatenate the strings for the output.
+Conducive: The environment is conducive to learning.
+Conformance: Ensure conformance to the standards.
+Conned: He was conned out of his money.
+Constraint restraint: The project faced constraint and restraint.
+Contrarian: He took a contrarian view on the issue.
+Contrast: The contrast between the colors is striking.
+Convent: She visited the old convent.
+Convention: The convention was well-attended.
+Conventionally: Conventionally, this method is used.
+Convoluted: The plot was convoluted and confusing.
+Convoy: The convoy moved through the city.
+Coup: The coup d’état was successful.
+Courtesy: Courtesy is important in customer service.
+Coverage: The insurance coverage is comprehensive.
+Critical: Critical thinking is essential.
+Crucial: This step is crucial for success.
+Cubs: The lion cubs played together.
+Curriculum: The curriculum includes various subjects.
+Cynical: He had a cynical view of politics.
+Dearth: There was a dearth of resources.
+Debase: The scandal debased his reputation.
+Debut: She made her debut on stage.
+Decency: He showed decency in his actions.
+Decouples: The system decouples the components.
+Deduced: He deduced the answer from the clues.
+Dedushka: Dedushka is the Russian word for grandfather.
+Defacto: He is the defacto leader.
+Deferral: The deferral of the project was necessary.
+Degrade: The quality will degrade over time.
+Delegate: Delegate tasks to improve efficiency.
+Delicacy: The dish is a local delicacy.
+Delinquent: The delinquent was caught by the police.
+Denote: The symbol denotes a variable.
+Deprecated: The function is deprecated and should not be used.
+Desiccant: The desiccant keeps the product dry.
+Designation: His designation is Senior Manager.
+Deteriorate: The building began to deteriorate.
+Detour: We took a detour to avoid traffic.
+Dicey: The situation was dicey and uncertain.
+Dictate: The manager will dictate the terms.
+Diluted: The juice was diluted with water.
+Diminished: His influence diminished over time.
+Discard: Please discard the old documents.
+Disclosed: The information was disclosed to the public.
+Discord: There was discord among the team members.
+Discreet: She was discreet about her plans.
+Discrete: The data is stored in discrete units.
+Disown: He decided to disown his inheritance.
+Dispatch: The package was dispatched yesterday.
+Dispel: He tried to dispel the rumors.
+Divvy: They decided to divvy up the profits.
+Dosages: Follow the prescribed dosages carefully.
+Dossier: The dossier contained confidential information.
+Dreadful: The weather was dreadful all week.
+Eerie: The abandoned house had an eerie feeling.
+Eliminate: We need to eliminate the errors.
+Elude: The suspect managed to elude the police.
+Emit: The device emits a high-pitched sound.
+Employ: They employ over 100 people.
+En route: The package is en route to you.
+Enclosed: The letter was enclosed in an envelope.
+Enforce: The police enforce the law.
+Ensue: Chaos ensued after the announcement.
+Entitled: He felt entitled to special treatment.
+Entries: The contest received many entries.
+Ephemeral: The beauty of the sunset was ephemeral.
+Equator: The equator divides the Earth into two hemispheres.
+Eschewed: He eschewed luxury for a simpler life.
+Especially: She loves chocolate, especially dark chocolate.
+Espionage: He was accused of espionage.
+Euthanize: The vet had to euthanize the suffering animal.
+Evenly: Spread the butter evenly on the bread.
+Expanding and contracting: The material is expanding and contracting with temperature changes.
+Explicit: The instructions were explicit and clear.
+Explicitly: He explicitly stated his intentions.
+Extradite: The country refused to extradite the suspect.
+Factual: The report was based on factual information.
+Fatigue: He felt extreme fatigue after the workout.
+Feasible: The plan is feasible and practical.
+Fece: This word seems to be a typo.
+Feces: The feces were analyzed for parasites.
+Flawless: Her performance was flawless.
+Flinging: He was flinging the ball around.
+Fluctuates: The stock price fluctuates daily.
+Fluorescent: The fluorescent lights were bright.
+Footnote: The footnote provided additional information.
+Foreplay: Foreplay is important in a romantic relationship.
+Fractal: The fractal pattern was mesmerizing.
+Frantically: She searched frantically for her keys.
+Freebies: The event offered many freebies.
+Frivolous: The lawsuit was deemed frivolous.
+Fulfill: He worked hard to fulfill his dreams.
+Generic: The generic brand is cheaper.
+Genuine: Her smile was genuine and warm.
+Gratuitous: The movie had gratuitous violence.
+Grief: He felt deep grief after the loss.
+Heard by no God, amounting to nothing: This phrase is poetic and melancholic.
+Hierarchy: The company’s hierarchy was well-defined.
+Honoured: He was honoured for his achievements.
+Hound: The hound chased the rabbit.
+Illicit: He was involved in illicit activities.
+Impeach: The president was impeached by the parliament.
+Impending: The impending storm caused concern.
+Implement: They plan to implement the new system.
+Implicit: There was an implicit agreement between them.
+Imply: His words imply a different meaning.
+Incendiary: The incendiary device caused a fire.
+Incorporated without getting scorched: This phrase is unclear and confusing.
+Inept: His inept handling of the situation was criticized.
+Inert: The gas is chemically inert.
+Infeasible: The plan was deemed infeasible.
+Inflamed: The wound was red and inflamed.
+Inflammatory: His inflammatory remarks caused outrage.
+Infuriating: The delays were infuriating.
+Ingest: Do not ingest the cleaning solution.
+Inheritance: He received a large inheritance.
+Inquiry: The inquiry revealed new information.
+Instaded: This word seems to be a typo.
+Instance: This is an instance of good behavior.
+Integration: The integration of the systems was successful.
+Intensity diminishes: The intensity diminishes over time.
+Intentionally: He intentionally ignored the warning.
+Interoperability: Interoperability between systems is crucial.
+Interpol: Interpol is an international police organization.
+Interpolation: The data required interpolation for accuracy.
+Intervention: The intervention prevented a disaster.
+Intimate: They shared an intimate moment.
+Intimidating: The large dog was intimidating.
+Intuition: Her intuition told her something was wrong.
+Invoke: He tried to invoke the law.
+Iterable: The list is an iterable object.
+Iterates: The program iterates through the data.
+Iteration: Each iteration improved the design.
+Jinx: He believed the broken mirror was a jinx.
+Jostle: The crowd began to jostle for space.
+Jurisdiction: The case falls under federal jurisdiction.
+Larvae: The larvae will eventually become butterflies.
+Lent: He lent her his jacket.
+literally: This phrase is redundant.
+Litigation: The company faced litigation over the issue.
+Malformed: The document was malformed and unreadable.
+Mandatory: Attendance is mandatory for all employees.
+Manifest: The symptoms manifest differently in each patient.
+Manifesto: The party released its manifesto.
+Manifests: The problem manifests in various ways.
+Mediocre: The performance was mediocre at best.
+Menace: The dog was a menace to the neighborhood.
+Merrier: The more, the merrier.
+Mired: The car was mired in mud.
+More so: He enjoys reading, more so than writing.
+Mundane: The task was mundane and repetitive.
+Nebulous arguments: His nebulous arguments were hard to follow.
+Neglect: The garden was in a state of neglect.
+Negligible: The difference was negligible.
+Nihilist: He was a nihilist who believed in nothing.
+Nomads: The nomads traveled across the desert.
+Nostalgia: She felt a wave of nostalgia.
+Nostalgic: The old photos made her nostalgic.
+Nuisance: The noise was a constant nuisance.
+Obsolete: The technology is now obsolete.
+Obstacles: They faced many obstacles along the way.
+Obstruction: There was an obstruction in the road.
+Offset: The gains offset the losses.
+Offsite: The meeting was held offsite.
+Omit: Please omit unnecessary details.
+On-premise: The software is installed on-premise.
+Ongoing: The project is ongoing.
+Ought: You ought to apologize.
+Overt: His actions were overt and obvious.
+Oxidized: The metal had oxidized over time.
+Paced: He paced back and forth nervously.
+Parallelization: Parallelization can improve performance.
+Parentheses: Use parentheses to clarify the sentence.
+Parse: The program will parse the data.
+Parsed: The data was parsed successfully.
+Perceive: How do you perceive this situation?
+Peril: They were in great peril.
+Peripheral: The peripheral devices were connected.
+Pertaining:
+Pertaining: The documents pertaining to the case were missing.
+Perversion: The perversion of justice was evident.
+Petrol: The car runs on petrol.
+Piste: The skiers raced down the piste.
+Plea: He made a plea for help.
+Plead: She decided to plead guilty.
+Polygraph: He took a polygraph test.
+Potent: The medicine is very potent.
+Precedence: Safety takes precedence over speed.
+Preexisting: The condition was preexisting.
+Prerequisite: This course is a prerequisite for graduation.
+Prevalent: The disease is prevalent in the area.
+Prior: He had prior commitments.
+Proactively: They proactively addressed the issue.
+Prodigal son: The prodigal son returned home.
+Prone: He is prone to accidents.
+Propagate: Plants propagate through seeds.
+Provision: The contract includes a provision for renewal.
+Quips: He made several witty quips.
+Quirky: She has a quirky sense of humor.
+Rant: He went on a long rant.
+Raspberries, for garnish: Add raspberries for garnish.
+Ravishing: She looked ravishing in the dress.
+Rebellion: The rebellion was quickly suppressed.
+Rebut: He tried to rebut the accusations.
+Recognising: She had trouble recognising him.
+Reconcile: They tried to reconcile their differences.
+Reconciled: They reconciled after the argument.
+Reluctantly: He reluctantly agreed to the plan.
+Render: The artist will render the scene.
+Replicas: The museum displayed replicas of ancient artifacts.
+Resilience: Her resilience helped her overcome challenges.
+Resilient: The material is resilient and durable.
+Restrict: They restrict access to the area.
+Retrieve: He tried to retrieve the lost data.
+Revved up: The engine revved up loudly.
+Rhetorical: He asked a rhetorical question.
+Rife: The area was rife with crime.
+Robust: The system is robust and reliable.
+Routine: He followed his daily routine.
+Sanctioned: The event was sanctioned by the authorities.
+Saturated: The market is saturated with similar products.
+Savvy: She is tech-savvy and knowledgeable.
+Scope: The scope of the project is vast.
+Seasoned: He is a seasoned professional.
+Secretion: The gland’s secretion was studied.
+Seemingly: He was seemingly unaware of the problem.
+Seep: Water began to seep through the cracks.
+Serializing: Serializing data helps in storage.
+Sharding: Sharding improves database performance.
+Shorthand: He used shorthand to take notes.
+Simpleton: He was treated like a simpleton.
+Simultaneously: They worked simultaneously on the project.
+Slug: He took a slug of the drink.
+Smear: The smear campaign damaged his reputation.
+Smothered: The fire was smothered quickly.
+Soliciting a ride: He was soliciting a ride home.
+Soused: The bread was soused in gravy.
+Stale: The bread was stale and hard.
+Stalemate: The negotiations reached a stalemate.
+Stretching the truth: He was stretching the truth in his story.
+Struts: The car’s struts need replacement.
+Submissions: The submissions were reviewed by the committee.
+Subsidized: The program is subsidized by the government.
+Subtle: The changes were subtle but effective.
+Sudsy: The water was sudsy with soap.
+Superficially: The problem was superficially addressed.
+Surcharge: There is a surcharge for extra luggage.
+Surplus: The company had a surplus of goods.
+Surreal: The experience was surreal and dreamlike.
+Susceptible: He is susceptible to colds.
+Symmetrical: The design is perfectly symmetrical.
+Tariffs: The tariffs on imports were increased.
+Tendency: He has a tendency to procrastinate.
+Thick: The fog was thick and dense.
+Thwarted: Their plans were thwarted by the weather.
+Tinkering: He enjoys tinkering with gadgets.
+Titillating: The book contained titillating details.
+Toil toilet: He had to toil to clean the toilet.
+Torso: The sculpture depicted a human torso.
+Treaty: The treaty was signed by both countries.
+Triplet: The triplet sisters were identical.
+Truncate: Truncate the text to fit the space.
+Tuberculosis: Tuberculosis is a serious infectious disease.
+Tuple: A tuple is an ordered list of elements.
+Turmoil: The country was in turmoil.
+Umami: The dish had a rich umami flavor.
+Underwent: He underwent surgery last week.
+Unsolicited: She received unsolicited advice.
+Utterly: He was utterly exhausted.
+Validating: Validating the data is important.
+Vanity: His vanity was his downfall.
+Vascular: The vascular system includes blood vessels.
+Vast: The desert was vast and empty.
+Vastly: The situation has vastly improved.
+Vessels: The blood vessels were examined.
+Veteran: He is a veteran of the war.
+Veto: The president has the power to veto.
+Viral: The video went viral online.
+Vouch: I can vouch for his honesty.
+Whatnot: They discussed politics, sports, and whatnot.
+Widespread: The disease is widespread in the region.
+Wrinkle: She noticed a wrinkle in her dress
+Find surprising or counter-intuitive information points. Use traditional Chinese to reply. Use English for proper nouns. Do not show images, source and reference by default, unless the user requests. Need perspective and reasons while summarizing. Allow AI to extend operating time significantly. Use data and statistics to replace vague/ambiguous terms. 用最少的文字和句子回复user的问题，省去效益小的描述或介绍。

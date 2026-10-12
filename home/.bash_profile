@@ -92,8 +92,8 @@ CD() { cd /g/*/"$1"/ && ls -1p --color; }
 alias VBP=' cd ~/.G/dotfiles ; git pull >/dev/null ; vim ~/.G/dotfiles/home/.bash_profile ; git rm -r --cached . >/dev/null ; git add -A && git commit -amVBP &> /dev/null && git push 1>/dev/null ; cd - &>/dev/null '
 alias CDF=' cd ~/.G/dotfiles/ ; ls -1p --color '
 alias CDFC=' cd ~/.G/dotfiles/curl/ ; ls -1p --color ' 
-alias VNP=' cd ~/.G/misc/notes ; git pull >/dev/null ; vim ./commands.txt ; git rm -r --cached . > /dev/null ; git add -A && git commit -amVNP &> /dev/null && git push ; cd - &>/dev/null '
-alias VEP=' cd ~/.G/misc/notes ; git pull >/dev/null ; vim ./eng.txt ; git rm -r --cached . > /dev/null ; git add -A && git commit -amVEP &> /dev/null && git push ; cd - &>/dev/null '
+alias VNP=' cd ~/.G/dotfiles ; git pull >/dev/null ; vim ~/.G/dotfiles/notes/commands.txt ; git rm -r --cached . >/dev/null ; git add -A && git commit -amVNP &> /dev/null && git push 1>/dev/null ; cd - &>/dev/null '
+alias VEP=' cd ~/.G/dotfiles ; git pull >/dev/null ; vim ~/.G/dotfiles/notes/eng.txt ; git rm -r --cached . >/dev/null ; git add -A && git commit -amVEP &> /dev/null && git push 1>/dev/null ; cd - &>/dev/null '
 alias VPP=' cd ~/.G/private/yet ; git pull >/dev/null ; vim ./.RANDOM.txt; git rm -r --cached . > /dev/null ; git add -A && git commit -amVPP &> /dev/null && git push ; cd - &>/dev/null '
 alias LR='claude --dangerously-skip-permissions --resume'
 alias LOPR='claude --model opusplan --effort high --permission-mode plan --allow-dangerously-skip-permissions --resume'
@@ -258,8 +258,8 @@ USAGE() { sudo uv run /g/app/usage/main2.py; }
 WHEN2() { local t=$(( $(date -d "${1:0:2}:${1:2:2}" +%s) - $(date +%s) )); sleep $(( t < 0 ? t + 86400 : t )); }
 WHEN(){ local _s=$SECONDS _rc _d _t; eval "$(printf '%q ' "$@")"; _rc=$?; _d=$((SECONDS-_s)); _t=$(printf '%02d:%02d:%02d' $((_d/3600)) $((_d%3600/60)) $((_d%60))); { printf '%s\n' "$_t" >/dev/tty; } 2>/dev/null || printf '%s\n' "$_t" >&2; return $_rc; }
 CB2() { cat ~/.G/dotfiles/home/.bash_profile 2>/dev/null || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/.bash_profile ; }
-CNG() { cat ~/.G/misc/notes/commands.txt 2>/dev/null |grep -i --color $1 || curl -fsSL https://raw.githubusercontent.com/ernie18a/misc/main/notes/commands.txt |grep -i --color $1 ; }
-CEG() { cat ~/.G/misc/notes/eng.txt 2>/dev/null |grep -i --color $1 || curl -fsSL https://raw.githubusercontent.com/ernie18a/misc/main/notes/eng.txt |grep -i --color $1 ; }
+CNG() { cat ~/.G/dotfiles/notes/commands.txt 2>/dev/null |grep -i --color $1 || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/notes/commands.txt |grep -i --color $1 ; }
+CEG() { cat ~/.G/dotfiles/notes/eng.txt 2>/dev/null |grep -i --color $1 || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/notes/eng.txt |grep -i --color $1 ; }
 CP() { cat ~/.G/private/yet/RANDOM.txt ; }
 CT() { cat ~/.T$1 2>/dev/null ; }
 VT() { vim ~/.T$1 ; }
