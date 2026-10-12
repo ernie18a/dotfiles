@@ -8,7 +8,6 @@
 - 當修改完代碼或文件或討論定案時, 主動列出 user 曾經提出或回應過、但後來沒有下文的議題。不包含 AI 單方提出而 user 沒有回應的項目和 user 後來選定的做法解決的項目
 
 # Mindset
-- 預設 read only, 不主動修改
 - 執行腳本前需經過使用者準許 
 - 理解項目時 預設只閱讀代碼 & 代碼觸發的 prompt , 不主動閱讀文件除非使用者指定
 - 遇到 `$skill_name` 時，定義檔一律直接讀取 `~/.G/dotfiles/skills/<skill_name>/SKILL.md`。
