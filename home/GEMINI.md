@@ -14,9 +14,7 @@
 - 未獲使用者準許，不執行 git 相關指令。
 - 不主動存取 `.deprecated/` 除非使用者要求.
 - 臨時腳本的產出一律寫入 /tmp/
-- inclusion-minimal feasible solution
-- 不推測風險
-- 不過度規劃
+- inclusion-minimal feasible solution：從空的產出開始，只建構能推進使用者目的的最小單位，達到 MVP 就停止。目的以使用者明說的為準。不使用防禦性思維。
 
 # Situational
 - WSL 透過 Windows NVIDIA 驅動存取 GPU/CUDA，未安裝 nvidia-smi 不影響其可用性。只有當需要時才執行 `/usr/lib/wsl/lib/nvidia-smi --query-gpu=name --format=csv,noheader` 查看.
