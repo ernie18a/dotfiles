@@ -3,6 +3,7 @@ name: deve
 description: Manual invocation only
 ---
 
+- 同時使用 `~/.G/dotfiles/skills/name/SKILL.md`
 # Plan
 - 修改或新增程式碼前，先完整檢查所有受影響的程式碼環節及其串接機制，再開始實作。
 - 規劃多項實作需求時，按觸碰同一函式的功能聚合排序，範圍由大至小，確保開發連續性。
