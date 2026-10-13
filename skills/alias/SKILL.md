@@ -1,3 +1,8 @@
+---
+name: alias
+description: Manual invocation only
+---
+
 - 當`pump`、`trump`出現在異常位置時，可能是`prompt`的 typo。
 - 當`隻`出現在異常位置時，可能是`只`的 typo。
 - 當`油畫`出現在異常位置時，可能是`優化`的 typo。
