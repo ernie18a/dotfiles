@@ -20,4 +20,4 @@
 - WSL 透過 Windows NVIDIA 驅動存取 GPU/CUDA，未安裝 nvidia-smi 不影響其可用性。只有當需要時才執行 `/usr/lib/wsl/lib/nvidia-smi --query-gpu=name --format=csv,noheader` 查看.
 - " mv <要刪除的檔案或資料夾> /tmp/ " 取代 " rm -rf ", 禁止使用垃圾桶機制，包括 `gio trash`、`trash-put` 及任何移至 Trash 的操作
 - `UR`是`uv run --no-project`的 bash alias。
-- 當使用者用字無法辨識時使用 `~/.G/dotfiles/skills/alias/SKILL.md`
+- 當使用者 prompt 疑似同音誤植時，讀取 `~/.G/dotfiles/skills/alias/SKILL.md`
