@@ -20,10 +20,13 @@ description: Manual invocation only
 - 僅在 Cargo 原生 config 無法表達需求時新增 Cargo wrapper script。
 
 # Places
-- `./INPUT/` 裡有 user 提供的檔案, 腳本存取時不針對檔案名稱
-- `./TMP/` 存放中間檔與以 atomic replace 切換至 `./OUTPUT/` 的檔案, `./OUTPUT/` 存放 user 要求的檔案
-- 可調整參數集中放 `./conf.*` with proper 副檔名
-- ./DATA/ 預設不存在 , 底下只存放被entry script 觸發的腳本
+- `./` 頂層只放以下項目，工具無法變更位置的項目例外
+  - entry script：使用者直接執行的腳本
+  - `./conf.*`：集中所有可調整參數，使用 proper 副檔名
+  - `./INPUT/`：user 提供的檔案，腳本存取時不針對檔案名稱
+  - `./TMP/`：中間檔與以 atomic replace 切換至 `./OUTPUT/` 的檔案
+  - `./OUTPUT/`：user 要求的檔案
+  - `./DATA/`：其餘檔案與資料夾不論類型一律放這裡，不沿用語言或框架慣例的根目錄位置
 
 # Machine
 - 硬體為 RTX 4050 6G；AI 推論僅允許使用 GPU，否則報錯。
