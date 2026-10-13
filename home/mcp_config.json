@@ -1,0 +1,6 @@
+{
+  "mcpServers": {
+    "op": { "url": "http://127.0.0.1:8766/op" },
+    "debug": { "url": "http://127.0.0.1:8766/debug" }
+  }
+}

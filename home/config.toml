@@ -19,3 +19,9 @@ alternate_screen = "never"
 
 [notice]
 hide_rate_limit_model_nudge = true
+
+[mcp_servers.op]
+url = "http://127.0.0.1:8766/op"
+
+[mcp_servers.debug]
+url = "http://127.0.0.1:8766/debug"
