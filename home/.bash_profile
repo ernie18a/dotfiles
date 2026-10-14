@@ -81,7 +81,6 @@ alias .....=' cd ../../../../ '
 alias ......=' cd ../../../../../ '
 alias CDg=' cd /g ;  ls -1p --color '
 alias CDD=' cd /g/data ;  ls -1p --color '
-alias CDDT=' cd /g/data/.tv/ ;  ls -1p --color '
 alias CDA=' cd /g/app/ ; ls -1p --color '
 alias CDU=' cd /g/auto/ ; ls -1p --color '
 alias CDH=' cd /g/hedge/ ;  ls -1p --color '
@@ -250,11 +249,10 @@ CMPL() { $1 completion bash > /etc/bash_completion.d/$1 || ls -l /etc/bash_compl
 PING() { for i in $(seq 0 255) ; do ping $1.$i -c1 -W1 & done |grep from |awk '{print $4}' |awk -F: '{print $1}' | sort -V ; }
 FFMPEG1() { for i in *.$1 ; do ffmpeg -y -i "$i" "$(echo "$i"|cut -d\. -f1).$2" & done ; }
 FFMPEG() { for i in *.$1 ; do ffmpeg -y -i "$i" "$(echo "$i"|cut -d\. -f1).$2" ; done ; }
-LG2() { local lg2_root=/g/app/lg2; [ -d "$lg2_root" ] || lg2_root=/g/app/lG; UV_PROJECT_ENVIRONMENT=/g/.TMP/lg2-venv UV_CACHE_DIR=/g/.TMP/uv-cache XDG_CACHE_HOME=/g/.TMP/xdg-cache TMPDIR=/g/.TMP/tmp UV_VENV_CLEAR=0 uv run --project "$lg2_root" --directory "$PWD" lg2-run --config "$lg2_root/lg2.toml" "$@"; }
 WAIT() { while pgrep -f "$1" > /dev/null; do sleep 9; done ; }
 KILL() { sudo pkill -9 -fi "$1"; }
 PUSHM() { git pull >/dev/null ; git rm -r --cached . > /dev/null ; git add -A && git commit -m "$@" &>/dev/null && git push;}
-USAGE() { sudo uv run /g/app/usage/main2.py; }
+USAGE() { sudo uv run /g/tools/usage/main2.py; }
 WHEN2() { local t=$(( $(date -d "${1:0:2}:${1:2:2}" +%s) - $(date +%s) )); sleep $(( t < 0 ? t + 86400 : t )); }
 WHEN(){ local _s=$SECONDS _rc _d _t; eval "$(printf '%q ' "$@")"; _rc=$?; _d=$((SECONDS-_s)); _t=$(printf '%02d:%02d:%02d' $((_d/3600)) $((_d%3600/60)) $((_d%60))); { printf '%s\n' "$_t" >/dev/tty; } 2>/dev/null || printf '%s\n' "$_t" >&2; return $_rc; }
 CB2() { cat ~/.G/dotfiles/home/.bash_profile 2>/dev/null || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/.bash_profile ; }
