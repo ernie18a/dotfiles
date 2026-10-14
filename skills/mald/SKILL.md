@@ -1,5 +1,5 @@
 ---
-name: normald
+name: mald
 description: Manual invocation only
 ---
 
