@@ -1,0 +1,10 @@
+---
+name: gcp
+description: Manual invocation only
+---
+
+- 討論對象是雲端 VM `gcp`，不是本地端或當下目錄。提到的 `/g/*/` 路徑一律指雲端。
+- 遠端指令一律以 `ssh -F ~/.ssh/gcp_config gcp '<指令>'` 執行。每次連線獨立，需要工作目錄時在指令前加 `cd <路徑> &&`。
+- VM 記憶體約 1GB 且常駐爬蟲，不在 VM 上執行 claude、codex 或高記憶體工作。
+- 修改程式碼時在本地 `/g` 修改，經 git 同步後在 VM 端 `git pull` 再執行。
+- 大量閱讀雲端產出時，先由 VM 端 push、本地端 pull，再於本地閱讀。

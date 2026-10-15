@@ -1,3 +1,4 @@
+ssh -F ~/.ssh/gcp_config gcp
 pkill -KILL -u "$USER"
 GC git@github.com:ernie18a/av.git ; GC git@github.com:ernie18a/ypp.git ; GC git@github.com:ernie18a/stts.git
 apt -s remove unattended-upgrades
