@@ -1,3 +1,4 @@
+GC git@github.com:ernie18a/av.git ; GC git@github.com:ernie18a/ypp.git ; GC git@github.com:ernie18a/stts.git
 apt -s remove unattended-upgrades
 Cross-Lingual Prosody-Preserving Speech-to-Speech Translation, 簡稱 Expressive S2ST .
 rm /home/*/.cache/ /home/*/.codex/sessions/*
