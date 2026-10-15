@@ -22,7 +22,8 @@ description: Manual invocation only
 # Places
 - `./` 頂層只放以下項目，工具無法變更位置的項目例外
   - entry script：使用者直接執行的腳本
-  - `./conf.*`：集中所有可調整參數，使用 proper 副檔名
+  - `./conf.*`：可調成參數, 使用者有提到的需求，使用 proper 副檔名
+  - `./DATA/conf2.*`：使用者沒有主動提到的功能參數，使用 proper 副檔名
   - `./INPUT/`：user 提供的檔案，腳本存取時不針對檔案名稱
   - `./TMP/`：中間檔與以 atomic replace 切換至 `./OUTPUT/` 的檔案
   - `./OUTPUT/`：user 要求的檔案
