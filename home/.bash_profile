@@ -256,3 +256,5 @@ HG() { cat ~/.bash_history | grep -ai --color "$1" ; }
 # CG() { cat ~/.gemini/GEMINI.md 2>/dev/null || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/GEMINI.md ; }
 alias CG=' cat  ~/.G/dotfiles/home/GEMINI.md '
 alias CGG=' cat  ~/.G/dotfiles/home/GEMINI.md | grep -i --color '
+MCP() { [ -f /tmp/mcp.pid ] && kill -0 $(cat /tmp/mcp.pid) 2>/dev/null || setsid -f bash -c 'echo $$ >/tmp/mcp.pid; exec bash /g/tools/mcp/server.sh' &>/tmp/mcp.log ; }
+MCPS() { [ -f /tmp/mcp.pid ] && kill -- -$(cat /tmp/mcp.pid) 2>/dev/null ; rm -f /tmp/mcp.pid ; }
