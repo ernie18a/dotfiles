@@ -67,12 +67,10 @@ alias cay=' cat '
 alias cayt=' cat '
 alias CGC=' cat .git/config | grep url '
 alias KKK=' cat ~/.55H '
-alias CR=' cat ~/.RESEARCH.md 2>/dev/null '
 alias SPK=' cat ~/.ssh/id_ed25519.pub '
 alias SKILL=' cd  ~/.G/dotfiles/skills ; ls -1p --color '
 alias CDW=' cd $WIN_USER_DIR '
 alias CDWE=' cd $WIN_USER_DIR/Desktop ;  ls -1p --color '
-alias CDWT=' cd $WIN_USER_DIR/Desktop/_tmp ;  ls -1p --color '
 alias CDWO=' cd $WIN_USER_DIR/Downloads ;  ls -1p --color '
 alias ..=' cd ../ '
 alias ...=' cd ../../ '
@@ -81,10 +79,8 @@ alias .....=' cd ../../../../ '
 alias ......=' cd ../../../../../ '
 alias CDg=' cd /g ;  ls -1p --color '
 alias CDD=' cd /g/data ;  ls -1p --color '
-alias CDA=' cd /g/app/ ; ls -1p --color '
 alias CDU=' cd /g/auto/ ; ls -1p --color '
 alias CDH=' cd /g/hedge/ ;  ls -1p --color '
-alias CDN=' cd /g/nf/  ;   ls -1p --color '
 alias CDP=' cd /g/private/ ;  ls -1p --color '
 alias CDT=' cd /g/tools/ ;   ls -1p --color '
 CD() { cd /g/*/"$1"/ && ls -1p --color; }
@@ -94,7 +90,6 @@ alias CDFH=' cd ~/.G/dotfiles/home ; ls -1p --color '
 alias CDFC=' cd ~/.G/dotfiles/curl/ ; ls -1p --color ' 
 alias VNP=' cd ~/.G/dotfiles ; git pull >/dev/null ; vim ~/.G/dotfiles/notes/commands.txt ; git rm -r --cached . >/dev/null ; git add -A && git commit -amVNP &> /dev/null && git push 1>/dev/null ; cd - &>/dev/null '
 alias VEP=' cd ~/.G/dotfiles ; git pull >/dev/null ; vim ~/.G/dotfiles/notes/eng.txt ; git rm -r --cached . >/dev/null ; git add -A && git commit -amVEP &> /dev/null && git push 1>/dev/null ; cd - &>/dev/null '
-alias VPP=' cd ~/.G/private/yet ; git pull >/dev/null ; vim ./.RANDOM.txt; git rm -r --cached . > /dev/null ; git add -A && git commit -amVPP &> /dev/null && git push ; cd - &>/dev/null '
 alias LR='claude --dangerously-skip-permissions --resume'
 alias LOPR='claude --model opusplan --effort high --permission-mode plan --allow-dangerously-skip-permissions --resume'
 alias LS='claude --model sonnet --effort high --dangerously-skip-permissions'
@@ -115,8 +110,6 @@ alias CPWE=' cp ./$1 $WIN_USER_DIR/Desktop/ '
 alias CDZ=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/e.danger.zone.sh | bash '
 alias CMTZ=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/e.git.reset.sh | bash '
 alias NBP=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/e.new_bash_profile.sh | bash '
-alias USERSYNC=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/e.useradd.sh | bash '
-alias VIMRC=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/e.vimrc.sh | bash '
 alias BAT=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.bat.sh | bash '
 alias CODEX=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.codex.sh | bash ' 
 alias HERMES=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.hermes.sh | bash '
@@ -192,10 +185,6 @@ alias SYSR=' sudo systemctl restart '
 UUU() { sudo npm install -g npm ; sudo npm install -g @openai/codex ; claude update ; sudo agy update ; }
 alias SYSS=' sudo systemctl stop '
 alias SVH=' sudo vim /mnt/c/Windows/System32/drivers/etc/hosts '
-alias YI=' sudo yum install -y >/dev/null '
-alias LIST=' sudo yum list >~/.YUM &>/dev/null || apt-get update 1>/dev/null ; apt-get list > ~/.APT 1>/dev/null '
-alias YG=' sudo yum list |tee ~/.YUM |grep -i --color '
-alias YU=' sudo yum remove -y >/dev/null '
 alias LUF=' systemctl list-unit-files |grep -i '
 alias SYS=' systemctl status '
 alias ZCF=' tar -zcf '
@@ -238,7 +227,6 @@ GRCA2() { (cd ~/.G; for R in */; do (U=$(git -C "$R" remote get-url origin) && s
 #GRCA()  { (cd ~/.G; for R in */; do (cd "$R"; git fetch -p && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD) && git clean -fd) & done; wait); }
 GGRCA() { (cd /g; for R in */; do [[ -d "$R/.git" ]] || continue; (cd "$R"; find .git/objects -type f -empty -delete; git fetch -p && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD) && git clean -fd) & done; wait); }
 GRCA()  { (cd ~/.G; for R in */; do (cd "$R"; find .git/objects -type f -empty -delete; git fetch -p && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD) && git clean -fd) & done; wait); }
-CPTM() { rm /mnt/c/Users/e/Desktop/_tmp/* ; cp *.txt *.md *.py /mnt/c/Users/e/Desktop/_tmp/ ; }
 sl() { for SOMETHING in $(cat ./$1); do $2 $SOMETHING; done; }
 GRC2() { local T=$(git rev-parse --show-toplevel 2>/dev/null) || return 1; local U=$(git -C "$T" remote get-url origin) || return 1; local R=$(basename "$T"); local P="${PWD#$T}"; cd "$(dirname "$T")" && sudo rm -rf "$R" && git clone "$U" "$R" && cd "$R$P"; }
 #CIO() { if [ -n "$1" ]; then cp -urf "$1" /mnt/c/Users/e/Desktop/; else cp -urf ./* /mnt/c/Users/e/Desktop/; fi; }
@@ -262,7 +250,6 @@ WHEN2(){ local _s=$SECONDS _rc _d _t; { date +%H%M >/dev/tty; } 2>/dev/null || d
 CB2() { cat ~/.G/dotfiles/home/.bash_profile 2>/dev/null || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/.bash_profile ; }
 CNG() { cat ~/.G/dotfiles/notes/commands.txt 2>/dev/null |grep -i --color $1 || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/notes/commands.txt |grep -i --color $1 ; }
 CEG() { cat ~/.G/dotfiles/notes/eng.txt 2>/dev/null |grep -i --color $1 || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/notes/eng.txt |grep -i --color $1 ; }
-CP() { cat ~/.G/private/yet/RANDOM.txt ; }
 CT() { cat ~/.T$1 2>/dev/null ; }
 VT() { vim ~/.T$1 ; }
 HG() { cat ~/.bash_history | grep -ai --color "$1" ; }
