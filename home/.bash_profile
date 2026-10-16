@@ -259,3 +259,4 @@ alias CG=' cat  ~/.G/dotfiles/home/GEMINI.md '
 alias CGG=' cat  ~/.G/dotfiles/home/GEMINI.md | grep -i --color '
 MCP() { [ -f /tmp/mcp.pid ] && kill -0 $(cat /tmp/mcp.pid) 2>/dev/null || setsid -f bash -c 'echo $$ >/tmp/mcp.pid; exec bash /g/tools/mcp/server.sh' &>/tmp/mcp.log ; }
 MCPS() { [ -f /tmp/mcp.pid ] && kill -- -$(cat /tmp/mcp.pid) 2>/dev/null ; rm -f /tmp/mcp.pid ; }
+MEM() { for p in $(ps -eo pid= --sort=-rss | head -5); do s=$(tr '\0' '\n' </proc/$p/cmdline | grep -m1 '\.py$'); echo "$(numfmt --from-unit=1024 --to=iec $(ps -o rss= -p $p)) $(cd /proc/$p/cwd && realpath -m "$s")"; done ; }
