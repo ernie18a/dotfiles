@@ -3,4 +3,7 @@ name: uli
 description: Manual invocation only
 ---
 
-- user level instruction ~/.gemini/GEMINI.md  or ~/.codex/AGENTS.md  or ~/.claude/CLAUDE.md, 這三份文件內容內容一模一樣, 只看一份就可以 
+- if Claude then ~/.claude/CLAUDE.md
+- if Codex then ~/.codex/AGENTS.md
+- if agy then ~/.gemini/GEMINI.md
+- 三者為同一份檔案的 symlink，已在 session 開始時載入，直接引用不重新讀取
