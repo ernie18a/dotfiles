@@ -90,6 +90,7 @@ alias CDT=' cd /g/tools/ ;   ls -1p --color '
 CD() { cd /g/*/"$1"/ && ls -1p --color; }
 alias VBP=' cd ~/.G/dotfiles ; git pull >/dev/null ; vim ~/.G/dotfiles/home/.bash_profile ; git rm -r --cached . >/dev/null ; git add -A && git commit -amVBP &> /dev/null && git push 1>/dev/null ; cd - &>/dev/null '
 alias CDF=' cd ~/.G/dotfiles/ ; ls -1p --color '
+alias CDFH=' cd ~/.G/dotfiles/home ; ls -1p --color '
 alias CDFC=' cd ~/.G/dotfiles/curl/ ; ls -1p --color ' 
 alias VNP=' cd ~/.G/dotfiles ; git pull >/dev/null ; vim ~/.G/dotfiles/notes/commands.txt ; git rm -r --cached . >/dev/null ; git add -A && git commit -amVNP &> /dev/null && git push 1>/dev/null ; cd - &>/dev/null '
 alias VEP=' cd ~/.G/dotfiles ; git pull >/dev/null ; vim ~/.G/dotfiles/notes/eng.txt ; git rm -r --cached . >/dev/null ; git add -A && git commit -amVEP &> /dev/null && git push 1>/dev/null ; cd - &>/dev/null '
