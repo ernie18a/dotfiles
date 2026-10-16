@@ -4,4 +4,7 @@ description: Manual invocation only
 ---
 
 - 同時套用 `../deve/SKILL.md`。
-- process user-specified file IF specified ELSE execute latest `os*.md` OR fix issue in 無副檔名純文字檔案 `./log`
+- if 使用者指定檔案 then 處理該檔案
+- else 比較當前目錄的 `./log` 與所有 `os*.md` 的修改時間，取最新的一個
+  - if 最新為 `os*.md` then 執行該檔案內容
+  - if 最新為 `./log` then 修正該檔案記錄的問題。`./log` 為無副檔名純文字檔案
