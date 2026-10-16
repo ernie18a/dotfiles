@@ -260,5 +260,3 @@ alias CGG=' cat  ~/.G/dotfiles/home/GEMINI.md | grep -i --color '
 MCP() { [ -f /tmp/mcp.pid ] && kill -0 $(cat /tmp/mcp.pid) 2>/dev/null || setsid -f bash -c 'echo $$ >/tmp/mcp.pid; exec bash /g/tools/mcp/server.sh' &>/tmp/mcp.log ; }
 MCPS() { [ -f /tmp/mcp.pid ] && kill -- -$(cat /tmp/mcp.pid) 2>/dev/null ; rm -f /tmp/mcp.pid ; }
 MEM() { ps -eo pid=,rss= --sort=-rss | head -5 | while read p r; do echo "$(numfmt --from-unit=1024 --to=iec $r) $(cd /proc/$p/cwd && realpath -m $(tr '\0' '\n' </proc/$p/cmdline | grep -m1 '\.py$'))"; done 2>/dev/null; }
-MEM2() { ps -u "$USER" -o pid=,rss= --sort=-rss | while read p r; do s=$(tr '\0' '\n' </proc/$p/cmdline | grep -m1 '\.py$') && echo "$(numfmt --from-unit=1024 --to=iec $r) $(cd /proc/$p/cwd && realpath -m "$s")"; done | head -5; }
-MEM3() { ps -eo pid=,rss= --sort=-rss | head -5 | while read p r; do echo "$(numfmt --from-unit=1024 --to=iec $r) $(cd "$(sudo readlink -f /proc/$p/cwd)" && realpath -m $(tr '\0' '\n' </proc/$p/cmdline | grep -m1 '\.py$'))"; done; }
