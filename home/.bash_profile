@@ -26,7 +26,7 @@ export WIN_USER=`ls /mnt/c/Users 2>/dev/null |grep -iv "All\|Default\|desktop.in
 export WIN_USER_DIR=/mnt/c/Users/$WIN_USER
 if [ -f '/home/e/.google-cloud-sdk/completion.bash.inc' ]; then . '/home/e/.google-cloud-sdk/completion.bash.inc'; fi
 if [ -f '/home/e/.google-cloud-sdk/path.bash.inc' ]; then . '/home/e/.google-cloud-sdk/path.bash.inc'; fi
-which git &>/dev/null && export PS1="[ \\u@\\h \w \$(git rev-parse --abbrev-ref HEAD 2>/dev/null)] \\$ " || export PS1="[ \\u@\\h \w ] \\$ "
+export PS1="[ \\u@\\h \w \$(git rev-parse --abbrev-ref HEAD 2>/dev/null)] \\$ "
 PROMPT_COMMAND=' history -a '
 source ~/.55H 2>/dev/null
 touch ~/.hushlogin
@@ -38,14 +38,14 @@ alias SHORT='printf "%s\n" "$FQAI" > ./AGENTS.md'
 alias HYC='hermes --yolo -c'
 alias HY='hermes --yolo'
 alias mic='micro -softwrap true -wordwrap true'
-alias MM2=' DEV=$(blkid -L g) && mountpoint -q /g || sudo mount -o defaults,noatime,commit=300 $DEV /g '
-alias MM=" DEV=\$(blkid -L g) && mountpoint -q /g || sudo mount -o defaults,noatime,commit=300 \$DEV /g "
+alias MM2=' DEV=$(blkid -L g) && sudo mount -o defaults,noatime,commit=300 $DEV /g '
+alias MM=" DEV=\$(blkid -L g) && sudo mount -o defaults,noatime,commit=300 \$DEV /g "
 # alias SHORTS='for DIR in ./*/; do printf "%s\n" "$FQAI" > "$DIR/AGENTS.md" ; done'
 alias UU=' GRCA & GGRCA & wait '
 alias AC='agy --model claude-sonnet-4-6 --dangerously-skip-permissions'
 alias AG='agy --model gemini-3.8-flash --effort high --dangerously-skip-permissions'
 alias AR='agy -c --dangerously-skip-permissions'
-alias AGP='sudo apt-get purge -y "$@" && dpkg -l | grep "^rc" | awk "{print \$2}" | xargs -r sudo apt-get purge -y && sudo apt-get autoremove --purge -y && sudo apt-get clean'
+AGP() { sudo apt-get purge -y --autoremove "$@" && dpkg -l | grep '^rc' | awk '{print $2}' | xargs sudo apt-get purge -y && sudo apt-get autoremove --purge -y && sudo apt-get clean ; }
 alias APT=' bash -c "curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.apt.sh" | bash -s -- '
 alias bcl=' bat -ppl '
 alias bcb=' bat -ppl bash '
@@ -167,7 +167,6 @@ alias SB=' source ~/.G/dotfiles/home/.bash_profile ; cd - 2>/dev/null '
 alias SS=' ss -lutn '
 alias SSG=' ss -lutn |grep -i --color '
 alias S86=' ssh 192.168.213.86 '
-alias AGP2=' sudo apt-get purge -y ; dpkg -l | grep "^rc" | awk "{print\$2}" | xargs sudo apt-get purge -y ; sudo apt-get autoremove -y '
 alias AGU=' sudo apt-get purge -y >/dev/null '
 alias AGR=' sudo apt-get remove -y >/dev/null '
 alias AGG=' sudo apt-get update >/dev/null ; apt list |tee ~/.APT |grep -i --color '
@@ -203,7 +202,7 @@ alias vvim=' vim '
 alias NVS=' watch nvidia-smi '
 alias VGP='cd ~/.G/dotfiles ; git pull >/dev/null ; vim ~/.G/dotfiles/home/GEMINI.md ; git rm -r --cached . >/dev/null ; git add -A && git commit -amVGP &> /dev/null && git push 1>/dev/null ; cd - &>/dev/null'
 WATCH() { watch "$@" ; }
-DIG() { echo "dig $1 |grep -vE ^\;\|^$" ; dig $1 | grep -vE ^\;\|^$ ; }
+DIG() { dig $1 | grep -vE ^\;\|^$ ; }
 lgc() { cat $(ls -Ah |grep -i $1 ) || ls -Ah | grep -i $i ; }
 lgcd() { cd $(ls -Ah |grep -i $1 ) || ls -Ah | grep -i $i ; }
 lgv() { vim $(ls -Ah |grep -i $1 ) || ls -Ah | grep -i $i ; }
@@ -215,30 +214,30 @@ ECDZ() { echo 'source ~/.G/dotfiles/home/.bash_profile 2>/dev/null || source /de
 l() { ls -A | grep "^\." | xargs -d '\n' ls -d --color ; }
 NSP() { nmap -T5 -snP $1 |G report | AWK 5 ; }
 CBG() { { curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/.bash_profile || cat ~/.G/dotfiles/home/.bash_profile 2>/dev/null || cat ~/.bash_profile 2>/dev/null; } | grep -i --color "$1" 2>/dev/null; }
+CBG2() { { curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/.bash_profile || cat ~/.G/dotfiles/home/.bash_profile 2>/dev/null; } | grep -i --color "$1"; }
 DF() { df -h |sort -hk2 |sed -e 1b -e '$!d' ; }
 SEDID() { sed -i "/$1/d" $2 ; }
 SEDIS() { sed -i "s/$1/$2/g" $3 ; }
 mvim() { mkdir -p "$(dirname "$1")" && vim "$1"; }
 MTK() { mkdir ./$1 ; touch ./$1/.gitkeep; }
 NTPL() { growpart /dev/sda 2 ; resize2fs /dev/sda2 ; echo 'network: {config: disabled}' >> /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg ; sed -i "s/\(- \).*\(\/\)/\1$1\2/g" /etc/netplan/50-cloud-init.yaml ; echo "hostnamectl set-hostname" ; }
-GGRCA2() { (cd /g; for R in */; do [[ -d "$R/.git" ]] || continue; (U=$(git -C "$R" remote get-url origin) && sudo rm -rf "$R" && git clone -q "$U" "$R") & done; wait); }
+GGRCA2() { (cd /g; for R in */; do (U=$(git -C "$R" remote get-url origin) && sudo rm -rf "$R" && git clone -q "$U" "$R") & done; wait); }
 #GGRCA() { (cd /g; for R in */; do [[ -d "$R/.git" ]] || continue; (cd "$R"; git fetch -p && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD) && git clean -fd) & done; wait); }
 GRCA2() { (cd ~/.G; for R in */; do (U=$(git -C "$R" remote get-url origin) && sudo rm -rf "$R" && git clone -q "$U" "$R") & done; wait); }
 #GRCA()  { (cd ~/.G; for R in */; do (cd "$R"; git fetch -p && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD) && git clean -fd) & done; wait); }
-GGRCA() { (cd /g; for R in */; do [[ -d "$R/.git" ]] || continue; (cd "$R"; find .git/objects -type f -empty -delete; git fetch -p && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD) && git clean -fd) & done; wait); }
-GRCA()  { (cd ~/.G; for R in */; do (cd "$R"; find .git/objects -type f -empty -delete; git fetch -p && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD) && git clean -fd) & done; wait); }
+GGRCA() { (cd /g; for R in */; do (cd "$R"; git fetch -p && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD) && git clean -fd) & done; wait); }
+GRCA()  { (cd ~/.G; for R in */; do (cd "$R"; git fetch -p && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD) && git clean -fd) & done; wait); }
 AGS() { (for i in /g/*/ ~/.G/*/; do git -C $i status -s | sed "s|^|$i|" & done; wait); }
 AGS2() { (for i in /g/*/ ~/.G/*/; do git -C $i status -s & done; wait); }
+AGS3() { (for i in /g/*/ ~/.G/*/; do (git -C $i fetch -q; git -C $i status -sb | grep -v "^## [^[]*$" | sed "s|^|$i|") & done; wait); }
 sl() { for SOMETHING in $(cat ./$1); do $2 $SOMETHING; done; }
-GRC2() { local T=$(git rev-parse --show-toplevel 2>/dev/null) || return 1; local U=$(git -C "$T" remote get-url origin) || return 1; local R=$(basename "$T"); local P="${PWD#$T}"; cd "$(dirname "$T")" && sudo rm -rf "$R" && git clone "$U" "$R" && cd "$R$P"; }
 #CIO() { if [ -n "$1" ]; then cp -urf "$1" /mnt/c/Users/e/Desktop/; else cp -urf ./* /mnt/c/Users/e/Desktop/; fi; }
 CIO() { if [ "$#" -gt 0 ]; then cp -urf "$@" /mnt/c/Users/e/Desktop/; else cp -urf ./* /mnt/c/Users/e/Desktop/; fi; }
 #COI() { if [ -n "$1" ]; then cp -urf "/mnt/c/Users/e/Downloads/$1" .; else cp -urf /mnt/c/Users/e/Downloads/* .; fi; }
 COI() { if [ "$#" -gt 0 ]; then local f=(); for x in "$@"; do f+=(/mnt/c/Users/e/Downloads/$x); done; cp -urf "${f[@]}" .; else cp -urf /mnt/c/Users/e/Downloads/* .; fi; }
+COI2() { if [ "$#" -gt 0 ]; then cp -urf "${@/#//mnt/c/Users/e/Downloads/}" .; else cp -urf /mnt/c/Users/e/Downloads/* .; fi; }
 UR() { if [ -n "$1" ]; then uv run --no-project "$@"; else uv run --no-project main.py; fi; }
-GRCD() { local _old="$PWD"; cd ~/.G/dotfiles && git fetch --prune && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD) && git clean -fd; cd "$_old"; }
 ACL() { sudo chown -R e:g /g & sudo find /g -type d -exec chmod 2770 {} + & sudo find /g -type f -exec chmod 660 {} + & sudo setfacl -R -m d:u::rwx,d:g::rwx,d:o::-,d:m::rwx /g & wait; }
-CMPL() { $1 completion bash > /etc/bash_completion.d/$1 || ls -l /etc/bash_completion.d ; }
 PING() { for i in $(seq 0 255) ; do ping $1.$i -c1 -W1 & done |grep from |awk '{print $4}' |awk -F: '{print $1}' | sort -V ; }
 FFMPEG1() { for i in *.$1 ; do ffmpeg -y -i "$i" "$(echo "$i"|cut -d\. -f1).$2" & done ; }
 FFMPEG() { for i in *.$1 ; do ffmpeg -y -i "$i" "$(echo "$i"|cut -d\. -f1).$2" ; done ; }
@@ -247,8 +246,8 @@ KILL() { sudo pkill -9 -fi "$1"; }
 PUSHM() { git pull >/dev/null ; git rm -r --cached . > /dev/null ; git add -A && git commit -m "$@" &>/dev/null && git push;}
 USAGE() { sudo uv run /g/tools/usage/main2.py; }
 WHEN3() { local t=$(( $(date -d "${1:0:2}:${1:2:2}" +%s) - $(date +%s) )); sleep $(( t < 0 ? t + 86400 : t )); }
-WHEN(){ local _s=$SECONDS _rc _d _t; eval "$(printf '%q ' "$@")"; _rc=$?; _d=$((SECONDS-_s)); _t=$(printf '%02d:%02d:%02d' $((_d/3600)) $((_d%3600/60)) $((_d%60))); { printf '%s\n' "$_t" >/dev/tty; } 2>/dev/null || printf '%s\n' "$_t" >&2; return $_rc; }
-WHEN2(){ local _s=$SECONDS _rc _d _t; { date +%H%M >/dev/tty; } 2>/dev/null || date +%H%M >&2; eval "$(printf '%q ' "$@")"; _rc=$?; _d=$((SECONDS-_s)); _t=$(printf '%02d:%02d:%02d' $((_d/3600)) $((_d%3600/60)) $((_d%60))); { printf '%s\n' "$_t" >/dev/tty; } 2>/dev/null || printf '%s\n' "$_t" >&2; return $_rc; }
+WHEN() { local s=$SECONDS; eval "$@"; date -ud@$((SECONDS-s)) +%T; }
+WHEN2() { local s=$SECONDS; date +%H%M; eval "$@"; date -ud@$((SECONDS-s)) +%T; }
 CB2() { cat ~/.G/dotfiles/home/.bash_profile 2>/dev/null || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/.bash_profile ; }
 CNG() { cat ~/.G/dotfiles/notes/commands.txt 2>/dev/null |grep -i --color $1 || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/notes/commands.txt |grep -i --color $1 ; }
 CEG() { cat ~/.G/dotfiles/notes/eng.txt 2>/dev/null |grep -i --color $1 || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/notes/eng.txt |grep -i --color $1 ; }
@@ -258,7 +257,7 @@ HG() { cat ~/.bash_history | grep -ai --color "$1" ; }
 # CG() { cat ~/.gemini/GEMINI.md 2>/dev/null || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/GEMINI.md ; }
 alias CG=' cat  ~/.G/dotfiles/home/GEMINI.md '
 alias CGG=' cat  ~/.G/dotfiles/home/GEMINI.md | grep -i --color '
-MCP() { [ -f /tmp/mcp.pid ] && kill -0 $(cat /tmp/mcp.pid) 2>/dev/null || setsid -f bash -c 'echo $$ >/tmp/mcp.pid; exec bash /g/tools/mcp/server.sh' &>/tmp/mcp.log ; }
-MCPS() { [ -f /tmp/mcp.pid ] && kill -- -$(cat /tmp/mcp.pid) 2>/dev/null ; rm -f /tmp/mcp.pid ; }
+MCP() { kill -0 $(cat /tmp/mcp.pid) 2>/dev/null || setsid -f bash -c 'echo $$ >/tmp/mcp.pid; exec bash /g/tools/mcp/server.sh' &>/tmp/mcp.log ; }
+MCPS() { kill -- -$(cat /tmp/mcp.pid) 2>/dev/null ; rm -f /tmp/mcp.pid ; }
 MEM2() { sudo bash -c 'ps -eo pid=,rss= --sort=rss | tail -30 | while read p r; do cd /proc/$p/cwd; f=$(tr "\0" "\n" </proc/$p/cmdline | tail -n +2 | while read a; do [ -f "$a" ] && realpath "$a" && break; done); echo "$(numfmt --from-unit=1024 --to=iec $r) ${f:-$(readlink /proc/$p/exe)}"; done 2>/dev/null'; }
 MEM() { sudo bash -c 'ps -eo pid=,rss= --sort=rss | tail -30 | while read p r; do cd /proc/$p/cwd; f=$(tr "\0" "\n" </proc/$p/cmdline | tail -n +2 | while read a; do [ -f "$a" ] && realpath "$a" && break; done); echo "$(numfmt --from-unit=1024 --to=iec $r) ${f:-$(readlink /proc/$p/exe)}"; done 2>/dev/null'; free | awk '/^Mem:/{printf "%.1f%%\n", $3/$2*100}'; }
