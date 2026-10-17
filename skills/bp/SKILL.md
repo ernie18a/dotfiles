@@ -1,5 +1,5 @@
 ---
-name: bspf
+name: bp
 description: Manual invocation only
 ---
 
