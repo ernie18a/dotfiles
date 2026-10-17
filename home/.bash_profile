@@ -222,12 +222,13 @@ mvim() { mkdir -p "$(dirname "$1")" && vim "$1"; }
 MTK() { mkdir ./$1 ; touch ./$1/.gitkeep; }
 NTPL() { growpart /dev/sda 2 ; resize2fs /dev/sda2 ; echo 'network: {config: disabled}' >> /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg ; sed -i "s/\(- \).*\(\/\)/\1$1\2/g" /etc/netplan/50-cloud-init.yaml ; echo "hostnamectl set-hostname" ; }
 GGRCA2() { (cd /g; for R in */; do [[ -d "$R/.git" ]] || continue; (U=$(git -C "$R" remote get-url origin) && sudo rm -rf "$R" && git clone -q "$U" "$R") & done; wait); }
-GGRCA3() { (cd /g; for R in */; do [[ -d "$R/.git" ]] || continue; (U=$(git -C "$R" remote get-url origin); sudo rm -rf "$R"; git clone -q "$U" "$R") & done; wait); }
 #GGRCA() { (cd /g; for R in */; do [[ -d "$R/.git" ]] || continue; (cd "$R"; git fetch -p && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD) && git clean -fd) & done; wait); }
 GRCA2() { (cd ~/.G; for R in */; do (U=$(git -C "$R" remote get-url origin) && sudo rm -rf "$R" && git clone -q "$U" "$R") & done; wait); }
 #GRCA()  { (cd ~/.G; for R in */; do (cd "$R"; git fetch -p && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD) && git clean -fd) & done; wait); }
 GGRCA() { (cd /g; for R in */; do [[ -d "$R/.git" ]] || continue; (cd "$R"; find .git/objects -type f -empty -delete; git fetch -p && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD) && git clean -fd) & done; wait); }
 GRCA()  { (cd ~/.G; for R in */; do (cd "$R"; find .git/objects -type f -empty -delete; git fetch -p && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD) && git clean -fd) & done; wait); }
+AGS() { (for i in /g/*/ ~/.G/*/; do git -C $i status -s | sed "s|^|$i|" & done; wait); }
+AGS2() { (for i in /g/*/ ~/.G/*/; do git -C $i status -s & done; wait); }
 sl() { for SOMETHING in $(cat ./$1); do $2 $SOMETHING; done; }
 GRC2() { local T=$(git rev-parse --show-toplevel 2>/dev/null) || return 1; local U=$(git -C "$T" remote get-url origin) || return 1; local R=$(basename "$T"); local P="${PWD#$T}"; cd "$(dirname "$T")" && sudo rm -rf "$R" && git clone "$U" "$R" && cd "$R$P"; }
 #CIO() { if [ -n "$1" ]; then cp -urf "$1" /mnt/c/Users/e/Desktop/; else cp -urf ./* /mnt/c/Users/e/Desktop/; fi; }
