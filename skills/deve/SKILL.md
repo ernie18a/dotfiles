@@ -22,10 +22,10 @@ description: Manual invocation only
 # Places
 - `./` 頂層只放以下項目，工具無法變更位置的項目例外
   - entry script：使用者直接執行的腳本
-  - `./conf.*`：存放使用者有提到, 需要 user 頻繁切換的 parameter
   - `./DATA/conf2.*`：存放不需要頻繁切換的 parameter
-  - `./INPUT/`：user 提供的檔案，腳本存取時不針對檔案名稱
-  - `./TMP/`：中間檔與以 atomic replace 切換至 `./OUTPUT/` 的檔案
+  - `./conf.*`：存放使用者有提到而且需要 user 頻繁切換的 parameter
+  - `./INPUT/`：user 手動提供提供的檔案的存放位置，非永久保存區, 腳本存取時不針對檔案名稱  
+  - `./TMP/`：中間檔與以 atomic replace 切換至 `./OUTPUT/` 的檔案. 所有非業務代碼暫存檔 or 輕量級測試的暫存檔存放位置
   - `./OUTPUT/`：user 要求的檔案
   - `./DATA/`：其餘檔案與資料夾不論類型一律放這裡，不沿用語言或框架慣例的根目錄位置
 
