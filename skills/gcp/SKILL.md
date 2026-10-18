@@ -3,7 +3,7 @@ name: gcp
 description: Manual invocation only
 ---
 
-- 使用者未指定主機時討論對象為雲端 VM `gcp`，遠端指令以 `ssh -F ~/.ssh/gcp_config gcp '<指令>'` 執行
+- 使用者未指定主機時討論對象為雲端 VM `gcp` tmux session，遠端指令以 `ssh -F ~/.ssh/gcp_config gcp '<指令>'` 執行
 - 使用者提到 `papa` 時改為 `192.168.213.199`，遠端指令以 `ssh 192.168.213.199 '<指令>'` 執行
 - 使用者指定 IP 時改為該 IP 主機，遠端指令以 `ssh <IP> '<指令>'` 執行
 - 討論對象不是本地端或當下目錄。
