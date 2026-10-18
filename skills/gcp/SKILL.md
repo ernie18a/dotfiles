@@ -3,8 +3,9 @@ name: gcp
 description: Manual invocation only
 ---
 
-- 討論對象是雲端 VM `gcp`，不是本地端或當下目錄。提到的 `/g/*/` 路徑一律指雲端。
-- 遠端指令一律以 `ssh -F ~/.ssh/gcp_config gcp '<指令>'` 執行。每次連線獨立，需要工作目錄時在指令前加 `cd <路徑> &&`。
+- if 使用者指定 IP then 討論對象為該 IP 主機，遠端指令以 `ssh <IP> '<指令>'` 執行
+- else 討論對象為雲端 VM `gcp`，遠端指令以 `ssh -F ~/.ssh/gcp_config gcp '<指令>'` 執行
+- 討論對象不是本地端或當下目錄。提到的 `/g/*/` 路徑一律指遠端。每次連線獨立，需要工作目錄時在指令前加 `cd <路徑> &&`。
 - VM 沒有 GitHub 金鑰。VM 端的 git 操作先以 `eval "$(ssh-agent -s)"; ssh-add ~/.ssh/id_ed25519 </dev/null` 載入金鑰，再用 `ssh -A -F ~/.ssh/gcp_config gcp '<指令>'` 執行。
 - VM 記憶體約 1GB 且常駐爬蟲，不在 VM 上執行 高記憶體工作。
 - 本地與 VM 的 `/g` 刻意保持一致。日誌等執行期產物從 VM 讀取，程式碼一律讀本地 `/g` 的同路徑檔案以求快速。
