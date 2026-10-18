@@ -1,5 +1,5 @@
 ---
-name: mcp
+name: unpac
 description: Manual invocation only
 ---
 
