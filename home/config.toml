@@ -25,3 +25,6 @@ url = "http://127.0.0.1:8766/op"
 
 [mcp_servers.sp]
 url = "http://127.0.0.1:8766/sp"
+
+[mcp_servers.gpt]
+url = "http://127.0.0.1:8766/gpt"
