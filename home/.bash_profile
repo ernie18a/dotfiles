@@ -124,6 +124,7 @@ alias GCO=' git checkout '
 alias GC=' git clone '
 alias GCGR=' git config --get remote.origin.url '
 alias GS=' git status '
+GV() { grep -Ev "^\s*(#|$)" ; }
 alias GR=' grep -R --color 2>/dev/null '
 alias G=' grep -i --color '
 alias GIP=' grep -iE --color "([0-9]{1,3}[\.]){3}[0-9]{1,3}" '
