@@ -35,8 +35,6 @@ alias PP='  until ssh 192.168.213.199 2>/dev/null ; do :; done '
 alias BKUP=' mkdir ~/.BACKUP 2>/dev/null ; cd ~/.BACKUP ; ls -l '
 alias TTY=' stty sane ; clear '
 alias SHORT='printf "%s\n" "$FQAI" > ./AGENTS.md'
-alias HYC='hermes --yolo -c'
-alias HY='hermes --yolo'
 alias mic='micro -softwrap true -wordwrap true'
 alias MM2=' DEV=$(blkid -L g) && sudo mount -o defaults,noatime,commit=300 $DEV /g '
 alias MM=" DEV=\$(blkid -L g) && sudo mount -o defaults,noatime,commit=300 \$DEV /g "
@@ -52,7 +50,6 @@ alias bcb=' bat -ppl bash '
 alias bcjs=' bat -ppl js '
 alias bcm=' bat -ppl md '
 alias MD=' bat -ppl md *.md '
-alias BR=' bat -ppl md README.md '
 alias bcmr=' bat -ppl md README.md '
 alias bcp=' bat -ppl py '
 alias bcr=' bat -ppl rb '
@@ -67,7 +64,6 @@ alias caty=' cat '
 alias cay=' cat '
 alias cayt=' cat '
 alias CGC=' cat .git/config | grep url '
-alias KKK=' cat ~/.55H '
 alias SPK=' cat ~/.ssh/id_ed25519.pub '
 alias SKILL=' cd  ~/.G/dotfiles/skills ; ls -1p --color '
 alias CDW=' cd $WIN_USER_DIR '
@@ -76,9 +72,6 @@ alias CDWO=' cd $WIN_USER_DIR/Downloads ;  ls -1p --color '
 alias ..=' cd ../ '
 alias ...=' cd ../../ '
 alias ....=' cd ../../../ '
-alias .....=' cd ../../../../ '
-alias ......=' cd ../../../../../ '
-alias CDg=' cd /g ;  ls -1p --color '
 alias CDD=' cd /g/data ;  ls -1p --color '
 alias CDU=' cd /g/auto/ ; ls -1p --color '
 alias CDH=' cd /g/hedge/ ;  ls -1p --color '
@@ -87,7 +80,6 @@ alias CDT=' cd /g/tools/ ;   ls -1p --color '
 CD() { cd /g/*/"$1"/ && ls -1p --color; }
 _CD() { local d; COMPREPLY=(); for d in /g/*/"$2"*/; do COMPREPLY+=("${d#/g/*/}"); done; }; complete -o nospace -F _CD CD
 alias VBP=' cd ~/.G/dotfiles ; git pull >/dev/null ; vim ~/.G/dotfiles/home/.bash_profile ; git rm -r --cached . >/dev/null ; git add -A && git commit -amVBP &> /dev/null && git push 1>/dev/null ; cd - &>/dev/null '
-alias CDF=' cd ~/.G/dotfiles/ ; ls -1p --color '
 alias CDFH=' cd ~/.G/dotfiles/home ; ls -1p --color '
 alias CDFC=' cd ~/.G/dotfiles/curl/ ; ls -1p --color ' 
 alias VNP=' cd ~/.G/dotfiles ; git pull >/dev/null ; vim ~/.G/dotfiles/notes/commands.txt ; git rm -r --cached . >/dev/null ; git add -A && git commit -amVNP &> /dev/null && git push 1>/dev/null ; cd - &>/dev/null '
@@ -108,13 +100,10 @@ alias OSH='codex --yolo -m gpt-6.1-sol -c model_reasoning_effort=high'
 alias OL='codex --yolo -m gpt-6-luna -c model_reasoning_effort=high'
 alias co=' cp '
 alias cp=' cp -urf '
-alias CPWE=' cp ./$1 $WIN_USER_DIR/Desktop/ '
 alias CDZ=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/e.danger.zone.sh | bash '
 alias CMTZ=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/e.git.reset.sh | bash '
 alias NBP=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/e.new_bash_profile.sh | bash '
 alias BAT=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.bat.sh | bash '
-alias CODEX=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.codex.sh | bash ' 
-alias HERMES=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.hermes.sh | bash '
 alias IPP=' curl ipinfo.io ; curl ifconfig.io '
 alias DET=' deactivate '
 alias DU=' du -sh . ; du -hd1 2>/dev/null |grep "G\|M" '
@@ -128,17 +117,12 @@ alias PUSH4="git add -A && git commit -mPUSH --no-verify && git pull -X ours --n
 alias PUSH5="git pull >/dev/null && git add -A && git commit -mPUSH --no-verify && git push --no-verify"
 alias GRC='git fetch --prune && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD) && git clean -fd'
 alias FINDD=' find . -iname 2>/dev/null '
-alias FIND=' find / -iname 2>/dev/null '
 alias TEST2=' for i in *.py; do stdbuf -oL -eL uv run --no-project "$i" 2>&1 | tee -a log; done '
 alias TEST=' for i in *.py; do uv run --no-project "$i" 2>&1 | tee -a log; done '
 alias GCO=' git checkout '
 alias GC=' git clone '
 alias GCGR=' git config --get remote.origin.url '
 alias GS=' git status '
-alias GLNS=' glances --disable-plugin=sensors,amps,containers -t5'
-alias GE=' grep -Ei --color '
-alias GV=' grep -Ev "^\s*(#|$)" '
-alias GVJ=' grep -Ev "^\s*(#|//|$)" '
 alias GR=' grep -R --color 2>/dev/null '
 alias G=' grep -i --color '
 alias GIP=' grep -iE --color "([0-9]{1,3}[\.]){3}[0-9]{1,3}" '
@@ -168,8 +152,6 @@ alias SB=' source ~/.G/dotfiles/home/.bash_profile ; cd - 2>/dev/null '
 alias SS=' ss -lutn '
 alias SSG=' ss -lutn |grep -i --color '
 alias S86=' ssh 192.168.213.86 '
-alias AGU=' sudo apt-get purge -y >/dev/null '
-alias AGR=' sudo apt-get remove -y >/dev/null '
 alias AGG=' sudo apt-get update >/dev/null ; apt list |tee ~/.APT |grep -i --color '
 alias AGI=' sudo apt-get update >/dev/null ; sudo apt-get install -y >/dev/null '
 alias llllg=' sudo find . |grep -i '
@@ -200,28 +182,21 @@ alias vin=' vim '
 alias vum=' vim '
 alias vun=' vim '
 alias vvim=' vim '
-alias NVS=' watch nvidia-smi '
 alias VGP='cd ~/.G/dotfiles ; git pull >/dev/null ; vim ~/.G/dotfiles/home/GEMINI.md ; git rm -r --cached . >/dev/null ; git add -A && git commit -amVGP &> /dev/null && git push 1>/dev/null ; cd - &>/dev/null'
 WATCH() { watch "$@" ; }
 DIG() { dig $1 | grep -vE ^\;\|^$ ; }
 lgc() { cat $(ls -Ah |grep -i $1 ) || ls -Ah | grep -i $i ; }
-lgcd() { cd $(ls -Ah |grep -i $1 ) || ls -Ah | grep -i $i ; }
 lgv() { vim $(ls -Ah |grep -i $1 ) || ls -Ah | grep -i $i ; }
-NUP() { useradd $1 -ms/bin/bash && echo "$1:$1" | chpasswd ; }
-mkdirc() { mkdir $1 ; cd $1 ; }
 WHOIS() { whois $1 | grep -Ev "^\s*(#|$)" |grep -i NetName ; }
 AWK() { awk $2 "{print\$$1}" ; }
 ECDZ() { echo 'source ~/.G/dotfiles/home/.bash_profile 2>/dev/null || source /dev/stdin <<< "$(curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile)"' |tee ~/.bash_profile ; }
 l() { ls -A | grep "^\." | xargs -d '\n' ls -d --color ; }
-NSP() { nmap -T5 -snP $1 |G report | AWK 5 ; }
 CBG() { { curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/.bash_profile || cat ~/.G/dotfiles/home/.bash_profile 2>/dev/null || cat ~/.bash_profile 2>/dev/null; } | grep -i --color "$1" 2>/dev/null; }
-CBG2() { { curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/.bash_profile || cat ~/.G/dotfiles/home/.bash_profile 2>/dev/null; } | grep -i --color "$1"; }
 DF() { df -h |sort -hk2 |sed -e 1b -e '$!d' ; }
 SEDID() { sed -i "/$1/d" $2 ; }
 SEDIS() { sed -i "s/$1/$2/g" $3 ; }
 mvim() { mkdir -p "$(dirname "$1")" && vim "$1"; }
 MTK() { mkdir ./$1 ; touch ./$1/.gitkeep; }
-NTPL() { growpart /dev/sda 2 ; resize2fs /dev/sda2 ; echo 'network: {config: disabled}' >> /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg ; sed -i "s/\(- \).*\(\/\)/\1$1\2/g" /etc/netplan/50-cloud-init.yaml ; echo "hostnamectl set-hostname" ; }
 GGRCA2() { (cd /g; for R in */; do (U=$(git -C "$R" remote get-url origin) && sudo rm -rf "$R" && git clone -q "$U" "$R") & done; wait); }
 #GGRCA() { (cd /g; for R in */; do [[ -d "$R/.git" ]] || continue; (cd "$R"; git fetch -p && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD) && git clean -fd) & done; wait); }
 GRCA2() { (cd ~/.G; for R in */; do (U=$(git -C "$R" remote get-url origin) && sudo rm -rf "$R" && git clone -q "$U" "$R") & done; wait); }
@@ -240,8 +215,6 @@ COI2() { if [ "$#" -gt 0 ]; then cp -urf "${@/#//mnt/c/Users/e/Downloads/}" .; e
 UR() { if [ -n "$1" ]; then uv run --no-project "$@"; else uv run --no-project main.py; fi; }
 ACL() { sudo chown -R e:g /g & sudo find /g -type d -exec chmod 2770 {} + & sudo find /g -type f -exec chmod 660 {} + & sudo setfacl -R -m d:u::rwx,d:g::rwx,d:o::-,d:m::rwx /g & wait; }
 PING() { for i in $(seq 0 255) ; do ping $1.$i -c1 -W1 & done |grep from |awk '{print $4}' |awk -F: '{print $1}' | sort -V ; }
-FFMPEG1() { for i in *.$1 ; do ffmpeg -y -i "$i" "$(echo "$i"|cut -d\. -f1).$2" & done ; }
-FFMPEG() { for i in *.$1 ; do ffmpeg -y -i "$i" "$(echo "$i"|cut -d\. -f1).$2" ; done ; }
 WAIT() { while pgrep -f "$1" > /dev/null; do sleep 9; done ; }
 KILL() { sudo pkill -9 -fi "$1"; }
 PUSHM() { git pull >/dev/null ; git rm -r --cached . > /dev/null ; git add -A && git commit -m "$@" &>/dev/null && git push;}
@@ -250,9 +223,7 @@ WHEN4() { local t=$(( $(date -d "${1:0:2}:${1:2:2}" +%s) - $(date +%s) )); sleep
 WHEN() { local s=$SECONDS; date +%d:%H:%M; trap : INT; eval "$@"; trap - INT; date -ud@$((SECONDS-s)) +%T; }
 WHEN2() { local s=$SECONDS; eval "$@"; date -ud@$((SECONDS-s)) +%T; }
 WHEN3() { local s=$SECONDS; date +%H%M; eval "$@"; date -ud@$((SECONDS-s)) +%T; }
-CB2() { cat ~/.G/dotfiles/home/.bash_profile 2>/dev/null || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/.bash_profile ; }
 CNG() { cat ~/.G/dotfiles/notes/commands.txt 2>/dev/null |grep -i --color $1 || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/notes/commands.txt |grep -i --color $1 ; }
-CEG() { cat ~/.G/dotfiles/notes/eng.txt 2>/dev/null |grep -i --color $1 || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/notes/eng.txt |grep -i --color $1 ; }
 CT() { cat ~/.T$1 2>/dev/null ; }
 VT() { vim ~/.T$1 ; }
 HG() { cat ~/.bash_history | grep -ai --color "$1" ; }

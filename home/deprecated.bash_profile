@@ -507,3 +507,32 @@ export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.krew/bin:$HOME/go/bin:/bin
 #if [ -f '/home/e/google-cloud-sdk/completion.bash.inc' ]; then . '/home/e/google-cloud-sdk/completion.bash.inc'; fi
 #export MICRO_CONFIG_HOME="$HOME/.config/micro"
 #export XDG_CONFIG_HOME=/g/.TMP/xdg-config
+# alias HYC='hermes --yolo -c'
+# alias HY='hermes --yolo'
+# alias BR=' bat -ppl md README.md '
+# alias KKK=' cat ~/.55H '
+# alias CPWE=' cp ./$1 $WIN_USER_DIR/Desktop/ '
+# alias CODEX=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.codex.sh | bash ' 
+# alias HERMES=' curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/i.hermes.sh | bash '
+# alias FIND=' find / -iname 2>/dev/null '
+# alias GLNS=' glances --disable-plugin=sensors,amps,containers -t5'
+# alias GE=' grep -Ei --color '
+# alias GV=' grep -Ev "^\s*(#|$)" '
+# alias GVJ=' grep -Ev "^\s*(#|//|$)" '
+# alias AGU=' sudo apt-get purge -y >/dev/null '
+# alias AGR=' sudo apt-get remove -y >/dev/null '
+# alias NVS=' watch nvidia-smi '
+# NUP() { useradd $1 -ms/bin/bash && echo "$1:$1" | chpasswd ; }
+# NSP() { nmap -T5 -snP $1 |G report | AWK 5 ; }
+# CBG2() { { curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/.bash_profile || cat ~/.G/dotfiles/home/.bash_profile 2>/dev/null; } | grep -i --color "$1"; }
+# NTPL() { growpart /dev/sda 2 ; resize2fs /dev/sda2 ; echo 'network: {config: disabled}' >> /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg ; sed -i "s/\(- \).*\(\/\)/\1$1\2/g" /etc/netplan/50-cloud-init.yaml ; echo "hostnamectl set-hostname" ; }
+# FFMPEG1() { for i in *.$1 ; do ffmpeg -y -i "$i" "$(echo "$i"|cut -d\. -f1).$2" & done ; }
+# FFMPEG() { for i in *.$1 ; do ffmpeg -y -i "$i" "$(echo "$i"|cut -d\. -f1).$2" ; done ; }
+# CB2() { cat ~/.G/dotfiles/home/.bash_profile 2>/dev/null || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/.bash_profile ; }
+# CEG() { cat ~/.G/dotfiles/notes/eng.txt 2>/dev/null |grep -i --color $1 || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/notes/eng.txt |grep -i --color $1 ; }
+# alias .....=' cd ../../../../ '
+# alias ......=' cd ../../../../../ '
+# alias CDg=' cd /g ;  ls -1p --color '
+# alias CDF=' cd ~/.G/dotfiles/ ; ls -1p --color '
+# mkdirc() { mkdir $1 ; cd $1 ; }
+# lgcd() { cd $(ls -Ah |grep -i $1 ) || ls -Ah | grep -i $i ; }
