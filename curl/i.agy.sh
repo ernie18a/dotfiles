@@ -1,2 +1,1 @@
-curl -fsSL https://antigravity.google/cli/install.sh | bash
-mv /root/.local/bin/agy /bin/
+curl -fsSL https://antigravity.google/cli/install.sh | bash -s -- --dir /usr/bin
