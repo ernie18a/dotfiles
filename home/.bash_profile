@@ -209,8 +209,8 @@ GRCA2() { (cd ~/.G; for R in */; do (U=$(git -C "$R" remote get-url origin) && s
 GGRCA() { (cd /g; for R in */; do (cd "$R"; git fetch -p && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD) && git clean -fd) & done; wait); }
 GRCA()  { (cd ~/.G; for R in */; do (cd "$R"; git fetch -p && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD) && git clean -fd) & done; wait); }
 AGS() { (for i in /g/*/ ~/.G/*/; do git -C $i status -s | sed "s|^|$i|" & done; wait); }
-AGS2() { (for i in /g/*/ ~/.G/*/; do git -C $i status -s & done; wait); }
-AGS3() { (for i in /g/*/ ~/.G/*/; do (git -C $i fetch -q; git -C $i status -sb | grep -v "^## [^[]*$" | sed "s|^|$i|") & done; wait); }
+AGS3() { (for i in /g/*/ ~/.G/*/; do git -C $i status -s & done; wait); }
+AGS2() { (for i in /g/*/ ~/.G/*/; do (git -C $i fetch -q; git -C $i status -sb | grep -v "^## [^[]*$" | sed "s|^|$i|") & done; wait); }
 sl() { for SOMETHING in $(cat ./$1); do $2 $SOMETHING; done; }
 #CIO() { if [ -n "$1" ]; then cp -urf "$1" /mnt/c/Users/e/Desktop/; else cp -urf ./* /mnt/c/Users/e/Desktop/; fi; }
 CIO() { if [ "$#" -gt 0 ]; then cp -urf "$@" /mnt/c/Users/e/Desktop/; else cp -urf ./* /mnt/c/Users/e/Desktop/; fi; }
