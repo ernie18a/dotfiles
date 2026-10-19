@@ -17,7 +17,9 @@ description: Manual invocation only
 - no presence-check
 - 預設不使用 Options、Optional Arguments 或 Flags。
 - Python 程式碼除 PEP 723 metadata 外，不得包含任何註解或 docstring。
-- 腳本依賴使用 PEP 723 宣告；requires-python 設明確上限，以最重依賴的最高支援版本為準；依賴來源限 PyPI 官方發布；不產生 .lock 檔。
+- 腳本依賴使用 PEP 723 宣告，不產生 .lock 檔。
+- requires-python 設明確上限，以最重依賴的最高支援版本為準。
+- 依賴一律採用最新版本。預設來源為 PyPI 官方發布，PyPI 上沒有該套件或最新版落後於官方 GitHub repo 時，改用官方 repo 的 git 依賴並固定到最新 commit。
 - 僅在 Cargo 原生 config 無法表達需求時新增 Cargo wrapper script。
 - 預設隱藏所有 stdout, 除非使用者要求
 
@@ -43,6 +45,7 @@ description: Manual invocation only
 
 # Misc
 - 僅執行 static checks、dependency resolution 與 declared-vs-imported consistency.
-- Python 以 uv pip compile --only-binary :all: 僅讀 metadata 解析版本,type check 僅針對專案自身程式碼.
+- Python 以 uv pip compile 解析版本。PyPI 依賴以 --only-binary :all: 僅讀 metadata，git 依賴允許從原始碼建置。
+- type check 僅針對專案自身程式碼.
 - 引入中國 AI 平台套件時，確認模型下載源；海外環境指定 HuggingFace，例如 `hub="hf"`。
 - 完成任務後只能回復 `DONE`, 不回復其他資訊
