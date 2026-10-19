@@ -78,6 +78,9 @@ alias CDU=' cd /g/auto/ ; ls -1p --color '
 alias CDH=' cd /g/hedge/ ;  ls -1p --color '
 alias CDP=' cd /g/private/ ;  ls -1p --color '
 alias CDT=' cd /g/tools/ ;   ls -1p --color '
+alias CDV=' cd /g/av/ ;   ls -1p --color '
+alias CDS=' cd /g/stts/ ;   ls -1p --color '
+alias CDY=' cd /g/ypp/ ;   ls -1p --color '
 CD() { cd /g/*/"$1"/ && ls -1p --color; }
 _CD() { local d; COMPREPLY=(); for d in /g/*/"$2"*/; do COMPREPLY+=("${d#/g/*/}"); done; }; complete -o nospace -F _CD CD
 alias VBP=' cd ~/.G/dotfiles ; git pull >/dev/null ; vim ~/.G/dotfiles/home/.bash_profile ; git rm -r --cached . >/dev/null ; git add -A && git commit -amVBP &> /dev/null && git push 1>/dev/null ; cd - &>/dev/null '
