@@ -18,6 +18,7 @@ description: Manual invocation only
 - Python 程式碼除 PEP 723 metadata 外，不得包含任何註解或 docstring。
 - 腳本依賴使用 PEP 723 宣告；requires-python 設明確上限，以最重依賴的最高支援版本為準；依賴來源限 PyPI 官方發布；不產生 .lock 檔。
 - 僅在 Cargo 原生 config 無法表達需求時新增 Cargo wrapper script。
+- 預設隱藏所有 stdout, 除非使用者要求
 
 # Places
 - `./` 頂層只放以下項目，工具無法變更位置的項目例外
