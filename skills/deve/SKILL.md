@@ -11,6 +11,7 @@ description: Manual invocation only
 
 # Build
 - 將具有獨立變更原因的職責拆成獨立 executable（stage）；每個 stage 須可獨立執行、測試或替換，並僅透過 stdin/stdout/file/pipe 與其他 stage 協作，組合成 pipeline。再透過執行單一主要腳本呼叫其他腳本.
+- 主腳本無論正常結束、拋出例外、收到中斷訊號或被 SIGKILL 強制終止，都不得殘留孤兒或僵屍程序。每個程序只能從主執行緒衍生子程序，並須以 `PR_SET_PDEATHSIG` 讓子程序在父程序死亡時收到 SIGKILL，主腳本結束前須終止並回收其衍生的所有子孫程序。
 - 明確契約、靜態型別、顯式轉換。
 - 使用 fail fast、straight-line programming
 - no presence-check
