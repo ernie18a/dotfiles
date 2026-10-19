@@ -45,7 +45,7 @@ description: Manual invocation only
 
 # Misc
 - 僅執行 static checks、dependency resolution 與 declared-vs-imported consistency.
-- Python 以 uv pip compile 解析版本。PyPI 依賴以 --only-binary :all: 僅讀 metadata，git 依賴允許從原始碼建置。
+- Python 以 uv pip compile 僅讀 metadata 解析版本，不建置原始碼。PyPI 依賴加 --only-binary :all:，git 依賴只讀取 repo 內 pyproject.toml 的靜態 metadata。
 - type check 僅針對專案自身程式碼.
 - 引入中國 AI 平台套件時，確認模型下載源；海外環境指定 HuggingFace，例如 `hub="hf"`。
 - 完成任務後只能回復 `DONE`, 不回復其他資訊
