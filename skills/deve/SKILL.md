@@ -29,9 +29,9 @@ description: Manual invocation only
   - `./DATA/conf2.*`：存放不需要頻繁切換的 parameter
   - `./conf.*`：存放使用者有提到而且需要 user 頻繁切換的 parameter
   - `./INPUT/`：user 手動提供提供的檔案的存放位置，非永久保存區, 腳本存取時不針對檔案名稱  
-  - `./TMP/`：中間檔與以 atomic replace 切換至 `./OUTPUT/` 的檔案. 所有非業務代碼暫存檔 or 輕量級測試的暫存檔存放位置
+  - `./TMP/`：中間檔與以 atomic replace 切換至 `./OUTPUT/` 的檔案; 所有非業務代碼暫存檔 or 輕量級測試的暫存檔存放位置; 存放代碼能重復產生, 但是 不是使用者需要的最終檔案.
   - `./OUTPUT/`：user 要求的檔案
-  - `./DATA/`：其餘檔案與資料夾不論類型一律放這裡，不沿用語言或框架慣例的根目錄位置
+  - `./DATA/`：被 entry script 觸發的腳本
 
 # Machine
 - AI 推論僅允許使用 GPU，否則報錯。
