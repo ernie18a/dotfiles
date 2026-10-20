@@ -38,7 +38,7 @@ description: Manual invocation only
 - 執行環境只有 Colab T4 與 RTX 4050 兩種，程式以 `"T4" in torch.cuda.get_device_name(0)` 判斷，不處理其他 GPU。
 - dtype 一律顯式且一致，Transformers 以 dtype 參數指定。
 - 推論採用模型官方推論程式碼的預設 dtype，官方未提供時查證模型卡或原始碼的訓練 dtype。
-- dtype：T4 用 fp32，RTX 4050 用官方預設 dtype。
+- dtype：RTX 4050 用官方預設 dtype。T4 用 fp16，官方未支援 fp16 推論時改用 fp32。
 - VRAM 上限：T4 為 15GB，RTX 4050 為 6GB，模型、批次與快取的總用量不得超過所在環境上限。
 - CPU：並行規模以硬體使用率為目標動態調整，大約打滿到八成五左右即停止擴張，用高階並行原語管理，共享可變狀態降到最低。
 - 記憶體：在每個批次、每輪迴圈處理節點檢查目前用量，超過門檻就依序縮小批次量或延後處理，仍超過上限才放棄當下任務並釋放資源。
