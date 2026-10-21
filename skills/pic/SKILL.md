@@ -3,5 +3,5 @@ name: pic
 description: Manual invocation only
 ---
 
-- 以 Read 讀取 `/mnt/c/Users/e/Pictures/Screenshots` 中修改時間最新的一個圖片並分析
-- 使用者附帶的文字為分析重點，未附帶則描述圖片內容
+- 依使用者附帶的描述，從 `/mnt/c/Users/e/Pictures/Screenshots` 讀取圖片並分析
+- 未附帶描述時，讀取修改時間最新的一張並描述內容
