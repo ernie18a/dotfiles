@@ -234,5 +234,5 @@ alias CG=' cat  ~/.G/dotfiles/home/GEMINI.md '
 alias CGG=' cat  ~/.G/dotfiles/home/GEMINI.md | grep -i --color '
 MCP() { kill -0 $(cat /tmp/mcp.pid) 2>/dev/null || setsid -f bash -c 'echo $$ >/tmp/mcp.pid; exec bash /g/tools/mcp/server.sh' &>/tmp/mcp.log ; }
 MCPS() { kill -- -$(cat /tmp/mcp.pid) 2>/dev/null ; rm -f /tmp/mcp.pid ; }
-MEM2() { sudo bash -c 'ps -eo pid=,rss= --sort=rss | tail -30 | while read p r; do cd /proc/$p/cwd; f=$(tr "\0" "\n" </proc/$p/cmdline | tail -n +2 | while read a; do [ -f "$a" ] && realpath "$a" && break; done); echo "$(numfmt --from-unit=1024 --to=iec $r) ${f:-$(readlink /proc/$p/exe)}"; done 2>/dev/null'; }
+MEM2() { sudo bash -c 'ps -u "$1" -o pid=,rss= --sort=rss | tail -30 | while read p r; do cd /proc/$p/cwd; f=$(tr "\0" "\n" </proc/$p/cmdline | tail -n +2 | while read a; do [ -f "$a" ] && realpath "$a" && break; done); echo "$(numfmt --from-unit=1024 --to=iec $r) ${f:-$(readlink /proc/$p/exe)}"; done 2>/dev/null' _ "$USER"; }
 MEM() { sudo bash -c 'ps -eo pid=,rss= --sort=rss | tail -30 | while read p r; do cd /proc/$p/cwd; f=$(tr "\0" "\n" </proc/$p/cmdline | tail -n +2 | while read a; do [ -f "$a" ] && realpath "$a" && break; done); echo "$(numfmt --from-unit=1024 --to=iec $r) ${f:-$(readlink /proc/$p/exe)}"; done 2>/dev/null'; free | awk '/^Mem:/{printf "%.1f%%\n", $3/$2*100}'; }
