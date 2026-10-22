@@ -225,6 +225,7 @@ PUSHM() { git pull >/dev/null ; git rm -r --cached . > /dev/null ; git add -A &&
 USAGE() { sudo uv run /g/tools/usage/main2.py; }
 USAGE2() { sudo bash ~/.G/dotfiles/curl/u.usage.sh || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/u.usage.sh | sudo bash; }
 USAGE3() { sudo bash ~/.G/dotfiles/curl/u.usage3.sh || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/u.usage3.sh | sudo bash; }
+USAGE4() { sudo bash ~/.G/dotfiles/curl/u.usage4.sh || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/u.usage4.sh | sudo bash; }
 WHEN4() { local t=$(( $(date -d "${1:0:2}:${1:2:2}" +%s) - $(date +%s) )); sleep $(( t < 0 ? t + 86400 : t )); }
 WHEN() { local s=$SECONDS; date +%d:%H:%M; trap : INT; eval "$@"; trap - INT; date -ud@$((SECONDS-s)) +%T; }
 WHEN2() { local s=$SECONDS; eval "$@"; date -ud@$((SECONDS-s)) +%T; }
