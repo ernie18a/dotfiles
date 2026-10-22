@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+exec ssh -F ~/.ssh/gcp_config -o ConnectTimeout=10 -o BatchMode=yes gcp 'bash -s' <<'REMOTE'
+set -euo pipefail
+tmux list-panes -a -F '#{session_name}:#{window_index}.#{pane_index} #{pane_current_command}' | while read -r p c; do
+  case "$c" in bash|zsh|sh) s=IDLE;; *) s="RUN:$c";; esac
+  printf '\n\033[1;33m┌─ %s [%s]\033[0m\n' "$p" "$s"
+  { tmux capture-pane -p -e -t "$p" | grep -v -P '^(\s|\e\[[0-9;]*m)*$' || true; } | sed $'s/^/\e[1;33m│\e[0m /'
+  printf '\033[1;33m└─\033[0m\n'
+done
+REMOTE

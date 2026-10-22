@@ -41,7 +41,7 @@ alias MM2=' DEV=$(blkid -L g) && sudo mount -o defaults,noatime,commit=300 $DEV 
 alias MM=" DEV=\$(blkid -L g) && sudo mount -o defaults,noatime,commit=300 \$DEV /g "
 # alias SHORTS='for DIR in ./*/; do printf "%s\n" "$FQAI" > "$DIR/AGENTS.md" ; done'
 alias UU=' GRCA & GGRCA & wait '
-alias TMUX=' /g/tools/gcptmux/run.sh '
+alias TMUX=' bash ~/.G/dotfiles/curl/u.gcptmux.sh || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/u.gcptmux.sh | bash '
 alias AC='agy --model claude-sonnet-4-6 --dangerously-skip-permissions'
 alias AG='agy --model gemini-3.8-flash --effort high --dangerously-skip-permissions'
 alias AR='agy -c --dangerously-skip-permissions'
@@ -222,7 +222,7 @@ PING() { for i in $(seq 0 255) ; do ping $1.$i -c1 -W1 & done |grep from |awk '{
 WAIT() { while pgrep -f "$1" > /dev/null; do sleep 9; done ; }
 KILL() { sudo pkill -9 -fi "$1"; }
 PUSHM() { git pull >/dev/null ; git rm -r --cached . > /dev/null ; git add -A && git commit -m "$@" &>/dev/null && git push;}
-USAGE() { sudo uv run /g/tools/usage/main2.py; }
+USAGE() { sudo bash ~/.G/dotfiles/curl/u.usage.sh || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/u.usage.sh | sudo bash; }
 WHEN4() { local t=$(( $(date -d "${1:0:2}:${1:2:2}" +%s) - $(date +%s) )); sleep $(( t < 0 ? t + 86400 : t )); }
 WHEN() { local s=$SECONDS; date +%d:%H:%M; trap : INT; eval "$@"; trap - INT; date -ud@$((SECONDS-s)) +%T; }
 WHEN2() { local s=$SECONDS; eval "$@"; date -ud@$((SECONDS-s)) +%T; }
