@@ -41,6 +41,7 @@ alias MM2=' DEV=$(blkid -L g) && sudo mount -o defaults,noatime,commit=300 $DEV 
 alias MM=" DEV=\$(blkid -L g) && sudo mount -o defaults,noatime,commit=300 \$DEV /g "
 # alias SHORTS='for DIR in ./*/; do printf "%s\n" "$FQAI" > "$DIR/AGENTS.md" ; done'
 alias UU=' GRCA & GGRCA & wait '
+alias TMUX=' /g/tools/gcptmux/run.sh '
 alias AC='agy --model claude-sonnet-4-6 --dangerously-skip-permissions'
 alias AG='agy --model gemini-3.8-flash --effort high --dangerously-skip-permissions'
 alias AR='agy -c --dangerously-skip-permissions'
@@ -208,6 +209,7 @@ GRCA()  { (cd ~/.G; for R in */; do (cd "$R"; git fetch -p && git reset --hard o
 AGS() { (for i in /g/*/ ~/.G/*/; do git -C $i status -s | sed "s|^|$i|" & done; wait); }
 AGS3() { (for i in /g/*/ ~/.G/*/; do git -C $i status -s & done; wait); }
 AGS2() { (for i in /g/*/ ~/.G/*/; do (git -C $i fetch -q; git -C $i status -sb | grep -v "^## [^[]*$" | sed "s|^|$i|") & done; wait); }
+AGSP() { (for i in /g/*/ ~/.G/*/; do (git -C $i add -A; git -C $i commit -qmPUSH --no-verify >/dev/null; git -C $i push -q --no-verify) & done; wait); }
 sl() { for SOMETHING in $(cat ./$1); do $2 $SOMETHING; done; }
 #CIO() { if [ -n "$1" ]; then cp -urf "$1" /mnt/c/Users/e/Desktop/; else cp -urf ./* /mnt/c/Users/e/Desktop/; fi; }
 CIO() { if [ "$#" -gt 0 ]; then cp -urf "$@" /mnt/c/Users/e/Desktop/; else cp -urf ./* /mnt/c/Users/e/Desktop/; fi; }
