@@ -49,9 +49,14 @@ agy_q() {
         END {printf "3\t%s\t%s\t%s\t%s\n", u, l, c[G], c[C]}'
 }
 
+# 每個 provider 的三個使用者查完就先印出該表
+table() {
+  for u in e n o; do "$1" "$u" & done | sort | cut -f3- | column -t -s $'\t'
+  echo
+}
+
 date +%H%M
-for u in e n o; do
-  codex_q "$u" &
-  claude_q "$u" &
-  agy_q "$u" &
-done | sort | awk -F'\t' 'NR > 1 && $1 != k {print ""} {k = $1} 1' | cut -f3- | column -t -L -s $'\t'
+table codex_q &
+table claude_q &
+table agy_q &
+wait
