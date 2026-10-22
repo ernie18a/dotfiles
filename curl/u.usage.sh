@@ -36,9 +36,20 @@ claude_q() {
       "2\t\($u)\t\($l)\t\(.five_hour | c)\t\(.seven_day | c)"'
 }
 
+# 看到提示列才送 /usage，兩組額度都出現就結束，不用固定 sleep
 agy_q() {
-  { sleep 12; printf '\r'; sleep 3; printf '/usage\r'; sleep 8; } \
-    | sudo -i -u "$1" timeout 30 script -qfc 'stty rows 80 cols 300; /bin/agy' /dev/null 2>/dev/null \
+  coproc A { sudo -i -u "$1" script -qfc 'stty rows 80 cols 300; /bin/agy' /dev/null 2>/dev/null; }
+  out= sent= n=0
+  while IFS= read -r -t 30 x <&"${A[0]}"; do
+    out+=$x$'\n'
+    case $x in
+      *Confirm*) printf '\r' >&"${A[1]}";;
+      *'for shortcuts'*) [ -n "$sent" ] || { sent=1; printf '/usage\r' >&"${A[1]}"; };;
+      *'Refreshes in'*|*'Quota available'*) ((++n == 2)) && break;;
+    esac
+  done
+  kill "$A_PID"
+  printf '%s' "$out" \
     | sed 's/\x1b\[[0-9;?]*[a-zA-Z]//g; s/\x1b\][^\x07]*\x07//g' | tr '\r' '\n' \
     | awk -v u="$1" -v l="${L[$1]:-agy}" 'BEGIN {M["d"] = 86400; M["h"] = 3600; M["m"] = 60; G = "GEMINI MODELS"; C = "CLAUDE AND GPT MODELS"; c[G] = c[C] = "-"}
         $0 ~ G || $0 ~ C {g = $0; sub(/^ +/, "", g)}
