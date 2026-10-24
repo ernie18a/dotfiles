@@ -34,7 +34,7 @@ claude_q() {
   [ -n "$tok" ] || tok=$(claude_refresh "$f")
   curl -s https://api.anthropic.com/api/oauth/usage \
     -H "Authorization: Bearer $tok" -H 'anthropic-beta: oauth-2025-04-20' -H 'User-Agent: claude-code/2.1.283' \
-    | jq -r --arg u "$1" --arg l "${L[$1]:-claude}" "$DUR"'def c: if . then "\(100 - .utilization | round)% \(.resets_at | sub("\\.[0-9]+"; "") | sub("[+]00:00$"; "Z") | fromdateiso8601 | dur)" else "-" end;
+    | jq -r --arg u "$1" --arg l "${L[$1]:-claude}" "$DUR"'def c: if . then "\(100 - .utilization | round)% \(.resets_at | if . then sub("\\.[0-9]+"; "") | sub("[+]00:00$"; "Z") | fromdateiso8601 | dur else "-" end)" else "-" end;
       select(.five_hour or .seven_day) | "2\t\($u)\t\($l)\t\(.five_hour | c)\t\(.seven_day | c)"'
 }
 
