@@ -222,11 +222,12 @@ PING() { for i in $(seq 0 255) ; do ping $1.$i -c1 -W1 & done |grep from |awk '{
 WAIT() { while pgrep -f "$1" > /dev/null; do sleep 9; done ; }
 KILL() { sudo pkill -9 -fi "$1"; }
 PUSHM() { git pull >/dev/null ; git rm -r --cached . > /dev/null ; git add -A && git commit -m "$@" &>/dev/null && git push;}
-USAGE() { sudo uv run /g/tools/usage/main2.py; }
-USAGE2() { sudo bash ~/.G/dotfiles/curl/u.usage.sh || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/u.usage.sh | sudo bash; }
+USAGE() { sudo bash ~/.G/dotfiles/curl/u.usage.sh || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/u.usage.sh | sudo bash; }
+USAGE2() { sudo uv run /g/tools/usage/main2.py; }
 USAGE3() { sudo bash ~/.G/dotfiles/curl/u.usage3.sh || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/u.usage3.sh | sudo bash; }
-USAGE4() { sudo bash ~/.G/dotfiles/curl/u.usage4.sh || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/u.usage4.sh | sudo bash; }
-USAGE5() { sudo bash ~/.G/dotfiles/curl/u.usage5.sh || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/u.usage5.sh | sudo bash; }
+# USAGE4() { sudo bash ~/.G/dotfiles/curl/u.usage4.sh || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/u.usage4.sh | sudo bash; }
+# USAGE5() { sudo bash ~/.G/dotfiles/curl/u.usage5.sh || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/u.usage5.sh | sudo bash; }
+# USAGE6() { sudo bash ~/.G/dotfiles/curl/u.usage6.sh || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/u.usage6.sh | sudo bash; }
 WHEN4() { local t=$(( $(date -d "${1:0:2}:${1:2:2}" +%s) - $(date +%s) )); sleep $(( t < 0 ? t + 86400 : t )); }
 WHEN() { local s=$SECONDS; date +%d:%H:%M; trap : INT; eval "$@"; trap - INT; date -ud@$((SECONDS-s)) +%T; }
 WHEN2() { local s=$SECONDS; eval "$@"; date -ud@$((SECONDS-s)) +%T; }

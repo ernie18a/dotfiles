@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # codex / claude / agy 剩餘額度，依 provider 分表，e 的列以 provider 名稱標示
 # 用法：sudo bash u.usage.sh
+# 使用者、工具、作業系統不固定：錯誤一律丟棄，查不到的列不印
+exec 2>/dev/null
 declare -A L=([n]="🐸 n" [o]="👾 o")
 DUR='def dur: (. - now | floor) as $s | if $s <= 0 then "now" elif $s >= 86400 then "\($s / 86400 | floor)d \($s % 86400 / 3600 | floor)h" else "\($s / 3600 | floor)h \($s % 3600 / 60 | floor)m" end;'
 
@@ -33,12 +35,14 @@ claude_q() {
   curl -s https://api.anthropic.com/api/oauth/usage \
     -H "Authorization: Bearer $tok" -H 'anthropic-beta: oauth-2025-04-20' -H 'User-Agent: claude-code/2.1.283' \
     | jq -r --arg u "$1" --arg l "${L[$1]:-claude}" "$DUR"'def c: if . then "\(100 - .utilization | round)% \(.resets_at | sub("\\.[0-9]+"; "") | sub("[+]00:00$"; "Z") | fromdateiso8601 | dur)" else "-" end;
-      "2\t\($u)\t\($l)\t\(.five_hour | c)\t\(.seven_day | c)"'
+      select(.five_hour or .seven_day) | "2\t\($u)\t\($l)\t\(.five_hour | c)\t\(.seven_day | c)"'
 }
 
 # 看到提示列才送 /usage，兩組額度都出現就結束，不用固定 sleep
+# 未登入時 TUI 會一直轉圈，read -t 只管單行閒置，整體上限交給 timeout
+# MCP 即使 disabled 仍會卡住啟動約 10 秒，改用只連結 antigravity-cli、MCP 設定為空的 HOME
 agy_q() {
-  coproc A { sudo -i -u "$1" script -qfc 'stty rows 80 cols 300; /bin/agy' /dev/null 2>/dev/null; }
+  coproc A { sudo -u "$1" -H timeout 40 bash -c 'cd; h=~/.cache/usage5; mkdir -p $h/.gemini/config; ln -sfn ~/.gemini/antigravity-cli $h/.gemini/antigravity-cli; echo {} >$h/.gemini/config/mcp_config.json; HOME=$h script -qfc "stty rows 80 cols 300; /bin/agy" /dev/null' 2>/dev/null; }
   out= sent= n=0
   while IFS= read -r -t 30 x <&"${A[0]}"; do
     out+=$x$'\n'
@@ -54,16 +58,25 @@ agy_q() {
     | awk -v u="$1" -v l="${L[$1]:-agy}" 'BEGIN {M["d"] = 86400; M["h"] = 3600; M["m"] = 60; G = "GEMINI MODELS"; C = "CLAUDE AND GPT MODELS"; c[G] = c[C] = "-"}
         $0 ~ G || $0 ~ C {g = $0; sub(/^ +/, "", g)}
         g && /%$/ {p = $NF + 0}
-        g && /Quota available/ {c[g] = "100% -"; g = ""}
+        g && /Quota available/ {c[g] = "100% available"; g = ""}
         g && /Refreshes in/ {sub(/.*Refreshes in /, ""); s = 0; for (i = 1; i <= NF; i++) s += ($i + 0) * M[substr($i, length($i))]
           c[g] = sprintf("%d%% %s", p + 0.5, s >= 86400 ? int(s / 86400) "d " int(s % 86400 / 3600) "h" : int(s / 3600) "h " int(s % 3600 / 60) "m"); g = ""}
-        END {printf "3\t%s\t%s\t%s\t%s\n", u, l, c[G], c[C]}'
+        END {if (c[G] != "-" || c[C] != "-") printf "3\t%s\t%s\t%s\t%s\n", u, l, c[G], c[C]}'
+}
+
+# column 會把色碼算進欄寬，排版後才依內容上色：重置 12h 內綠、72h 以上紅、其餘黃
+paint() {
+  local G=$'\e[32m' Y=$'\e[33m' R=$'\e[31m' Z=$'\e[0m'
+  sed -E "s/^codex\b/"$'\e[96m'"&$Z/; s/^claude\b/"$'\e[95m'"&$Z/; s/^agy\b/"$'\e[93m'"&$Z/
+    s/\b([0-9]|1[01])h [0-9]+m\b/$G&$Z/; s/\b(1[2-9]|2[0-3])h [0-9]+m\b/$Y&$Z/
+    s/\b[12]d [0-9]+h\b/$Y&$Z/; s/\b([3-9]|[1-9][0-9]+)d [0-9]+h\b/$R&$Z/
+    s/\b(now|available)\b/$G&$Z/g; s/(^|[^0-9])(0%)/\1$R\2$Z/g"
 }
 
 # 每個 provider 的三個使用者查完就先印出該表
 table() {
-  for u in e n o; do "$1" "$u" & done | sort | cut -f3- | column -t -s $'\t'
-  echo
+  t=$(for u in e n o; do id "$u" >/dev/null || continue; "$1" "$u" & done | sort | cut -f3- | column -t -s $'\t' | paint)
+  [ -z "$t" ] || printf '%s\n\n' "$t"
 }
 
 date +%H%M

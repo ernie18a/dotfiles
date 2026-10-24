@@ -39,8 +39,10 @@ claude_q() {
 }
 
 # 看到提示列才送 /usage，兩組額度都出現就結束，不用固定 sleep
+# 未登入時 TUI 會一直轉圈，read -t 只管單行閒置，整體上限交給 timeout
+# MCP 即使 disabled 仍會卡住啟動約 10 秒，改用只連結 antigravity-cli、MCP 設定為空的 HOME
 agy_q() {
-  coproc A { sudo -i -u "$1" script -qfc 'stty rows 80 cols 300; /bin/agy' /dev/null 2>/dev/null; }
+  coproc A { sudo -u "$1" -H timeout 40 bash -c 'cd; h=~/.cache/usage5; mkdir -p $h/.gemini/config; ln -sfn ~/.gemini/antigravity-cli $h/.gemini/antigravity-cli; echo {} >$h/.gemini/config/mcp_config.json; HOME=$h script -qfc "stty rows 80 cols 300; /bin/agy" /dev/null' 2>/dev/null; }
   out= sent= n=0
   while IFS= read -r -t 30 x <&"${A[0]}"; do
     out+=$x$'\n'
@@ -56,7 +58,7 @@ agy_q() {
     | awk -v u="$1" -v l="${L[$1]:-agy}" 'BEGIN {M["d"] = 86400; M["h"] = 3600; M["m"] = 60; G = "GEMINI MODELS"; C = "CLAUDE AND GPT MODELS"; c[G] = c[C] = "-"}
         $0 ~ G || $0 ~ C {g = $0; sub(/^ +/, "", g)}
         g && /%$/ {p = $NF + 0}
-        g && /Quota available/ {c[g] = "100% -"; g = ""}
+        g && /Quota available/ {c[g] = "100% available"; g = ""}
         g && /Refreshes in/ {sub(/.*Refreshes in /, ""); s = 0; for (i = 1; i <= NF; i++) s += ($i + 0) * M[substr($i, length($i))]
           c[g] = sprintf("%d%% %s", p + 0.5, s >= 86400 ? int(s / 86400) "d " int(s % 86400 / 3600) "h" : int(s / 3600) "h " int(s % 3600 / 60) "m"); g = ""}
         END {if (c[G] != "-" || c[C] != "-") printf "3\t%s\t%s\t%s\t%s\n", u, l, c[G], c[C]}'
