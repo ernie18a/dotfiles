@@ -89,6 +89,7 @@ alias LOPR='claude --model opusplan --effort high --permission-mode plan --allow
 alias LS='claude --model sonnet --effort high --dangerously-skip-permissions'
 alias LH='claude --model haiku --effort high --dangerously-skip-permissions'
 alias LO='claude --model opus --effort high --dangerously-skip-permissions'
+alias LOM='claude --model opus --effort medium --dangerously-skip-permissions'
 alias LOL='claude --model opus --effort low --dangerously-skip-permissions'
 # alias LOP='claude --model opusplan --effort medium --dangerously-skip-permissions'
 alias LOP=' claude --model opusplan --effort high --permission-mode plan --allow-dangerously-skip-permissions '
