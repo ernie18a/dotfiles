@@ -10,7 +10,7 @@ disable-model-invocation: true
 
 # 執行
 - `/bulk 0` 建表，產物寫入 `.o/.table/`。
-- `/bulk 1`、`/bulk 2`、`/bulk 3` 各用一種整合方式，讀取 `.o/*.md` 與 `.o/.table/`，產物分別寫入 `.o/.sort/`、`.o/.pair/`、`.o/.run/`。
+- `/bulk 1`、`/bulk 2`、`/bulk 3` 各用一種整合方式，讀取 `.o/*.md` 與 `.o/.table/`，產物分別寫入 `.o/.sort/`、`.o/.pair/`、`.o/.run/`，不修改 `.o/.table/`。
 - 逐份或逐批工作交給獨立 context 的 subagent，subagent 把結果寫入檔案，只回傳檔案路徑。
 - 整合結束時由程式確認全部規則行都在 `groups.tsv` 中，不通過就修正到通過。
 
