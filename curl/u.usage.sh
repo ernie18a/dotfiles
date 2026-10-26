@@ -22,7 +22,8 @@ codex_q() {
 claude_refresh() {
   r=$(jq '.claudeAiOauth | {grant_type: "refresh_token", refresh_token: .refreshToken, client_id: (.clientId // "9d1c250a-e61b-44d9-88ed-5944d1962f5e"), scope: (.scopes | join(" "))}' "$1" \
     | curl -s -X POST https://platform.claude.com/v1/oauth/token -H 'content-type: application/json' -d @-)
-  new=$(jq --argjson r "$r" '.claudeAiOauth += {accessToken: $r.access_token, refreshToken: ($r.refresh_token // .claudeAiOauth.refreshToken), expiresAt: ((now + $r.expires_in) * 1000 | floor), scopes: ($r.scope | split(" "))}' "$1")
+  # 刷新失敗（回應不是 JSON 或沒有 access_token）就不寫回，避免憑證檔被清空
+  new=$(jq --argjson r "$r" 'select($r.access_token) | .claudeAiOauth += {accessToken: $r.access_token, refreshToken: ($r.refresh_token // .claudeAiOauth.refreshToken), expiresAt: ((now + $r.expires_in) * 1000 | floor), scopes: ($r.scope | split(" "))}' "$1") && [ -n "$new" ] || return
   printf '%s\n' "$new" > "$1"
   jq -r '.claudeAiOauth.accessToken' "$1"
 }
@@ -31,7 +32,7 @@ claude_q() {
   f=$(eval echo "~$1")/.claude/.credentials.json
   [ -f "$f" ] || return
   tok=$(jq -r '.claudeAiOauth | select(.expiresAt / 1000 > now + 30) | .accessToken' "$f")
-  [ -n "$tok" ] || tok=$(claude_refresh "$f")
+  [ -n "$tok" ] || tok=$(claude_refresh "$f") || return
   curl -s https://api.anthropic.com/api/oauth/usage \
     -H "Authorization: Bearer $tok" -H 'anthropic-beta: oauth-2025-04-20' -H 'User-Agent: claude-code/2.1.283' \
     | jq -r --arg u "$1" --arg l "${L[$1]:-claude}" "$DUR"'def c: if . then "\(100 - .utilization | round)% \(.resets_at | if . then sub("\\.[0-9]+"; "") | sub("[+]00:00$"; "Z") | fromdateiso8601 | dur else "-" end)" else "-" end;

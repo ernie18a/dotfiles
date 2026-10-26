@@ -64,9 +64,18 @@ agy_q() {
         END {if (c[G] != "-" || c[C] != "-") printf "3\t%s\t%s\t%s\t%s\n", u, l, c[G], c[C]}'
 }
 
+# column 會把色碼算進欄寬，排版後才依內容上色：重置 12h 內綠、72h 以上紅、其餘黃
+paint() {
+  local G=$'\e[32m' Y=$'\e[33m' R=$'\e[31m' Z=$'\e[0m'
+  sed -E "s/^codex\b/"$'\e[96m'"&$Z/; s/^claude\b/"$'\e[95m'"&$Z/; s/^agy\b/"$'\e[93m'"&$Z/
+    s/\b([0-9]|1[01])h [0-9]+m\b/$G&$Z/; s/\b(1[2-9]|2[0-3])h [0-9]+m\b/$Y&$Z/
+    s/\b[12]d [0-9]+h\b/$Y&$Z/; s/\b([3-9]|[1-9][0-9]+)d [0-9]+h\b/$R&$Z/
+    s/\b(now|available)\b/$G&$Z/g; s/(^|[^0-9])(0%)/\1$R\2$Z/g"
+}
+
 # 每個 provider 的三個使用者查完就先印出該表
 table() {
-  t=$(for u in e n o; do id "$u" >/dev/null || continue; "$1" "$u" & done | sort | cut -f3- | column -t -s $'\t')
+  t=$(for u in e n o; do id "$u" >/dev/null || continue; "$1" "$u" & done | sort | cut -f3- | column -t -s $'\t' | paint)
   [ -z "$t" ] || printf '%s\n\n' "$t"
 }
 
