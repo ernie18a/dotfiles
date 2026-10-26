@@ -30,7 +30,8 @@ export PS1="[ \\u@\\h \w \$(git rev-parse --abbrev-ref HEAD 2>/dev/null)] \\$ "
 PROMPT_COMMAND=' history -a '
 source ~/.55H 2>/dev/null
 touch ~/.hushlogin
-alias MKT=' cd $(mktemp -d /tmp/XXX) '
+# alias MKT=' cd $(mktemp -d /tmp/XXX) '
+alias CDB=' mkdir -p ~/.BACKUP 2>/dev/null ; cd ~/.BACKUP 2>/dev/null ;   ls -1p --color '
 alias TOP=' top -o %MEM '
 alias PP='  until ssh 192.168.213.199 2>/dev/null ; do :; done '
 alias BKUP=' mkdir ~/.BACKUP 2>/dev/null ; cd ~/.BACKUP ; ls -l '
