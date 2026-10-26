@@ -1,4 +1,5 @@
-player.additem 0000000f 9999999999999999
+player.removeitem 0000000f 2147483647
+player.additem 0000000f 999999999
 player.advskill Alchemy 9999999999999999
 player.advskill Alteration 9999999999999999
 player.advskill Marksman 9999999999999999
