@@ -1,6 +1,7 @@
 ---
 name: unpac
 description: Manual invocation only
+disable-model-invocation: true
 ---
 
 - 同時套用 `../deny/SKILL.md`。

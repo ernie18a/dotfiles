@@ -1,6 +1,7 @@
 ---
 name: bs
 description: Manual invocation only
+disable-model-invocation: true
 ---
 
 # 腦力激盪

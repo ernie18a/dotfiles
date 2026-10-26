@@ -1,6 +1,7 @@
 ---
 name: deny
 description: Manual invocation only
+disable-model-invocation: true
 ---
 
 # Never access these paths on any domain:

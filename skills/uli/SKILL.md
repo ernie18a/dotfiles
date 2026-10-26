@@ -1,6 +1,7 @@
 ---
 name: uli
 description: Manual invocation only
+disable-model-invocation: true
 ---
 
 - if Claude then ~/.claude/CLAUDE.md

@@ -1,6 +1,7 @@
 ---
 name: conc
 description: Manual invocation only
+disable-model-invocation: true
 ---
 
 將使用者提供的內容轉換成引導 AI 做出其期望行為的 prompt。

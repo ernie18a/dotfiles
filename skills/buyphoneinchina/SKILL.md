@@ -1,6 +1,7 @@
 ---
 name: buyphoneinchina
 description: Manual invocation only
+disable-model-invocation: true
 ---
 
 我在臺灣，考慮在中國大陸買手機帶回來用。以下是篩選條件。

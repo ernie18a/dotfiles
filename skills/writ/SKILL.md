@@ -1,6 +1,7 @@
 ---
 name: writ
 description: Manual invocation only
+disable-model-invocation: true
 ---
 
 - 不使用 parenthetical 與 semicolon 標點論述結構

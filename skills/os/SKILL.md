@@ -1,6 +1,7 @@
 ---
 name: os
 description: Manual invocation only
+disable-model-invocation: true
 ---
 
 

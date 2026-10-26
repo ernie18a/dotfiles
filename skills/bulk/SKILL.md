@@ -1,6 +1,7 @@
 ---
 name: bulk
 description: Manual invocation only
+disable-model-invocation: true
 ---
 
 # 目的

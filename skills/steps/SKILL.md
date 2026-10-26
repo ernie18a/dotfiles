@@ -1,6 +1,7 @@
 ---
 name: steps
 description: Manual invocation only
+disable-model-invocation: true
 ---
 
 - 依使用者指定的工作、產業與任務，列出完成該任務的大階段。

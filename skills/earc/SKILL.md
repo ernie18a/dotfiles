@@ -1,6 +1,7 @@
 ---
 name: earc
 description: Manual invocation only
+disable-model-invocation: true
 ---
 
 - 由當下模型依完整討論與需求擬定搜索關鍵字，再依 `$ubag` 啟動 subagent 執行網路搜索。

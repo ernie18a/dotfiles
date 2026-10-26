@@ -1,6 +1,7 @@
 ---
 name: deve
 description: Manual invocation only
+disable-model-invocation: true
 ---
 
 - 預設修改既有腳本時不使用 `~/.G/dotfiles/skills/name/SKILL.md`, 開發全新腳本時使用.

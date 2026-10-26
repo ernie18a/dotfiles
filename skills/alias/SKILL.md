@@ -1,6 +1,7 @@
 ---
 name: alias
 description: Manual invocation only
+disable-model-invocation: true
 ---
 
 - 當`pump`、`trump`出現在異常位置時，可能是`prompt`的 typo。

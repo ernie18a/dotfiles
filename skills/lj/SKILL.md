@@ -1,6 +1,7 @@
 ---
 name: lj
 description: Manual invocation only
+disable-model-invocation: true
 ---
 
 

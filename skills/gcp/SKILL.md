@@ -1,6 +1,7 @@
 ---
 name: gcp
 description: Manual invocation only
+disable-model-invocation: true
 ---
 
 - 使用者未指定主機時討論對象為雲端 VM `gcp` tmux session，遠端指令以 `ssh -F ~/.ssh/gcp_config gcp '<指令>'` 執行

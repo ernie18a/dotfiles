@@ -1,6 +1,7 @@
 ---
 name: ubag
 description: Manual invocation only
+disable-model-invocation: true
 ---
 
 - 每次啟動 subagent，依當下執行環境照下列做法指定模型，最多 4 個 subagent

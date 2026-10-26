@@ -1,6 +1,7 @@
 ---
 name: crawler
 description: Manual invocation only
+disable-model-invocation: true
 ---
 
 - 同時套用 `../deve/SKILL.md`。

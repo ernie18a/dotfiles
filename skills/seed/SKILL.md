@@ -1,6 +1,7 @@
 ---
 name: seed
 description: Manual invocation only
+disable-model-invocation: true
 ---
 
 把雜亂的需求日誌轉成需求導向的簡單文件。開發可以嘗試各種做法來達成這份文件，而這份文件不因做法改變而需要修改。args 第一個是需求日誌路徑，第二個是輸出路徑。

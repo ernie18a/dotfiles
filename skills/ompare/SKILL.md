@@ -1,6 +1,7 @@
 ---
 name: ompare
 description: Manual invocation only
+disable-model-invocation: true
 ---
 
 - Use only criteria that materially affect outcome quality.

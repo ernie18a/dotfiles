@@ -1,6 +1,7 @@
 ---
 name: mald
 description: Manual invocation only
+disable-model-invocation: true
 ---
 
 請把每個候選項目的「淨效用」（優點扣除成本）當作縱軸，橫軸為 [你的排序維度]。
