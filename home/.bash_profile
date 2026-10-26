@@ -225,7 +225,7 @@ KILL() { sudo pkill -9 -fi "$1"; }
 PUSHM() { git pull >/dev/null ; git rm -r --cached . > /dev/null ; git add -A && git commit -m "$@" &>/dev/null && git push;}
 USAGE() { sudo bash ~/.G/dotfiles/curl/u.usage.sh || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/u.usage.sh | sudo bash; }
 USAGE2() { sudo uv run /g/tools/usage/main2.py; }
-USAGE3() { sudo bash ~/.G/dotfiles/curl/u.usage3.sh || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/u.usage3.sh | sudo bash; }
+# USAGE3() { sudo bash ~/.G/dotfiles/curl/u.usage3.sh || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/u.usage3.sh | sudo bash; }
 # USAGE4() { sudo bash ~/.G/dotfiles/curl/u.usage4.sh || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/u.usage4.sh | sudo bash; }
 # USAGE5() { sudo bash ~/.G/dotfiles/curl/u.usage5.sh || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/u.usage5.sh | sudo bash; }
 # USAGE6() { sudo bash ~/.G/dotfiles/curl/u.usage6.sh || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/u.usage6.sh | sudo bash; }
