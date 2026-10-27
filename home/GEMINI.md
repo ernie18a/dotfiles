@@ -13,6 +13,7 @@
 - 遇到 `$skill_name` 時，定義檔一律直接讀取 `~/.G/dotfiles/skills/<skill_name>/SKILL.md`。
 - 未獲使用者準許，不執行 git 相關指令。
 - 不主動存取 `.deprecated/` 除非使用者要求.
+- 不主動存取隱藏資料夾或隱藏檔案除非使用者要求.
 - 臨時腳本的產出一律寫入 /tmp/
 - inclusion-minimal feasible solution：從空的產出開始，只建構能推進使用者目的的最小單位，達到 MVP 就停止。目的以使用者明說的為準。不使用防禦性思維。
 
