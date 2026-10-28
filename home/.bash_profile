@@ -212,7 +212,7 @@ EOIE() { bash ~/.G/dotfiles/curl/u.error.object.is.empty.sh || curl -fsSL https:
 AGS() { (for i in /g/*/ ~/.G/*/; do git -C $i status -s | sed "s|^|$i|" & done; wait); }
 AGS3() { (for i in /g/*/ ~/.G/*/; do git -C $i status -s & done; wait); }
 AGS2() { (for i in /g/*/ ~/.G/*/; do (git -C $i fetch -q; git -C $i status -sb | grep -v "^## [^[]*$" | sed "s|^|$i|") & done; wait); }
-AGSP() { (for i in /g/*/ ~/.G/*/; do (git -C $i add -A; git -C $i commit -mPUSH --no-verify; git -C $i pull --rebase; git -C $i push --no-verify) & done; wait); }
+AGSP() { (for i in /g/*/ ~/.G/*/; do (git -C $i add -A; git -C $i commit -mAGSP --no-verify; git -C $i pull --rebase; git -C $i push --no-verify) & done; wait); }
 sl() { for SOMETHING in $(cat ./$1); do $2 $SOMETHING; done; }
 #CIO() { if [ -n "$1" ]; then cp -urf "$1" /mnt/c/Users/e/Desktop/; else cp -urf ./* /mnt/c/Users/e/Desktop/; fi; }
 CIO() { if [ "$#" -gt 0 ]; then cp -urf "$@" /mnt/c/Users/e/Desktop/; else cp -urf ./* /mnt/c/Users/e/Desktop/; fi; }
