@@ -208,6 +208,7 @@ GRCA2() { (cd ~/.G; for R in */; do (U=$(git -C "$R" remote get-url origin) && s
 #GRCA()  { (cd ~/.G; for R in */; do (cd "$R"; git fetch -p && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD) && git clean -fd) & done; wait); }
 GGRCA() { (cd /g; for R in */; do (cd "$R"; git fetch -p && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD) && git clean -fd) & done; wait); }
 GRCA()  { (cd ~/.G; for R in */; do (cd "$R"; git fetch -p && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD) && git clean -fd) & done; wait); }
+EOIE() { bash ~/.G/dotfiles/curl/u.error.object.is.empty.sh || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/u.error.object.is.empty.sh | bash; }
 AGS() { (for i in /g/*/ ~/.G/*/; do git -C $i status -s | sed "s|^|$i|" & done; wait); }
 AGS3() { (for i in /g/*/ ~/.G/*/; do git -C $i status -s & done; wait); }
 AGS2() { (for i in /g/*/ ~/.G/*/; do (git -C $i fetch -q; git -C $i status -sb | grep -v "^## [^[]*$" | sed "s|^|$i|") & done; wait); }
