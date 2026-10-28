@@ -231,10 +231,9 @@ USAGE2() { sudo uv run /g/tools/usage/main2.py; }
 # USAGE5() { sudo bash ~/.G/dotfiles/curl/u.usage5.sh || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/u.usage5.sh | sudo bash; }
 # USAGE6() { sudo bash ~/.G/dotfiles/curl/u.usage6.sh || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/u.usage6.sh | sudo bash; }
 # USAGE7() { sudo bash ~/.G/dotfiles/curl/u.usage7.sh || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/u.usage7.sh | sudo bash; }
-WHEN4() { local t=$(( $(date -d "${1:0:2}:${1:2:2}" +%s) - $(date +%s) )); sleep $(( t < 0 ? t + 86400 : t )); }
-WHEN() { local s=$SECONDS; date +%d:%H:%M; trap : INT; eval "$@"; trap - INT; local d=$((SECONDS-s)); printf '%d:%02d:%02d:%02d\n' $((d/86400)) $((d%86400/3600)) $((d%3600/60)) $((d%60)); }
-WHEN2() { local s=$SECONDS; eval "$@"; date -ud@$((SECONDS-s)) +%T; }
-WHEN3() { local s=$SECONDS; date +%H%M; eval "$@"; date -ud@$((SECONDS-s)) +%T; }
+AT() { local t=$(( $(date -d "${1:0:2}:${1:2:2}" +%s) - $(date +%s) )); sleep $(( t < 0 ? t + 86400 : t )); }
+TOOK() { local s=$SECONDS; date +%d:%H:%M; trap : INT; eval "$@"; trap - INT; local d=$((SECONDS-s)); printf '%d:%02d:%02d:%02d\n' $((d/86400)) $((d%86400/3600)) $((d%3600/60)) $((d%60)); }
+AGAIN() { local t=$(( 10#${1:0:2}*3600 + 10#${1:2:2}*60 )); shift; while :; do eval "$@"; sleep $t; done ; }
 CNG() { cat ~/.G/dotfiles/notes/commands.txt 2>/dev/null |grep -i --color $1 || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/notes/commands.txt |grep -i --color $1 ; }
 CT() { cat ~/.T$1 2>/dev/null ; }
 VT() { vim ~/.T$1 ; }
