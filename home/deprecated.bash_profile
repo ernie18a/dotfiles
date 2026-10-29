@@ -536,3 +536,19 @@ export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.krew/bin:$HOME/go/bin:/bin
 # alias CDF=' cd ~/.G/dotfiles/ ; ls -1p --color '
 # mkdirc() { mkdir $1 ; cd $1 ; }
 # lgcd() { cd $(ls -Ah |grep -i $1 ) || ls -Ah | grep -i $i ; }
+#export CLAUDE_CODE_SUBAGENT_MODEL=haiku
+# alias MKT=' cd $(mktemp -d /tmp/XXX) '
+# alias SHORTS='for DIR in ./*/; do printf "%s\n" "$FQAI" > "$DIR/AGENTS.md" ; done'
+# alias LOP='claude --model opusplan --effort medium --dangerously-skip-permissions'
+#alias SB=' source ~/.G/dotfiles/home/.bash_profile 2>/dev/null || source /dev/stdin <<< "$(curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile)" ; cd - &>/dev/null '
+#UUU() { sudo systemctl restart systemd-timesyncd ; sudo npm install -g npm ; sudo npm install -g @openai/codex ; sudo npm install -g @anthropic-ai/claude-code ; sudo agy update ; sudo apt update -qq ; }
+#GGRCA() { (cd /g; for R in */; do [[ -d "$R/.git" ]] || continue; (cd "$R"; git fetch -p && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD) && git clean -fd) & done; wait); }
+#GRCA()  { (cd ~/.G; for R in */; do (cd "$R"; git fetch -p && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD) && git clean -fd) & done; wait); }
+#CIO() { if [ -n "$1" ]; then cp -urf "$1" /mnt/c/Users/e/Desktop/; else cp -urf ./* /mnt/c/Users/e/Desktop/; fi; }
+#COI() { if [ -n "$1" ]; then cp -urf "/mnt/c/Users/e/Downloads/$1" .; else cp -urf /mnt/c/Users/e/Downloads/* .; fi; }
+# USAGE3() { sudo bash ~/.G/dotfiles/curl/u.usage3.sh || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/u.usage3.sh | sudo bash; }
+# USAGE4() { sudo bash ~/.G/dotfiles/curl/u.usage4.sh || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/u.usage4.sh | sudo bash; }
+# USAGE5() { sudo bash ~/.G/dotfiles/curl/u.usage5.sh || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/u.usage5.sh | sudo bash; }
+# USAGE6() { sudo bash ~/.G/dotfiles/curl/u.usage6.sh || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/u.usage6.sh | sudo bash; }
+# USAGE7() { sudo bash ~/.G/dotfiles/curl/u.usage7.sh || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/u.usage7.sh | sudo bash; }
+# CG() { cat ~/.gemini/GEMINI.md 2>/dev/null || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/GEMINI.md ; }
