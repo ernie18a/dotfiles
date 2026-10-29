@@ -28,3 +28,6 @@ url = "http://127.0.0.1:8766/sp"
 
 [mcp_servers.gpt]
 url = "http://127.0.0.1:8766/gpt"
+
+[mcp_servers.qmd]
+url = "http://127.0.0.1:8181/mcp"
