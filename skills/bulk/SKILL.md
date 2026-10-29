@@ -5,12 +5,15 @@ disable-model-invocation: true
 ---
 
 # 目的
-- `/g/data/tv26101718708/.volume/.o/*.md` 是策略判斷邏輯摘要。
+- 策略判斷邏輯摘要分兩群，各自處理，不跨群去重：
+  - read 群：`/g/data/mqcb261049403/.of/read/*.md` 與 `/g/data/tv26101718708/.of/read/*.md`，產物根目錄 `/g/data/.bulk/read/`。
+  - outside 群：`/g/data/mqcb261049403/.of/outside/*.md` 與 `/g/data/tv26101718708/.of/outside/*.md`，產物根目錄 `/g/data/.bulk/outside/`。
 - 產生讓新 session 的 AI 能取用全部資料的產物，並在其上去重收斂。
 
 # 執行
-- `/bulk 0` 建表，產物寫入 `.o/.table/`。
-- `/bulk 1`、`/bulk 2`、`/bulk 3` 各用一種整合方式，讀取 `.o/*.md` 與 `.o/.table/`，產物分別寫入 `.o/.sort/`、`.o/.pair/`、`.o/.run/`，不修改 `.o/.table/`。
+- 每一步對兩群各自執行，以下 `<root>` 指該群的產物根目錄，`<input>` 指該群的全部摘要檔。
+- `/bulk 0` 建表，產物寫入 `<root>/.table/`。
+- `/bulk 1`、`/bulk 2`、`/bulk 3` 各用一種整合方式，讀取 `<input>` 與 `<root>/.table/`，產物分別寫入 `<root>/.sort/`、`<root>/.pair/`、`<root>/.run/`，不修改 `<root>/.table/`。
 - 逐份或逐批工作交給獨立 context 的 subagent，subagent 把結果寫入檔案，只回傳檔案路徑。
 - 整合結束時由程式確認全部規則行都在 `groups.tsv` 中，不通過就修正到通過。
 
@@ -40,10 +43,10 @@ disable-model-invocation: true
 - 把每份邏輯轉成可執行程式，在同一份 K 線資料上執行，比對做多、做空、出場訊號的重疊程度。訊號幾乎相同即大同小異。
 
 # 產物
-- `.table/rules.tsv`：建表結果。
+- `<root>/.table/rules.tsv`：建表結果。
 - 各整合資料夾的 `groups.tsv`：每列為原檔名、行號、群組代號、判定依據。
 - 各整合資料夾的群組說明：從群組代號可查到核心邏輯、可選濾網、出場變體與成員小異。
-- `USAGE.md`：後續對話規則全文。
+- `<root>/USAGE.md`：後續對話規則全文。
 
 # 後續對話規則
 - 問題牽涉全體時，以程式查詢產物作答。
