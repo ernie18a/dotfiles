@@ -6,8 +6,8 @@ disable-model-invocation: true
 
 # 目的
 - 策略判斷邏輯摘要分兩群，各自處理，不跨群去重：
-  - read 群：`/g/data/mqcb261049403/.of/read/*.md` 與 `/g/data/tv26101718708/.of/read/*.md`，產物根目錄 `/g/data/.bulk/read/`。
-  - outside 群：`/g/data/mqcb261049403/.of/outside/*.md` 與 `/g/data/tv26101718708/.of/outside/*.md`，產物根目錄 `/g/data/.bulk/outside/`。
+  - read 群：`/g/data/mqcb261049403/.of/read/*.md` 與 `/g/data/tv26101718708/.of/read/*.md`，產物根目錄 `/g/data/mqcb261049403/OUT/read/`。
+  - outside 群：`/g/data/mqcb261049403/.of/outside/*.md` 與 `/g/data/tv26101718708/.of/outside/*.md`，產物根目錄 `/g/data/mqcb261049403/OUT/outside/`。
 - 產生讓新 session 的 AI 能取用全部資料的產物，並在其上去重收斂。
 
 # 執行
