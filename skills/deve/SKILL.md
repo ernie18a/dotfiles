@@ -14,7 +14,7 @@ disable-model-invocation: true
 - 將具有獨立變更原因的職責拆成獨立 executable（stage）；每個 stage 須可獨立執行、測試或替換，並僅透過 stdin/stdout/file/pipe 與其他 stage 協作，組合成 pipeline。再透過執行單一主要腳本呼叫其他腳本.
 - 主腳本無論正常結束、拋出例外、收到中斷訊號或被 SIGKILL 強制終止，都不得殘留孤兒或僵屍程序。每個程序只能從主執行緒衍生子程序，並須以 `PR_SET_PDEATHSIG` 讓子程序在父程序死亡時收到 SIGKILL，主腳本結束前須終止並回收其衍生的所有子孫程序。
 - 明確契約、靜態型別、顯式轉換。
-- 使用 fail fast、straight-line programming
+- 使用 fail fast、straight-line programming。處理多個項目時，某一項出錯就回報錯誤並跳過該項，該項不寫入 `./OUT/`，繼續處理下一項。
 - no presence-check
 - 預設不使用 Options、Optional Arguments 或 Flags。
 - Python 程式碼除 PEP 723 metadata 外，不得包含任何註解或 docstring。
@@ -32,7 +32,7 @@ disable-model-invocation: true
   - `./conf.*`：存放使用者有提到而且需要 user 頻繁切換的 parameter
   - `./IN/`：user 手動提供提供的檔案的存放位置，非永久保存區, 腳本存取時不針對檔案名稱  
   - `./TMP/`：中間檔與以 atomic replace 切換至 `./OUT/` 的檔案; 所有非業務代碼暫存檔 or 輕量級測試的暫存檔存放位置; 存放代碼能重復產生, 但是 不是使用者需要的最終檔案.
-  - `./OUT/`：user 要求的檔案
+  - `./OUT/`：user 要求的檔案，也是判斷項目是否已完成的唯一依據。每個檔案產生完立即移入。
 
 # Machine
 - AI 推論僅允許使用 GPU，否則報錯。
