@@ -15,7 +15,9 @@ disable-model-invocation: true
 - `/bulk 0` 建表，產物寫入 `<root>/.table/`。
 - `/bulk 1`、`/bulk 2`、`/bulk 3` 各用一種整合方式，讀取 `<input>` 與 `<root>/.table/`，產物分別寫入 `<root>/.sort/`、`<root>/.pair/`、`<root>/.run/`，不修改 `<root>/.table/`。
 - 逐份或逐批工作交給獨立 context 的 subagent，subagent 把結果寫入檔案，只回傳檔案路徑。
+- 呼叫 `spawn_agent` 時傳入 `model: "gpt-6.1-terra"`、`reasoning_effort: "high"` 與 `fork_turns: "none"`。
 - 整合結束時由程式確認全部規則行都在 `groups.tsv` 中，不通過就修正到通過。
+- 最終產物放 `./OUT/`，中間檔與暫存檔放 `./TMP/`，`./` 指 `/g/data/mqcb261049403/`，不寫入系統 `/tmp/`。
 
 # 建表
 - 以規則行為單位逐份抽取，每列含原檔名、行號、規則類型、核心機制欄位、原句。
