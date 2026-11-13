@@ -52,3 +52,4 @@ disable-model-invocation: true
 - 引入中國 AI 平台套件時，確認模型下載源；海外環境指定 HuggingFace，例如 `hub="hf"`。
 - 若使用 gated HuggingFace 模型，附上該模型同意存取條款的 URL `https://huggingface.co/<org>/<model>`。
 - 完成任務後只能回復 `DONE`, 不回復其他資訊
+- `torch.jit.load` is deprecated. Please switch to `torch.export`
