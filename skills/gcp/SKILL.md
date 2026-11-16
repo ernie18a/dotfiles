@@ -13,5 +13,5 @@ disable-model-invocation: true
 - 本地與 VM 的 `/g` 刻意保持一致。日誌等執行期產物從 VM 讀取，程式碼一律讀本地 `/g` 的同路徑檔案以求快速。
 - 要觀察運作結果或是日志時, 參考云端環境, 要參考代碼邏輯時, 參考 localhost 相同的絕對路徑 會比較快 .
 - 修改程式碼時在本地 `/g/*/` 修改，經 git push 後在 VM 端 `git pull` 
-- 只輸入 `/gcp` 而不接參數時，先執行下列檢查，再以每個 pane 一行摘要回報使用者、session、路徑、執行中指令、已執行時間與末行輸出，並標出畫面末段含錯誤或已無執行中程式的 pane。有接參數時以參數為準。
+- 只輸入 `/gcp` 而不接參數時，先執行下列檢查，再以每個 pane 一行摘要回報使用者、session、路徑、執行中指令、已執行時間與末行輸出。有接參數時以參數為準。
 - 檢查指令：`ssh -F ~/.ssh/gcp_config gcp 'for u in e o n; do T="sudo -n -u $u tmux"; $T ls >/dev/null 2>&1 || continue; for t in $($T list-panes -a -F "#{session_name}:#{window_index}.#{pane_index}"); do echo "=== $u $t $($T display -p -t $t "#{pane_current_path}")"; ps --ppid $($T display -p -t $t "#{pane_pid}") -o etime,args --no-headers; $T capture-pane -p -t $t | grep -v "^$" | tail -15; done; done'`
