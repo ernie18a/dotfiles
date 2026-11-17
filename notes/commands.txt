@@ -1,3 +1,4 @@
+ssh -L 1455:localhost:1455 e@192.168.213.86
 sync; /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -NoProfile -Command 'shutdown.exe /s /f /t 0' & exit
 ssh -F ~/.ssh/gcp_config gcp
 pkill -KILL -u "$USER"
