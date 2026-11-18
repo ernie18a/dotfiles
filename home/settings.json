@@ -12,5 +12,8 @@
   "theme": "dark",
   "syncClaudeAiSkills": false,
   "syncClaudeAiPlugins": false,
-  "disableBundledSkills": true
+  "disableBundledSkills": true,
+  "permissions": {
+    "deny": ["Artifact"]
+  }
 }
