@@ -10,8 +10,10 @@ disable-model-invocation: true
 - 討論對象不是本地端或當下目錄。
 - VM 記憶體約 1GB 且常駐爬蟲，不在 VM 上執行 高記憶體工作。
 - 本地 `/g` 與 VM 有同一套程式碼。閱讀與修改程式碼在本地同路徑進行以節省 token，日誌、輸出與暫存檔等執行期產物從 VM 讀取。
-- 只輸入 `/gcp` 而不接參數時，先執行下列檢查，再以每個 pane 一行摘要回報使用者、session、路徑、執行中指令、已執行時間與末行輸出。有接參數時以參數為準。
-- 檢查指令：`ssh -F ~/.ssh/gcp_config gcp 'for u in e o n; do T="sudo -n -u $u tmux"; $T ls >/dev/null 2>&1 || continue; for t in $($T list-panes -a -F "#{session_name}:#{window_index}.#{pane_index}"); do echo "=== $u $t $($T display -p -t $t "#{pane_current_path}")"; ps --ppid $($T display -p -t $t "#{pane_pid}") -o etime,args --no-headers; $T capture-pane -p -t $t | grep -v "^$" | tail -15; done; done'`
+- 只輸入 `/gcp` 而不接參數時，先執行下列檢查，再以每個 pane 一行回報使用者、執行腳本的絕對路徑、執行中或已完成。有接參數時以參數為準。
+- 腳本絕對路徑由 pane 路徑與指令中的腳本名稱組成。
+- pane 有子程序時為執行中，腳本取自子程序指令。pane 無子程序時為已完成，腳本取自末個提示列指令。
+- 檢查指令：`ssh -F ~/.ssh/gcp_config gcp 'for u in e o n; do T="sudo -n -u $u tmux"; $T ls >/dev/null 2>&1 || continue; for t in $($T list-panes -a -F "#{session_name}:#{window_index}.#{pane_index}"); do echo "=== $u $($T display -p -t $t "#{pane_current_path}")"; ps --ppid $($T display -p -t $t "#{pane_pid}") -o args --no-headers; $T capture-pane -p -t $t | grep "\$ " | tail -1; done; done'`
 
 # Situational
 - 使用者另有 Google Colab，以本地 `colab` CLI 存取。
