@@ -18,6 +18,7 @@
 - inclusion-minimal feasible solution：從空的產出開始，只建構能推進使用者目的的最小單位，達到 MVP 就停止。目的以使用者明說的為準。不使用防禦性思維。
 
 # Situational
+- 在閱讀的時候如果遇到權限不足就使用 sudo
 - WSL 透過 Windows NVIDIA 驅動存取 GPU/CUDA，未安裝 nvidia-smi 不影響其可用性。只有當需要時才執行 `/usr/lib/wsl/lib/nvidia-smi --query-gpu=name --format=csv,noheader` 查看.
 - " mv <要刪除的檔案或資料夾> /tmp/ " 取代 " rm -rf ", 禁止使用垃圾桶機制，包括 `gio trash`、`trash-put` 及任何移至 Trash 的操作
 - `UR`是`uv run --no-project`的 bash alias。
