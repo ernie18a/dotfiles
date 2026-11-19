@@ -186,9 +186,7 @@ DIG() { dig $1 | grep -vE ^\;\|^$ ; }
 AWK() { awk $2 "{print\$$1}" ; }
 ECDZ() { echo 'source ~/.G/dotfiles/home/.bash_profile 2>/dev/null || source /dev/stdin <<< "$(curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/home/.bash_profile)"' |tee ~/.bash_profile ; }
 MCPS() { kill -- -$(cat /tmp/mcp.pid) 2>/dev/null ; rm -f /tmp/mcp.pid ; }
-QMDS() { kill -- -$(cat /tmp/qmd.pid) 2>/dev/null ; rm -f /tmp/qmd.pid ; }
 MCP() { kill -0 $(cat /tmp/mcp.pid) 2>/dev/null || setsid -f bash -c 'echo $$ >/tmp/mcp.pid; exec bash /g/tools/mcp/server.sh' &>/tmp/mcp.log ; }
-QMD() { kill -0 $(cat /tmp/qmd.pid) 2>/dev/null || setsid -f bash -c 'echo $$ >/tmp/qmd.pid; exec bash /g/tools/qmd/server.sh' &>/tmp/qmd.log ; }
 l() { ls -A | grep "^\." | xargs -d '\n' ls -d --color ; }
 GV() { grep -Ev "^\s*(#|$)" ; }
 DF() { df -h |sort -hk2 |sed -e 1b -e '$!d' ; }
