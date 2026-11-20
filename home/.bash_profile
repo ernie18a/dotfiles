@@ -110,8 +110,8 @@ alias GGG=' eval "$(ssh-agent -s)" ; ssh-add ~/.ssh/id_ed25519 ; ssh -A -F ~/.ss
 alias PUSH2="git fetch && git add -A && git commit -mPUSH --no-verify && git push --no-verify --force"
 alias GRC='git fetch --prune && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD) && git clean -fd'
 alias FINDD=' find . -iname 2>/dev/null '
-alias TEST2=' for i in *.py; do stdbuf -oL -eL uv run --no-project "$i" 2>&1 | tee -a log; done '
-alias TEST=' for i in *.py; do uv run --no-project "$i" 2>&1 | tee -a log; done '
+alias TEST2=' for i in *.py; do stdbuf -oL -eL uv run --no-project "$i" 2>&1 | tee -a log; done ' # 跑目前目錄所有 py，輸出不緩衝、即時附加到 log
+alias TEST=' for i in *.py; do uv run --no-project "$i" 2>&1 | tee -a log; done ' # 跑目前目錄所有 py，輸出附加到 log
 alias GCO=' git checkout '
 alias GC=' git clone '
 alias GCGR=' git config --get remote.origin.url '
@@ -221,7 +221,7 @@ KILL() { sudo pkill -9 -fi "$1"; }
 PUSHM() { git pull >/dev/null ; git rm -r --cached . > /dev/null ; git add -A && git commit -m "$@" &>/dev/null && git push;}
 TOOK() { local s=$SECONDS; date +%d:%H:%M; trap : INT; eval "$@"; trap - INT; local d=$((SECONDS-s)); printf '%d:%02d:%02d:%02d\n' $((d/86400)) $((d%86400/3600)) $((d%3600/60)) $((d%60)); }
 AT() { local t=$(( $(date -d "${1:0:2}:${1:2:2}" +%s) - $(date +%s) )); sleep $(( t < 0 ? t + 86400 : t )); }
-AGAIN() { local t=$(( 10#${1:0:2}*3600 + 10#${1:2:2}*60 )); shift; while :; do TOOK "$@"; sleep $t; done ; }
+AGAIN() { local t=$(( 10#${1:0:2}*3600 + 10#${1:2:2}*60 + 10#${1:4:2} )); shift; while :; do TOOK "$@"; sleep $t; done ; }
 USAGE2() { sudo uv run /g/tools/usage/main2.py; }
 EOIE() { bash ~/.G/dotfiles/curl/u.error.object.is.empty.sh || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/u.error.object.is.empty.sh | bash; }
 CNG() { cat ~/.G/dotfiles/notes/commands.txt 2>/dev/null |grep -i --color $1 || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/notes/commands.txt |grep -i --color $1 ; }
