@@ -18,5 +18,9 @@ disable-model-invocation: true
 - pane 有子程序時為執行中，腳本取自子程序指令。pane 無子程序時為已完成，腳本取自末個提示列指令。
 - 檢查指令：`ssh -F ~/.ssh/gcp_config gcp 'for u in e o n; do T="sudo -n -u $u tmux"; $T ls >/dev/null 2>&1 || continue; for t in $($T list-panes -a -F "#{session_name}:#{window_index}.#{pane_index}"); do echo "=== $u $($T display -p -t $t "#{pane_current_path}")"; ps --ppid $($T display -p -t $t "#{pane_pid}") -o args --no-headers; $T capture-pane -p -t $t | grep "\$ " | tail -1; done; done'`
 
+# 對象為 `r2` 時
+- 未給其他參數時，先執行下列查詢，再回報 bucket 已用空間。
+- 查詢指令：`uv run --no-project --with boto3 python -c "import sys; sys.path.insert(0, '/g/tools/colab/DATA'); import r2; v = r2.credentials(); print(f\"{sum(r2.objects(r2.client(v), v['r2_bucket'], '').values()) / 1e9:.3f} GB\")"`
+
 # Situational
 - 使用者另有 Google Colab，以本地 `colab` CLI 存取。
