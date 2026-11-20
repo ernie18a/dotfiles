@@ -29,6 +29,7 @@ export npm_config_dangerously_allow_all_scripts=true
 source ~/.55H 2>/dev/null
 touch ~/.hushlogin
 FQAI='- 簡短回覆 '
+alias papa='until ssh 192.168.213.199 2>/dev/null ; do :; done'
 alias PP='  until ssh 192.168.213.199 2>/dev/null ; do :; done '
 alias SHORT='printf "%s\n" "$FQAI" > ./AGENTS.md'
 alias LR='claude --dangerously-skip-permissions --resume'
