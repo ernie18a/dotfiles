@@ -65,23 +65,26 @@ agy_q() {
         END {if (c[G] != "-" || c[C] != "-") printf "3\t%s\t%s\t%s\t%s\n", u, l, c[G], c[C]}'
 }
 
-# column 會把色碼算進欄寬，排版後才依內容上色：重置 12h 內綠、72h 以上紅、其餘黃
+# column 會把色碼算進欄寬，排版後才依內容上色
+# 身分色（$1）：每列標籤依 provider 上色，不用綠黃紅
+# 狀態色：重置 12h 內綠、72h 以上紅、其餘黃；剩餘 50% 以上綠、1–49% 黃、0% 紅
 paint() {
-  local G=$'\e[32m' Y=$'\e[33m' R=$'\e[31m' Z=$'\e[0m'
-  sed -E "s/^codex\b/"$'\e[96m'"&$Z/; s/^claude\b/"$'\e[95m'"&$Z/; s/^agy\b/"$'\e[93m'"&$Z/
+  local P=$'\e['"$1"m G=$'\e[32m' Y=$'\e[33m' R=$'\e[31m' Z=$'\e[0m'
+  sed -E "s/^\S+( \S+)?/$P&$Z/
     s/\b([0-9]|1[01])h [0-9]+m\b/$G&$Z/; s/\b(1[2-9]|2[0-3])h [0-9]+m\b/$Y&$Z/
     s/\b[12]d [0-9]+h\b/$Y&$Z/; s/\b([3-9]|[1-9][0-9]+)d [0-9]+h\b/$R&$Z/
-    s/\b(now|available)\b/$G&$Z/g; s/(^|[^0-9])(0%)/\1$R\2$Z/g"
+    s/\b(now|available)\b/$G&$Z/g
+    s/\b(100|[5-9][0-9])%/$G&$Z/g; s/\b([1-9]|[1-4][0-9])%/$Y&$Z/g; s/\b0%/$R&$Z/g"
 }
 
 # 每個 provider 的三個使用者查完就先印出該表
 table() {
-  t=$(for u in e n o; do id "$u" >/dev/null || continue; "$1" "$u" & done | sort | cut -f3- | column -t -s $'\t' | paint)
+  t=$(for u in e n o; do id "$u" >/dev/null || continue; "$1" "$u" & done | sort | cut -f3- | column -t -s $'\t' | paint "$2")
   [ -z "$t" ] || printf '%s\n\n' "$t"
 }
 
 date +%H%M
-table codex_q &
-table claude_q &
-table agy_q &
+table codex_q 96 &
+table claude_q 95 &
+table agy_q 94 &
 wait
