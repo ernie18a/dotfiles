@@ -24,7 +24,7 @@ export WIN_USER=`ls /mnt/c/Users 2>/dev/null |grep -iv "All\|Default\|desktop.in
 export WIN_USER_DIR=/mnt/c/Users/$WIN_USER
 if [ -f '/home/e/.google-cloud-sdk/completion.bash.inc' ]; then . '/home/e/.google-cloud-sdk/completion.bash.inc'; fi
 if [ -f '/home/e/.google-cloud-sdk/path.bash.inc' ]; then . '/home/e/.google-cloud-sdk/path.bash.inc'; fi
-PROMPT_COMMAND=' history -a '
+PROMPT_COMMAND='__rc=$?; history -a; [ -n "$TMUX" ] && tmux set -p @rc $__rc \; set -p @cmd "$(HISTTIMEFORMAT= history 1 | sed "s/^ *[0-9]* *//")"'
 export npm_config_dangerously_allow_all_scripts=true
 source ~/.55H 2>/dev/null
 touch ~/.hushlogin
@@ -220,7 +220,7 @@ UUU() { sudo npm install -g npm ; sudo npm install -g @openai/codex ; claude upd
 WAIT() { while pgrep -f "$1" > /dev/null; do sleep 9; done ; }
 KILL() { sudo pkill -9 -fi "$1"; }
 PUSHM() { git pull >/dev/null ; git rm -r --cached . > /dev/null ; git add -A && git commit -m "$@" &>/dev/null && git push;}
-TOOK() { local s=$SECONDS; date +%d:%H:%M; trap : INT; eval "$@"; trap - INT; local d=$((SECONDS-s)); printf '%d:%02d:%02d:%02d\n' $((d/86400)) $((d%86400/3600)) $((d%3600/60)) $((d%60)); }
+TOOK() { local s=$SECONDS; date +%d:%H:%M; trap : INT; eval "$@"; local r=$?; trap - INT; local d=$((SECONDS-s)); printf '%d:%02d:%02d:%02d\n' $((d/86400)) $((d%86400/3600)) $((d%3600/60)) $((d%60)); return $r; }
 AT() { local t=$(( $(date -d "${1:0:2}:${1:2:2}" +%s) - $(date +%s) )); sleep $(( t < 0 ? t + 86400 : t )); }
 AGAIN() { local t=$(( 10#${1:0:2}*3600 + 10#${1:2:2}*60 + 10#${1:4:2} )); shift; while :; do TOOK "$@"; sleep $t; done ; }
 USAGE2() { sudo uv run /g/tools/usage/main2.py; }
