@@ -4,6 +4,9 @@ description: Manual invocation only
 disable-model-invocation: true
 ---
 
+# Purpose
+
+- Turn the conversation's settled work into a self-contained manual `osNN.md` that a separate executor can implement without seeing the conversation.
 
 # Authoring
 
