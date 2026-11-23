@@ -96,12 +96,11 @@ table() {
   local raw
   raw=$(for u in e n o; do id "$u" >/dev/null || continue; "$1" "$u" & done | sort | cut -f3-)
   [ -z "$raw" ] && return
-  [ -n "$2" ] && raw="$2"$'\n'"$raw"
   printf '%s\n\n' "$(printf '%s\n' "$raw" | column -t -s $'\t' | paint)"
 }
 
 date +%H%M
 table codex_q &
 table claude_q &
-table agy_q $' \tG5h\tG7d\tC5h\tC7d\tArgon' &
+table agy_q &
 wait

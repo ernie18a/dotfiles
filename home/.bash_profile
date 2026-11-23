@@ -207,7 +207,7 @@ UR() { if [ -n "$1" ]; then uv run --no-project "$@"; else uv run --no-project m
 AGP() { sudo apt-get purge -y --autoremove "$@" && dpkg -l | grep '^rc' | awk '{print $2}' | xargs sudo apt-get purge -y && sudo apt-get autoremove --purge -y && sudo apt-get clean ; }
 MEM2() { sudo bash -c 'ps -eo pid=,rss= --sort=rss | tail -30 | while read p r; do cd /proc/$p/cwd; f=$(tr "\0" "\n" </proc/$p/cmdline | tail -n +2 | while read a; do [ -f "$a" ] && realpath "$a" && break; done); echo "$(numfmt --from-unit=1024 --to=iec $r) ${f:-$(readlink /proc/$p/exe)}"; done 2>/dev/null'; free | awk '/^Mem:/{printf "%.1f%%\n", $3/$2*100}'; }
 MEM() { sudo bash -c 'ps -u "$1" -o pid=,rss= --sort=rss | tail -30 | while read p r; do cd /proc/$p/cwd; f=$(tr "\0" "\n" </proc/$p/cmdline | tail -n +2 | while read a; do [ -f "$a" ] && realpath "$a" && break; done); echo "$(numfmt --from-unit=1024 --to=iec $r) ${f:-$(readlink /proc/$p/exe)}"; done 2>/dev/null' _ "$USER"; free | awk '/^Mem:/{printf "%.1f%%\n", $3/$2*100}'; }
-USAGE() { sudo bash ~/.G/dotfiles/curl/u.usage.sh || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/u.usage.sh | sudo bash; }
+USAGE() { sudo bash ~/.G/dotfiles/curl/u.usage3.sh || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/u.usage3.sh | sudo bash; }
 FT() { sudo bash ~/.G/dotfiles/curl/u.freetier.sh || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/u.freetier.sh | sudo bash; }
 ACL() { sudo chown -R e:g /g & sudo find /g -type d -exec chmod 2770 {} + & sudo find /g -type f -exec chmod 660 {} + & sudo setfacl -R -m d:u::rwx,d:g::rwx,d:o::-,d:m::rwx /g & wait; }
 CBG() { { curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/.bash_profile || cat ~/.G/dotfiles/home/.bash_profile 2>/dev/null || cat ~/.bash_profile 2>/dev/null; } | grep -i --color "$1" 2>/dev/null; }
@@ -224,8 +224,8 @@ PUSHM() { git pull >/dev/null ; git rm -r --cached . > /dev/null ; git add -A &&
 TOOK() { local s=$SECONDS; date +%d:%H:%M; trap : INT; eval "$@"; local r=$?; trap - INT; local d=$((SECONDS-s)); printf '%d:%02d:%02d:%02d\n' $((d/86400)) $((d%86400/3600)) $((d%3600/60)) $((d%60)); return $r; }
 AT() { local t=$(( $(date -d "${1:0:2}:${1:2:2}" +%s) - $(date +%s) )); sleep $(( t < 0 ? t + 86400 : t )); }
 AGAIN() { local t=$(( 10#${1:0:2}*3600 + 10#${1:2:2}*60 + 10#${1:4:2} )); shift; while :; do TOOK "$@"; sleep $t; done ; }
-USAGE2() { sudo uv run /g/tools/usage/main2.py; }
-USAGE3() { sudo bash ~/.G/dotfiles/curl/u.usage3.sh || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/u.usage3.sh | sudo bash; }
+#USAGE2() { sudo bash ~/.G/dotfiles/curl/u.usage.sh || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/u.usage.sh | sudo bash; }
+#USAGE3() { sudo uv run /g/tools/usage/main2.py; }
 EOIE() { bash ~/.G/dotfiles/curl/u.error.object.is.empty.sh || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/u.error.object.is.empty.sh | bash; }
 CNG() { cat ~/.G/dotfiles/notes/commands.txt 2>/dev/null |grep -i --color $1 || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/notes/commands.txt |grep -i --color $1 ; }
 GRCA2() { (cd ~/.G; for R in */; do (U=$(git -C "$R" remote get-url origin) && sudo rm -rf "$R" && git clone -q "$U" "$R") & done; wait); }
