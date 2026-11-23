@@ -225,6 +225,7 @@ TOOK() { local s=$SECONDS; date +%d:%H:%M; trap : INT; eval "$@"; local r=$?; tr
 AT() { local t=$(( $(date -d "${1:0:2}:${1:2:2}" +%s) - $(date +%s) )); sleep $(( t < 0 ? t + 86400 : t )); }
 AGAIN() { local t=$(( 10#${1:0:2}*3600 + 10#${1:2:2}*60 + 10#${1:4:2} )); shift; while :; do TOOK "$@"; sleep $t; done ; }
 USAGE2() { sudo uv run /g/tools/usage/main2.py; }
+USAGE3() { sudo bash ~/.G/dotfiles/curl/u.usage3.sh || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/u.usage3.sh | sudo bash; }
 EOIE() { bash ~/.G/dotfiles/curl/u.error.object.is.empty.sh || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/u.error.object.is.empty.sh | bash; }
 CNG() { cat ~/.G/dotfiles/notes/commands.txt 2>/dev/null |grep -i --color $1 || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/main/notes/commands.txt |grep -i --color $1 ; }
 GRCA2() { (cd ~/.G; for R in */; do (U=$(git -C "$R" remote get-url origin) && sudo rm -rf "$R" && git clone -q "$U" "$R") & done; wait); }
