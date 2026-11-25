@@ -9,7 +9,7 @@ disable-model-invocation: true
 - if Claude then 呼叫 Agent 工具時傳入 `model: "haiku"`
 - if Codex then 呼叫 `spawn_agent` 時指定模型 gpt-luna，並傳入 `fork_turns: "none"`
 - if agy then Hydrogen
-- subagent 總數 8，每輪最多 3 個，每個 subagent 最多搜尋 3 次，總數用完即停。
+- 共三輪，每輪 1 個 subagent。交派給 subagent 的 prompt 必須寫明：最多呼叫搜尋工具 4 次，最多讀取 2 頁全文。
 - 第一輪由當下模型依完整討論與需求擬定關鍵字。
 - 關鍵字與交派給 subagent 的 prompt 只描述需求、痛點與限制，不放入使用者未提及且未出現在搜索結果中的方案名稱。
 - subagent 回報來源網址與結果中出現的具體名詞、作者、專案、版本、數據，不回報泛論摘要。
