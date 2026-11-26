@@ -204,7 +204,8 @@ sl() { for SOMETHING in $(cat ./$1); do $2 $SOMETHING; done; }
 CIO() { if [ "$#" -gt 0 ]; then cp -urf "$@" /mnt/c/Users/e/Desktop/; else cp -urf ./* /mnt/c/Users/e/Desktop/; fi; }
 COI2() { if [ "$#" -gt 0 ]; then cp -urf "${@/#//mnt/c/Users/e/Downloads/}" .; else cp -urf /mnt/c/Users/e/Downloads/* .; fi; }
 COI() { if [ "$#" -gt 0 ]; then local f=(); for x in "$@"; do f+=(/mnt/c/Users/e/Downloads/$x); done; cp -urf "${f[@]}" .; else cp -urf /mnt/c/Users/e/Downloads/* .; fi; }
-UR() { if [ -n "$1" ]; then uv run --no-project "$@"; else uv run --no-project main.py; fi; }
+UR() { [ $# -eq 0 ] && { [ -f main.py ] && set -- main.py || set -- run.sh; }; case "$1" in *.sh) bash "$@";; *) uv run --no-project "$@";; esac; }
+UR2() { if [ -n "$1" ]; then uv run --no-project "$@"; else uv run --no-project main.py; fi; }
 AGP() { sudo apt-get purge -y --autoremove "$@" && dpkg -l | grep '^rc' | awk '{print $2}' | xargs sudo apt-get purge -y && sudo apt-get autoremove --purge -y && sudo apt-get clean ; }
 MEM2() { sudo bash -c 'ps -eo pid=,rss= --sort=rss | tail -30 | while read p r; do cd /proc/$p/cwd; f=$(tr "\0" "\n" </proc/$p/cmdline | tail -n +2 | while read a; do [ -f "$a" ] && realpath "$a" && break; done); echo "$(numfmt --from-unit=1024 --to=iec $r) ${f:-$(readlink /proc/$p/exe)}"; done 2>/dev/null'; free | awk '/^Mem:/{printf "%.1f%%\n", $3/$2*100}'; }
 MEM() { sudo bash -c 'ps -u "$1" -o pid=,rss= --sort=rss | tail -30 | while read p r; do cd /proc/$p/cwd; f=$(tr "\0" "\n" </proc/$p/cmdline | tail -n +2 | while read a; do [ -f "$a" ] && realpath "$a" && break; done); echo "$(numfmt --from-unit=1024 --to=iec $r) ${f:-$(readlink /proc/$p/exe)}"; done 2>/dev/null' _ "$USER"; free | awk '/^Mem:/{printf "%.1f%%\n", $3/$2*100}'; }
