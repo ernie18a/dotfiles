@@ -1,5 +1,5 @@
 ---
-name: sift
+name: rg
 description: Manual invocation only
 disable-model-invocation: true
 ---
