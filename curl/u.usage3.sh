@@ -39,7 +39,7 @@ claude_q() {
       select(.five_hour or .seven_day) | "2\t\($u)\t\($l)\t\(.five_hour | c)\t\(.seven_day | c)"'
 }
 
-# 看到提示列才送 /usage，收到首筆額度後改短逾時以相容無 Argon 方案，收滿 5 筆即結束
+# 看到提示列才送 /usage，收到首筆額度後改短逾時以相容缺少部分限額的方案（例如免費帳號沒有 Gemini 5h），收滿 4 筆即結束
 # 未登入時 TUI 會一直轉圈，read -t 只管單行閒置，整體上限交給 timeout
 # MCP 即使 disabled 仍會卡住啟動約 10 秒，改用只連結 antigravity-cli、MCP 設定為空的 HOME
 agy_q() {
@@ -50,7 +50,7 @@ agy_q() {
     case $x in
       *Confirm*) printf '\r' >&"${A[1]}";;
       *'for shortcuts'*) [ -n "$sent" ] || { sent=1; printf '/usage\r' >&"${A[1]}"; };;
-      *'Refreshes in'*|*'Quota available'*) [ -n "$sent" ] && { t=2; ((++n >= 5)) && break; };;
+      *'Refreshes in'*|*'Quota available'*) [ -n "$sent" ] && { t=2; ((++n >= 4)) && break; };;
     esac
   done
   kill "$A_PID"
@@ -59,9 +59,8 @@ agy_q() {
     | awk -v u="$1" -v l="${L[$1]:-agy}" '
         BEGIN {
           M["d"] = 86400; M["h"] = 3600; M["m"] = 60; M["s"] = 1
-          c["G","5h"] = c["G","7d"] = c["C","5h"] = c["C","7d"] = c["A","7d"] = "-"
+          c["G","5h"] = c["G","7d"] = c["C","5h"] = c["C","7d"] = "-"
         }
-        /GEMINI .*ARGON/ || /Argon Weekly Limit/ {g = "A"; w = (/Weekly Limit/ ? "7d" : ""); next}
         /GEMINI MODELS/ || (/Models within this group/ && /Gemini/) {g = "G"; w = ""; next}
         /CLAUDE AND GPT MODELS/ || (/Models within this group/ && /Claude/) {g = "C"; w = ""; next}
         g && /Weekly Limit/ {w = "7d"; next}
@@ -76,8 +75,8 @@ agy_q() {
           w = ""
         }
         END {
-          if (c["G","5h"] != "-" || c["G","7d"] != "-" || c["C","5h"] != "-" || c["C","7d"] != "-" || c["A","7d"] != "-")
-            printf "3\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n", u, l, c["G","5h"], c["G","7d"], c["C","5h"], c["C","7d"], c["A","7d"]
+          if (c["G","5h"] != "-" || c["G","7d"] != "-" || c["C","5h"] != "-" || c["C","7d"] != "-")
+            printf "3\t%s\t%s\t%s\t%s\t%s\t%s\n", u, l, c["G","5h"], c["G","7d"], c["C","5h"], c["C","7d"]
         }'
 }
 
