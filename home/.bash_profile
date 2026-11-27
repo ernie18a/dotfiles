@@ -198,6 +198,7 @@ SEDIS() { sed -i "s/$1/$2/g" $3 ; }
 mvim() { mkdir -p "$(dirname "$1")" && vim "$1"; }
 MTK() { mkdir ./$1 ; touch ./$1/.gitkeep; }
 CD() { cd /g/*/"$1"/ && ls -1p --color; }
+CD2() { cd /g/*/"$1"/ && ls -1p --color; }
 GGRCA2() { (cd /g; for R in */; do (U=$(git -C "$R" remote get-url origin) && sudo rm -rf "$R" && git clone -q "$U" "$R") & done; wait); }
 GGRCA() { (cd /g; for R in */; do (cd "$R"; git fetch -p && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD) && git clean -fd) & done; wait); }
 sl() { for SOMETHING in $(cat ./$1); do $2 $SOMETHING; done; }
@@ -214,6 +215,7 @@ FT() { sudo bash ~/.G/dotfiles/curl/u.freetier.sh || curl -fsSL https://raw.gith
 ACL() { sudo chown -R e:g /g & sudo find /g -type d -exec chmod 2770 {} + & sudo find /g -type f -exec chmod 660 {} + & sudo setfacl -R -m d:u::rwx,d:g::rwx,d:o::-,d:m::rwx /g & wait; }
 CBG() { { curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/.bash_profile || cat ~/.G/dotfiles/home/.bash_profile 2>/dev/null || cat ~/.bash_profile 2>/dev/null; } | grep -i --color "$1" 2>/dev/null; }
 _CD() { local d; COMPREPLY=(); for d in /g/*/"$2"*/; do COMPREPLY+=("${d#/g/*/}"); done; }; complete -o nospace -F _CD CD
+_CD2() { local d; COMPREPLY=(); for d in /g/*/"$2"*/; do [ -d "$d" ] && COMPREPLY+=("${d#/g/*/}"); done; }; complete -o nospace -F _CD2 CD2
 PING() { for i in $(seq 0 255) ; do ping $1.$i -c1 -W1 & done |grep from |awk '{print $4}' |awk -F: '{print $1}' | sort -V ; }
 AGSP() { (for i in /g/*/ ~/.G/*/; do (git -C $i add -A; git -C $i commit -mAGSP --no-verify; git -C $i pull --rebase; git -C $i push --no-verify) & done; wait); }
 AGS2() { (for i in /g/*/ ~/.G/*/; do (git -C $i fetch -q; git -C $i status -sb | grep -v "^## [^[]*$" | sed "s|^|$i|") & done; wait); }
