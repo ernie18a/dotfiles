@@ -214,8 +214,8 @@ USAGE() { sudo bash ~/.G/dotfiles/curl/u.usage3.sh || curl -fsSL https://raw.git
 FT() { sudo bash ~/.G/dotfiles/curl/u.freetier.sh || curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/curl/u.freetier.sh | sudo bash; }
 ACL() { sudo chown -R e:g /g & sudo find /g -type d -exec chmod 2770 {} + & sudo find /g -type f -exec chmod 660 {} + & sudo setfacl -R -m d:u::rwx,d:g::rwx,d:o::-,d:m::rwx /g & wait; }
 CBG() { { curl -fsSL https://raw.githubusercontent.com/ernie18a/dotfiles/refs/heads/main/home/.bash_profile || cat ~/.G/dotfiles/home/.bash_profile 2>/dev/null || cat ~/.bash_profile 2>/dev/null; } | grep -i --color "$1" 2>/dev/null; }
-_CD() { local d; COMPREPLY=(); for d in /g/*/"$2"*/; do COMPREPLY+=("${d#/g/*/}"); done; }; complete -o nospace -F _CD CD
-_CD2() { local d; COMPREPLY=(); for d in /g/*/"$2"*/; do [ -d "$d" ] && COMPREPLY+=("${d#/g/*/}"); done; }; complete -o nospace -F _CD2 CD2
+_CD() { local d; COMPREPLY=(); for d in /g/*/"$2"*/; do [ -d "$d" ] && COMPREPLY+=("${d#/g/*/}"); done; }; complete -o nospace -F _CD CD
+_CD2() { local d; COMPREPLY=(); for d in /g/*/"$2"*/; do COMPREPLY+=("${d#/g/*/}"); done; }; complete -o nospace -F _CD2 CD2
 PING() { for i in $(seq 0 255) ; do ping $1.$i -c1 -W1 & done |grep from |awk '{print $4}' |awk -F: '{print $1}' | sort -V ; }
 AGSP() { (for i in /g/*/ ~/.G/*/; do (git -C $i add -A; git -C $i commit -mAGSP --no-verify; git -C $i pull --rebase; git -C $i push --no-verify) & done; wait); }
 AGS2() { (for i in /g/*/ ~/.G/*/; do (git -C $i fetch -q; git -C $i status -sb | grep -v "^## [^[]*$" | sed "s|^|$i|") & done; wait); }

@@ -1,5 +1,5 @@
 ---
-name: rg2
+name: rg3
 description: Manual invocation only
 disable-model-invocation: true
 ---
